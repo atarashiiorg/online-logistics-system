@@ -1,0 +1,9 @@
+.collapsebtn{}
+.heading{
+    display: flex;
+    justify-content: space-between;
+    background: #1E90FF;
+    color: white;
+    padding: 3px 12px;
+}
+.headingtxt{}
