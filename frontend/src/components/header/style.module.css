@@ -1,0 +1,43 @@
+.header{
+    display: flex;
+    height: 10%;
+    background-color: #052857;
+    justify-content: space-between;
+    padding: 0px 5%;
+    align-items: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.right{
+    display: flex;
+}
+
+.c1{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    padding-right: 10px;
+    border-right: 1px solid white;
+}
+
+.c1>input, .c1>select{
+    width: 180px;
+    padding: 8px 10px;
+    margin-right: 5px;
+    border: none;
+}
+
+input:focus{
+    outline: none;
+}
+
+.uname{
+    display: flex;
+    align-items: center;
+}
+
+.uname>p{
+    margin-right: 8px;
+    font-size: 16px;
+}

@@ -1,0 +1,70 @@
+input, select{
+    border: 1px solid grey;
+    border-radius: 0;
+    background-color: white;
+}
+
+.actions{
+    padding: 5px 50px;
+    background-color: #d3d3d3;
+}
+
+.actions>button{
+    padding: 5px 8px;
+    border: none;
+    border-radius: 0;
+    color: white;
+    margin: 0px 5px;
+}
+
+.formContainer{
+    width: 100%;
+    border: 1px solid dodgerblue;
+    margin-bottom: 15px;
+}
+
+.formContainer>p{
+    padding: 8px;
+    background-color: dodgerblue;
+    display: flex;
+    color: white;
+}
+
+.formContainer>div{
+    padding: 20px 20px;
+    display: grid;
+    grid-template-columns: 12% 35%;
+    text-align: right;
+    grid-gap: 10px;
+}
+
+.formContainer>div>input, .formContainer>div>select{
+    padding: 3px 5px;
+    width: 100%;
+}
+
+/* .formContainer>div>span{
+    display: flex;
+    padding: 2px 0px;
+    align-items: flex-start;
+} */
+
+.formContainer>span{
+    display: flex;
+    padding: 20px;
+    width: 80%;
+}
+
+.formContainer>div>span>textarea{
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.buttonRef{
+    background-color:#F58329;
+}
+
+.buttonChk{
+    background-color: grey;
+}

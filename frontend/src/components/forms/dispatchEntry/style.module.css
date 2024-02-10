@@ -1,0 +1,170 @@
+input, select{
+    border: 1px solid grey;
+    border-radius: 0;
+    background-color: white;
+}
+
+.span{
+    padding: 5px 0px;
+    display: flex;
+}
+
+span>div{
+    margin-right: 30px;
+}
+
+span>div>input{
+    margin-right: 5px;
+}
+
+.actions{
+    padding: 5px 50px;
+    background-color: #d3d3d3;
+    margin-bottom: 15px;
+}
+
+.actions>button{
+    padding: 5px 8px;
+    border: none;
+    border-radius: 0;
+    color: white;
+    margin: 0px 5px;
+}
+
+.formContainer{
+    width: 100%;
+    border: 1px solid dodgerblue;
+    margin-bottom: 15px;
+}
+
+.formContainer>p{
+    padding: 8px;
+    background-color: dodgerblue;
+    display: flex;
+    color: white;
+}
+
+.formContainer>div{
+    width: 100%;
+    padding: 20px 20px;
+    display: grid;
+    grid-template-columns: 15% 28% 20% 28%;
+    text-align: right;
+    grid-gap: 10px;
+}
+
+.formContainer>div>input, .formContainer>div>select{
+    padding: 3px 5px;
+    width: 100%;
+}
+.formContainer>div>span{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);    
+    text-align: left;
+    grid-column-gap: 20px;
+}
+
+.formContainer>div>span>input{
+    padding: 5px;
+}
+
+.formContainer>p>input{
+    margin-right: 5px;
+}
+
+.formContainer>p>span{
+    margin-left: 50px;
+    display: flex;
+}
+
+.formContainer>p>span>input{
+    margin-right: 5px;
+}
+
+.formContainer>span{
+    display: flex;
+    padding: 20px;
+    width: 80%;
+}
+
+.formContainer>span>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.formContainer>span>div>input{
+    width: 120px;
+    padding: 5px;
+}
+
+.formContainer>span>button{
+    height: 30px;
+    padding: 0px 10px;
+    margin: 5px;
+}
+
+.formContainer>.secondContainer{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.formContainer>.secondContainer>div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.formContainer>.secondContainer>div>input{
+    padding: 5px;
+    margin-top: 4px;
+}
+
+.formContainer>.secondContainer>span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formContainer>.secondContainer>span>button{
+    padding: 6px;
+    margin: 3px;
+    border: none;
+    border-radius: 0px;
+    color: white;
+    font-size: 18px;
+}
+
+.buttonChk{
+    background-color: green;
+}
+
+.buttonRef{
+    background-color:#F58329;
+}
+
+.searchBar{
+    display: flex;
+    width: 100%;
+    margin-top: 15px;
+    background-color: dodgerblue;
+    padding: 8px 40px;
+    justify-content: end;
+}
+
+.searchBar>button{
+    padding: 4px 8px;
+    border: none;
+    border-radius: 0;
+    background-color: #F58329;
+    color: white;
+    margin-left: 5px;
+}
+
+.searchBar>select, .searchBar>input{
+    width: 180px;
+    margin: 0px 5px;
+    padding: 5px;
+}

@@ -1,0 +1,120 @@
+input, select{
+    border: 1px solid grey;
+    border-radius: 0;
+    background-color: white;
+}
+
+
+.span{
+    padding: 5px 0px;
+    display: flex;
+}
+
+span>div{
+    margin-right: 30px;
+}
+
+span>div>input{
+    margin-right: 5px;
+}
+
+.actions{
+    padding: 5px 50px;
+    background-color: #d3d3d3;
+}
+
+.actions>button{
+    padding: 5px 8px;
+    border: none;
+    border-radius: 0;
+    background-color: crimson;
+    color: white;
+    margin: 0px 5px;
+}
+
+.formContainer{
+    width: 100%;
+    border: 1px solid dodgerblue;
+    margin-bottom: 15px;
+}
+
+.formContainer>p{
+    padding: 8px;
+    background-color: dodgerblue;
+    display: flex;
+    color: white;
+}
+
+.formContainer>div{
+    padding: 20px 20px;
+    display: grid;
+    grid-template-columns: 12% 20% 12% 20% 12% 20%;
+    text-align: right;
+    grid-gap: 10px;
+}
+
+.formContainer>div>input, .formContainer>div>select{
+    padding: 3px 5px;
+    width: 100%;
+}
+
+.formContainer>div>span{
+    display: flex;
+    padding: 2px 0px;
+    align-items: flex-start;
+}
+
+.formContainer>p>input{
+    margin-right: 5px;
+}
+
+.formContainer>p>span{
+    margin-left: 50px;
+    display: flex;
+}
+
+.formContainer>p>span>input{
+    margin-right: 5px;
+}
+
+.formContainer>span{
+    display: flex;
+    padding: 20px;
+    width: 80%;
+}
+
+.formContainer>span>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.formContainer>span>div>input{
+    width: 120px;
+    padding: 5px;
+}
+
+.formContainer>span>button{
+    height: 30px;
+    padding: 0px 10px;
+    border-radius: 0;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.buttonRef, .buttonSave{
+    padding: 5px 8px;
+    border: none;
+    border-radius: 0;
+    color: white;
+    margin: 0px 5px;
+    background-color:#F58329;
+}
+
+.buttonSave{
+    background-color: crimson;
+}

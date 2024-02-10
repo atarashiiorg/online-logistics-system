@@ -1,0 +1,83 @@
+input, select{
+    border: 1px solid grey;
+    border-radius: 0;
+    background-color: white;
+}
+
+.span{
+    padding: 5px 0px;
+    display: flex;
+}
+
+span>div{
+    margin-right: 30px;
+}
+
+span>div>input{
+    margin-right: 5px;
+}
+
+.actions{
+    padding: 5px 50px;
+    background-color: #d3d3d3;
+}
+
+.actions>button{
+    padding: 5px 8px;
+    border: none;
+    border-radius: 0;
+    color: white;
+    margin: 0px 5px;
+}
+
+.formContainer{
+    width: 100%;
+    border: 1px solid dodgerblue;
+    margin-bottom: 15px;
+}
+
+.formContainer>p{
+    padding: 8px;
+    background-color: dodgerblue;
+    display: flex;
+    color: white;
+}
+
+.formContainer>div{
+    width: 100%;
+    padding: 20px 20px;
+    display: grid;
+    grid-template-columns: 40% 58%;
+    text-align: left;
+    grid-gap: 10px;
+}
+
+.formContainer>div .right{
+    border: 1px solid grey;
+}
+
+.formContainer>div .left{
+    display: grid;
+    grid-template-columns: 30% 60%;
+    grid-gap: 10px;
+    text-align: right;
+}
+
+.formContainer>div .left>input, 
+.formContainer>div .left>span>select,
+.formContainer>div .left>span>input
+{
+    padding: 3px 5px;
+}
+
+.formContainer>div .left>span{
+    display: grid;
+    grid-template-columns: 70% 20%;
+}
+.buttonChk{
+    background-color: green;
+}
+
+.buttonRef{
+    background-color:#F58329;
+}
