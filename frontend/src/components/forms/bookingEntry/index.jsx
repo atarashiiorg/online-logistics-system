@@ -2,8 +2,10 @@ import { FaCheck } from 'react-icons/fa'
 import { VolWeight } from '../awbUpdate'
 import style from './style.module.css'
 import { IoRefresh } from 'react-icons/io5'
+import { useState } from 'react'
 
 export default function BookingEntry() {
+     
     return (
         <>
             <div className={style.formContainer}>

@@ -45,6 +45,7 @@ import AwbNoQuery from './components/query/awbNoQuery';
 import ReportQuery from './components/query/reportQuery';
 import ImportPacketBooking from './components/import/importPacketBooking';
 import Home from './pages/landing';
+import Login from './pages/login';
 
 const router = createBrowserRouter([
   {
@@ -53,11 +54,11 @@ const router = createBrowserRouter([
   },
   {
     path:"/home",
-    element:<h1>Home</h1>
+    element:<Home/>
   },
   {
     path:"/login",
-    element:<h1>Login</h1>
+    element:<Login/>
   },
   {
     path:"/dashboard",

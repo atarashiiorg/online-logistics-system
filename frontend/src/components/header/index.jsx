@@ -1,8 +1,17 @@
 import style from './style.module.css'
 import { IoSearchSharp } from 'react-icons/io5'
 import { CgProfile } from 'react-icons/cg'
+import { FaSignOutAlt } from 'react-icons/fa'
+import { useContext } from 'react'
+import UserAuthContext from '../../contexts/authContext'
 
 export default function Header() {
+    const {user,setUser} = useContext(UserAuthContext)
+    const logOut = ()=>{
+        localStorage.removeItem("user")
+        localStorage.removeItem("token")
+        setUser(null)
+    }
     return (
         <div className={style.header}>
             <div className={style.left}>
@@ -21,8 +30,9 @@ export default function Header() {
                     </select>
                 </div>
                 <div className={style.uname}>
-                    <p>username</p>
+                    <p>{user.name} : {user.branchCode}</p>
                     <CgProfile style={{fontSize:"22px"}}/>
+                    <FaSignOutAlt style={{fontSize:"22px", marginLeft:"5px"}} onClick={logOut}/> 
                 </div>
             </div>
         </div>

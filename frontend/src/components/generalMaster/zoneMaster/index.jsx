@@ -17,7 +17,7 @@ export default function ZoneMaster() {
                     <input type="text" placeholder='Zone Name'/>
 
                     <label htmlFor="">Active</label>
-                    <input type="checkbox" />
+                    <p><input type="checkbox" /></p>
                 </div>
             </div>
 
