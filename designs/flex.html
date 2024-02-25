@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .con{
+            height: 300px;
+            width: 400px;
+            border: 1px solid black;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div class="con" id="board">
+        <button id="btn1"></button>
+        <button id="btn2"></button>
+        <button id="btn3"></button>
+        
+        <button id="btn4"></button>
+        <button id="btn5"></button>
+        <button id="btn6"></button>
+
+        <button id="btn7"></button>
+        <button id="btn8"></button>
+        <button id="btn9"></button>
+    </div>
+</body>
+
+<script>
+    let player = 1
+    const ids = ["btn1","btn2","btn3","btn4","btn5","btn6","btn7","btn8","btn9"]
+    const b = []
+    ids.forEach(id=>{
+        b.push(document.getElementById(id))
+    })
+    function isWon(){
+        if(b[0].innerText=="X" && b[1].innerText=="X" && b[2].innerText=="X" || b[0].innerText=="O" && b[1].innerText=="O" && b[0].innerText=="O"){
+            alert("player "+ player+" is Won")
+            console.log(player);
+            return true
+        } else if(b[3].innerText=="X"&&b[4].innerText=="X"&&b[5].innerText=="X"||b[3].innerText=="O"&&b[4].innerText=="O"&&b[5].innerText=="O"){
+            alert("player "+ player+" is Won")
+            console.log(player);
+            return true
+        } else if(b[6].innerText=="X"&&b[7].innerText=="X"&&b[8].innerText=="X"||b[6].innerText=="O"&&b[7].innerText=="O"&&b[8].innerText=="O"){
+            alert("player "+ player+" is Won")
+            console.log(player);
+            return true
+        } else if(b[0].innerText=="X"&&b[4].innerText=="X"&&b[8].innerText=="X" || b[0].innerText=="O"&&b[4].innerText=="O"&&b[8].innerText=="O"){
+            alert("player "+ player+" is Won")
+            console.log(player);
+            return true
+        } else if(b[2].innerText=="X"&&b[4].innerText=="X"&&b[6].innerText=="X"||b[2].innerText=="O"&&b[4].innerText=="O"&&b[6].innerText=="O"){
+            alert("player "+ player+" is Won")
+            console.log(player);
+            return true
+        } else {
+            console.log("else " ,player);
+            return false
+        }
+    }
+    document.getElementById("board").addEventListener('click',(e)=>{
+        if(e.target.innerText!=""){
+            alert("already filled")
+            return
+        }
+        if(player==1){
+            if(isWon()){
+                return
+            }
+            e.target.innerText = "X"
+            player=2
+        } else {
+            if(isWon()){
+                return
+            }
+            e.target.innerText="O"
+            player=1
+        }
+    })
+</script>
+</html>

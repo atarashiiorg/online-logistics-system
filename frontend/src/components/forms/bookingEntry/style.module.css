@@ -43,9 +43,12 @@ input, select{
     width: 100%;
 }
 
+.formContainer>div>span>input{
+    padding: 3px 5px;
+}
 .formContainer>div>span{
     display: flex;
-    padding: 5px 0px;
+    justify-content: space-between;
 }
 
 .buttonChk{

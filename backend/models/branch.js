@@ -1,0 +1,71 @@
+const mongoose = require('mongoose');
+
+const branchSchema = new mongoose.Schema({
+    branchCode: {
+        type: String,
+        unique: true
+    },
+    emailId: String,
+    branchName: String,
+    place: String,
+    contactPerson: String,
+    phone: String,
+    faxNo: String,
+    address: String,
+    city: String,
+    pincode: String,
+    zone: String,
+    isHub: {
+        type: Boolean,
+        default: false
+    },
+    hubBranch: {
+        type: String,
+        default: ""
+    },
+    allowedBooking: {
+        road: {
+            type: Boolean,
+            default: false
+        },
+        train: {
+            type: Boolean,
+            default: false
+        },
+        air: {
+            type: Boolean,
+            default: false
+        }
+    },
+    allowedDispatch: {
+        road: {
+            type: Boolean,
+            default: false
+        },
+        train: {
+            type: Boolean,
+            default: false
+        },
+        air: {
+            type: Boolean,
+            default: false
+        }
+    },
+    isActive: {
+        type: Boolean,
+        default: false
+    },
+    shippers: [
+        {
+            docketFrom: Number,
+            docketTo: Number,
+            issueDate: Date,
+            receivedBy: String
+        }
+    ]
+}, {
+    timestamps: true
+})
+
+const Branch = mongoose.model("Branch", branchSchema)
+module.exports = Branch

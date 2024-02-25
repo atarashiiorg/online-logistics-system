@@ -1,15 +1,28 @@
 const mongoose = require('mongoose')
-const invoiceSchema = new Schema({
+const invoiceSchema = new mongoose.Schema({
     invoiceNumber: String,
-    invoiceValue: Number,
+    invoiceValue: {
+        type:Number,
+        default:0.0
+    },
+    clientName:String,
     billingAt: String,
     ewayBillNumber: String,
     itemContent: String,
     bookingType: String,
-    amountToPay: Number,
-    odaCharges: Number,
-    codAmount: Number,
-    // Other invoice-related fields
+    amountToPay: {
+        type:Number,
+        default:0.0
+    },
+    odaCharges: {
+        type:Number,
+        default:0.0
+    },
+    codType:String,
+    codAmount: {
+        type:Number,
+        default:0.0
+    }
 });
 
 const Invoice = mongoose.model('Invoice', invoiceSchema);

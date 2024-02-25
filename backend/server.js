@@ -5,8 +5,9 @@ const cors = require("cors")
 const db = require("./models/db")
 
 server.use(cors({
-    origin:"https://z2nj0ph6-5173.inc1.devtunnels.ms",
+    origin:["http://localhost:5173","https://z2nj0ph6-5173.inc1.devtunnels.ms"]
 }))
+
 server.use(express.json())
 server.use(express.urlencoded({extended:true}))
 server.use((req,res,next)=>{

@@ -23,7 +23,7 @@ import ShipperIssueToBranch from './components/shipper/shipperIssueToBranch';
 import ShipperIssueToClient from './components/shipper/shipperIssuesToClient';
 import ShipperIssueToEmployee from './components/shipper/shipperIssuesToEmployee';
 import ShipperTransfer from './components/shipper/shipperTransfer';
-import BranchMaster from './components/master';
+import BranchMaster from './components/master/branchMaster';
 import StateMaster from './components/generalMaster/stateMaster';
 import ZoneMaster from './components/generalMaster/zoneMaster';
 import DestinationMaster from './components/generalMaster/destinationMaster';
@@ -46,6 +46,7 @@ import ReportQuery from './components/query/reportQuery';
 import ImportPacketBooking from './components/import/importPacketBooking';
 import Home from './pages/landing';
 import Login from './pages/login';
+import ClientMaster from './components/master/clientMaster';
 
 const router = createBrowserRouter([
   {
@@ -161,6 +162,10 @@ const router = createBrowserRouter([
       {
         path:"master/BranchMaster",
         element:<BranchMaster/>
+      },
+      {
+        path:"master/ClientMaster",
+        element:<ClientMaster />
       },
       //General Master Routes
       {

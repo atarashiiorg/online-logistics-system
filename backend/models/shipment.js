@@ -14,7 +14,6 @@ const shipmentSchema = new mongoose.Schema({
     totalDimensionalWeight: Number,
     totalActualWeight: Number,
     totalChargeWeight: Number,
-    // Other shipment-related fields
 });
 
 const Shipment = mongoose.model('Shipment', shipmentSchema);

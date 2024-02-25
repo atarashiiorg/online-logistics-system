@@ -145,6 +145,10 @@ export default function SideBar() {
         {
             path:"master/BranchMaster",
             value:"Branch Master"
+        },
+        {
+            path:"master/ClientMaster",
+            value:"Client Master"
         }
     ]
 

@@ -5,7 +5,7 @@ import { BsSave } from 'react-icons/bs'
 import { FaCheck, FaRegSave } from 'react-icons/fa'
 import { IoRefresh } from 'react-icons/io5'
 
-export function VolWeight() {
+export function VolWeight({volWeight,handleVolWeight}){
     const [show, setShow] = useState(false)
     return (
         <>
@@ -13,9 +13,9 @@ export function VolWeight() {
                 <p><input type="checkbox" onChange={e => e.target.checked ? setShow(true) : setShow(false)} /> Vol Weight</p>
                 <div>
                     <label htmlFor="">Total Boxes</label>
-                    <input type="text" placeholder='0' />
+                    <input type="text" placeholder='0' value={volWeight.totalBoxes} onInput={e=>handleVolWeight(e,"totalBoxes")}/>
                     <label htmlFor="">Actual Weight</label>
-                    <input type="text" placeholder='0.00' />
+                    <input type="text" placeholder='0.00' value={volWeight.actualWeight} onInput={e=>handleVolWeight(e,"actualWeight")}/>
                 </div>
                 {
                     show ?

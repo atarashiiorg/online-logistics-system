@@ -4,13 +4,15 @@ import { CgCheck, CgExport } from 'react-icons/cg'
 import { FaCheck } from 'react-icons/fa6'
 import { IoRefresh } from 'react-icons/io5'
 
-export function TableTotalFound(){
+export function TableTotalFound(props){
     return (
         <>
              <div className={style.formContainer}>
                 <p>Total Records Found: {}</p>
                 <div>
-                    
+                    {
+                        props.children
+                    }
                 </div>
             </div>
         </>

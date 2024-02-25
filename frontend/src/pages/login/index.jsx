@@ -2,7 +2,7 @@ import style from './style.module.css'
 import loginBg from '../../assets/loginBg1.png'
 import { useContext, useEffect, useState } from 'react'
 import {message} from 'antd';
-import {loginUrl} from "../../constants"
+import {serverUrl} from "../../constants"
 import { useNavigate} from "react-router-dom"
 import UserAuthContext from '../../contexts/authContext';
 
@@ -27,7 +27,7 @@ export default function Login() {
         }
 
         try {
-            const res = await fetch(loginUrl,{
+            const res = await fetch(serverUrl+"login",{
                 method:"POST",
                 headers:{
                     "content-type":"application/json"
@@ -49,7 +49,6 @@ export default function Login() {
             localStorage.setItem("user", JSON.stringify(data.user))
             localStorage.setItem("token", data.token)
             setUser(data.user)
-            // navigator("/dashboard")
         } catch (error) {
             message.error(error)
         }
@@ -57,7 +56,7 @@ export default function Login() {
     }
     return (
         <div className={style.container}>
-            <img src={loginBg} alt="" />
+            <img src={loginBg} />
             <div className={style.loginForm}>
                 <h2>Login</h2>
                 <div>
