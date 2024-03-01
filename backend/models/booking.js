@@ -6,6 +6,7 @@ const bookingSchema = new mongoose.Schema({
         unique: true
     },
     bookingDate: Date,
+    branch:{ type: mongoose.Types.ObjectId, ref: 'Branch' },
     client: { type: mongoose.Types.ObjectId, ref: 'Client' },
     invoice: { type: mongoose.Types.ObjectId, ref: 'Invoice' },
     shipment: { type: mongoose.Types.ObjectId, ref: 'Shipment' },

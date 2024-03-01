@@ -47,6 +47,7 @@ import ImportPacketBooking from './components/import/importPacketBooking';
 import Home from './pages/landing';
 import Login from './pages/login';
 import ClientMaster from './components/master/clientMaster';
+import SearchRes from './components/searchRes';
 
 const router = createBrowserRouter([
   {
@@ -251,6 +252,10 @@ const router = createBrowserRouter([
       {
         path:"Import/ImportPacketBooking",
         element:<ImportPacketBooking/>
+      },
+      {
+        path:"tracking",
+        element:<SearchRes/>
       }
     ]
   }

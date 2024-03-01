@@ -26,9 +26,9 @@ const DashboardItem = ({ icon, title, dropdown }) => {
             </div>
             {
                 showList?
-            dropdown.map(op => {
+            dropdown.map((op,i) => {
                 return (
-                    <Link to={op.path}>
+                    <Link to={op.path} key={op+i}>
                         <div className={style.ds_item}>
                         {op.value}
                         </div>
@@ -313,7 +313,7 @@ export default function SideBar() {
     return (
         <div className={style.container}>
            {
-            sideBarOptions.map(op=><DashboardItem {...op} />)
+            sideBarOptions.map((op,i)=><DashboardItem {...op} key={op+i} />)
            }
         </div>
     )

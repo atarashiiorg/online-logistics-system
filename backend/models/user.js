@@ -7,7 +7,23 @@ const userSchema = new mongoose.Schema({
         unique:true
     },
     password:String,
-    branchCode:String
+    mobile:{
+        type:String,
+        default:""
+    },
+    email:{
+        type:String,
+        unique:true
+    },
+    name:String,
+    branchCode:{
+        type:mongoose.Types.ObjectId,
+        ref:"Branch"
+    },
+    role:{
+        type:String,
+        default:"employee"
+    }
 })
 
 const User = mongoose.model("user",userSchema)

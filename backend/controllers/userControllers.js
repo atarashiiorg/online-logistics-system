@@ -35,7 +35,7 @@ async function sendShipperForPrinting(req, res) {
     try {
         const shippers = await Shipper.find({
             $or: [
-                { docketFrom: { $lte: req.body.docketFrom } },
+                { docketFrom: { $gte: req.body.docketFrom } },
                 { docketTo: { $gte: req.body.docketTo } }
             ]
         })
@@ -80,6 +80,7 @@ async function createBooking(req, res) {
             res.status(409).end()
             return
         }
+        
         const invoice = await Invoice.create(req.body.billingDetails)
         const shipment = await Shipment.create({
             ...req.body.awbDetails,
@@ -90,6 +91,7 @@ async function createBooking(req, res) {
         console.log(consignorConsignee);
         const booking = await Booking.create({
             ...req.body.awbDetails,
+            branch:req.body.branch,
             invoice: invoice._id,
             shipment: shipment._id,
             consignorConsignee: consignorConsignee._id
@@ -106,7 +108,33 @@ async function createBooking(req, res) {
 }
 
 async function trackAwb(req, res) {
-
+    try {
+        const doc_num = req.query.docket
+        const bookings = await Booking.findOne({docketNumber:doc_num})
+        .populate("invoice")
+        .populate("shipment")
+        .populate("consignorConsignee")
+        .populate("branch")
+        if(bookings){
+            res.status(200).json({used:true,bookings})
+            return
+        }
+        const docket = await Branch.find({
+            shippers: {
+                $elemMatch: {
+                    $and: [
+                        { docketFrom: { $lte: doc_num } },
+                        { docketTo: { $gte: doc_num } }
+                    ]
+                }
+            }
+        })
+        console.log(docket)
+        res.status(200).json({used:false,docket})
+    } catch (err){
+        console.log(err);
+        res.status(500).send(err)
+    }
 }
 
 async function createBranch(req, res) {
@@ -195,7 +223,10 @@ async function createClient(req,res){
 async function getClients(req,res){
     try {
         const result = await Client.find()
-        res.status(200).end()
+        const response = result.map(r=>{
+            return {...r._doc,docketCharge:r?.clientChargeDetails[0]?.docketCharge||0}
+        })
+        res.status(200).json(response)
     } catch (err) {
         console.log(err);
         res.status(500).end()
@@ -211,5 +242,6 @@ module.exports = {
     getBranches,
     shipperIssueToBranch,
     createClient,
-    getClients
+    getClients,
+    trackAwb
 }

@@ -4,6 +4,7 @@ import { CgAdd } from 'react-icons/cg'
 import { BsSave } from 'react-icons/bs'
 import { FaCheck, FaRegSave } from 'react-icons/fa'
 import { IoRefresh } from 'react-icons/io5'
+import { Mandatory } from '../../minComp'
 
 export function VolWeight({volWeight,handleVolWeight}){
     const [show, setShow] = useState(false)
@@ -12,10 +13,10 @@ export function VolWeight({volWeight,handleVolWeight}){
             <div className={style.formContainer}>
                 <p><input type="checkbox" onChange={e => e.target.checked ? setShow(true) : setShow(false)} /> Vol Weight</p>
                 <div>
-                    <label htmlFor="">Total Boxes</label>
-                    <input type="text" placeholder='0' value={volWeight.totalBoxes} onInput={e=>handleVolWeight(e,"totalBoxes")}/>
-                    <label htmlFor="">Actual Weight</label>
-                    <input type="text" placeholder='0.00' value={volWeight.actualWeight} onInput={e=>handleVolWeight(e,"actualWeight")}/>
+                    <label htmlFor="">Total Boxes <Mandatory/></label>
+                    <input type="text" placeholder='0' value={volWeight?.totalBoxes} onInput={e=>handleVolWeight(e,"totalBoxes")}/>
+                    <label htmlFor="">Actual Weight <Mandatory/></label>
+                    <input type="text" placeholder='0.00' value={volWeight?.actualWeight} onInput={e=>handleVolWeight(e,"actualWeight")}/>
                 </div>
                 {
                     show ?
@@ -288,7 +289,7 @@ export default function AwbUpdate() {
             <ConsignorDetails />
             <ConsigneeDetails />
             <InsuranceDetails />
-            <VolWeight />
+            <VolWeight volWeight={{"":""}} handleVolWeight={()=>{}} />
             <OverallWeight />
             <div className={style.actions}>
                 <button><FaCheck/> Update</button>

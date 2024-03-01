@@ -1,13 +1,30 @@
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaTrash, FaUserEdit } from 'react-icons/fa'
 import style from './style.module.css'
 import { BsFiletypeXls } from 'react-icons/bs'
-import { FaArrowRotateLeft, FaXmark } from 'react-icons/fa6'
+import { FaArrowRotateLeft, FaDeleteLeft, FaXmark } from 'react-icons/fa6'
 import { TableTotalFound } from '../../forms/manifestPrint'
 import { SearchManifest } from '../../forms/manifestDirect'
 import { useState, useEffect } from 'react'
 import { Mandatory } from '../../minComp'
 import { serverUrl } from '../../../constants'
 import { message } from 'antd'
+
+const ClientListRow = ({c,i}) => {
+    return (
+        <tr>
+            <td><FaUserEdit/></td>
+            <td>{c.clientCode}</td>
+            <td>{c.clientName}</td>
+            <td>{c.state}</td>
+            <td>{c.city}</td>
+            <td>{c.phone}</td>
+            <td>{c.address}</td>
+            <td>{c.pincode}</td>
+            <td>{c.fovCharge}</td>
+            <td>{}</td>
+        </tr>
+    )
+}
 
 export default function ClientMaster() {
 
@@ -85,6 +102,7 @@ export default function ClientMaster() {
     const [charge, setCharge] = useState(initialCharge)
     const [mode, setMode] = useState(initialModeType)
     const [branches, setBranches] = useState([])
+    const [clientList, setClientList] = useState([])
 
     const fetchBranches = async () => {
         try {
@@ -182,6 +200,31 @@ export default function ClientMaster() {
             message.error(err)
         }
     }
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const res = await fetch(serverUrl + "client")
+                if (res.status == 304) {
+                    message.warning("Something went wrong while fetching clients data")
+                    return
+                }
+                if (res.status == 500) {
+                    message.error("Internal server error occured")
+                    return
+                }
+                if (res.status == 404) {
+                    message.warning("Resource not found")
+                    return
+                }
+                const data = await res.json()
+                setClientList([...data])
+            } catch (err) {
+                message.error(err)
+                return
+            }
+        })()
+    }, [])
 
     return (
         <>
@@ -320,7 +363,6 @@ export default function ClientMaster() {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr></tr>
                     </tbody>
                 </table>
             </div>
@@ -338,7 +380,6 @@ export default function ClientMaster() {
                         <option value="">Export</option>
                         <option value="">Import</option>
                     </select>
-
                     <div></div>
 
                     <label htmlFor="">Service</label>
@@ -354,6 +395,22 @@ export default function ClientMaster() {
                         <button className={style.buttonRef}><FaXmark /></button>
                     </div>
                 </div>
+
+                <table className={style.table}>
+                    <thead>
+                        <tr>
+                            <th>Delete</th>
+                            <th>Edit</th>
+                            <th>Mode</th>
+                            <th>Booking Type</th>
+                            <th>Service</th>
+                            <th>Fuel Charge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
             </div>
 
             <div className={style.formContainer}>
@@ -380,6 +437,22 @@ export default function ClientMaster() {
                         <button className={style.buttonRef}><FaXmark /></button>
                     </div>
                 </div>
+
+                <table className={style.table}>
+                    <thead>
+                        <tr>
+                            <th>Delete</th>
+                            <th>Edit</th>
+                            <th>Charge Type</th>
+                            <th>Mode</th>
+                            <th>From Weight</th>
+                            <th>To Weight</th>
+                            <th>Docket Charge</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
 
             <div className={style.formContainer}>
@@ -404,6 +477,19 @@ export default function ClientMaster() {
                         <button className={style.buttonRef}><FaXmark /></button>
                     </div>
                 </div>
+
+                <table className={style.table}>
+                    <thead>
+                        <tr>
+                            <th>Delete</th>
+                            <th>Mode Type</th>
+                            <th>Service Type</th>
+                            <th>Min Weight</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
 
             <div className={style.actions}>
@@ -441,7 +527,11 @@ export default function ClientMaster() {
                         </thead>
                         <tbody>
                             {
-
+                                clientList.length > 0 ?
+                                    clientList.map((c, i) => <ClientListRow c={c} i={i} />) :
+                                    <tr>
+                                        <td colSpan={18}>No data available</td>
+                                    </tr>
                             }
                         </tbody>
                     </table>
