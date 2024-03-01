@@ -2,7 +2,7 @@ import { FaCheck } from 'react-icons/fa'
 import { VolWeight } from '../awbUpdate'
 import style from './style.module.css'
 import { IoRefresh } from 'react-icons/io5'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import {message} from 'antd'
 import {serverUrl} from '../../../constants'
 import UserAuthContext from '../../../contexts/authContext'
@@ -10,6 +10,10 @@ import {Mandatory} from '../../minComp'
 
 export default function BookingEntry() {
     const {currBranch} = useContext(UserAuthContext)
+    const [clients, setClients] = useState([])
+    const [client, setClient] = useState("")
+    const {branches} = useContext(UserAuthContext)
+
     const [awbDetails, setAwbDetails] = useState({
         docketNumber:"",
         origin:"",
@@ -49,6 +53,23 @@ export default function BookingEntry() {
         totalChargeWeight:0.0
     })
     
+    const fetchBranches = async()=>{
+        try {
+            const res = await fetch(serverUrl+"client")
+            if(res.ok){
+                const d = await res.json()
+                setClients(d)
+            } else {
+                message.warning("Something went wrong while fetching clients")
+            }
+        } catch(err) {
+            message.error(err)
+        }
+    }
+
+    useEffect(()=>{
+        fetchBranches()
+    },[])
 
     const handleAwbDetails = (e,field)=>{
         setAwbDetails(p=>{
@@ -65,6 +86,14 @@ export default function BookingEntry() {
     const handleBillingDetails = (e,field)=>{
         setBillingDetails(p=>{
             const obj = {...p}
+            if(field=="clientName"){
+                let val = e.target.value
+                val = val.split(" : ")[0]
+                const idx = clients.findIndex(c=>c.clientCode==val)
+                setClient(p=>clients[idx]._id)
+                obj.clientName = e.target.value
+                return obj
+            }
             obj[field] = e.target.value
             return obj
         })
@@ -74,7 +103,6 @@ export default function BookingEntry() {
         setConsignorConsignee(p=>{
             const obj = {...p}
             obj[field] = e.target.value
-            console.log(obj);
             return obj
         })
     }
@@ -93,7 +121,6 @@ export default function BookingEntry() {
             const obj = {...p}
             obj[field] = e.target.value
             handleTotalWeight(e.target.value)
-            console.log(obj);
             return obj
         })
     }
@@ -154,7 +181,15 @@ export default function BookingEntry() {
                 headers:{
                     'content-type':'application/json'
                 },
-                body:JSON.stringify({branch:currBranch,awbDetails,billingDetails,consignorConsignee,volWeight,dimWeight})
+                body:JSON.stringify({
+                    client,
+                    branch:currBranch,
+                    awbDetails,
+                    billingDetails,
+                    consignorConsignee,
+                    volWeight,
+                    dimWeight
+                })
             })
             if(res.ok){
                 message.success("Booked Successfully")
@@ -184,7 +219,6 @@ export default function BookingEntry() {
 
     return (
         <>
-        {console.log(currBranch)}
             <div className={style.formContainer}>
                 <p>AWB Details</p>
                 <div>
@@ -225,14 +259,24 @@ export default function BookingEntry() {
                 <p>Billing Details</p>
                 <div>
                     <label htmlFor="">Client Name <Mandatory/></label>
-                    <input type="text"  placeholder='Client Name' value={billingDetails.clientName} onInput={e=>handleBillingDetails(e,"clientName")}/>
+                    <input type="text" list='clients'  placeholder='Client Name' value={billingDetails.clientName} onInput={e=>handleBillingDetails(e,"clientName")}/>
+                    <datalist id='clients'>
+                        {
+                            clients.map(d=><option value={d.clientCode+" : "+d.clientName}>{d.clientName}</option>)
+                        }
+                    </datalist>
                     <label htmlFor="">Invoice No.</label>
                     <input type="text" placeholder='Invoice No' value={billingDetails.invoiceNumber} onInput={e=>handleBillingDetails(e,"invoiceNumber")}/>
                     <label htmlFor="">Invoice Value</label>
                     <input type="text" placeholder='0.00' value={billingDetails.invoiceValue} onInput={e=>handleBillingDetails(e,"invoiceValue")}/>
 
                     <label htmlFor="">Billing At <Mandatory/></label>
-                    <input type="text" placeholder='Billing at branch' value={billingDetails.billingAt} onInput={e=>handleBillingDetails(e,"billingAt")}/>
+                    <input type="text" list='branches' placeholder='Billing at branch' value={billingDetails.billingAt} onInput={e=>handleBillingDetails(e,"billingAt")}/>
+                    <datalist id='branches'>
+                        {
+                            branches.map(b=><option value={b.branchCode+" : "+b.branchName} >{b.branchName}</option>)
+                        }
+                    </datalist>
                     <label htmlFor="">E-way Bill No.</label>
                     <input type="text" placeholder='E-way Bill No' value={billingDetails.ewayBillNo} onInput={e=>handleBillingDetails(e,"ewayBillNo")}/>
                     <label htmlFor="">Item Content</label>

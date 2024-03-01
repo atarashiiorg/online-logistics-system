@@ -94,7 +94,8 @@ async function createBooking(req, res) {
             branch:req.body.branch,
             invoice: invoice._id,
             shipment: shipment._id,
-            consignorConsignee: consignorConsignee._id
+            consignorConsignee: consignorConsignee._id,
+            client: req.body.client
         })
         res.status(200).end()
     } catch (err) {
@@ -115,8 +116,9 @@ async function trackAwb(req, res) {
         .populate("shipment")
         .populate("consignorConsignee")
         .populate("branch")
+        .populate("client")
         if(bookings){
-            res.status(200).json({used:true,bookings})
+            res.status(200).json({used:true,valid:true,bookings})
             return
         }
         const docket = await Branch.find({
@@ -129,8 +131,10 @@ async function trackAwb(req, res) {
                 }
             }
         })
-        console.log(docket)
-        res.status(200).json({used:false,docket})
+        if(docket.length<=0)
+            res.status(200).json({valid:false,used:false,docket})
+        else
+            res.status(200).json({valid:true,used:false,docket})
     } catch (err){
         console.log(err);
         res.status(500).send(err)

@@ -11,7 +11,7 @@ import {useNavigate} from 'react-router-dom'
 export default function Header() {
     const {user,setUser} = useContext(UserAuthContext)
     const [searchQuery, setSearchQuery] = useState("")
-    const [branches, setBranches] = useState([])
+    const {branches, setBranches} = useContext(UserAuthContext)
     const {currBranch, setCurrBranch} = useContext(UserAuthContext)
     const {docketTracking, setDocketTracking} = useContext(UserAuthContext)
     const navigate = useNavigate()
@@ -44,7 +44,7 @@ export default function Header() {
             const res = await fetch(serverUrl+"track?docket="+searchQuery)
             if(res.ok){
                 const data = await res.json()
-                setDocketTracking({...data, show:true})
+                setDocketTracking({...data, show:true, awb: searchQuery})
                 navigate("/dashboard/tracking")
             } else {
                 message.warning("error while fetching docket tracking details")

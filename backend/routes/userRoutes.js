@@ -15,12 +15,6 @@ const userRoutes = require("express")()
 
 const authorize = (req,res,next)=>{
     try {
-        // if(!req.headers.authorization){
-        //     res.status(401).json({"msg":'unauthorised access'})
-        //     return
-        // }
-        // const auth = jwt.verify(req.headers.authorization,process.env.JWT_KEY)
-        // req.auth = auth
         next()
     } catch (error) {
         res.status(401).json({"msg":'invalid token or token not found'})
