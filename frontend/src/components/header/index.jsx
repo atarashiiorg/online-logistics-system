@@ -4,7 +4,7 @@ import { CgProfile } from 'react-icons/cg'
 import { FaSignOutAlt } from 'react-icons/fa'
 import { useContext, useEffect, useState } from 'react'
 import {message} from 'antd'
-import { serverUrl } from '../../constants'
+import { serverUrl, title } from '../../constants'
 import UserAuthContext from '../../contexts/authContext'
 import {useNavigate} from 'react-router-dom'
 
@@ -62,7 +62,7 @@ export default function Header() {
     return (
         <div className={style.header}>
             <div className={style.left}>
-                <h2>Bhanu Logistics</h2>
+                <h2>{title}</h2>
             </div>
             <div className={style.right}>
                 <div className={style.c1}>

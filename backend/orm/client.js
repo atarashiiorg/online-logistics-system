@@ -26,8 +26,6 @@ const Client = new sequelize.define("Client",{
     phone:STRING,
     faxNo:STRING,
     fuelOn:STRING,
-    emailTo:STRING,
-    
+    emailTo:STRING, 
     isActive:BOOLEAN,
-
 })

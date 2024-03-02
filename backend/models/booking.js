@@ -10,7 +10,8 @@ const bookingSchema = new mongoose.Schema({
     client: { type: mongoose.Types.ObjectId, ref: 'Client' },
     invoice: { type: mongoose.Types.ObjectId, ref: 'Invoice' },
     shipment: { type: mongoose.Types.ObjectId, ref: 'Shipment' },
-    consignorConsignee: { type: mongoose.Types.ObjectId, ref: "ConsignorConsignee" }
+    consignorConsignee: { type: mongoose.Types.ObjectId, ref: "ConsignorConsignee" },
+    tracking: { type: mongoose.Types.ObjectId, ref: "Tracking" }
 });
 
 const Booking = mongoose.model('Booking', bookingSchema);

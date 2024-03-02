@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest</title>
+    <style>
+        *{
+            margin: 0;   
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        .page{
+            width: 210mm;
+            height: 297mm;
+            background-color: whitesmoke;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .manifestDetails{
+            width: 100%;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .header{
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            border-left: 1px solid;
+            border-right: 1px solid;
+            border-top: 1px solid;
+        }
+        .left, .right{
+            height: fit-content;
+            width: 70%;
+            display: grid;
+            grid-template-columns: 100%;
+            padding-block: 10px;
+            padding-inline: 5px;
+            gap: 5px;
+        }
+        .right{
+            width: 30%;
+        }
+        #docketTable{
+            width: 100%;
+            font-size: 12px;
+            text-align: left;
+            table-layout: fixed;
+        }
+
+        .docketDetails>table td:not(:last-child), .docketDetails>table th:not(:last-child){
+            /* max-width: 9%; */
+            padding-right: 5px;
+            overflow-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <h3>SAFE DISPATCH</h3>
+        <p>Address kajshdkjhdjkhkajsdhkjk</p>
+        <div class="header">
+            <h3>Manifest Print</h3>
+        </div>
+        <div class="manifestDetails">
+            <div class="left">
+                <p>Mode: Surface</p>
+                <p>Branch: Surface</p>
+                <p>Destination: Surface</p>
+                <p>Vendor: Surface</p>
+                <p>Driver: </p>
+            </div>
+            <div class="right">
+                <p>Manifest Date: 02-Mar-2024</p>
+                <p>Manifest No: 23456789</p>
+                <p>Total Docket: 23456789</p>
+                <p>Vehicle No: </p>
+            </div>
+        </div>
+
+        <div class="docketDetails manifestDetails">
+            <table id="docketTable">
+                    <thead>
+                        <tr>
+                            <th>SNo.</th>
+                            <th>Docket.</th>
+                            <th>Date</th>
+                            <th>Origin</th>
+                            <th>Client</th>
+                            <th>Dest</th>
+                            <th>Consignee</th>
+                            <th>Pcs</th>
+                            <th>Weight</th>
+                            <th>ToPay</th>
+                            <th>COD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>123456</td>
+                            <td>2/2/2024</td>
+                            <td>mohali se ambala</td>
+                            <td>ToPay</td>
+                            <td>Ambala se mohali</td>
+                            <td>asdkj</td>
+                            <td>12</td>
+                            <td>15.00</td>
+                            <td>0.0</td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
