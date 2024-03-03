@@ -49,4 +49,9 @@ userRoutes.route("/client")
 .post(createClient)
 .get(getClients)
 
+userRoutes.use("/vendor", authorize)
+userRoutes.route("/vendor")
+.get()
+.post()
+
 module.exports = userRoutes

@@ -1,5 +1,6 @@
 const Branch = require("../models/branch")
 const Client = require("../models/client")
+const Vendor = require("../models/vendor")
 
 const getNewBranchCode = async()=>{
     const branch = await Branch.findOne({}).sort({'createdAt':-1})
@@ -21,7 +22,18 @@ const getNewClientCode = async()=>{
     }
 }
 
+const getNewVendorCode = async()=>{
+    const vendor = await Vendor.findOne({}).sort({'createdAt':-1})
+    if(vendor){
+        const cCode = vendor.clientCode.substring(1,vendor.vendorCode.length)
+        return `V${Number(cCode)+1}`
+    } else {
+        return "V1001"
+    }
+}
+
 module.exports = {
     getNewBranchCode,
-    getNewClientCode
+    getNewClientCode,
+    getNewVendorCode
 }

@@ -78,7 +78,7 @@ export default function SearchRes() {
                                         <td>Packet Status</td>
                                         <td style={{backgroundColor:"yellow"}}>{docketTracking?.tracking?.status || "Booked"}</td>
                                         <td>Rc Name</td>
-                                        <td>{docketTracking?.tracking?.vendor.rcName || "N/A"}</td>
+                                        <td>{docketTracking?.tracking?.vendor.rcNumber || "N/A"}</td>
                                     </tr>
                                     <tr>
                                         <td>Status Remarks</td>
