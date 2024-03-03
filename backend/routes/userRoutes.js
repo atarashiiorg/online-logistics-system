@@ -54,4 +54,8 @@ userRoutes.route("/vendor")
 .get()
 .post()
 
+userRoutes.use("/manifest", authorize)
+userRoutes.route("/manifest")
+.post((req,res)=>{res.status(200).end()})
+
 module.exports = userRoutes

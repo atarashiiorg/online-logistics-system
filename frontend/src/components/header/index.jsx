@@ -14,6 +14,7 @@ export default function Header() {
     const {branches, setBranches} = useContext(UserAuthContext)
     const {currBranch, setCurrBranch} = useContext(UserAuthContext)
     const {docketTracking, setDocketTracking} = useContext(UserAuthContext)
+    const [bCode,setBCode] = useState("")
     const navigate = useNavigate()
 
     const fetchBranches = async () => {
@@ -54,6 +55,12 @@ export default function Header() {
         }
     }
 
+    const selectBranch=(e)=>{
+        setBCode(e.target.value)
+        const b = branches.filter(br=>br._id==e.target.value)
+        setCurrBranch(p=>b[0])
+    }
+
     const logOut = ()=>{
         localStorage.removeItem("user")
         localStorage.removeItem("token")
@@ -70,7 +77,7 @@ export default function Header() {
                     <IoSearchSharp style={{fontSize:"22px"}} onClick={e=>{handleSearch()}}/>
                 </div>
                 <div className={style.c1}>
-                    <select onChange={e=>setCurrBranch(e.target.value)}>
+                    <select onChange={selectBranch}>
                         <option value="null">--Select Branch--</option>
                         {
                             branches.map(b=><option value={b._id} key={b._id}>{b.branchName}</option>)
