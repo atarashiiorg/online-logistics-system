@@ -15,12 +15,14 @@ const vendorSchema = new mongoose.Schema({
     fitnessValidity:String,
     insuranceCompanyName:String,
     ownerName:String,
-    panNo:String,
+    panNumber:String,
     ownerPanName:String,
     isActive:{
         type:Boolean,
         default:false
     }
+},{
+    timestamps:true
 })
 
 const Vendor = mongoose.model("Vendor",vendorSchema)

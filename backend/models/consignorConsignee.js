@@ -4,6 +4,8 @@ const consignorConsigneeSchema = new mongoose.Schema({
     consignee:String,
     consigneeAddress:String,
     consigneeContact:String
+},{
+    timestamps:true
 })
 
 const ConsignorConsignee = mongoose.model("ConsignorConsignee",consignorConsigneeSchema)

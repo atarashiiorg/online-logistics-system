@@ -21,6 +21,8 @@ const manifestSchema = new mongoose.Schema({
             cod:Number
         }
     ]
+},{
+    timestamps:true
 })
 
 const Manifest = mongoose.model("Manifest", manifestSchema)

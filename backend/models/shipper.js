@@ -9,6 +9,8 @@ const shipperSchema = new mongoose.Schema({
     docketTo:Number,
     sendBy:String,
     remarks:String
+},{
+    timestamps:true
 })
 
 const Shipper = mongoose.model("Shipper", shipperSchema)

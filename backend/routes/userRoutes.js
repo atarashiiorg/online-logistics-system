@@ -1,3 +1,4 @@
+const { createManifest, getManifests } = require("../controllers/manifest")
 const { 
     loginUser, 
     sendShipperForPrinting, 
@@ -11,6 +12,7 @@ const {
     trackAwb,
 } = require("../controllers/userControllers")
 const jwt = require("jsonwebtoken")
+const { createVendor, getVendors } = require("../controllers/vendorControllers")
 const userRoutes = require("express")()
 
 const authorize = (req,res,next)=>{
@@ -51,11 +53,12 @@ userRoutes.route("/client")
 
 userRoutes.use("/vendor", authorize)
 userRoutes.route("/vendor")
-.get()
-.post()
+.get(createVendor)
+.post(getVendors)
 
 userRoutes.use("/manifest", authorize)
 userRoutes.route("/manifest")
-.post((req,res)=>{res.status(200).end()})
+.post(createManifest)
+.get(getManifests)
 
 module.exports = userRoutes

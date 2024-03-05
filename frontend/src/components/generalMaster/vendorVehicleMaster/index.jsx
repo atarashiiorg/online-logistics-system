@@ -4,17 +4,47 @@ import { BsFiletypeXls } from 'react-icons/bs'
 import { FaArrowRotateLeft } from 'react-icons/fa6'
 import { SearchManifest } from '../../forms/manifestDirect'
 import { TableTotalFound } from '../../forms/manifestPrint'
+import { useState } from 'react'
 
 export default function VendorVehicleMaster() {
+    const initialVendor = {
+        vehicleNumber:"",
+        vehicleType:"",
+        chasisNumber:"",
+        engine:"",
+        rcNumber:"",
+        vehiclePermit:"",
+        insuranceValidity:"",
+        fitnessValidity:"",
+        insuranceCompanyName:"",
+        ownerName:"",
+        panNumber:"",
+        ownerPanName:"",
+        isActive:false
+    }
+
+    const [vendor, setVendor] = useState(initialVendor)
+
+    const setVal = (e,f)=>{
+        setVendor(p=>{
+            const obj = {...p}
+            if(f=="isActive"){
+                obj.isActive = e.target.checked
+                return obj
+            }
+            obj[f] = e.target.value
+        })
+    }
+
     return (
         <>
             <div className={style.formContainer}>
                 <p>Vendor Vehicle Master</p>
                 <div>
                    <label htmlFor="">Vendor Code</label>
-                   <input type="text" placeholder='Vendor Code'/>
+                   <input type="text" placeholder='Vendor Code' disabled/>
                    <label htmlFor="">Vehicle Number</label>
-                   <input type="text" placeholder='Vehicle Number'/>
+                   <input type="text" placeholder='Vehicle Number' value={vendor.vehicleNumber} onInput={e=>setVal(e,"vehicleNumber")}/>
                    <label htmlFor="">Vehicle Type</label>
                    <select>
                     <option value="null">--Select Vehicle Type--</option>

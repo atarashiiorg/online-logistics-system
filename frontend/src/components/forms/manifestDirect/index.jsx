@@ -9,14 +9,19 @@ import { Docket, Mandatory } from '../../minComp/index'
 import UserAuthContext from '../../../contexts/authContext'
 import { serverUrl } from '../../../constants'
 
-export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, currBranch }) {
+export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, currBranch, branches }) {
     return (
         <>
             <div className={style.formContainer}>
                 <p>Manifest Direct <span><input type="checkbox" onChange={handleUpdate} /> Update</span></p>
                 <div>
                     <label htmlFor="">To BCode <Mandatory /></label>
-                    <input type="text" placeholder='To BCode' value={manifest.toBCode} onInput={e => manifestHandler(e, "toBCode")} />
+                    <input list='list1' type="text" placeholder='To BCode' onInput={e => manifestHandler(e, "toBCode")} />
+                    <datalist id='list1'>
+                        {
+                            branches.map(b => <option value={b.branchCode + " : " + b.branchName}>{b.branchCode} : {b.branchName}</option>)
+                        }
+                    </datalist>
                     <label htmlFor="">System Manifest No.</label>
                     <input type="text" disabled={!update} placeholder="SYSTEM GENERATED" value={manifest.manifestNumber} onInput={e => manifestHandler(e, "manifestNumber")} />
 
@@ -57,9 +62,9 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
         border: "1px solid"
     }
 
-    const setVal = (e,f)=>{
-        setDocket(p=>{
-            const obj = {...p}
+    const setVal = (e, f) => {
+        setDocket(p => {
+            const obj = { ...p }
             obj[f] = e.target.value
             return obj
         })
@@ -71,34 +76,34 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
                 <div className={style.secondContainer}>
                     <div>
                         <label htmlFor="">Docket No</label>
-                        <input type="text" placeholder='Docket No' value={docket.docketNumber} onInput={e=>setVal(e,"docketNumber")} />
+                        <input type="text" placeholder='Docket No' value={docket.docketNumber} onInput={e => setVal(e, "docketNumber")} />
                     </div>
                     <div>
                         <label htmlFor="">Item Content</label>
-                        <select onChange={e=>setVal(e,"itemContent")}>
+                        <select onChange={e => setVal(e, "itemContent")}>
                             <option value="doc">DOC</option>
                             <option value="nondoc">NONDOC</option>
                         </select>
                     </div>
                     <div>
                         <label htmlFor="">Consignee</label>
-                        <input type="text" placeholder='Consignee' value={docket.consignee} onInput={e=>setVal(e,"consignee")} />
+                        <input type="text" placeholder='Consignee' value={docket.consignee} onInput={e => setVal(e, "consignee")} />
                     </div>
                     <div>
                         <label htmlFor="">Destination</label>
-                        <input type="text" placeholder='Destination' value={docket.destination} onInput={e=>setVal(e,"destination")} />
+                        <input type="text" placeholder='Destination' value={docket.destination} onInput={e => setVal(e, "destination")} />
                     </div>
                     <div>
                         <label htmlFor="">Pcs</label>
-                        <input type="text" placeholder='Pcs' value={docket.pieces} onInput={e=>setVal(e,"pieces")}/>
+                        <input type="text" placeholder='Pcs' value={docket.pieces} onInput={e => setVal(e, "pieces")} />
                     </div>
                     <div>
                         <label htmlFor="">Actual Weight</label>
-                        <input type="text" placeholder='0.00' value={docket.weight} onInput={e=>setVal(e,"weight")}/>
+                        <input type="text" placeholder='0.00' value={docket.weight} onInput={e => setVal(e, "weight")} />
                     </div>
                     <span>
-                        <button className={style.buttonChk} onClick={e=>addDocket()}><FaCheck /></button>
-                        <button className={style.buttonRef} onClick={e=>reset()}><GiCycle /></button>
+                        <button className={style.buttonChk} onClick={e => addDocket()}><FaCheck /></button>
+                        <button className={style.buttonRef} onClick={e => reset()}><GiCycle /></button>
                     </span>
                 </div>
                 {
@@ -137,7 +142,7 @@ export function SearchManifest() {
 
 export default function ManifestDirect() {
     const [update, setUpdate] = useState(false)
-    const { currBranch } = useContext(UserAuthContext)
+    const { currBranch, branches } = useContext(UserAuthContext)
     const m = {
         toBCode: "",
         manifestNumber: "",
@@ -168,7 +173,15 @@ export default function ManifestDirect() {
         setManifest(p => {
             const obj = { ...p }
             if (f == "date") {
-                obj.date = e.target.valueAsDate
+                obj.manifestDate = e.target.valueAsDate
+                return obj
+            }
+            if (f == "toBCode") {
+                const bCode = e.target.value.split(" : ")[0]
+                const idx = branches.findIndex(b => {
+                    return b.branchCode == bCode
+                })
+                obj.toBCode = branches[idx]?._id
                 return obj
             }
             obj[f] = e.target.value
@@ -181,16 +194,16 @@ export default function ManifestDirect() {
         setManifest(p => {
             const dockets = [...p.dockets]
             dockets.push(docket)
-            return {...p, dockets}
+            return { ...p, dockets }
         })
         setDocket(d)
     }
 
-    const deleteDocket = (id)=>{
-        setManifest(p=>{
+    const deleteDocket = (id) => {
+        setManifest(p => {
             const dockets = [...p.dockets]
-            const newData = dockets.filter(d=>d.docketNumber!=id)
-            return {...p, dockets:newData}
+            const newData = dockets.filter(d => d.docketNumber != id)
+            return { ...p, dockets: newData }
         })
     }
 
@@ -203,7 +216,8 @@ export default function ManifestDirect() {
         manifestHandler,
         handleUpdate,
         update,
-        currBranch
+        currBranch,
+        branches
     }
 
     const awbProps = {
@@ -211,22 +225,22 @@ export default function ManifestDirect() {
         setDocket,
         addDocket,
         deleteDocket,
-        reset:()=>{setDocket(d)},
+        reset: () => { setDocket(d) },
         docketList: manifest.dockets
     }
 
-    const handleSave = async()=>{
+    const handleSave = async () => {
         try {
-            const res = await fetch(serverUrl+"manifest",{
-                method:"POST",
-                headers:{
-                    'content-type':'application/json'
+            const res = await fetch(serverUrl + "manifest", {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
                 },
-                body:JSON.stringify(manifest)
+                body: JSON.stringify(manifest)
             })
             console.log(res);
         } catch (error) {
-            
+
         }
     }
 

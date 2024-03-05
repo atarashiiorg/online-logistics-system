@@ -7,10 +7,12 @@ import {message} from 'antd'
 import {serverUrl} from '../../../constants'
 import UserAuthContext from '../../../contexts/authContext'
 import {Mandatory} from '../../minComp'
+import { useGetClients } from '../../../apiHandlers/getApis'
+import { usePostBooking } from '../../../apiHandlers/postApis'
 
 export default function BookingEntry() {
     const {currBranch} = useContext(UserAuthContext)
-    const [clients, setClients] = useState([])
+    const [err, loading, clients] = useGetClients()
     const [client, setClient] = useState("")
     const {branches} = useContext(UserAuthContext)
 
@@ -52,24 +54,6 @@ export default function BookingEntry() {
         totalActualWeight:0.0,
         totalChargeWeight:0.0
     })
-    
-    const fetchBranches = async()=>{
-        try {
-            const res = await fetch(serverUrl+"client")
-            if(res.ok){
-                const d = await res.json()
-                setClients(d)
-            } else {
-                message.warning("Something went wrong while fetching clients")
-            }
-        } catch(err) {
-            message.error(err)
-        }
-    }
-
-    useEffect(()=>{
-        fetchBranches()
-    },[])
 
     const handleAwbDetails = (e,field)=>{
         setAwbDetails(p=>{
@@ -175,42 +159,17 @@ export default function BookingEntry() {
             return
         }
 
-        try {
-            const res = await fetch(serverUrl+"booking",{
-                method:"POST",
-                headers:{
-                    'content-type':'application/json'
-                },
-                body:JSON.stringify({
-                    client,
-                    branch:currBranch,
-                    awbDetails,
-                    billingDetails,
-                    consignorConsignee,
-                    volWeight,
-                    dimWeight
-                })
-            })
-            if(res.ok){
-                message.success("Booked Successfully")
-                return
-            } 
-            if(res.status==304){
-                message.warning("Something went wrong")
-                return
-            }
-            if(res.status==401){
-                message.warning("Access Denied")
-                return
-            }
-            if(res.status==409){
-                message.warning("This docket number already used")
-                return
-            }
-        } catch (error) {
-            message.error(error)
-            console.log(error);
+        const booking = {
+            client,
+            branch:currBranch,
+            awbDetails,
+            billingDetails,
+            consignorConsignee,
+            volWeight,
+            dimWeight
         }
+
+        usePostBooking(booking)
     }
 
     const handleReset=()=>{
