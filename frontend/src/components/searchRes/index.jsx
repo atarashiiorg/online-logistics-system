@@ -122,7 +122,7 @@ export default function SearchRes() {
                                     </tr>
                                     <tr>
                                         <td><strong>Name:</strong> { docketTracking?.bookings?.client?.clientName}</td>
-                                        <td><strong>Name:</strong> {docketTracking?.bookings?.consignorConsignee?.consingor}</td>
+                                        <td><strong>Name:</strong> {docketTracking?.bookings?.consignorConsignee?.consignor}</td>
                                         <td><strong>Name:</strong> {docketTracking?.bookings?.consignorConsignee?.consignee}</td>
                                     </tr>
                                     <tr>

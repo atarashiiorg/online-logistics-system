@@ -149,6 +149,7 @@ input, select{
 
 .tableContainer{
     overflow: hidden;
+    padding-bottom: 10px;
 }
 
 .tableContainer>div{
@@ -180,6 +181,10 @@ input, select{
 .tableContainer>div>table td, .table td{
     padding: 2px 5px;
     border: 1px solid rgb(204, 202, 202);
+}
+
+.tableContainer>div>table{
+    margin-bottom: 10px;
 }
 
 .table{

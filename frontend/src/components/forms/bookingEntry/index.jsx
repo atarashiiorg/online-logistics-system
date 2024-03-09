@@ -15,8 +15,7 @@ export default function BookingEntry() {
     const [err, loading, clients] = useGetClients()
     const [client, setClient] = useState("")
     const {branches} = useContext(UserAuthContext)
-
-    const [awbDetails, setAwbDetails] = useState({
+    const initialAwbDetails = {
         docketNumber:"",
         origin:"",
         mode:"",
@@ -25,8 +24,8 @@ export default function BookingEntry() {
         customerType:"",
         isOda:false,
         odaAmount:""
-        })
-    const [billingDetails, setBillingDetails] = useState({
+        }
+    const initialBillingDetails = {
         clientName:"",
         invoiceNumber:"",
         invoiceValue:"0.0",
@@ -38,22 +37,35 @@ export default function BookingEntry() {
         odaCharges:"0.0",
         codType:"",
         codAmt:"0.0"
-        })
-    const [consignorConsignee, setConsignorConsignee] = useState({
+        }
+    const initialConsignorConsignee = {
         consignor:"",
         consignee:"",
         consigneeAddress:"",
         consigneeContact:""
-        })
-    const [volWeight, setVolWeight] = useState({
+        }
+    const initialVolWeight =  {
         totalBoxes:0,
         actualWeight:0.0
-    })
-    const [dimWeight, setDimWeight] = useState({
+    }
+    const initialDimWeight = {
         totalDimWeiht:0.0,
         totalActualWeight:0.0,
         totalChargeWeight:0.0
-    })
+    }
+    const [awbDetails, setAwbDetails] = useState(initialAwbDetails)
+    const [billingDetails, setBillingDetails] = useState(initialBillingDetails)
+    const [consignorConsignee, setConsignorConsignee] = useState(initialConsignorConsignee)
+    const [volWeight, setVolWeight] = useState(initialVolWeight)
+    const [dimWeight, setDimWeight] = useState(initialDimWeight)
+
+    const resetForm =()=>{
+        setAwbDetails(initialAwbDetails)
+        setBillingDetails(initialBillingDetails)
+        setConsignorConsignee(initialConsignorConsignee)
+        setVolWeight(initialVolWeight)
+        setDimWeight(initialDimWeight)
+    }
 
     const handleAwbDetails = (e,field)=>{
         setAwbDetails(p=>{
@@ -74,7 +86,7 @@ export default function BookingEntry() {
                 let val = e.target.value
                 val = val.split(" : ")[0]
                 const idx = clients.findIndex(c=>c.clientCode==val)
-                setClient(p=>clients[idx]._id)
+                setClient(p=>clients[idx]?._id || "")
                 obj.clientName = e.target.value
                 return obj
             }
@@ -161,7 +173,7 @@ export default function BookingEntry() {
 
         const booking = {
             client,
-            branch:currBranch,
+            branch:currBranch?._id,
             awbDetails,
             billingDetails,
             consignorConsignee,
@@ -169,11 +181,13 @@ export default function BookingEntry() {
             dimWeight
         }
 
-        usePostBooking(booking)
+        if(usePostBooking(booking)){
+            resetForm()
+        }
     }
 
     const handleReset=()=>{
-        
+        resetForm()
     }
 
     return (
@@ -299,7 +313,7 @@ export default function BookingEntry() {
 
             <div className={style.actions}>
                 <button className={style.buttonChk} onClick={handleSave}><FaCheck/> Save</button>
-                <button className={style.buttonRef}><IoRefresh/> Reset</button>
+                <button className={style.buttonRef} onClick={handleReset}><IoRefresh/> Reset</button>
             </div>
         </>
     )

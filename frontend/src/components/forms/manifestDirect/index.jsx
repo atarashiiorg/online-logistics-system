@@ -8,8 +8,10 @@ import { useContext, useState } from 'react'
 import { Docket, Mandatory } from '../../minComp/index'
 import UserAuthContext from '../../../contexts/authContext'
 import { serverUrl } from '../../../constants'
+import { useGetVendors } from '../../../apiHandlers/getApis'
+import { usePostManifest } from "../../../apiHandlers/postApis";
 
-export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, currBranch, branches }) {
+export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, currBranch, branches, vendors }) {
     return (
         <>
             <div className={style.formContainer}>
@@ -19,7 +21,7 @@ export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, 
                     <input list='list1' type="text" placeholder='To BCode' onInput={e => manifestHandler(e, "toBCode")} />
                     <datalist id='list1'>
                         {
-                            branches.map(b => <option value={b.branchCode + " : " + b.branchName}>{b.branchCode} : {b.branchName}</option>)
+                            branches.map(b => <option key={b._id} value={b.branchCode + " : " + b.branchName}>{b.branchCode} : {b.branchName}</option>)
                         }
                     </datalist>
                     <label htmlFor="">System Manifest No.</label>
@@ -40,7 +42,12 @@ export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, 
                     <label htmlFor="">From BCode <Mandatory /></label>
                     <input type="text" disabled value={currBranch.branchCode + ":" + currBranch.branchName || ""} />
                     <label htmlFor="">Vendor Name <Mandatory /></label>
-                    <input type="text" placeholder='Vendor Name' onInput={e => manifestHandler(e, "vendor")} />
+                    <input type="text" list='vendors' placeholder='Vendor Name' value = {manifest.vName} onInput={e => manifestHandler(e, "vendor")} />
+                    <datalist id='vendors'>
+                        {
+                            vendors.map(v=><option key={v._id} value={v.vendorCode+" : "+v.ownerName}>{v.ownerName}</option>)
+                        }
+                    </datalist>
                 </div>
             </div>
 
@@ -110,7 +117,7 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
                     docketList.length > 0 ?
                         <div style={docketListStyle}>
                             {
-                                docketList.map(p => <Docket {...p} deleteDocket={deleteDocket} />)
+                                docketList.map(p => <Docket key={p.docketNumber} {...p} deleteDocket={deleteDocket} />)
                             }
                         </div> :
                         null
@@ -143,17 +150,19 @@ export function SearchManifest() {
 export default function ManifestDirect() {
     const [update, setUpdate] = useState(false)
     const { currBranch, branches } = useContext(UserAuthContext)
-    const m = {
+    const [err, loading, vendors] = useGetVendors()
+    const initialManifest = {
         toBCode: "",
         manifestNumber: "",
         manifestDate: "",
         mode: "",
         branch: currBranch._id,
         vendor: "",
-        dockets: []
+        dockets: [],
+        vName:""
     }
 
-    const d = {
+    const initialDocket = {
         docketNumber: "",
         date: "",
         origin: "",
@@ -166,12 +175,19 @@ export default function ManifestDirect() {
         cod: 0
     }
 
-    const [docket, setDocket] = useState(d)
-    const [manifest, setManifest] = useState(m)
+    const [docket, setDocket] = useState(initialDocket)
+    const [manifest, setManifest] = useState(initialManifest)
 
     const manifestHandler = (e, f) => {
         setManifest(p => {
             const obj = { ...p }
+            if(f== "vendor"){
+                const vCode = e.target.value.split(" : ")[0]
+                const idx = vendors.findIndex(v=>v.vendorCode==vCode)
+                obj.vendor = vendors[idx]?._id
+                obj.vName = e.target.value
+                return obj
+            }
             if (f == "date") {
                 obj.manifestDate = e.target.valueAsDate
                 return obj
@@ -187,7 +203,7 @@ export default function ManifestDirect() {
             obj[f] = e.target.value
             return obj
         })
-    }
+    } //for updating manifest form fields values
 
     const addDocket = () => {
         //validation
@@ -196,8 +212,8 @@ export default function ManifestDirect() {
             dockets.push(docket)
             return { ...p, dockets }
         })
-        setDocket(d)
-    }
+        setDocket(initialDocket)
+    }   // for adding a docket entry into the manifest
 
     const deleteDocket = (id) => {
         setManifest(p => {
@@ -205,11 +221,11 @@ export default function ManifestDirect() {
             const newData = dockets.filter(d => d.docketNumber != id)
             return { ...p, dockets: newData }
         })
-    }
+    }// for deleting a docket entry from manifest
 
     const handleUpdate = (e) => {
         e.target.checked ? setUpdate(true) : setUpdate(false)
-    }
+    } // for indicating that manifest is being update
 
     const manifestProps = {
         manifest,
@@ -217,8 +233,9 @@ export default function ManifestDirect() {
         handleUpdate,
         update,
         currBranch,
-        branches
-    }
+        branches,
+        vendors
+    }//props for manifest form
 
     const awbProps = {
         docket,
@@ -227,29 +244,25 @@ export default function ManifestDirect() {
         deleteDocket,
         reset: () => { setDocket(d) },
         docketList: manifest.dockets
+    } //props for awbform
+
+    const reset = ()=>{
+        setManifest(initialManifest)
+        setDocket(initialDocket)
     }
 
     const handleSave = async () => {
-        try {
-            const res = await fetch(serverUrl + "manifest", {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify(manifest)
-            })
-            console.log(res);
-        } catch (error) {
+        usePostManifest(manifest)
+        reset()
+    } // api call for saving manifest data on the server
 
-        }
-    }
 
     return (
         <>
             <ManifestForm  {...manifestProps} />
             <AwbForm {...awbProps} />
             <div className={style.actions}>
-                <button><IoIosRefresh /> Reset</button>
+                <button><IoIosRefresh onClick={reset} /> Reset</button>
                 <button onClick={handleSave}><IoCheckmark /> Save</button>
             </div>
             <SearchManifest />

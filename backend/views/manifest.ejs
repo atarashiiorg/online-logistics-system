@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: black;
+        }
+
+        .page {
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .manifestDetails {
+            width: 100%;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .header {
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            border-left: 1px solid;
+            border-right: 1px solid;
+            border-top: 1px solid;
+            position: relative;
+        }
+
+        .left,
+        .right {
+            height: fit-content;
+            width: 70%;
+            display: grid;
+            grid-template-columns: 100%;
+            padding-block: 10px;
+            padding-inline: 5px;
+            gap: 5px;
+        }
+
+        .right {
+            width: 30%;
+        }
+
+        .docketTable {
+            width: 100%;
+            text-align: left;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        .docketDetails>table td:not(:last-child),
+        .docketDetails>table th:not(:last-child) {
+            padding-bottom: 5px;
+            padding-right: 5px;
+            padding-left: 2px;
+        }
+
+        .docketDetails>table td:not(:last-child) {
+            overflow-wrap: break-word;
+        }
+
+        .last-row {
+            border: 1px solid black;
+            padding-left: 5px;
+        }
+
+        .sign {
+            height: 150px;
+            padding: 10px;
+            flex-direction: column;
+        }
+
+        .sign>p {
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        #signature {
+            align-self: flex-end;
+            margin-bottom: 10px;
+            margin-right: 25px;
+        }
+
+        #printedAt {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <h3 style="text-align: center;">SAFE DISPATCH</h3>
+        <p style="text-align: center;">Address kajshdkjhdjkhkajsdhkjk</p>
+        <div class="header">
+            <h3>Manifest Print</h3>
+            <p id="printedAt">Printed @ <%= printedAt %>
+            </p>
+        </div>
+        <div style="position: relative;
+                    padding: 10px;
+                    border: 1px solid black;
+                    width: 100%;
+                    margin-bottom: 15px;
+                    display: flex;
+                    height: 80px;">
+            <div style="display: grid;
+                        grid-template-columns: 100%;
+                        position: absolute;
+                        top: 10;
+                        left: 10px;" >
+                <p>Mode: Surface</p>
+                <p>Branch: Surface</p>
+                <p>Destination: Surface</p>
+                <p>Vendor: Surface</p>
+                <p>Driver: </p>
+            </div>
+            <div style="display: grid;
+                        grid-template-columns: 100%;
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;">
+                <p>Manifest Date: 02-Mar-2024</p>
+                <p>Manifest No: 23456789</p>
+                <p>Total Docket: 23456789</p>
+                <p>Vehicle No: </p>
+            </div>
+
+        </div>
+
+        <div class="docketDetails manifestDetails">
+            <table class="docketTable">
+                <thead>
+                    <tr>
+                        <th>SNo.</th>
+                        <th>Docket.</th>
+                        <th>Date</th>
+                        <th>Origin</th>
+                        <th>Client</th>
+                        <th>Dest</th>
+                        <th>Consignee</th>
+                        <th>Pcs</th>
+                        <th>Weight</th>
+                        <th>ToPay</th>
+                        <th>COD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach((d,index )=> { %>
+                        <tr>
+                            <td>
+                                <%= index+1 %>
+                            </td>
+                            <td><%= d.docketNumber %></td>
+                            <td><%= d.date %> </td>
+                            <td><%= d.origin %></td>
+                            <td><%= d.client %></td>
+                            <td><%= d.destination %></td>
+                            <td><%= d.consignee %></td>
+                            <td><%= d.pieces %></td>
+                            <td><%= d.weight %></td>
+                            <td><%= d.toPay %></td>
+                            <td><%= d.cod %></td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+                <tr>
+                    <td colspan="6" class="last-row"></td>
+                    <td class="last-row">Total:</td>
+                    <td class="last-row">
+                        <%= totalpieces %>
+                    </td>
+                    <td class="last-row">
+                        <%= totalWeight %>
+                    </td>
+                    <td class="last-row">
+                        <%= totalToPay %>
+                    </td>
+                    <td class="last-row">
+                        <%= totalCod %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="manifestDetails sign" style="position: relative;">
+            <p style="font-size: 9px;">i confirm having received _____________________ packages on _____________________ at _________________
+                verify the same.</p>
+            <p id="signature" style="position: absolute; bottom: 10px; right: 20px;">originating hub/br incharge</p>
+        </div>
+    </div>
+</body>
+
+</html>

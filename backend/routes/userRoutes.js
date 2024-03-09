@@ -1,18 +1,28 @@
-const { createManifest, getManifests } = require("../controllers/manifest")
+const { createManifest, getManifests } = require("../controllers/manifestControllers")
 const { 
     loginUser, 
-    sendShipperForPrinting, 
-    receiveShipperFromPrinting, 
     createBooking,
-    createBranch,
-    getBranches,
     shipperIssueToBranch,
-    createClient,
-    getClients,
     trackAwb,
 } = require("../controllers/userControllers")
+const {
+    createBranch, 
+    getBranches
+} = require("../controllers/branchControllers")
+const {
+    createClient,
+    getClients
+} = require("../controllers/clientControllers")
 const jwt = require("jsonwebtoken")
-const { createVendor, getVendors } = require("../controllers/vendorControllers")
+const { 
+    createVendor, 
+    getVendors 
+} = require("../controllers/vendorControllers")
+const { 
+    receiveShipperFromPrinting, 
+    sendShipperForPrinting 
+} = require("../controllers/shipperControllers")
+
 const userRoutes = require("express")()
 
 const authorize = (req,res,next)=>{
@@ -53,8 +63,8 @@ userRoutes.route("/client")
 
 userRoutes.use("/vendor", authorize)
 userRoutes.route("/vendor")
-.get(createVendor)
-.post(getVendors)
+.get(getVendors)
+.post(createVendor)
 
 userRoutes.use("/manifest", authorize)
 userRoutes.route("/manifest")

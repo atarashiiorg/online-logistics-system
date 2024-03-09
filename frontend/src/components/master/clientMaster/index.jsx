@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react'
 import { Mandatory } from '../../minComp'
 import { serverUrl } from '../../../constants'
 import { message } from 'antd'
+import { useGetBranches, useGetClients } from '../../../apiHandlers/getApis'
+import { usePostClient } from '../../../apiHandlers/postApis'
 
 const ClientListRow = ({c,i}) => {
     return (
@@ -21,7 +23,16 @@ const ClientListRow = ({c,i}) => {
             <td>{c.address}</td>
             <td>{c.pincode}</td>
             <td>{c.fovCharge}</td>
-            <td>{}</td>
+            <td>{c.fovPercentage}</td>
+            <td>{c.docketCharge}</td>
+            <td>{c.airMinWeight}</td>
+            <td>{c.trainMinWeight}</td>
+            <td>{c.roadMinWeight}</td>
+            <td>{c.gstNo}</td>
+            <td>{c.isActive?"YES":"NO"}</td>
+            <td>{c.isShipperValid?"YES":"NO"}</td>
+            <td>{c.autoEmails.join(",")}</td>
+            <td>{new Date(c.createdAt).toDateString()}</td>
         </tr>
     )
 }
@@ -101,31 +112,8 @@ export default function ClientMaster() {
     const [fuel, setFuel] = useState(initialFuel)
     const [charge, setCharge] = useState(initialCharge)
     const [mode, setMode] = useState(initialModeType)
-    const [branches, setBranches] = useState([])
-    const [clientList, setClientList] = useState([])
-
-    const fetchBranches = async () => {
-        try {
-            const res = await fetch(serverUrl + "branch")
-            if (res.status == 500) {
-                message.warning("Internal Server Error Occured")
-                return
-            }
-            if (res.status == 304) {
-                message.warning("Something went wrong")
-                return
-            }
-            const data = await res.json()
-            setBranches(data)
-        } catch (err) {
-            message.error(err)
-            return
-        }
-    }
-
-    useEffect(() => {
-        fetchBranches()
-    }, [])
+    const [err, loading, branches] = useGetBranches()
+    const [error, loadingClients, clientList] = useGetClients()
 
     const handleClient = (e, field) => {
         setClient(p => {
@@ -172,59 +160,32 @@ export default function ClientMaster() {
     }
 
     const handleSave = () => {
-        try {
-            const res = fetch(serverUrl + "client", {
-                method: "POST",
-                headers: {
-                    'content-type': 'application/json'
-                },
-                body: JSON.stringify({
-                    client,
-                    clienChrages
-                })
-            })
-            if (res.status == 200) {
-                message.success("Client Saved Successfully")
-                return
-            }
-            if (res.state == 304) {
-                message.warning("Something went wrong")
-                return
-            }
-            if (res.status == 500) {
-                message.error("Internal server error occured")
-                return
-            }
-        } catch (err) {
-            console.log(err);
-            message.error(err)
-        }
+        usePostClient({client, clienChrages})
     }
-
-    useEffect(() => {
-        (async () => {
-            try {
-                const res = await fetch(serverUrl + "client")
-                if (res.status == 304) {
-                    message.warning("Something went wrong while fetching clients data")
-                    return
-                }
-                if (res.status == 500) {
-                    message.error("Internal server error occured")
-                    return
-                }
-                if (res.status == 404) {
-                    message.warning("Resource not found")
-                    return
-                }
-                const data = await res.json()
-                setClientList([...data])
-            } catch (err) {
-                message.error(err)
-                return
-            }
-        })()
-    }, [])
+    // useEffect(() => {
+    //     (async () => {
+    //         try {
+    //             const res = await fetch(serverUrl + "client")
+    //             if (res.status == 304) {
+    //                 message.warning("Something went wrong while fetching clients data")
+    //                 return
+    //             }
+    //             if (res.status == 500) {
+    //                 message.error("Internal server error occured")
+    //                 return
+    //             }
+    //             if (res.status == 404) {
+    //                 message.warning("Resource not found")
+    //                 return
+    //             }
+    //             const data = await res.json()
+    //             setClientList([...data])
+    //         } catch (err) {
+    //             message.error(err)
+    //             return
+    //         }
+    //     })()
+    // }, [])
 
     return (
         <>
@@ -530,7 +491,7 @@ export default function ClientMaster() {
                                 clientList.length > 0 ?
                                     clientList.map((c, i) => <ClientListRow c={c} i={i} />) :
                                     <tr>
-                                        <td colSpan={18}>No data available</td>
+                                        <td colSpan={19} style={{textAlign:"center"}}>No data available</td>
                                     </tr>
                             }
                         </tbody>

@@ -1,0 +1,45 @@
+.tableContainer{
+    margin: 5px 0px;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+
+.tableContainer>p{
+    background-color: dodgerblue;
+    padding: 10px 15px;
+    color: white;
+}
+.tableContainer>div{
+    max-height: 300px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.tableContainer>div>table{
+    width: max-content;
+    border-collapse: collapse;
+}
+
+.tableContainer>div>table th, .table th{
+    width: fit-content;
+    border: 1px solid grey;
+    padding: 2px;
+    background-image: linear-gradient(to left, #a8a8a8, rgb(180, 180, 180), #a8a8a8);
+    text-align: left;
+}
+
+.tableContainer>div>table>thead{
+    position: sticky;
+    background-color: grey;
+    top:0;
+    box-shadow: 0px 2px 3px rgb(78, 78, 78);
+}
+
+.tableContainer>div>table td, .table td{
+    padding: 2px 5px;
+    border: 1px solid rgb(204, 202, 202);
+}
+
+.tableContainer>div>table{
+    margin-bottom: 10px;
+}

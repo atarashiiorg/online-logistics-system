@@ -6,6 +6,7 @@ import { TableTotalFound } from '../../forms/manifestPrint'
 import { useState, useEffect } from 'react'
 import { message } from 'antd'
 import { serverUrl } from '../.../../../../constants'
+import { useGetBranches } from '../../../apiHandlers/getApis'
 
 export default function ShipperIssueToBranch() {
     const initial = {
@@ -16,30 +17,7 @@ export default function ShipperIssueToBranch() {
         receivedBy: ""
     }
     const [data, setData] = useState(initial)
-    const [branches, setBranches] = useState([])
-
-    const fetchBranches = async () => {
-        try {
-            const res = await fetch(serverUrl + "branch")
-            if (res.status == 500) {
-                message.warning("Internal Server Error Occured")
-                return
-            }
-            if (res.status == 304) {
-                message.warning("Something went wrong")
-                return
-            }
-            const data = await res.json()
-            setBranches(data)
-        } catch (err) {
-            message.error(err)
-            return
-        }
-    }
-
-    useEffect(() => {
-        fetchBranches()
-    },[])
+    const [err, loading, branches] = useGetBranches()
 
     const handleData = (e, field) => {
         setData(p => {

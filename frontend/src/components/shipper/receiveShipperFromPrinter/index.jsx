@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import style from './style.module.css'
 import { serverUrl } from '../../../constants'
+import { useGetShippers } from '../../../apiHandlers/getApis'
 
 const Tr = (shipper) => {
     return (
@@ -18,19 +19,7 @@ const Tr = (shipper) => {
 }
 
 export default function ReceiveShipperFromPrinter() {
-    const [shippers, setShippers] = useState([])
-    useEffect(() => {
-        (async () => {
-            try {
-                const res = await fetch(serverUrl + "sendshipper")
-                const data = await res.json()
-                setShippers(p => [...data])
-                console.log(shippers);
-            } catch (error) {
-                console.log(error);
-            }
-        })()
-    }, [])
+    const [err, loading, shippers] = useGetShippers()
 
     return (
         <>
@@ -49,11 +38,11 @@ export default function ReceiveShipperFromPrinter() {
                         </thead>
                         <tbody>
                             {
-                                shippers.length<=0?
-                                <tr>
-                                    <td style={{textAlign:"center"}} colSpan={5}>No data to show...</td>
-                                </tr>:
-                                null
+                                shippers.length <= 0 ?
+                                    <tr>
+                                        <td style={{ textAlign: "center" }} colSpan={5}>No data to show...</td>
+                                    </tr> :
+                                    null
                             }
                             {
                                 shippers.map((s, index) => <Tr {...s} index={Number(index)} />)

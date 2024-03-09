@@ -7,7 +7,7 @@ const db = require("./models/db")
 server.use(cors({
     origin:["http://localhost:5173","https://z2nj0ph6-5173.inc1.devtunnels.ms","https://q31k0k2w-5173.inc1.devtunnels.ms"]
 }))
-
+server.set('view engine','ejs')
 server.use(express.json())
 server.use(express.urlencoded({extended:true}))
 server.use((req,res,next)=>{

@@ -11,34 +11,11 @@ import {useNavigate} from 'react-router-dom'
 export default function Header() {
     const {user,setUser} = useContext(UserAuthContext)
     const [searchQuery, setSearchQuery] = useState("")
-    const {branches, setBranches} = useContext(UserAuthContext)
+    const {branches} = useContext(UserAuthContext)
     const {currBranch, setCurrBranch} = useContext(UserAuthContext)
     const {docketTracking, setDocketTracking} = useContext(UserAuthContext)
     const [bCode,setBCode] = useState("")
     const navigate = useNavigate()
-
-    const fetchBranches = async () => {
-        try {
-            const res = await fetch(serverUrl + "branch")
-            if (res.status == 500) {
-                message.warning("Internal Server Error Occured")
-                return
-            }
-            if (res.status == 304) {
-                message.warning("Something went wrong")
-                return
-            }
-            const data = await res.json()
-            setBranches(data)
-        } catch (err) {
-            message.error(err)
-            return
-        }
-    }
-
-    useEffect(()=>{
-        fetchBranches()
-    },[])
 
     const handleSearch = async()=>{
         try {

@@ -24,16 +24,48 @@ const getNewClientCode = async()=>{
 
 const getNewVendorCode = async()=>{
     const vendor = await Vendor.findOne({}).sort({'createdAt':-1})
+    console.log(vendor);
     if(vendor){
-        const cCode = vendor.clientCode.substring(1,vendor.vendorCode.length)
+        const cCode = vendor.vendorCode.substring(1,vendor.vendorCode.length)
         return `V${Number(cCode)+1}`
     } else {
         return "V1001"
     }
 }
 
+const getManifestName = ()=>{
+    const year = new Date().getFullYear()
+    const month = new Date().getMonth()+1
+    const date = new Date().getDate()
+    const now = Date.now()
+    const name = "Manifest_"+year+"_"+month+"_"+date+"_"+now
+    return name
+}
+
+function generateManifestPdf(data, filename){
+   try {
+     ejs.renderFile(path.resolve('views/manifest.ejs'), data, function (err, html) {
+         if (err) {
+             throw err;
+         }
+         var options = {
+             format: "Letter",  
+         }
+         pdf.create(html, options).toFile('files/'+filename+'.pdf', function(err, name) {
+             if (err) 
+                throw err
+            console.log("filename",name);
+            return {'msg':'pdf file created successfully',file:'files/'+filename+".pdf"}
+         });
+     });
+   } catch (error) {
+        return {'err':error,file:null}
+   }
+}
 module.exports = {
     getNewBranchCode,
     getNewClientCode,
-    getNewVendorCode
+    getNewVendorCode,
+    getManifestName,
+    generateManifestPdf
 }
