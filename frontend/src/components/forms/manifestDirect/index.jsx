@@ -190,6 +190,7 @@ export default function ManifestDirect() {
             }
             if (f == "date") {
                 obj.manifestDate = e.target.valueAsDate
+                console.log(obj);
                 return obj
             }
             if (f == "toBCode") {

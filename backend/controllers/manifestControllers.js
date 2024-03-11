@@ -5,7 +5,7 @@ const pdf = require("html-pdf")
 const ejs = require("ejs")
 const fs = require('fs')
 const path = require("path")
-const { getManifestName } = require("../services/helpers")
+const { getManifestName, generateManifestPdf } = require("../services/helpers")
 
 async function createManifest(req, res) {
     try {
@@ -64,7 +64,10 @@ async function getManifests(req, res) {
                 totalCod
             }
 
-            
+            const file = await generateManifestPdf(dataObj,manifest.manifestNumber) 
+            res.download(file,()=>{
+                console.log("downloaded");
+            })
             return
         }
     } catch (error) {
