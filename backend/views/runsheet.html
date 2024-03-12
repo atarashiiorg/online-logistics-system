@@ -1,21 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Runsheet</title>
 </head>
-<body style="margin: 0; padding: 0;">
+
+<body style="margin: 0; padding: 20px; box-sizing: border-box;">
     <div style="display: flex;
                 flex-direction: column;
                 align-items: center;
-                position: relative;
-                padding: 20px;">
-        <h1 style="position: absolute; top: 200; left: 40px; margin: 0;">Logo</h1>
+                position: relative;">
+        <h1 style="position: absolute; top: 10; left: 0; margin: 0;">Logo</h1>
         <h3 style="margin: 0;">SAFE DISPATCH</h3>
         <p style="margin: 0;">Address goes here</p>
     </div>
+    <div class="heading" style="display: flex;
+                                justify-content: space-between;
+                                margin-top: 20px;">
+        <p style="padding: 0; margin: 0;">Login Branch: Ludhiana</p>
+        <h3 style="margin: 0; padding: 0;">Delivery Runsheet</h3>
+        <p style="padding: 0; margin: 0;">DRS Date:12-Mar-2024</p>
+    </div>
+    <div style="border-top: 1px solid black;
+                border-left: 1px solid black;
+                border-right: 1px solid black;">
+        <div class="content-table" style="display: flex;
+                                        justify-content: space-between;
+                                        width: 100%;">
+        <div class="left" style="width: 50%;
+                                justify-self: flex-start;
+                                display: grid;
+                                grid-template-columns: 30% 68%;
+                                border-right: 1px solid black;
+                                padding: 5px;
+                                row-gap: 10px;
+                                column-gap: 2%;">
+            <span>Boy Name</span>
+            <span id="boyName">Sarwan</span>
+            <span>Phone No</span>
+            <span id="phone">1234567890</span>
+            <span>Area</span>
+            <span>Karnal</span>
+        </div>
+        <div class="right" style="width: 50%;
+                                    justify-self: flex-end;
+                                    display: grid;
+                                    grid-template-columns: 30% 68%;
+                                    padding: 5px;
+                                    position: relative;
+                                    row-gap: 10px;
+                                    column-gap: 2%;">
+            <span>Driver</span>
+            <span>Sahil Chauhan</span>
+            <span>Vehicle Number</span>
+            <span>HR053288B</span>
+            <span>DRS Number</span>
+            <span>522271</span>
+
+            <div class="bar-code" style="font-size: 25px;
+                                        position: absolute;
+                                        top: 5px;
+                                        right: 10px;">
+                BAR_CODE
+            </div>
+        </div>
+    </div>
+    <table class="table-content" style="width: 100%;
+                                        border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th style="border-right: 1px solid black;
+                            border-top: 1px solid black;
+                            border-bottom: 1px solid black;">Sr. No.</th>
+                <th style="border-right: 1px solid black;
+                            border-top: 1px solid black;
+                            border-bottom: 1px solid black;">Doc No.</th>
+                <th style="border-right: 1px solid black;
+                            border-top: 1px solid black;
+                            border-bottom: 1px solid black;">Consignor/Origin</th>
+                <th style="border-right: 1px solid black;
+                            border-top: 1px solid black;
+                            border-bottom: 1px solid black;">Consignee/Destination</th>
+                <th style="border-right: 1px solid black;
+                            border-top: 1px solid black;
+                            border-bottom: 1px solid black;">Pcs/Wt</th>
+                <th style="border-right: 1px solid black;
+                            border-top: 1px solid black;
+                            border-bottom: 1px solid black;">Cash</th>
+                <th style="border-right: 1px solid black;
+                            border-top: 1px solid black;
+                            border-bottom: 1px solid black;">ToPay</th>
+                <th style="border-right: 1px solid black;
+                            border-top: 1px solid black;
+                            border-bottom: 1px solid black;">COD</th>
+                <th style="border-top: 1px solid black;
+                            border-bottom: 1px solid black;">Receiver</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">1</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">1234567</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>BAJAJ ELEC.</p>
+                    <p>TEPLA</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>ASPIRE INNOV.</p>
+                    <p>KARNAL</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>2</p>
+                    <p>20</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 5px;
+                            border-bottom: 1px solid black;"></td>
+            </tr>
+            <tr>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">1</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">1234567</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>BAJAJ ELEC.</p>
+                    <p>TEPLA</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>ASPIRE INNOV.</p>
+                    <p>KARNAL</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>2</p>
+                    <p>20</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 5px;
+                            border-bottom: 1px solid black;"></td>
+            </tr>
+            <tr>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">1</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">1234567</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>BAJAJ ELEC.</p>
+                    <p>TEPLA</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>ASPIRE INNOV.</p>
+                    <p>KARNAL</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>2</p>
+                    <p>20</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 5px;
+                            border-bottom: 1px solid black;"></td>
+            </tr>
+            <tr>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">1</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">1234567</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>BAJAJ ELEC.</p>
+                    <p>TEPLA</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>ASPIRE INNOV.</p>
+                    <p>KARNAL</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                    <p>2</p>
+                    <p>20</p>
+                </td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+                <td style="padding: 5px;
+                            border-bottom: 1px solid black;"></td>
+            </tr>
+        </tbody>
+        <tr>
+            <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;" colspan="3"></td>
+            <td style="padding: 0px 5px; 
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;">Total:</td>
+            <td style="padding: 0px 5px; 
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;">
+                <p>21</p>
+                <p>230.0</p>
+            </td>
+            <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">
+                0.0              
+            </td>
+            <td style="padding: 0px 5px; 
+                          border-right: 1px solid black;
+                          border-bottom: 1px solid black;">0.0</td>
+            <td style="padding: 0px 5px; 
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;">0.0</td>
+            <td style="padding: 0px 5px; 
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;"></td>
+
+        </tr>
+    </table>
+    </div>
 </body>
+
 </html>
 
 <!-- ml using py file
