@@ -21,12 +21,40 @@ async function getClients(req,res){
         })
         res.status(200).json(response)
     } catch (err) {
-        console.log(err);
-        res.status(500).end()
+        res.status(500).json({'err':err})
     }
+}
+
+async function deleteClient(req,res){
+    try{
+        const result = await Client.deleteOne({_id:req.query.cid})
+        if(result.deletedCount>0){
+            res.status(200).json({'msg':'success'})
+        } else {
+            res.status(403).json({'msg':'not deleted'})
+        }
+    } catch(err){
+        res.status(500).json({'err':err})
+    }
+}
+
+async function updateClient(req,res){
+    try {
+        let data = {...req.body}
+        delete data._id
+        delete data.__v
+        delete data.createdAt
+        delete data.updatedAt
+        const client = await Client.findOneAndUpdate({_id:req.query.cid},{...data},{new:true})
+        res.status(200).json({'msg':'update success',client})
+    } catch (error) {
+        res.status(500).json({'err':error})
+    }   
 }
 
 module.exports = {
     createClient,
-    getClients
+    getClients,
+    deleteClient,
+    updateClient
 }

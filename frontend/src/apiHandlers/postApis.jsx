@@ -60,6 +60,7 @@ export const usePostVendor = async (vendor) => {
 }
 
 export const usePostManifest = async (manifest) => {
+    console.log(manifest)
     try {
         const res = await fetch(serverUrl + "manifest", {
             method: "POST",
@@ -110,5 +111,51 @@ export const usePostClient = async (client) => {
         }
     } catch (err) {
         message.error(err)
+    }
+}
+
+export const usePostBranch = async(branch, update)=>{
+    try {
+        let res = {}
+        let res_json = {}
+        if(!update){
+            res = await fetch(serverUrl+"branch",{
+                method:"POST",
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(branch)
+            })
+            res_json = await res.json()
+            if(res.status==201){
+                message.success("Branch created successfully")
+                return {res:true, branch: res_json.branch}
+            } 
+        } else {
+            res = await fetch(serverUrl+"branch?bid="+branch.id,{
+                method:"PATCH",
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(branch.branch)
+            })
+            res_json = await res.json()
+            if(res.status==200){
+                message.success("Branch updated successfully")
+                return {res:true, branch: res_json.branch}
+            } 
+        }
+
+        if(res.status==500){
+            message.error(res_json.err)
+            return {res:false}
+        } else {
+            message.error(res_json.msg)
+            return {res:false}
+        } 
+
+    } catch (err) {
+        message.error("Error Occured: ",err)
+        return {res:false}
     }
 }

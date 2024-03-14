@@ -156,7 +156,7 @@ export default function ManifestDirect() {
         manifestNumber: "",
         manifestDate: "",
         mode: "",
-        branch: currBranch._id,
+        fromBCode: currBranch._id,
         vendor: "",
         dockets: [],
         vName:""
@@ -253,13 +253,13 @@ export default function ManifestDirect() {
     }
 
     const handleSave = async () => {
-        usePostManifest(manifest)
+        usePostManifest({...manifest, fromBCode:currBranch._id})
         reset()
     } // api call for saving manifest data on the server
 
 
     return (
-        <>
+        <>  
             <ManifestForm  {...manifestProps} />
             <AwbForm {...awbProps} />
             <div className={style.actions}>

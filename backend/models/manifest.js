@@ -4,7 +4,8 @@ const manifestSchema = new mongoose.Schema({
     manifestNumber: String,
     manifestDate: Date,
     mode: String,
-    branch: { type: mongoose.Types.ObjectId, ref: "Branch" },
+    fromBCode: { type: mongoose.Types.ObjectId, ref: "Branch" },
+    toBCode: { type: mongoose.Types.ObjectId, ref: "Branch" },
     destination: String,
     vendor: { type: mongoose.Types.ObjectId, ref: "Vendor" },
     dockets: [

@@ -20,8 +20,8 @@ const branchSchema = new mongoose.Schema({
         default: false
     },
     hubBranch: {
-        type: String,
-        default: ""
+        type: mongoose.Types.ObjectId,
+        ref: 'Branch'
     },
     allowedBooking: {
         road: {

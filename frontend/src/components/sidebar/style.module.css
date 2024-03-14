@@ -15,11 +15,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    user-select: none;
+    cursor: pointer;
 }
 
 .ds_item{
     background-color: rgb(112, 112, 111);
-    /* margin-left: 30px; */
     padding: 5px 20px;
     height: 100%;
     width: 100%;

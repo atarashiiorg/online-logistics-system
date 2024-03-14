@@ -30,7 +30,35 @@ async function getVendors(req,res){
     }
 }
 
+async function deleteVendor(req,res){
+    try {
+        const result = await Vendor.deleteOne({_id:req.query.vid})
+        if(result.deletedCount>0){
+            res.status(200).json({'msg':'success'})
+        } else {
+            res.status(403).json({'msg':'failed to delete'})
+        }
+    } catch (error) {
+        res.status(500).json({'err':error})
+    }
+}
+
+async function updateVendor(req,res){
+    try {
+        let data = {...req.body}
+        delete data?._id
+        delete data?.__v
+        delete data?.createdAt
+        delete data?.updatedAt
+        const result = await Vendor.findOneAndUpdate({_id:req.query.vid},{...data},{new:true})
+        res.status(200).json({'msg':'success',vendor:result})
+    } catch (err){
+        res.status(500).json({'err':err})
+    }
+}
 module.exports = {
     createVendor,
-    getVendors
+    getVendors,
+    deleteVendor,
+    updateVendor
 }

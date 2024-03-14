@@ -7,16 +7,22 @@ const {
 } = require("../controllers/userControllers")
 const {
     createBranch, 
-    getBranches
+    getBranches,
+    updateBranch,
+    deleteBranch
 } = require("../controllers/branchControllers")
 const {
     createClient,
-    getClients
+    getClients,
+    deleteClient,
+    updateClient
 } = require("../controllers/clientControllers")
 const jwt = require("jsonwebtoken")
 const { 
     createVendor, 
-    getVendors 
+    getVendors, 
+    deleteVendor,
+    updateVendor
 } = require("../controllers/vendorControllers")
 const { 
     receiveShipperFromPrinting, 
@@ -55,16 +61,22 @@ userRoutes.use("/branch",authorize)
 userRoutes.route("/branch")
 .post(createBranch)
 .get(getBranches)
+.patch(updateBranch)
+.delete(deleteBranch)
 
 userRoutes.use("/client", authorize)
 userRoutes.route("/client")
 .post(createClient)
 .get(getClients)
+.delete(deleteClient)
+.patch(updateClient)
 
 userRoutes.use("/vendor", authorize)
 userRoutes.route("/vendor")
 .get(getVendors)
 .post(createVendor)
+.patch(updateVendor)
+.delete(deleteVendor)
 
 userRoutes.use("/manifest", authorize)
 userRoutes.route("/manifest")

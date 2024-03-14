@@ -61,10 +61,18 @@ async function getManifests(req, res) {
                 totalpieces,
                 totalWeight,
                 totalToPay,
-                totalCod
+                totalCod,
+                mode: manifest.mode,
+                branch: manifest?.fromBCode?.branchName,
+                destination: manifest?.toBCode?.branchName,
+                vendor: manifets?.vendor?.ownerName || "N/A",
+                totalDockets: manifest?.dockets?.length,
+                manifestDate: manifest?.manifestDate,
+                manifestNumber:manifest?.manifestNumber
             }
 
             const file = await generateManifestPdf(dataObj,manifest.manifestNumber) 
+            res.set("content-disposition",{"filename":manifest.manifestNumber+".pdf"})
             res.download(file,()=>{
                 console.log("downloaded");
             })
@@ -73,10 +81,13 @@ async function getManifests(req, res) {
     } catch (error) {
         console.log(error);
         res.status(500).json({ 'err': error })
+        return
     }
 
     try {
         const manifests = await Manifest.find({})
+                                .populate("fromBCode")
+                                .populate("toBCode")
         res.status(200).json({ 'msg': 'success', manifests })
     } catch (err) {
         console.log(err)

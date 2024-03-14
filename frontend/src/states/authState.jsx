@@ -6,7 +6,7 @@ export default function UserAuthState(props){
     const User = JSON.parse(localStorage?.getItem("user")) || null
     const [user, setUser] = useState(User)
     const [docketTracking, setDocketTracking] = useState({show:false})
-    const [err, loading, branches] = useGetBranches()
+    const [err, loading, branches, setBranches] = useGetBranches()
     const [currBranch, setCurrBranch] = useState("null")
 
     return (
@@ -18,7 +18,8 @@ export default function UserAuthState(props){
                 setCurrBranch, 
                 docketTracking, 
                 setDocketTracking,
-                branches
+                branches,
+                setBranches
             }
         } >
             {
