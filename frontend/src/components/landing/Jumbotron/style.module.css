@@ -1,0 +1,64 @@
+.navbar {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.15); /* semi-transparent black */
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* use flexbox instead of float */
+    gap: 1.5em;
+    margin-left: 1.2em;
+    align-items: center;
+}
+
+.navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: color 0.3s ease; /* smooth color transition */
+}
+
+.navbar ul li a:hover {
+    color: #555;
+}
+.jumbotron {
+    position: relative;
+    background-image: url('/trucksroadcargo.webp');
+    height: 100vh;
+    background-size: cover; 
+    color: white;
+    text-align: center;
+    padding-top: 200px;
+}
+
+.jumbotron h1 {
+    font-size: 60px;
+}
+
+.jumbotron p {
+    font-size: 25px;
+}
+
+.jumbotron button {
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius:5px ;
+    margin-top: 40px;
+    background-color: #333;
+    color: white;
+    border: none;
+}
+
+.bigtext {
+    color:#333;
+}
+
+.jumbotroncontent{
+    margin-top: 3em;
+}
