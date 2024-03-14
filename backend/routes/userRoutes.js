@@ -1,4 +1,5 @@
 const { createManifest, getManifests } = require("../controllers/manifestControllers")
+const path = require("path")
 const { 
     loginUser, 
     createBooking,
@@ -83,4 +84,7 @@ userRoutes.route("/manifest")
 .post(createManifest)
 .get(getManifests)
 
+userRoutes.get("/run",(req,res)=>{
+    res.sendFile(path.resolve("views/runsheet.html"))
+})
 module.exports = userRoutes

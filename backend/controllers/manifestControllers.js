@@ -43,7 +43,7 @@ async function createManifest(req, res) {
 async function getManifests(req, res) {
     try {
         if (req.query.mid) {
-            const manifest = await Manifest.findById({ _id: req.query.mid })
+            const manifest = await Manifest.findById({ _id: req.query.mid }).populate("fromBCode").populate("toBCode")
             let totalpieces = 0
             let totalWeight = 0
             let totalToPay = 0
@@ -65,11 +65,13 @@ async function getManifests(req, res) {
                 mode: manifest.mode,
                 branch: manifest?.fromBCode?.branchName,
                 destination: manifest?.toBCode?.branchName,
-                vendor: manifets?.vendor?.ownerName || "N/A",
+                vendor: manifest?.vendor?.ownerName || "N/A",
                 totalDockets: manifest?.dockets?.length,
-                manifestDate: manifest?.manifestDate,
+                manifestDate: new Date(manifest?.manifestDate).toDateString(),
                 manifestNumber:manifest?.manifestNumber
             }
+
+            console.log(dataObj)
 
             const file = await generateManifestPdf(dataObj,manifest.manifestNumber) 
             res.set("content-disposition",{"filename":manifest.manifestNumber+".pdf"})
