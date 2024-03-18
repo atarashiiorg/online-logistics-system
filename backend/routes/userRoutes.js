@@ -1,8 +1,6 @@
 const { createManifest, getManifests } = require("../controllers/manifestControllers")
 const { 
     loginUser, 
-    createBooking,
-    shipperIssueToBranch,
     trackAwb,
 } = require("../controllers/userControllers")
 const {
@@ -26,8 +24,18 @@ const {
 } = require("../controllers/vendorControllers")
 const { 
     receiveShipperFromPrinting, 
-    sendShipperForPrinting 
+    sendShipperForPrinting,
+    shipperIssueToBranch
 } = require("../controllers/shipperControllers")
+
+const {
+    createBooking, getBooking
+} = require("../controllers/bookingControllers")
+const { 
+    createState,
+    getState
+} = require("../controllers/stateControllers")
+const { getZone, createZone } = require("../controllers/zoneControllers")
 
 const userRoutes = require("express")()
 
@@ -52,6 +60,7 @@ userRoutes.route("/issueshippertobranch")
 
 userRoutes.use("/booking",authorize)
 userRoutes.route("/booking")
+.get(getBooking)
 .post(createBooking)
 
 userRoutes.route("/track")
@@ -82,5 +91,20 @@ userRoutes.use("/manifest", authorize)
 userRoutes.route("/manifest")
 .post(createManifest)
 .get(getManifests)
+
+userRoutes.use("/state",authorize)
+userRoutes.route("/state")
+.get(getState)
+.post(createState)
+
+userRoutes.use("/zone",authorize)
+userRoutes.route("/zone")
+.get(getZone)
+.post(createZone)
+
+userRoutes.use("/dest",authorize)
+userRoutes.route("/dest")
+.get()
+.post()
 
 module.exports = userRoutes

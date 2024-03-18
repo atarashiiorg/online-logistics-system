@@ -80,9 +80,12 @@
             overflow-wrap: break-word;
         }
 
-        .last-row {
-            border: 1px solid black;
+        .last-row:not(:last-child){
+            border-right: 1px solid black;
             padding-left: 5px;
+        }
+        .last-row{
+            border-top: 1px solid black;
         }
 
         .sign {
@@ -134,7 +137,7 @@
                 <p>Mode: <%= mode %></p>
                 <p>Branch: <%= branch %></p>
                 <p>Destination: <%= destination %></p>
-                <p>Vendor: <%= Vendor %></p>
+                <p>Vendor: <%= vendor %></p>
                 <p>Driver: </p>
             </div>
             <div style="display: grid;
