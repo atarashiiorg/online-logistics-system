@@ -4,12 +4,13 @@ import { BsFiletypeXls } from 'react-icons/bs'
 import { FaArrowRotateLeft, FaDeleteLeft, FaXmark } from 'react-icons/fa6'
 import { TableTotalFound } from '../../forms/manifestPrint'
 import { SearchManifest } from '../../forms/manifestDirect'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Mandatory } from '../../minComp'
 import { serverUrl } from '../../../constants'
 import { message } from 'antd'
-import { useGetBranches, useGetClients } from '../../../apiHandlers/getApis'
-import { usePostClient } from '../../../apiHandlers/postApis'
+import { useGetData } from '../../../apiHandlers/getApis'
+import { usePostData } from '../../../apiHandlers/postApis'
+import UserAuthContext from '../../../contexts/authContext'
 
 const ClientListRow = ({c,i}) => {
     return (
@@ -112,8 +113,8 @@ export default function ClientMaster() {
     const [fuel, setFuel] = useState(initialFuel)
     const [charge, setCharge] = useState(initialCharge)
     const [mode, setMode] = useState(initialModeType)
-    const [err, loading, branches] = useGetBranches()
-    const [error, loadingClients, clientList] = useGetClients()
+    const {branches} = useContext(UserAuthContext)
+    const [error, loading, clientList] = useGetData("client")
 
     const handleClient = (e, field) => {
         setClient(p => {
@@ -160,36 +161,11 @@ export default function ClientMaster() {
     }
 
     const handleSave = () => {
-        usePostClient({client, clienChrages})
+        usePostData({client, clienChrages},"client")
     }
-    // useEffect(() => {
-    //     (async () => {
-    //         try {
-    //             const res = await fetch(serverUrl + "client")
-    //             if (res.status == 304) {
-    //                 message.warning("Something went wrong while fetching clients data")
-    //                 return
-    //             }
-    //             if (res.status == 500) {
-    //                 message.error("Internal server error occured")
-    //                 return
-    //             }
-    //             if (res.status == 404) {
-    //                 message.warning("Resource not found")
-    //                 return
-    //             }
-    //             const data = await res.json()
-    //             setClientList([...data])
-    //         } catch (err) {
-    //             message.error(err)
-    //             return
-    //         }
-    //     })()
-    // }, [])
-
+  
     return (
         <>
-            {console.log(client.autoEmails)}
             <div className={style.formContainer}>
                 <p>Client Master</p>
                 <div>
@@ -489,7 +465,7 @@ export default function ClientMaster() {
                         <tbody>
                             {
                                 clientList.length > 0 ?
-                                    clientList.map((c, i) => <ClientListRow c={c} i={i} />) :
+                                    clientList.map((c, i) => <ClientListRow key={c+i} c={c} i={i} />) :
                                     <tr>
                                         <td colSpan={19} style={{textAlign:"center"}}>No data available</td>
                                     </tr>

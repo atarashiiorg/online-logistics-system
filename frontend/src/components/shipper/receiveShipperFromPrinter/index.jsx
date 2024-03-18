@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import style from './style.module.css'
 import { serverUrl } from '../../../constants'
-import { useGetShippers } from '../../../apiHandlers/getApis'
+import { useGetData } from '../../../apiHandlers/getApis'
 
 const Tr = (shipper) => {
     return (
@@ -19,7 +19,7 @@ const Tr = (shipper) => {
 }
 
 export default function ReceiveShipperFromPrinter() {
-    const [err, loading, shippers] = useGetShippers()
+    const [err, loading, shippers] = useGetData("shipper")
 
     return (
         <>

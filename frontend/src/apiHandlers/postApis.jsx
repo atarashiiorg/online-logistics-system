@@ -2,6 +2,33 @@ import { message } from "antd"
 import { serverUrl } from "../constants"
 import { FaSlideshare } from "react-icons/fa"
 
+export const usePostData = async (data,endPoint) => {
+    try {
+        const res = await fetch(serverUrl + endPoint, {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        const res_json = await res.json()
+        if (res.status == 201) {
+            message.success(res_json.msg)
+            return {res:true,data:res_json.data}
+        } else if(res.status==500){
+            message.error(res_json.msg)
+            return {res:false}
+        } else {
+            message.warning(res_json.err)
+            return {res:false}
+        }
+    } catch (error) {
+        message.error(error)
+        console.log(error);
+        return {res:false}
+    }
+}
+
 export const usePostBooking = async (booking) => {
     try {
         const res = await fetch(serverUrl + "booking", {
@@ -159,3 +186,55 @@ export const usePostBranch = async(branch, update)=>{
         return {res:false}
     }
 }
+
+export const usePostState = async (state) => {
+    try {
+        const res = await fetch(serverUrl + "state", {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(state)
+        })
+        const res_json = await res.json()
+        if (res.status == 201) {
+            message.success("State created")
+            return true
+        } else if(res.status==500){
+            message.error(res_json.err)
+            return false
+        } else {
+            message.error(res_json.msg)
+            return false
+        }
+    } catch (err) {
+        message.error(err)
+        return false
+    }
+}
+
+// export const usePostData = async (endPoint,data) => {
+//     try {
+//         const res = await fetch(serverUrl + endPoint, {
+//             method: "POST",
+//             headers: {
+//                 'content-type': 'application/json'
+//             },
+//             body: JSON.stringify(data)
+//         })
+//         const res_json = await res.json()
+//         if (res.status == 201) {
+//             message.success(res_json.msg)
+//             return true
+//         } else if(res.status==500){
+//             message.error(res_json.err)
+//             return false
+//         } else {
+//             message.error(res_json.msg)
+//             return false
+//         }
+//     } catch (err) {
+//         message.error(err)
+//         return false
+//     }
+// }

@@ -7,12 +7,12 @@ import {message} from 'antd'
 import {serverUrl} from '../../../constants'
 import UserAuthContext from '../../../contexts/authContext'
 import {Mandatory} from '../../minComp'
-import { useGetClients } from '../../../apiHandlers/getApis'
-import { usePostBooking } from '../../../apiHandlers/postApis'
+import { useGetData } from '../../../apiHandlers/getApis'
+import { usePostData } from '../../../apiHandlers/postApis'
 
 export default function BookingEntry() {
     const {currBranch} = useContext(UserAuthContext)
-    const [err, loading, clients] = useGetClients()
+    const [err, loading, clients] = useGetData("client")
     const [client, setClient] = useState("")
     const {branches} = useContext(UserAuthContext)
     const initialAwbDetails = {
@@ -72,7 +72,15 @@ export default function BookingEntry() {
             const obj = {...p}
             if(field=="bookingDate"){
                 obj[field] = e.target.valueAsDate
-            } else {
+            } else if(field=="origin" || field=='destination'){
+                const bCode = e.target.value.split(" : ")[0]
+                // console.log(bCode);
+                const idx = branches.findIndex(b=>b.branchCode==bCode)
+                // console.log(idx);
+                obj[field] = branches[idx]?._id
+                console.log(obj);
+                return obj
+            } else{
                 obj[field] = e.target.value
             }
             return obj
@@ -181,7 +189,7 @@ export default function BookingEntry() {
             dimWeight
         }
 
-        if(usePostBooking(booking)){
+        if(usePostData(booking,"booking")){
             resetForm()
         }
     }
@@ -198,7 +206,12 @@ export default function BookingEntry() {
                     <label htmlFor="">Docket No. <Mandatory/></label>
                     <input type="text" placeholder='Docket No' value={awbDetails.docketNumber} onInput={e=>handleAwbDetails(e,"docketNumber")}/>
                     <label htmlFor="">Origin <Mandatory/></label>
-                    <input type="text" placeholder='Origin' value={awbDetails.origin} onInput={e=>handleAwbDetails(e,"origin")}/>
+                    <input type="text" list='origin' placeholder='Origin' onInput={e=>handleAwbDetails(e,"origin")}/>
+                    <datalist id='origin'>
+                        {
+                            branches.map(b=><option value={b.branchCode+" : "+b.branchName}>{b.branchCode} : {b.branchName}</option>)
+                        }
+                    </datalist>
                     <label htmlFor="">Mode <Mandatory/></label>
                     <select  onInput={e=>handleAwbDetails(e,"mode")}>
                         <option value="null">--SELECT MODE--</option>
@@ -208,7 +221,12 @@ export default function BookingEntry() {
                     <label htmlFor="">Booking Date <Mandatory/></label>
                     <input type="date" onInput={e=>handleAwbDetails(e,"bookingDate")} />
                     <label htmlFor="">Destination <Mandatory/></label>
-                    <input type="text" placeholder='Destination' value={awbDetails.destination} onInput={e=>handleAwbDetails(e,"destination")}/>
+                    <input type="text" list='dest' placeholder='Destination' onInput={e=>handleAwbDetails(e,"destination")}/>
+                    <datalist id='dest'>
+                        {
+                            branches.map(b=><option value={b.branchCode+" : "+b.branchName}>{b.branchCode} : {b.branchName}</option>)
+                        }
+                    </datalist>
                     <label htmlFor="">Customer type</label>
                     <select onInput={e=>handleAwbDetails(e,"customerType")}>
                         <option value="null">--SELECT CLIENT TYPE--</option>

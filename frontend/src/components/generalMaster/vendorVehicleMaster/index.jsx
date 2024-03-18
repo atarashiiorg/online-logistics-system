@@ -5,12 +5,12 @@ import { FaArrowRotateLeft } from 'react-icons/fa6'
 import { SearchManifest } from '../../forms/manifestDirect'
 import { TableTotalFound } from '../../forms/manifestPrint'
 import { useState } from 'react'
-import { usePostVendor } from '../../../apiHandlers/postApis'
+import { usePostData } from '../../../apiHandlers/postApis'
 import { Mandatory, TableComp } from '../../minComp'
-import { useGetVendors } from '../../../apiHandlers/getApis'
+import { useGetData } from '../../../apiHandlers/getApis'
 
 export default function VendorVehicleMaster() {
-    const [err, loading, vendors] = useGetVendors()
+    const [err, loading, vendors] = useGetData("vendor")
     const initialVendor = {
         vehicleNumber: "",
         vehicleType: "",
@@ -42,7 +42,7 @@ export default function VendorVehicleMaster() {
     }
 
     const handleSave = () => {
-        usePostVendor(vendor)
+        usePostData(vendor,"vendor")
     }
     return (
         <>
