@@ -55,25 +55,6 @@ function generateManifestPdf(data, filename) {
             reject(error)
         }
     })
-    // try {
-    //     ejs.renderFile(path.resolve('views/manifest.ejs'), data, function (err, html) {
-    //         if (err) {
-    //             throw err;
-    //         }
-    //         var options = {
-    //             format: "Letter",
-    //         }
-    //         pdf.create(html, options).toFile('files/' + filename + '.pdf', function (err, name) {
-    //             if (err) {
-    //                 throw err
-    //             } else {
-    //                 cb(null, 'files/'+filename+'.pdf')
-    //             }
-    //         });
-    //     });
-    // } catch (error) {
-    //     cb(error,null)
-    // }
 }
 
 function readEjs(data){
@@ -92,7 +73,7 @@ function createPdfFromHtml(filename, html){
     return new Promise((resolve, reject) => {
         try {
             var options = {
-                format: "Letter",
+                format: "A4",
             }
             pdf.create(html,options).toFile("files/"+filename+".pdf",(err,name)=>{
                 err?reject(err):resolve("files/"+filename+".pdf")

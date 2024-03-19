@@ -4,7 +4,7 @@ import { CgCheck, CgExport } from 'react-icons/cg'
 import { FaCheck, FaPrint } from 'react-icons/fa6'
 import { IoRefresh } from 'react-icons/io5'
 import { TableComp } from '../../minComp'
-import { useGetManifests } from '../../../apiHandlers/getApis'
+import { useGetData } from '../../../apiHandlers/getApis'
 import { serverUrl } from '../../../constants'
 import { useDownloader } from '../../../apiHandlers/getApis'
 
@@ -42,7 +42,7 @@ const TableRow = (m) => {
 }
 
 export default function ManifestPrint() {
-    const [err, loading, manifests] = useGetManifests()
+    const [err, loading, manifests] = useGetData("manifest")
     return (
         <>
             <div className={style.formContainer}>

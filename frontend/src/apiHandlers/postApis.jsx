@@ -2,115 +2,30 @@ import { message } from "antd"
 import { serverUrl } from "../constants"
 import { FaSlideshare } from "react-icons/fa"
 
-export const usePostBooking = async (booking) => {
+export const usePostData = async (data,endPoint) => {
     try {
-        const res = await fetch(serverUrl + "booking", {
+        const res = await fetch(serverUrl + endPoint, {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(booking)
+            body: JSON.stringify(data)
         })
         const res_json = await res.json()
         if (res.status == 201) {
-            message.success("Booked Successfully")
-            return true
+            message.success(res_json.msg)
+            return {res:true,data:res_json.data}
+        } else if(res.status==500){
+            message.error(res_json.msg)
+            return {res:false}
         } else {
-            message.warning(res_json.msg)
+            message.warning(res_json.err)
+            return {res:false}
         }
-        if (res.status == 500) {
-            message.error(res_json.err)
-            return false
-        }
-        return false
     } catch (error) {
         message.error(error)
         console.log(error);
-        return false
-    }
-}
-
-export const usePostVendor = async (vendor) => {
-    console.log(vendor);
-    try {
-        const res = await fetch(serverUrl + "vendor", {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(vendor)
-        })
-        const data = await res.json()
-        if (res.status == 201) {
-            message.success("Vendor created successfully")
-            return data
-        }
-        if (res.status == 304) {
-            message.error(data.msg)
-            return null
-        }
-        if (res.status == 500) {
-            message.error("Internal server error: ", data.err)
-            return null
-        }
-    } catch (error) {
-        message.error(error)
-        return null
-    }
-}
-
-export const usePostManifest = async (manifest) => {
-    console.log(manifest)
-    try {
-        const res = await fetch(serverUrl + "manifest", {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(manifest)
-        })
-        const data = await res.json()
-        if (res.status == 201) {
-            message.success("Manifest created successfully")
-            return data
-        }
-        if (res.status == 203) {
-            message.error(data.msg)
-            return null
-        }
-        if (res.status == 404) {
-            message.error(data.msg || "not found")
-        }
-        if (res.status == 500) {
-            message.error("Internal server error: ", data.err)
-            return null
-        }
-    } catch (error) {
-        message.error(error)
-        return null
-    }
-}
-
-export const usePostClient = async (client) => {
-    try {
-        const res = await fetch(serverUrl + "client", {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(client)
-        })
-        const res_json = await res.json()
-        if (res.status == 201) {
-            message.success("Client created")
-        } else {
-            message.error(res_json.msg)
-        }
-        if (res.status == 500) {
-            message.error(res_json.err)
-        }
-    } catch (err) {
-        message.error(err)
+        return {res:false}
     }
 }
 

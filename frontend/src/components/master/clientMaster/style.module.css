@@ -67,6 +67,7 @@ input, select{
     flex-direction: column;
     justify-content: space-between;
     padding: 4px 0px;
+    gap: 10px;
 }
 
 .formContainer>div>div>input{

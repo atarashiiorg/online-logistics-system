@@ -7,7 +7,7 @@ async function createVendor(req,res){
     const result = await Vendor.create({...req.body, vendorCode})
     console.log(result);
     if(result)
-        res.status(201).json(result)
+        res.status(201).json({'msg':'success',data:result})
     else
         res.status(304).json({'msg':'something went wrong'})
  } catch (err) {
@@ -20,7 +20,7 @@ async function getVendors(req,res){
     try {
         const vendors = await Vendor.find()
         if(vendors){
-            res.status(200).json(vendors)
+            res.status(200).json({'msg':'success',data:vendors})
         } else {
             res.status(304).json({'msg':'something went wrong'})
         }
@@ -51,7 +51,7 @@ async function updateVendor(req,res){
         delete data?.createdAt
         delete data?.updatedAt
         const result = await Vendor.findOneAndUpdate({_id:req.query.vid},{...data},{new:true})
-        res.status(200).json({'msg':'success',vendor:result})
+        res.status(200).json({'msg':'success',data:result})
     } catch (err){
         res.status(500).json({'err':err})
     }

@@ -8,8 +8,9 @@ import { useContext, useState } from 'react'
 import { Docket, Mandatory } from '../../minComp/index'
 import UserAuthContext from '../../../contexts/authContext'
 import { serverUrl } from '../../../constants'
-import { useGetVendors } from '../../../apiHandlers/getApis'
-import { usePostManifest } from "../../../apiHandlers/postApis";
+import { useFetchDocketForManifest, useGetData } from '../../../apiHandlers/getApis'
+import { usePostData } from "../../../apiHandlers/postApis";
+import { message } from 'antd'
 
 export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, currBranch, branches, vendors }) {
     return (
@@ -42,10 +43,10 @@ export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, 
                     <label htmlFor="">From BCode <Mandatory /></label>
                     <input type="text" disabled value={currBranch.branchCode + ":" + currBranch.branchName || ""} />
                     <label htmlFor="">Vendor Name <Mandatory /></label>
-                    <input type="text" list='vendors' placeholder='Vendor Name' value = {manifest.vName} onInput={e => manifestHandler(e, "vendor")} />
+                    <input type="text" list='vendors' placeholder='Vendor Name' value={manifest.vName} onInput={e => manifestHandler(e, "vendor")} />
                     <datalist id='vendors'>
                         {
-                            vendors.map(v=><option key={v._id} value={v.vendorCode+" : "+v.ownerName}>{v.ownerName}</option>)
+                            vendors.map(v => <option key={v._id} value={v.vendorCode + " : " + v.ownerName}>{v.ownerName}</option>)
                         }
                     </datalist>
                 </div>
@@ -69,44 +70,55 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
         border: "1px solid"
     }
 
-    const setVal = (e, f) => {
-        setDocket(p => {
-            const obj = { ...p }
-            obj[f] = e.target.value
-            return obj
-        })
+    const [currDocket, setCurrDocket] = useState("")
+
+
+    const setVal = async(e) => {
+        if (e.keyCode == 13) {
+            const data = await useFetchDocketForManifest(currDocket)
+            console.log(data)
+            if(!data.err){
+                setDocket(data.data)
+            } else {
+                message.error(data?.err)
+            }
+            return
+        } else if(e.keyCode==8 || e.keyCode==46){
+            reset()
+            return
+        }
+        setCurrDocket(e.target.value)
     }
+
     return (
         <>
+        {console.log(currDocket)}
             <div className={style.formContainer}>
                 <p>AWB Details</p>
                 <div className={style.secondContainer}>
                     <div>
                         <label htmlFor="">Docket No</label>
-                        <input type="text" placeholder='Docket No' value={docket.docketNumber} onInput={e => setVal(e, "docketNumber")} />
+                        <input type="text" placeholder='Docket No' onKeyUp={setVal} />
                     </div>
                     <div>
                         <label htmlFor="">Item Content</label>
-                        <select onChange={e => setVal(e, "itemContent")}>
-                            <option value="doc">DOC</option>
-                            <option value="nondoc">NONDOC</option>
-                        </select>
+                        <input type="text" value={docket.itemContent} name="" id="" />
                     </div>
                     <div>
                         <label htmlFor="">Consignee</label>
-                        <input type="text" placeholder='Consignee' value={docket.consignee} onInput={e => setVal(e, "consignee")} />
+                        <input type="text" value={docket.consignee} placeholder='Consignee' />
                     </div>
                     <div>
                         <label htmlFor="">Destination</label>
-                        <input type="text" placeholder='Destination' value={docket.destination} onInput={e => setVal(e, "destination")} />
+                        <input type="text" value={docket.destination} placeholder='Destination' />
                     </div>
                     <div>
                         <label htmlFor="">Pcs</label>
-                        <input type="text" placeholder='Pcs' value={docket.pieces} onInput={e => setVal(e, "pieces")} />
+                        <input type="text" value={docket.pieces} placeholder='Pcs' />
                     </div>
                     <div>
                         <label htmlFor="">Actual Weight</label>
-                        <input type="text" placeholder='0.00' value={docket.weight} onInput={e => setVal(e, "weight")} />
+                        <input type="text" value={docket.weight} placeholder='0.00' />
                     </div>
                     <span>
                         <button className={style.buttonChk} onClick={e => addDocket()}><FaCheck /></button>
@@ -150,7 +162,7 @@ export function SearchManifest() {
 export default function ManifestDirect() {
     const [update, setUpdate] = useState(false)
     const { currBranch, branches } = useContext(UserAuthContext)
-    const [err, loading, vendors] = useGetVendors()
+    const [err, loading, vendors] = useGetData("vendor")
     const initialManifest = {
         toBCode: "",
         manifestNumber: "",
@@ -159,16 +171,18 @@ export default function ManifestDirect() {
         fromBCode: currBranch._id,
         vendor: "",
         dockets: [],
-        vName:""
+        vName: ""
     }
 
     const initialDocket = {
+        _id: "",
         docketNumber: "",
         date: "",
         origin: "",
         client: "",
         destination: "",
         consignee: "",
+        itemContent:"",
         pieces: 0,
         weight: 0,
         toPay: 0,
@@ -181,9 +195,9 @@ export default function ManifestDirect() {
     const manifestHandler = (e, f) => {
         setManifest(p => {
             const obj = { ...p }
-            if(f== "vendor"){
+            if (f == "vendor") {
                 const vCode = e.target.value.split(" : ")[0]
-                const idx = vendors.findIndex(v=>v.vendorCode==vCode)
+                const idx = vendors.findIndex(v => v.vendorCode == vCode)
                 obj.vendor = vendors[idx]?._id
                 obj.vName = e.target.value
                 return obj
@@ -243,23 +257,25 @@ export default function ManifestDirect() {
         setDocket,
         addDocket,
         deleteDocket,
-        reset: () => { setDocket(d) },
+        reset: () => { setDocket(initialDocket) },
         docketList: manifest.dockets
     } //props for awbform
 
-    const reset = ()=>{
+    const reset = () => {
         setManifest(initialManifest)
         setDocket(initialDocket)
     }
 
     const handleSave = async () => {
-        usePostManifest({...manifest, fromBCode:currBranch._id})
-        reset()
+        const res = await usePostData({ ...manifest, fromBCode: currBranch._id },"manifest")
+        if(res.res){
+            reset()
+        }
     } // api call for saving manifest data on the server
 
 
     return (
-        <>  
+        <>
             <ManifestForm  {...manifestProps} />
             <AwbForm {...awbProps} />
             <div className={style.actions}>

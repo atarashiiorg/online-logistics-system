@@ -9,7 +9,9 @@ import { serverUrl } from '../../../constants'
 import { message } from 'antd'
 import { Mandatory, TableComp } from '../../minComp'
 import UserAuthContext from '../../../contexts/authContext'
-import { usePostBooking, usePostBranch, usePostManifest } from '../../../apiHandlers/postApis'
+import { usePostData } from '../../../apiHandlers/postApis'
+import { usePatchData } from '../../../apiHandlers/patchApis'
+import { useGetData } from '../../../apiHandlers/getApis'
 
 const TableRow = ({ b, edit, editKey }) => {
     const style = {
@@ -35,8 +37,8 @@ const TableRow = ({ b, edit, editKey }) => {
             <td>{b?.allowedDispatch?.air ? "YES" : "NO"}</td>
             <td>{b?.allowedDispatch?.train ? "YES" : "NO"}</td>
             <td>{b?.allowedDispatch?.road ? "YES" : "NO"}</td>
-            <td>{b?.isHub}</td>
-            <td>{b?.hubBranch?.branchCode} : {b?.hubBranch?.branchName}</td>
+            <td>{b?.isHub?"YES":"NO"}</td> 
+            <td>{b?.isHub?" ":b?.hubBranch?.branchCode+" : "+b?.hubBranch?.branchName}</td>
             <td>{new Date(b?.createdAt).toDateString()}</td>
         </tr>
     )
@@ -44,6 +46,7 @@ const TableRow = ({ b, edit, editKey }) => {
 
 export default function BranchMaster() {
     const { branches, setBranches } = useContext(UserAuthContext)
+    const [err, loading, zones] = useGetData("zone")
     const [editMode, setEditMode] = useState(false)
     const [editKey, setEditKey] = useState("")
     const b = {
@@ -174,11 +177,11 @@ export default function BranchMaster() {
         if (!validate()) {
             return
         }
-        const r = usePostBranch(branch, false)
+        const r = await usePostData(branch,"branch")
         if(!r.res){
             return
         }
-        setBranches(p=>[...p,r.branch])
+        setBranches(p=>[...p,r.data])
         resetForm()
     }
 
@@ -194,16 +197,13 @@ export default function BranchMaster() {
         }
         const newBranch = { ...branch }
         delete newBranch._id
-        const r = await usePostBranch({branch:newBranch, id:editKey}, true)
+        const r = await usePatchData({...newBranch},"branch?bid="+editKey)
         if (!r.res) {
             return
         }
         let old_branches = [...branches]
-        console.log("purane wali -> ",old_branches)
         const idx = branches.findIndex(b=>b._id==editKey)
-        console.log("this is index ->",idx)
-        old_branches[idx] = {...r.branch}
-        console.log("after update->",old_branches)
+        old_branches[idx] = {...r.data}
         setBranches(p=>[...old_branches])
         setEditKey("")
         setEditMode(false)
@@ -242,7 +242,10 @@ export default function BranchMaster() {
 
                     <label htmlFor="">Zone</label>
                     <select onInput={e => handleBranch(e, "zone")}>
-                        <option value="">Dummy</option>
+                        <option value="">--Please Select a Zone--</option>
+                        {
+                            zones.map(z=><option value={z._id}>{z.zoneName}</option>)
+                        }
                     </select>
                     <label htmlFor="">IsHub</label>
                     <p><input type="checkbox" checked={branch?.isHub} onChange={e => handleBranch(e, "isHub")} /></p>

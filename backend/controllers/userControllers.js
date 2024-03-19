@@ -18,9 +18,9 @@ async function loginUser(req, res) {
         }
         if (user.password == req.body.password) {
             const token = jwt.sign({ _id: user._id }, process.env.JWT_KEY)
-            const nuser = { ...user._doc }
+            const n_user = { ...user._doc }
             delete nuser.password
-            res.status(200).json({ user: nuser, token: token })
+            res.status(200).json({ user: n_user, token: token })
         } else {
             res.status(401).json({ 'msg': 'invalid password' })
         }
@@ -30,53 +30,6 @@ async function loginUser(req, res) {
     }
 }
 
-async function createBooking(req, res) {
-    try {
-        const isValid = await isDocketValid(req.body.awbDetails.docketNumber)
-        if(!isValid.valid){
-            res.status(403).json({'msg':isValid.msg})
-            return
-        }
-        console.log(isValid.branch._id,req.body.branch);
-        if(isValid.branch._id!=req.body.branch){
-            res.status(403).json({'msg':'this shipper is not issued to this branch try changing branch'})
-            return
-        }
-
-        const isBooked = await isDocketBooked(req.body.awbDetails.docketNumber)
-        if(isBooked.booked){
-            res.status(409).json({'msg':isBooked.msg})
-            return
-        }
-
-        const invoice = await Invoice.create(req.body.billingDetails)
-        const shipment = await Shipment.create({
-            ...req.body.awbDetails,
-            ...req.body.dimWeight,
-            ...req.body.volWeight
-        })
-
-        const consignorConsignee = await ConsignorConsignee.create(req.body.consignorConsignee)
-        console.log(consignorConsignee);
-
-        const booking = await Booking.create({
-            ...req.body.awbDetails,
-            branch: req.body.branch,
-            invoice: invoice._id,
-            shipment: shipment._id,
-            consignorConsignee: consignorConsignee._id,
-            client: req.body.client
-        })
-        res.status(201).json({'msg':'success'})
-    } catch (err) {
-        if (err.code == 11000) {
-            res.status(409).json({'msg':'this docket number already booked'})
-            return
-        }
-        res.status(500).json({'err':err})
-        console.log(err);
-    }
-}
 
 async function trackAwb(req, res) {
     try {
@@ -111,55 +64,8 @@ async function trackAwb(req, res) {
     }
 }
 
-async function shipperIssueToBranch(req, res) {
-    try {
-        const branchCode = req.body.issuedTo
-        const docketFrom = req.body.docketFrom
-        const docketTo = req.body.docketTo
-        const issueDate = req.body.issueDate
-        const receivedBy = req.body.receivedBy
-
-        const isValid = await isShipperSeriesValid(docketFrom, docketTo)
-        if(!isValid.valid){
-            res.status(403).json({'msg':isValid.msg})
-            return
-        }
-
-        const isIssued = await isShipperIssuedAlready(docketFrom,docketTo)
-        if(!isIssued.issued){
-            res.status(409).json({'msg':isIssued.msg})
-            return
-        }
-
-        const result = await Branch.updateOne(
-            { branchCode },
-            {
-                $push: {
-                    shippers: {
-                        docketFrom,
-                        docketTo,
-                        issueDate,
-                        receivedBy
-                    }
-                }
-            }
-        )
-
-        if (result.modifiedCount > 0) {
-            res.status(200).json({'msg':'success'})
-            return
-        }
-        res.status(304).end()
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({'err':err})
-    }
-}
-
 
 module.exports = {
     loginUser,
-    createBooking,
-    shipperIssueToBranch,
     trackAwb
 }

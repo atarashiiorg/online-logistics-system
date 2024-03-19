@@ -2,8 +2,6 @@ const { createManifest, getManifests } = require("../controllers/manifestControl
 const path = require("path")
 const { 
     loginUser, 
-    createBooking,
-    shipperIssueToBranch,
     trackAwb,
 } = require("../controllers/userControllers")
 const {
@@ -27,8 +25,20 @@ const {
 } = require("../controllers/vendorControllers")
 const { 
     receiveShipperFromPrinting, 
-    sendShipperForPrinting 
+    sendShipperForPrinting,
+    shipperIssueToBranch
 } = require("../controllers/shipperControllers")
+
+const {
+    createBooking, getBooking
+} = require("../controllers/bookingControllers")
+const { 
+    createState,
+    getState,
+    updateState
+} = require("../controllers/stateControllers")
+const { getZone, createZone, updateZone } = require("../controllers/zoneControllers")
+const { getDestination, createDestination, updateDestination } = require("../controllers/destinationControllers")
 
 const userRoutes = require("express")()
 
@@ -42,8 +52,8 @@ const authorize = (req,res,next)=>{
 
 userRoutes.post("/login", loginUser)
 
-userRoutes.use("/sendshipper",authorize)
-userRoutes.route("/sendshipper")
+userRoutes.use("/shipper",authorize)
+userRoutes.route("/shipper")
 .get(receiveShipperFromPrinting)
 .post(sendShipperForPrinting)
 
@@ -53,6 +63,7 @@ userRoutes.route("/issueshippertobranch")
 
 userRoutes.use("/booking",authorize)
 userRoutes.route("/booking")
+.get(getBooking)
 .post(createBooking)
 
 userRoutes.route("/track")
@@ -87,4 +98,23 @@ userRoutes.route("/manifest")
 userRoutes.get("/run",(req,res)=>{
     res.sendFile(path.resolve("views/runsheet.html"))
 })
+
+userRoutes.use("/state",authorize)
+userRoutes.route("/state")
+.get(getState)
+.post(createState)
+.patch(updateState)
+
+userRoutes.use("/zone",authorize)
+userRoutes.route("/zone")
+.get(getZone)
+.post(createZone)
+.patch(updateZone)
+
+userRoutes.use("/dest",authorize)
+userRoutes.route("/dest")
+.get(getDestination)
+.post(createDestination)
+.patch(updateDestination)
+
 module.exports = userRoutes

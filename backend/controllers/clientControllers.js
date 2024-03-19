@@ -6,10 +6,9 @@ async function createClient(req,res){
         const clientCode = await getNewClientCode()
         const result = await Client.create({clientCode,...req.body.client})
         console.log(result);
-        res.status(200).end()
+        res.status(201).json({'msg':'success',data:result})
     } catch (err){
-        console.log(err);
-        res.status(500).end()
+        res.status(500).json({err})
     }
 }
 
@@ -19,7 +18,7 @@ async function getClients(req,res){
         const response = result.map(r=>{
             return {...r._doc,docketCharge:r?.clientChargeDetails[0]?.docketCharge||0}
         })
-        res.status(200).json(response)
+        res.status(200).json({'msg':'success',data:response})
     } catch (err) {
         res.status(500).json({'err':err})
     }
@@ -46,7 +45,7 @@ async function updateClient(req,res){
         delete data.createdAt
         delete data.updatedAt
         const client = await Client.findOneAndUpdate({_id:req.query.cid},{...data},{new:true})
-        res.status(200).json({'msg':'update success',client})
+        res.status(200).json({'msg':'update success',data:client})
     } catch (error) {
         res.status(500).json({'err':error})
     }   

@@ -4,35 +4,44 @@ import { BsFiletypeXls } from 'react-icons/bs'
 import { FaArrowRotateLeft, FaDeleteLeft, FaXmark } from 'react-icons/fa6'
 import { TableTotalFound } from '../../forms/manifestPrint'
 import { SearchManifest } from '../../forms/manifestDirect'
-import { useState, useEffect } from 'react'
-import { Mandatory } from '../../minComp'
+import { useState, useEffect, useContext } from 'react'
+import { Mandatory, TableComp } from '../../minComp'
 import { serverUrl } from '../../../constants'
 import { message } from 'antd'
-import { useGetBranches, useGetClients } from '../../../apiHandlers/getApis'
-import { usePostClient } from '../../../apiHandlers/postApis'
+import { useGetData } from '../../../apiHandlers/getApis'
+import { usePostData } from '../../../apiHandlers/postApis'
+import UserAuthContext from '../../../contexts/authContext'
+import { usePatchData } from '../../../apiHandlers/patchApis'
 
-const ClientListRow = ({c,i}) => {
+const ClientListRow = (props) => {
+    const btnStyle = {
+        fontSize:'20px',
+        color:"blueviolet"
+    }
+    if(props.editKey==props.data?._id){
+        btnStyle.color = "green"
+    }
     return (
         <tr>
-            <td><FaUserEdit/></td>
-            <td>{c.clientCode}</td>
-            <td>{c.clientName}</td>
-            <td>{c.state}</td>
-            <td>{c.city}</td>
-            <td>{c.phone}</td>
-            <td>{c.address}</td>
-            <td>{c.pincode}</td>
-            <td>{c.fovCharge}</td>
-            <td>{c.fovPercentage}</td>
-            <td>{c.docketCharge}</td>
-            <td>{c.airMinWeight}</td>
-            <td>{c.trainMinWeight}</td>
-            <td>{c.roadMinWeight}</td>
-            <td>{c.gstNo}</td>
-            <td>{c.isActive?"YES":"NO"}</td>
-            <td>{c.isShipperValid?"YES":"NO"}</td>
-            <td>{c.autoEmails.join(",")}</td>
-            <td>{new Date(c.createdAt).toDateString()}</td>
+            <td><FaUserEdit style={btnStyle} onClick={e=>props.edit(props.data)}/></td>
+            <td>{props.data?.clientCode}</td>
+            <td>{props.data?.clientName}</td>
+            <td>{props.data?.state}</td>
+            <td>{props.data?.city}</td>
+            <td>{props.data?.phone}</td>
+            <td>{props.data?.address}</td>
+            <td>{props.data?.pincode}</td>
+            <td>{props.data?.fovCharge}</td>
+            <td>{props.data?.fovPercentage}</td>
+            <td>{props.data?.docketCharge}</td>
+            <td>{props.data?.airMinWeight}</td>
+            <td>{props.data?.trainMinWeight}</td>
+            <td>{props.data?.roadMinWeight}</td>
+            <td>{props.data?.gstNo}</td>
+            <td>{props.data?.isActive?"YES":"NO"}</td>
+            <td>{props.data?.isShipperValid?"YES":"NO"}</td>
+            <td>{props.data?.autoEmails.join(",")}</td>
+            <td>{new Date(props.data?.createdAt).toDateString()}</td>
         </tr>
     )
 }
@@ -112,8 +121,9 @@ export default function ClientMaster() {
     const [fuel, setFuel] = useState(initialFuel)
     const [charge, setCharge] = useState(initialCharge)
     const [mode, setMode] = useState(initialModeType)
-    const [err, loading, branches] = useGetBranches()
-    const [error, loadingClients, clientList] = useGetClients()
+    const {branches} = useContext(UserAuthContext)
+    const [error, loading, clientList, setClientList] = useGetData("client")
+    const [editKey, setEditKey] = useState("")
 
     const handleClient = (e, field) => {
         setClient(p => {
@@ -157,39 +167,37 @@ export default function ClientMaster() {
 
     const resetForm = () => {
         setClient(intialClient)
+        setEditKey("")
     }
 
-    const handleSave = () => {
-        usePostClient({client, clienChrages})
+    const edit = (data)=>{
+        setEditKey(data._id)
+        setClient(data)
     }
-    // useEffect(() => {
-    //     (async () => {
-    //         try {
-    //             const res = await fetch(serverUrl + "client")
-    //             if (res.status == 304) {
-    //                 message.warning("Something went wrong while fetching clients data")
-    //                 return
-    //             }
-    //             if (res.status == 500) {
-    //                 message.error("Internal server error occured")
-    //                 return
-    //             }
-    //             if (res.status == 404) {
-    //                 message.warning("Resource not found")
-    //                 return
-    //             }
-    //             const data = await res.json()
-    //             setClientList([...data])
-    //         } catch (err) {
-    //             message.error(err)
-    //             return
-    //         }
-    //     })()
-    // }, [])
 
+    const handleSave = async() => {
+        const res = await usePostData({client, clienChrages},"client")
+        if(!res.res){
+            return
+        }
+        resetForm()
+    }
+
+    const handleEdit = async()=>{
+        const res  = await usePatchData(client,"client?cid="+editKey)
+        if(!res.res){
+            return
+        }
+        const newArr = [...clientList]
+        const idx = newArr.findIndex(c=>c._id==editKey)
+        newArr[idx] = res.data
+        setClientList(p=>[...newArr])
+        setEditKey("")
+        resetForm()
+    }
+  
     return (
         <>
-            {console.log(client.autoEmails)}
             <div className={style.formContainer}>
                 <p>Client Master</p>
                 <div>
@@ -454,12 +462,12 @@ export default function ClientMaster() {
             </div>
 
             <div className={style.actions}>
-                <button className={style.buttonChk} onClick={handleSave}><FaCheck /> Save</button>
+                <button className={style.buttonChk} onClick={editKey==""?handleSave:handleEdit}><FaCheck /> {editKey==""?"Save":"Update"}</button>
                 <button className={style.buttonExp}><BsFiletypeXls /> Export</button>
                 <button className={style.buttonRef} onClick={resetForm}><FaArrowRotateLeft /> Reset</button>
             </div>
 
-            <div className={style.tableContainer}>
+            <TableComp>
                 <p>Clients</p>
                 <div>
                     <table>
@@ -489,7 +497,7 @@ export default function ClientMaster() {
                         <tbody>
                             {
                                 clientList.length > 0 ?
-                                    clientList.map((c, i) => <ClientListRow c={c} i={i} />) :
+                                    clientList.map((c, i) => <ClientListRow key={c+i} data={c} edit={edit} editKey={editKey} />) :
                                     <tr>
                                         <td colSpan={19} style={{textAlign:"center"}}>No data available</td>
                                     </tr>
@@ -497,7 +505,7 @@ export default function ClientMaster() {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </TableComp>
         </>
     )
 }

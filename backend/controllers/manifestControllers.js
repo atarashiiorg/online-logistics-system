@@ -55,6 +55,21 @@ async function getManifests(req, res) {
                 totalpieces += +m.pieces
                 return
             })
+            const dockets = manifest.dockets.map(d=>{
+                return {
+                    docketNumber: d?.docketNumber,
+                    date: d?.dDate,
+                    origin: d?.shipment?.origin?.destName,
+                    client: d?.invoice?.clientName,
+                    destination: d?.shipment?.destination?.destName,
+                    consignee: d?.consignorConsignee?.consignee,
+                    pieces: d?.shipment?.totalBoxes || 0,
+                    weight: d?.shipment?.totalActualWeight || 0.0,
+                    toPay: d?.invoice?.amountToPay || 0.0,
+                    cod: d?.invoice?.codAmount || 0.0
+                }
+            })
+            
             const dataObj = {
                 printedAt: new Date().toDateString(),
                 data: manifest.dockets,
@@ -74,9 +89,10 @@ async function getManifests(req, res) {
             console.log(dataObj)
 
             const file = await generateManifestPdf(dataObj,manifest.manifestNumber) 
-            res.set("content-disposition",{"filename":manifest.manifestNumber+".pdf"})
-            res.download(file,()=>{
-                console.log("downloaded");
+            res.download(file,manifest.manifestNumber+".pdf",()=>{
+                fs.unlink("files/"+manifest.manifestNumber+".pdf",(err)=>{
+                    console.log("downloaded");
+                })
             })
             return
         }
@@ -90,7 +106,7 @@ async function getManifests(req, res) {
         const manifests = await Manifest.find({})
                                 .populate("fromBCode")
                                 .populate("toBCode")
-        res.status(200).json({ 'msg': 'success', manifests })
+        res.status(200).json({ 'msg': 'success', data:manifests })
     } catch (err) {
         console.log(err)
         res.status(500).json({ 'err': err })

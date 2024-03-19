@@ -5,12 +5,47 @@ import { FaArrowRotateLeft } from 'react-icons/fa6'
 import { SearchManifest } from '../../forms/manifestDirect'
 import { TableTotalFound } from '../../forms/manifestPrint'
 import { useState } from 'react'
-import { usePostVendor } from '../../../apiHandlers/postApis'
+import { usePostData } from '../../../apiHandlers/postApis'
 import { Mandatory, TableComp } from '../../minComp'
-import { useGetVendors } from '../../../apiHandlers/getApis'
+import { useGetData } from '../../../apiHandlers/getApis'
+import { usePatchData } from '../../../apiHandlers/patchApis'
+import { useDeleteData } from '../../../apiHandlers/deleteApis'
+import { message } from 'antd'
+
+
+const TableRow = (props)=>{
+    const btnStyle = {
+        fontSize:"20px",
+        color:"blueviolet"
+    }
+    if(props.editKey==props.data._id)[
+        btnStyle.color="green"
+    ]
+    return (
+        <tr>
+            <td><FaEdit style={btnStyle} onClick={e=>props.edit(props?.data)}/></td>
+            <td><FaTrashAlt style={{fontSize:"20px", color:"red"}} onClick={e=>props.delete(props.data?._id)}/></td>
+            <td>{props.data.ownerName}</td>
+            <td>{props.data?.vehicleType}</td>
+            <td>{props.data.vehicleNumber}</td>
+            <td>{props.data.chasisNumber}</td>
+            <td>{props.data.engineNumber}</td>
+            <td>{props.data.rcNumber}</td>
+            <td>{props.data.vehiclePermit}</td>
+            <td>{props.data.insuranceCompanyName}</td>
+            <td>{props.data.ownerName}</td>
+            <td>{props.data.panNumber}</td>
+            <td>{props.data.ownerPanName}</td>
+            <td>{props.data.insuranceValidity}</td>
+            <td>{props.data.fitnessValidity}</td>
+            <td>{props.data.isActive?"YES":"NO"}</td>
+        </tr>
+    )
+}
+
 
 export default function VendorVehicleMaster() {
-    const [err, loading, vendors] = useGetVendors()
+    const [err, loading, vendors, setVendors] = useGetData("vendor")
     const initialVendor = {
         vehicleNumber: "",
         vehicleType: "",
@@ -28,6 +63,7 @@ export default function VendorVehicleMaster() {
     }
 
     const [vendor, setVendor] = useState(initialVendor)
+    const [editKey, setEditKey] = useState("")
 
     const setVal = (e, f) => {
         setVendor(p => {
@@ -41,8 +77,47 @@ export default function VendorVehicleMaster() {
         })
     }
 
-    const handleSave = () => {
-        usePostVendor(vendor)
+    const resetForm = ()=>{
+        setVendor(initialVendor)
+        setEditKey("")
+    }
+
+    const edit = (data)=>{
+        setVendor(data)
+        setEditKey(data._id)
+    }
+
+    const handleSave = async() => {
+        const res = await usePostData(vendor,"vendor")
+        if(!res.res){
+            return
+        }
+        setVendors(p=>[...p, res.data])
+        resetForm()
+    }
+
+    const handleEdit = async()=>{
+        const res = await usePatchData(vendor,"vendor?vid="+editKey)
+        if(!res.res){
+            return
+        }
+        const newArr = [...vendors]
+        const idx = newArr.findIndex(v=>v._id==editKey)
+        newArr[idx] = {...res.data}
+        setVendors(p=>[...newArr])
+        setEditKey("")
+        resetForm()
+    }
+
+    const handleDelete = async(id)=>{
+        const res = await useDeleteData("vendor?vid="+id)
+        if(!res.res){
+            message.error(res.err)
+            return
+        } 
+        const newArr = vendors.filter(v=>v._id!=id)
+        setVendors(p=>[...newArr])
+        message.success("Deleted successfully")
     }
     return (
         <>
@@ -88,11 +163,11 @@ export default function VendorVehicleMaster() {
             </div>
 
             <div className={style.actions}>
-                <button className={style.buttonChk} onClick={handleSave}><FaCheck /> Save</button>
+                <button className={style.buttonChk} onClick={editKey==""?handleSave:handleEdit}><FaCheck /> {editKey==""?"Save":"Update"}</button>
                 <button className={style.buttonExp}><BsFiletypeXls /> Export</button>
                 <button className={style.buttonRef} onClick={e => setVendor(initialVendor)}><FaArrowRotateLeft /> Reset</button>
             </div>
-            <SearchManifest />
+    
             <TableComp>
                 <p>Vendors</p>
                 <div>
@@ -120,29 +195,7 @@ export default function VendorVehicleMaster() {
                         <tbody>
                             {
                                 vendors.length > 0 ?
-                                    vendors.map(v => {
-                                        return (
-                                            <tr>
-                                                <td><FaEdit /></td>
-                                                <td><FaTrashAlt /></td>
-                                                <td>{v.ownerName}</td>
-                                                <td>{v?.vehicleType}</td>
-                                                <td>{v.vehicleNumber}</td>
-                                                <td>{v.chasisNumber}</td>
-                                                <td>{v.engineNumber}</td>
-                                                <td>{v.rcNumber}</td>
-                                                <td>{v.vehiclePermit}</td>
-                                                <td>{v.insuranceCompanyName}</td>
-                                                <td>{v.ownerName}</td>
-                                                <td>{v.panNumber}</td>
-                                                <td>{v.ownerPanName}</td>
-                                                <td>{v.insuranceValidity}</td>
-                                                <td>{v.fitnessValidity}</td>
-                                                <td>{v.isActive?"YES":"NO"}</td>
-                                            </tr>
-                                        )
-                                    })
-                                    :
+                                    vendors.map(v=><TableRow data={v} edit={edit} editKey={editKey} delete={handleDelete} />):
                                     <tr>
                                         <td colSpan={17} style={{ textAlign: "center" }}>No Data available</td>
                                     </tr>

@@ -7,12 +7,13 @@ import {message} from 'antd'
 import {serverUrl} from '../../../constants'
 import UserAuthContext from '../../../contexts/authContext'
 import {Mandatory} from '../../minComp'
-import { useGetClients } from '../../../apiHandlers/getApis'
-import { usePostBooking } from '../../../apiHandlers/postApis'
+import { useGetData } from '../../../apiHandlers/getApis'
+import { usePostData } from '../../../apiHandlers/postApis'
 
 export default function BookingEntry() {
     const {currBranch} = useContext(UserAuthContext)
-    const [err, loading, clients] = useGetClients()
+    const [err, loading, clients] = useGetData("client")
+    const [err1, loading1, dests] = useGetData("dest")
     const [client, setClient] = useState("")
     const {branches} = useContext(UserAuthContext)
     const initialAwbDetails = {
@@ -72,7 +73,13 @@ export default function BookingEntry() {
             const obj = {...p}
             if(field=="bookingDate"){
                 obj[field] = e.target.valueAsDate
-            } else {
+            } else if(field=="origin" || field=='destination'){
+                const dCode = e.target.value.split(" : ")[0]
+                const idx = dests.findIndex(b=>b.destCode==dCode)
+                obj[field] = dests[idx]?._id
+                console.log(obj);
+                return obj
+            } else{
                 obj[field] = e.target.value
             }
             return obj
@@ -180,8 +187,8 @@ export default function BookingEntry() {
             volWeight,
             dimWeight
         }
-
-        if(usePostBooking(booking)){
+        const res = await usePostData(booking,"booking")
+        if(res.res){
             resetForm()
         }
     }
@@ -192,27 +199,42 @@ export default function BookingEntry() {
 
     return (
         <>
+        {
+            console.log(awbDetails)
+        }
             <div className={style.formContainer}>
                 <p>AWB Details</p>
                 <div>
                     <label htmlFor="">Docket No. <Mandatory/></label>
                     <input type="text" placeholder='Docket No' value={awbDetails.docketNumber} onInput={e=>handleAwbDetails(e,"docketNumber")}/>
                     <label htmlFor="">Origin <Mandatory/></label>
-                    <input type="text" placeholder='Origin' value={awbDetails.origin} onInput={e=>handleAwbDetails(e,"origin")}/>
+                    <input type="text" list='origin' placeholder='Origin' onInput={e=>handleAwbDetails(e,"origin")}/>
+                    <datalist id='origin'>
+                        {
+                            dests.map(b=><option value={b.destCode+" : "+b.destName}>{b.destCode} : {b.destName}</option>)
+                        }
+                    </datalist>
                     <label htmlFor="">Mode <Mandatory/></label>
                     <select  onInput={e=>handleAwbDetails(e,"mode")}>
-                        <option value="null">--SELECT MODE--</option>
+                        <option value="">--SELECT MODE--</option>
                         <option value="surface">SURFACE</option>
                     </select>
 
                     <label htmlFor="">Booking Date <Mandatory/></label>
                     <input type="date" onInput={e=>handleAwbDetails(e,"bookingDate")} />
                     <label htmlFor="">Destination <Mandatory/></label>
-                    <input type="text" placeholder='Destination' value={awbDetails.destination} onInput={e=>handleAwbDetails(e,"destination")}/>
+                    <input type="text" list='dest' placeholder='Destination' onInput={e=>handleAwbDetails(e,"destination")}/>
+                    <datalist id='dest'>
+                        {
+                            dests.map(b=><option value={b.destCode+" : "+b.destName}>{b.destCode} : {b.destName}</option>)
+                        }
+                    </datalist>
                     <label htmlFor="">Customer type</label>
                     <select onInput={e=>handleAwbDetails(e,"customerType")}>
-                        <option value="null">--SELECT CLIENT TYPE--</option>
+                        <option value="">--SELECT CLIENT TYPE--</option>
                         <option value="contractual">CONTRACTUAL CLIENT</option>
+                        <option value="toPay">ToPay</option>
+                        <option value="cash">Cash</option>
                     </select>
 
                     <label htmlFor="">isODA</label>
@@ -254,14 +276,14 @@ export default function BookingEntry() {
                     <input type="text" placeholder='E-way Bill No' value={billingDetails.ewayBillNo} onInput={e=>handleBillingDetails(e,"ewayBillNo")}/>
                     <label htmlFor="">Item Content</label>
                     <select onInput={e=>handleBillingDetails(e,"itemContent")}>
-                        <option value="null">--SELECT ITEM CONTENT--</option>
+                        <option value="">--SELECT ITEM CONTENT--</option>
                         <option value="nondoc">NONDOC : NON DOCUMENT</option>
                         <option value="doc">DOC: DOCUMENT</option>
                     </select>
 
                     <label htmlFor="">Booking Type</label>
                     <select onInput={e=>handleBillingDetails(e,"bookingType")}>
-                        <option value="null">--SELECT BOOKING TYPE--</option>
+                        <option value="">--SELECT BOOKING TYPE--</option>
                         <option value="credit">CREDIT</option>
                         <option value="topay">TOPAY</option>
                         <option value="cash">CASH</option>
@@ -273,7 +295,7 @@ export default function BookingEntry() {
 
                     <label htmlFor="">COD Type</label>
                     <select onInput={e=>handleBillingDetails(e,"codType")}>
-                        <option value="null">--SELECT COD TYPE--</option>
+                        <option value="">--SELECT COD TYPE--</option>
                         <option value="noncod">NON COD</option>
                         <option value="cod" >COD</option>
                     </select>

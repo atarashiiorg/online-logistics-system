@@ -14,7 +14,6 @@ async function isDocketValid(docket){
                 }
             }
         })
-        // console.log("found branch->",res_doc);
         if(res_doc){
             return {valid:true,msg:docket + " is issued to "+res_doc.branchName+" branch",'branch':res_doc}
         } else {
@@ -29,7 +28,6 @@ async function isDocketValid(docket){
 async function isDocketBooked(docket){
     try {
         const res_doc = await Booking.findOne({docketNumber:docket})
-        // console.log("docket booked->",res_doc);
         if(res_doc){
             return {booked:true,'msg':'docket '+docket+' is booked'}
         } else {
@@ -83,6 +81,52 @@ async function receiveShipperFromPrinting(req, res) {
     }
 }
 
+async function shipperIssueToBranch(req, res) {
+    try {
+        const branchCode = req.body.issuedTo
+        const docketFrom = req.body.docketFrom
+        const docketTo = req.body.docketTo
+        const issueDate = req.body.issueDate
+        const receivedBy = req.body.receivedBy
+
+        const isValid = await isShipperSeriesValid(docketFrom, docketTo)
+        if(!isValid.valid){
+            res.status(403).json({'msg':isValid.msg})
+            return
+        }
+
+        const isIssued = await isShipperIssuedAlready(docketFrom,docketTo)
+        if(!isIssued.issued){
+            res.status(409).json({'msg':isIssued.msg})
+            return
+        }
+
+        const result = await Branch.updateOne(
+            { branchCode },
+            {
+                $push: {
+                    shippers: {
+                        docketFrom,
+                        docketTo,
+                        issueDate,
+                        receivedBy
+                    }
+                }
+            }
+        )
+
+        if (result.modifiedCount > 0) {
+            res.status(200).json({'msg':'success'})
+            return
+        }
+        res.status(304).end()
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({'err':err})
+    }
+}
+
+
 async function isShipperSeriesValid(docketFrom, docketTo){
     try {
         const shipper = await Shipper.findOne({docketFrom,docketTo})
@@ -125,5 +169,6 @@ module.exports = {
     sendShipperForPrinting,
     receiveShipperFromPrinting,
     isShipperSeriesValid,
-    isShipperIssuedAlready
+    isShipperIssuedAlready,
+    shipperIssueToBranch
 }
