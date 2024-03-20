@@ -8,6 +8,7 @@ export default function UserAuthState(props){
     const [docketTracking, setDocketTracking] = useState({show:false})
     const [err, loading, branches, setBranches] = useGetBranches()
     const [currBranch, setCurrBranch] = useState("null")
+    const [docket, setDocket] = useState("")
 
     return (
         <UserAuthContext.Provider value={
@@ -19,7 +20,9 @@ export default function UserAuthState(props){
                 docketTracking, 
                 setDocketTracking,
                 branches,
-                setBranches
+                setBranches,
+                docket,
+                setDocket
             }
         } >
             {

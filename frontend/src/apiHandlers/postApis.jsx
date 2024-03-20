@@ -16,10 +16,10 @@ export const usePostData = async (data,endPoint) => {
             message.success(res_json.msg)
             return {res:true,data:res_json.data}
         } else if(res.status==500){
-            message.error(res_json.msg)
+            message.error(res_json.err)
             return {res:false}
         } else {
-            message.warning(res_json.err)
+            message.warning(res_json.msg)
             return {res:false}
         }
     } catch (error) {

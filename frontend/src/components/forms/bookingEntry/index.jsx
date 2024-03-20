@@ -94,7 +94,7 @@ export default function BookingEntry() {
                 val = val.split(" : ")[0]
                 const idx = clients.findIndex(c=>c.clientCode==val)
                 setClient(p=>clients[idx]?._id || "")
-                obj.clientName = e.target.value
+                obj.clientName = e.target.value.split(" : ")[1]
                 return obj
             }
             obj[field] = e.target.value

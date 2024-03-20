@@ -323,7 +323,7 @@ export default function ClientMaster() {
                         <button className={style.buttonRef}><FaXmark /></button>
                     </div>
                 </div>
-                <table className={style.table}>
+                {/* <table className={style.table}>
                     <thead>
                         <tr>
                             <th>Delete</th>
@@ -333,7 +333,7 @@ export default function ClientMaster() {
                     </thead>
                     <tbody>
                     </tbody>
-                </table>
+                </table> */}
             </div>
 
             <div className={style.formContainer}>
@@ -365,7 +365,7 @@ export default function ClientMaster() {
                     </div>
                 </div>
 
-                <table className={style.table}>
+                {/* <table className={style.table}>
                     <thead>
                         <tr>
                             <th>Delete</th>
@@ -378,7 +378,7 @@ export default function ClientMaster() {
                     </thead>
                     <tbody>
                     </tbody>
-                </table>
+                </table> */}
 
             </div>
 
@@ -407,7 +407,7 @@ export default function ClientMaster() {
                     </div>
                 </div>
 
-                <table className={style.table}>
+                {/* <table className={style.table}>
                     <thead>
                         <tr>
                             <th>Delete</th>
@@ -421,7 +421,7 @@ export default function ClientMaster() {
                     </thead>
                     <tbody>
                     </tbody>
-                </table>
+                </table> */}
             </div>
 
             <div className={style.formContainer}>
@@ -446,7 +446,7 @@ export default function ClientMaster() {
                         <button className={style.buttonRef}><FaXmark /></button>
                     </div>
                 </div>
-
+                {/* 
                 <table className={style.table}>
                     <thead>
                         <tr>
@@ -458,7 +458,7 @@ export default function ClientMaster() {
                     </thead>
                     <tbody>
                     </tbody>
-                </table>
+                </table> */}
             </div>
 
             <div className={style.actions}>

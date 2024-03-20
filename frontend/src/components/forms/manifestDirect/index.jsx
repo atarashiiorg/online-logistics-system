@@ -224,7 +224,7 @@ export default function ManifestDirect() {
         //validation
         setManifest(p => {
             const dockets = [...p.dockets]
-            dockets.push(docket)
+            dockets.push({...docket, booking:docket._id})
             return { ...p, dockets }
         })
         setDocket(initialDocket)

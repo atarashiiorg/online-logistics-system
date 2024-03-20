@@ -10,12 +10,25 @@ import { IoDocumentOutline } from "react-icons/io5"
 import { IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from 'react-icons/io'
 import { Link, useNavigate } from 'react-router-dom'
 
-const DashboardItem = ({ icon, title, dropdown }) => {
+const DashboardItem = ({ icon, title, dropdown, index, active, setActive }) => {
     const [showList, setVisibility] = useState(false)
-    const navigate = useNavigate()
+    const navigate = useNavigate() 
+    const [activeOp, setActiveOp] = useState(-1)
+    const show=()=>{
+        setActive(index)
+        setVisibility(p => !p)
+    }
+
+    const setThisActive=(i)=>{
+        setActive(index)
+        if(index==active){
+            console.log("setting op");
+            setActiveOp(i)
+        }
+    }
     return (
         <div>
-            <div className={style.d_item} onClick={e => dropdown.length > 0 ? setVisibility(p => !p) : navigate("/dashboard")}>
+            <div className={active==index?style.d_item_active:style.d_item} onClick={e => dropdown.length > 0 ? show() : navigate("/dashboard")}>
                 {icon}
                 <span>{title}</span>
                 {dropdown.length <= 0
@@ -26,11 +39,11 @@ const DashboardItem = ({ icon, title, dropdown }) => {
                 }
             </div>
             {
-                showList ?
+                showList&&active==index ?
                     dropdown.map((op, i) => {
                         return (
-                            <Link to={op.path} key={op + i}>
-                                <div className={style.ds_item}>
+                            <Link onClick={e=>setThisActive(i)} to={op.path} key={op + i}>
+                                <div className={activeOp==i?style.ds_item_active:style.ds_item}>
                                     {op.value}
                                 </div>
                             </Link>
@@ -311,10 +324,12 @@ export default function SideBar() {
             dropdown: imported
         }
     ]
+
+    const [active, setActive] = useState(-1)
     return (
         <div className={style.container}>
             {
-                sideBarOptions.map((op, i) => <DashboardItem {...op} key={op + i} />)
+                sideBarOptions.map((op, i) => <DashboardItem {...op} key={op + i} index={i} active={active} setActive={setActive} />)
             }
         </div>
     )

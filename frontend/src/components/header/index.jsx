@@ -51,7 +51,7 @@ export default function Header() {
             <div className={style.right}>
                 <div className={style.c1}>
                     <input type="text" value={searchQuery} onInput={e=>setSearchQuery(p=>e.target.value)} placeholder='Search AWB No.'/>
-                    <IoSearchSharp style={{fontSize:"22px"}} onClick={e=>{handleSearch()}}/>
+                    <IoSearchSharp style={{fontSize:"22px"}} className={style.searchIcon} onClick={e=>{handleSearch()}}/>
                 </div>
                 <div className={style.c1}>
                     <select onChange={selectBranch}>

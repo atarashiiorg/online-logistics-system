@@ -1,7 +1,22 @@
+import { useContext } from 'react';
 import { phone } from '../../../constants';
 import { BsFillTelephoneFill } from 'react-icons/bs';
+import { useNavigate, Link } from 'react-router-dom';
+import UserAuthContext from '../../../contexts/authContext';
+import { message } from 'antd';
 
-const UpperNavbar = () => {
+const UpperNavbar = (props) => {
+  const navigate = useNavigate()
+  const {docket, setDocket} = useContext(UserAuthContext)
+  const trackThis= ()=>{
+      if(docket.length<7){
+        message.warning("enter a valid docket number")
+        return
+      }
+      navigate("/track")
+  }
+
+  const track = props.track || trackThis
   return (
     <div
       style={{
@@ -47,6 +62,8 @@ const UpperNavbar = () => {
             borderRadius: '5px',
             outline: 'none',
           }}
+          value={docket}
+          onInput={e=>setDocket(e.target.value)}
         />
         <button
           style={{
@@ -58,6 +75,7 @@ const UpperNavbar = () => {
             borderRadius: '5px',
             cursor: 'pointer',
           }}
+          onClick={track}
         >
           Track
         </button>
@@ -70,6 +88,7 @@ const UpperNavbar = () => {
             borderRadius: '5px',
             cursor: 'pointer',
           }}
+          onClick={e=>navigate("/login")}
         >
           Login
         </button>

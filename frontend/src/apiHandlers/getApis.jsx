@@ -38,14 +38,14 @@ export const useGetBranches = () => {
     return [err, loading, branches, setBranches]
 }
 
-export const useGetData = (url) => {
+export const useGetData = (url, dependency) => {
     const [data, setData] = useState([])
     const [err, setErr] = useState(null)
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         fetchData(setErr, setLoading, setData, url)
-    }, [])
+    }, [...dependency || ""])
 
     return [err, loading, data, setData]
 }

@@ -28,7 +28,7 @@ async function createManifest(req, res) {
         }
 
         const manifestNumber = getManifestName()
-        const manifest = await Manifest.create({...req.body, manifestNumber})
+        const manifest = await Manifest.create({ ...req.body, manifestNumber })
         if (manifest) {
             res.status(201).json({ 'data': manifest, 'msg': 'success' })
         } else {
@@ -43,36 +43,52 @@ async function createManifest(req, res) {
 async function getManifests(req, res) {
     try {
         if (req.query.mid) {
-            const manifest = await Manifest.findById({ _id: req.query.mid }).populate("fromBCode").populate("toBCode")
+            const manifest = await Manifest.findById({ _id: req.query.mid })
+                .populate("fromBCode")
+                .populate("toBCode")
+                .populate({
+                    path: "dockets.booking",
+                    populate: [
+                        {
+                            path: "shipment",
+                            populate: [{ path: "origin" }, { path: "destination" }]
+                        },
+                        { path: "invoice" },
+                        { path: "client" },
+                        { path: "consignorConsignee" }
+                    ]
+                })
+                .populate("vendor")
+
             let totalpieces = 0
             let totalWeight = 0
             let totalToPay = 0
             let totalCod = 0
-            manifest.dockets.map(m => {
-                totalToPay += +m.toPay
-                totalCod += +m.cod
-                totalWeight += +m.weight
-                totalpieces += +m.pieces
+            manifest.dockets.map(docket => {
+                totalToPay += +docket.booking.invoice.amountToPay
+                totalCod += +docket.booking.invoice.codAmount
+                totalWeight += +docket.booking.shipment.totalActualWeight
+                totalpieces += +docket.booking.shipment.totalBoxes
                 return
             })
-            const dockets = manifest.dockets.map(d=>{
+            const dockets = manifest.dockets.map(d => {
                 return {
-                    docketNumber: d?.docketNumber,
-                    date: d?.dDate,
-                    origin: d?.shipment?.origin?.destName,
-                    client: d?.invoice?.clientName,
-                    destination: d?.shipment?.destination?.destName,
-                    consignee: d?.consignorConsignee?.consignee,
-                    pieces: d?.shipment?.totalBoxes || 0,
-                    weight: d?.shipment?.totalActualWeight || 0.0,
-                    toPay: d?.invoice?.amountToPay || 0.0,
-                    cod: d?.invoice?.codAmount || 0.0
+                    docketNumber: d?.booking?.docketNumber,
+                    date: new Date(d?.booking?.bookingDate).toDateString(),
+                    origin: d?.booking?.shipment?.origin?.destName,
+                    client: d?.booking?.invoice?.clientName,
+                    destination: d?.booking?.shipment?.destination?.destName,
+                    consignee: d?.booking?.consignorConsignee?.consignee,
+                    pieces: d?.booking?.shipment?.totalBoxes || 0,
+                    weight: d?.booking?.shipment?.totalActualWeight || 0.0,
+                    toPay: d?.booking?.invoice?.amountToPay || 0.0,
+                    cod: d?.booking?.invoice?.codAmount || 0.0
                 }
             })
-            
+
             const dataObj = {
                 printedAt: new Date().toDateString(),
-                data: manifest.dockets,
+                data: dockets,
                 totalpieces,
                 totalWeight,
                 totalToPay,
@@ -83,14 +99,12 @@ async function getManifests(req, res) {
                 vendor: manifest?.vendor?.ownerName || "N/A",
                 totalDockets: manifest?.dockets?.length,
                 manifestDate: new Date(manifest?.manifestDate).toDateString(),
-                manifestNumber:manifest?.manifestNumber
+                manifestNumber: manifest?.manifestNumber
             }
 
-            console.log(dataObj)
-
-            const file = await generateManifestPdf(dataObj,manifest.manifestNumber) 
-            res.download(file,manifest.manifestNumber+".pdf",()=>{
-                fs.unlink("files/"+manifest.manifestNumber+".pdf",(err)=>{
+            const file = await generateManifestPdf(dataObj, manifest.manifestNumber)
+            res.download(file, manifest.manifestNumber + ".pdf", () => {
+                fs.unlink("files/" + manifest.manifestNumber + ".pdf", (err) => {
                     console.log("downloaded");
                 })
             })
@@ -103,10 +117,23 @@ async function getManifests(req, res) {
     }
 
     try {
-        const manifests = await Manifest.find({})
-                                .populate("fromBCode")
-                                .populate("toBCode")
-        res.status(200).json({ 'msg': 'success', data:manifests })
+        const bid = req.query.bid
+        if(!bid){
+            res.status(404).json({'msg':'no data found'})
+            return
+        }
+        const manifests = await Manifest.find({toBCode:bid})
+            .populate("fromBCode")
+            .populate({
+                path: "dockets.booking",
+                populate: [
+                    { path: "shipment" },
+                    { path: "invoice" },
+                    { path: "consignorConsignee" }
+                ]
+            })
+            // .populate("vendor")
+        res.status(200).json({ 'msg': 'success', data: manifests })
     } catch (err) {
         console.log(err)
         res.status(500).json({ 'err': err })

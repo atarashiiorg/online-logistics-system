@@ -73,7 +73,7 @@ function createPdfFromHtml(filename, html){
     return new Promise((resolve, reject) => {
         try {
             var options = {
-                format: "A4",
+                format: "letter",
             }
             pdf.create(html,options).toFile("files/"+filename+".pdf",(err,name)=>{
                 err?reject(err):resolve("files/"+filename+".pdf")

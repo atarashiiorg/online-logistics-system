@@ -1,9 +1,9 @@
 import { MdFlight } from 'react-icons/md';
 import { GiCargoShip } from 'react-icons/gi';
 import { MdLocalShipping } from 'react-icons/md';
-export const serverUrl = 'https://q31k0k2w-8000.inc1.devtunnels.ms/'
+// export const serverUrl = 'https://q31k0k2w-8000.inc1.devtunnels.ms/'
 // export const serverUrl = "https://z2nj0ph6-8000.inc1.devtunnels.ms/"
-// export const serverUrl = "http://127.0.0.1:8000/"
+export const serverUrl = "http://127.0.0.1:8000/"
 
 export const title = 'Safe Dispatch';
 export const phone = '123-456-7890';

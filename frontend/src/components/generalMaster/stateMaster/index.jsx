@@ -121,7 +121,7 @@ export default function StateMaster() {
             <TableComp>
                 <p>States:</p>
                 <div>
-                    <table style={{ width: '100%' }}>
+                    <table style={{ minWidth: '100%' }}>
                         <thead>
                             <tr>
                                 <th>Edit</th>

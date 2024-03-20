@@ -6,12 +6,14 @@
     scrollbar-width: none;
 }
 
-.d_item{
+.d_item, .d_item_active{
     padding: 10px 20px;
     background-color: #494949;
     color: white;   
     font-family: Arial, Helvetica, sans-serif;
     border-bottom: 1px solid rgb(141, 139, 139);
+    font-size: 15px;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -19,7 +21,11 @@
     cursor: pointer;
 }
 
-.ds_item{
+.d_item_active{
+    background-color: rgb(41, 40, 40);
+}
+
+.ds_item, .ds_item_active{
     background-color: rgb(112, 112, 111);
     padding: 5px 20px;
     height: 100%;
@@ -29,6 +35,13 @@
     align-items: center;
     border-bottom: 1px solid rgb(202, 200, 200);
     text-decoration: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ds_item_active{
+    background-color: rgb(245, 132, 79);
     color: white;
 }
 
