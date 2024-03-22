@@ -1,0 +1,81 @@
+<style> .text { mso-number-format:\@; }</style> <table cellspacing="0" rules="all" border="1" id="dgridExcelExport" style="border-collapse:collapse;">
+	<tr>
+		<td>StateCode</td><td>StateName</td><td>IsActive</td><td>CreatedBy</td><td>CreatedDate</td><td>ModifiedBy</td><td>ModifiedDate</td>
+	</tr><tr>
+		<td>AN</td><td>ANDAMAN AND NICOBAR ISLANDS</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>ADMIN : ADMIN</td><td>26-AUG-2022  1:15:05 PM</td>
+	</tr><tr>
+		<td>AP</td><td>ANDHRA PRADESH</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>AR</td><td>ARUNACHAL PRADESH</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>AS</td><td>ASSAM</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>BR</td><td>BIHAR</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>ADMIN : ADMIN</td><td>04-FEB-2020  9:51:51 AM</td>
+	</tr><tr>
+		<td>CG</td><td>CHHATTISGARH</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>CH</td><td>CHANDIGARH</td><td>YES</td><td>ADMIN : ADMIN</td><td>12-MAY-2020  5:43:43 PM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>DD</td><td>DAMAN AND DIU</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>DL</td><td>DELHI</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>DN</td><td>DADRA AND NAGAR HAVELI</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>GA</td><td>GOA</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>GJ</td><td>GUJRAT</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>HP</td><td>HIMACHAL PRADESH</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>HR</td><td>HARYANA</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>IN</td><td>PUNJAB</td><td>YES</td><td>ADMIN : ADMIN</td><td>23-JAN-2020  7:46:34 PM</td><td>E1002 : KULDEEP SINGH</td><td>27-AUG-2020  2:36:55 PM</td>
+	</tr><tr>
+		<td>JH</td><td>JHARKHAND</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>JK</td><td>JAMMU & KASHMIR</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>KA</td><td>KARNATAKA</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>KE</td><td>TRIPURA</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>KL</td><td>KERALA</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>LD</td><td>LAKSHADWEEP</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>MH</td><td>MAHARASHTRA</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>ML</td><td>MEGHALAYA</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>MN</td><td>MANIPUR</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>MP</td><td>MADHYA PRADESH</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>MZ</td><td>MIZORAM</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>NL</td><td>NAGALAND</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>OD</td><td>ODISHA</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>PB</td><td>PUNJAB</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>PY</td><td>PONDICHERRY</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>RJ</td><td>RAJASTHAN</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>SK</td><td>SIKKIM</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>TN</td><td>TAMIL NADU</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>TR</td><td>TRIPURA</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>TS</td><td>TELANGANA</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>UK</td><td>UTTARAKHAND</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>UP</td><td>UTTAR PRADESH</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>WB</td><td>WEST BENGAL</td><td>YES</td><td>ADMIN : ADMIN</td><td>08-JAN-2020 10:55:34 AM</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr>
+</table>

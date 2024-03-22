@@ -4,6 +4,7 @@ const Vendor = require("../models/vendor")
 const ejs = require("ejs")
 const path = require("path")
 const pdf = require('html-pdf')
+const Runsheet = require("../models/runsheet")
 
 const getNewBranchCode = async () => {
     const branch = await Branch.findOne({}).sort({ 'createdAt': -1 })
@@ -36,6 +37,21 @@ const getNewVendorCode = async () => {
     }
 }
 
+const getRunsheetNumber = async () => {
+    try{
+        const drs = await Runsheet.findOne().sort({'createdAt':-1})
+        if(drs){
+            return drs.runsheetNumber+1
+        } else {
+            const y = new Date().getFullYear()
+            const d = new Date().getDate()
+            return parseInt(`${y}${d}001`)
+        }
+    } catch(err){
+        return err
+    }
+}
+
 const getManifestName = () => {
     const year = new Date().getFullYear()
     const month = new Date().getMonth() + 1
@@ -46,10 +62,10 @@ const getManifestName = () => {
 }
 
 function generateManifestPdf(data, filename) {
-    return new Promise(async(resolve, reject) => {
+    return new Promise(async (resolve, reject) => {
         try {
             const html = await readEjs(data)
-            const pdf = await createPdfFromHtml(filename,html)
+            const pdf = await createPdfFromHtml(filename, html)
             resolve(pdf)
         } catch (error) {
             reject(error)
@@ -57,11 +73,11 @@ function generateManifestPdf(data, filename) {
     })
 }
 
-function readEjs(data){
+function readEjs(data) {
     return new Promise((resolve, reject) => {
         try {
-            ejs.renderFile("views/manifest.ejs",data,(err,html)=>{
-                err?reject(err):resolve(html)
+            ejs.renderFile("views/manifest.ejs", data, (err, html) => {
+                err ? reject(err) : resolve(html)
             })
         } catch (error) {
             reject(err)
@@ -69,14 +85,14 @@ function readEjs(data){
     })
 }
 
-function createPdfFromHtml(filename, html){
+function createPdfFromHtml(filename, html) {
     return new Promise((resolve, reject) => {
         try {
             var options = {
                 format: "letter",
             }
-            pdf.create(html,options).toFile("files/"+filename+".pdf",(err,name)=>{
-                err?reject(err):resolve("files/"+filename+".pdf")
+            pdf.create(html, options).toFile("files/" + filename + ".pdf", (err, name) => {
+                err ? reject(err) : resolve("files/" + filename + ".pdf")
             })
         } catch (error) {
             reject(error)
@@ -88,5 +104,6 @@ module.exports = {
     getNewClientCode,
     getNewVendorCode,
     getManifestName,
-    generateManifestPdf
+    generateManifestPdf,
+    getRunsheetNumber
 }

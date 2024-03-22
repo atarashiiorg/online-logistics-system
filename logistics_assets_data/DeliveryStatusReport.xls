@@ -1,0 +1,1319 @@
+<style> .text { mso-number-format:\@; }</style> <table cellspacing="0" rules="all" border="1" id="dgridExcelExport" style="border-collapse:collapse;">
+	<tr>
+		<td>Booking Date</td><td>AwbNo</td><td>Branch</td><td>DeliveryBoy</td><td>ECode</td><td>DRS NO</td><td>DRS Date</td><td>PktStatus</td><td>RCDate</td><td>RCName</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3190735</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248273</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9236755</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>007036</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263118</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9247273</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9264113</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9264120</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933354</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2700896</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9262628</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267851</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263683</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9221222</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2700902</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9247251</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9273035</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2005923</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263039</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9224415</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2701486</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246030</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9247260</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247224</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9267879</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>007036</td><td>B1003 : BATHINDA</td><td>SUKHWINDER SINGH</td><td>E1348</td><td>248272</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9225459</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9250824</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8609402</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9236226</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9264105</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9215608</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9251770</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263155</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9247275</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247166</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267848</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267822</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9264114</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261496</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9246681</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9266369</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261482</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9250834</td><td>B1004 : CHANDIGARH</td><td>LAADI</td><td>E1141</td><td>248271</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248705</td><td>B1004 : CHANDIGARH</td><td>SELF</td><td>E1150</td><td>248270</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9264119</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248269</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>V79573</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>004297</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2694855</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9241651</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246024</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2699969</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9247601</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9266361</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>9262455</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248301</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248298</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9264094</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2699968</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9247601</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>9262455</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248268</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9262630</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9238053</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9250862</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273581</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247119</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>D3190682</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9235078</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9236502</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>D2138703</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9273036</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250889</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9236503</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263680</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>R138757</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246156</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254065</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9273031</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2699682</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248286</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9219299</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261245</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261351</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248267</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9238055</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2696974</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261478</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9262484</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>R109908</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9262483</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>9246666</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261477</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250871</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261043</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9232129</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261146</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9238057</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261293</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261485</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2700866</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261480</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261486</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8616352</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9261017</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9262481</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246665</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>9246667</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261479</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2696151</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261145</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>V79567</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2692849</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2694589</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246863</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9274494</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9225462</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9265013</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246665</td><td>B1001 : LUDHIANA</td><td>SARBJEET</td><td>E1314</td><td>248266</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9254049</td><td>B1008 : AMRITSAR</td><td>RANA JI</td><td>E1233</td><td>248265</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273737</td><td>B1008 : AMRITSAR</td><td>RANA JI</td><td>E1233</td><td>248265</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9248755</td><td>B1008 : AMRITSAR</td><td>RANA JI</td><td>E1233</td><td>248265</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9263122</td><td>B1008 : AMRITSAR</td><td>RANA JI</td><td>E1233</td><td>248265</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>2700921</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>8626966</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>8629911</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9246779</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9247194</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9247199</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9249212</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9250769</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9262824</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9263124</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9263611</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9267804</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>933271</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>0572188</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9254045</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>0572188</td><td>B1008 : AMRITSAR</td><td>BALKAR</td><td>E1292</td><td>248264</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250797</td><td>B1001 : LUDHIANA</td><td>S MOBILE</td><td>E1267</td><td>248263</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8586638</td><td>B1001 : LUDHIANA</td><td>S MOBILE</td><td>E1267</td><td>248263</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8586636</td><td>B1001 : LUDHIANA</td><td>S MOBILE</td><td>E1267</td><td>248263</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9238387</td><td>B1001 : LUDHIANA</td><td>S MOBILE</td><td>E1267</td><td>248263</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9238392</td><td>B1001 : LUDHIANA</td><td>S MOBILE</td><td>E1267</td><td>248263</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9238391</td><td>B1001 : LUDHIANA</td><td>S MOBILE</td><td>E1267</td><td>248263</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9224601</td><td>B1001 : LUDHIANA</td><td>S MOBILE</td><td>E1267</td><td>248263</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9236314</td><td>B1001 : LUDHIANA</td><td>S MOBILE</td><td>E1267</td><td>248263</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9236315</td><td>B1001 : LUDHIANA</td><td>S MOBILE</td><td>E1267</td><td>248263</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8616350</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246670</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8585333</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261276</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9225458</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250888</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261128</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9261386</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261057</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>7593</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9225453</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9225456</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246865</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9240299</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9219189</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9219188</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9225454</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>V81053</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261246</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933343</td><td>B1001 : LUDHIANA</td><td>SONU YOGESH</td><td>E1015</td><td>248262</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9248343</td><td>B1001 : LUDHIANA</td><td>SANJAY</td><td>E1338</td><td>248261</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9248340</td><td>B1001 : LUDHIANA</td><td>SANJAY</td><td>E1338</td><td>248261</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9248341</td><td>B1001 : LUDHIANA</td><td>SANJAY</td><td>E1338</td><td>248261</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248293</td><td>B1001 : LUDHIANA</td><td>SANJAY</td><td>E1338</td><td>248261</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248290</td><td>B1001 : LUDHIANA</td><td>SANJAY</td><td>E1338</td><td>248261</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248291</td><td>B1001 : LUDHIANA</td><td>SANJAY</td><td>E1338</td><td>248261</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248285</td><td>B1001 : LUDHIANA</td><td>SANJAY</td><td>E1338</td><td>248261</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248288</td><td>B1001 : LUDHIANA</td><td>SANJAY</td><td>E1338</td><td>248261</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9250787</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248260</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254695</td><td>B1005 : PATIALA</td><td>SANJAY SONI</td><td>E1093</td><td>248260</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263512</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>0563472</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263804</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261147</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8629993</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263108</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246163</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9225447</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9255401</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9248702</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246150</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933355</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254693</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254700</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933332</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>0574571</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>217725</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>217737</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>79515</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9273028</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933348</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2694856</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>0568473</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254067</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2005907</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2005995</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9273750</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>D3248950</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>D3170999</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>D3248915</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2700825</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>9247261</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9274466</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>217711</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>217738</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250881</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>D3170914</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250754</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>0572214</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>V81056</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9248702</td><td>B1001 : LUDHIANA</td><td>KRISHNA</td><td>E1132</td><td>248259</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>8595075</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2692464</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>8595075</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2689048</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261215</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9274308</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9249206</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9225464</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8214463</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261481</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9253195</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248339</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248287</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248299</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248292</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933340</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261274</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9249368</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250891</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261050</td><td>B1001 : LUDHIANA</td><td>NITIN SHARMA</td><td>E1009</td><td>248258</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>06-Mar-2024</td><td>10287</td><td>B1001 : LUDHIANA</td><td>KULDEEP SINGH</td><td>E1002</td><td>248257</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>06-Mar-2024</td><td>10290</td><td>B1001 : LUDHIANA</td><td>KULDEEP SINGH</td><td>E1002</td><td>248257</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>06-Mar-2024</td><td>10294</td><td>B1001 : LUDHIANA</td><td>KULDEEP SINGH</td><td>E1002</td><td>248257</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9250811</td><td>B1004 : CHANDIGARH</td><td>DEEPAK</td><td>E1197</td><td>248256</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263088</td><td>B1004 : CHANDIGARH</td><td>DEEPAK</td><td>E1197</td><td>248256</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9247180</td><td>B1004 : CHANDIGARH</td><td>DEEPAK</td><td>E1197</td><td>248256</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>9250703</td><td>B1004 : CHANDIGARH</td><td>DEEPAK</td><td>E1197</td><td>248256</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263087</td><td>B1004 : CHANDIGARH</td><td>DEEPAK</td><td>E1197</td><td>248256</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9266364</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9250844</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273671</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9274473</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267859</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267832</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9250844</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273671</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9274473</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267832</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267859</td><td>B1004 : CHANDIGARH</td><td>BALWINDER</td><td>E1082</td><td>248255</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9250846</td><td>B1004 : CHANDIGARH</td><td>SELF</td><td>E1150</td><td>248254</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9251772</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>854363</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9236746</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>M5228</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9273033</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>07594</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933351</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>933312</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273583</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261264</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>9246029</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9265075</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>0572079</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9255400</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263057</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247227</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3190727</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>217734</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263756</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>2701660</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2701676</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9255291</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246010</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9247254</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>0572209</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9254691</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254703</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9267883</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>D3190674</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>0572079</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273583</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9236746</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>854363</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9251772</td><td>B1001 : LUDHIANA</td><td>GURDYAL SINGH</td><td>E1021</td><td>248253</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9224140</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9263659</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>0574534</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>0572295</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9264095</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>0572115</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9263121</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9248928</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263042</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263053</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273741</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9263176</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9263180</td><td>B1008 : AMRITSAR</td><td>KARAN</td><td>E1125</td><td>248252</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263080</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263085</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273740</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8626976</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263066</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>217698</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>406595</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261275</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9225460</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Dec-2021</td><td>3</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9255493</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>9247207</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8626981</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9264122</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>1035854</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263112</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>400106967</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9255493</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>400106967</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Dec-2021</td><td>3</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>217618</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>217710</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9247202</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9247201</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>8597325</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>8626957</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>406584</td><td>B1001 : LUDHIANA</td><td>SAGGU</td><td>E1337</td><td>248251</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9274038</td><td>B1001 : LUDHIANA</td><td>RAJU FEROZPUR</td><td>E1109</td><td>248250</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>V80782</td><td>B1001 : LUDHIANA</td><td>RAJU FEROZPUR</td><td>E1109</td><td>248250</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>V80779</td><td>B1001 : LUDHIANA</td><td>RAJU FEROZPUR</td><td>E1109</td><td>248250</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261052</td><td>B1001 : LUDHIANA</td><td>RAJU FEROZPUR</td><td>E1109</td><td>248250</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>9247203</td><td>B1001 : LUDHIANA</td><td>RAJU FEROZPUR</td><td>E1109</td><td>248250</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>V80801</td><td>B1001 : LUDHIANA</td><td>RAJU FEROZPUR</td><td>E1109</td><td>248250</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254699</td><td>B1001 : LUDHIANA</td><td>RAJU FEROZPUR</td><td>E1109</td><td>248250</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254696</td><td>B1001 : LUDHIANA</td><td>RAJU FEROZPUR</td><td>E1109</td><td>248250</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>14-Mar-2024</td><td>0569925</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16-Mar-2024</td><td>07527</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>0572137</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>0572136</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>14-Mar-2024</td><td>0569925</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>0572136</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>0572137</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>0572308</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16-Mar-2024</td><td>07527</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>217643</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>217654</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>07-Mar-2024</td><td>7368</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9262623</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9262836</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9263128</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248249</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263113</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263008</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2694854</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261054</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267854</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>9225444</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273024</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>9225444</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>9225444</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9273008</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>9225444</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8626969</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9273030</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9273008</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8597310</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>A12614</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263074</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9263146</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8626977</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>D3170865</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9224410</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247163</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263152</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9236228</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>8626993</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9273745</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263094</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9246780</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9251756</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>1035499</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9255293</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>V79159</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263009</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250890</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933339</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>809015</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263003</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8626973</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9273029</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273024</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9233751</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>07864</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8619336</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248703</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250753</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>D3190800</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247118</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>9246018</td><td>B1001 : LUDHIANA</td><td>DAVINDER SINGH</td><td>E1240</td><td>248248</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9274036</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246167</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>809018</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9267894</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9267888</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247228</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933344</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254063</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254068</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>1035860</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248289</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8629995</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9253200</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9253196</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246036</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246025</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246155</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267874</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9267893</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267809</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247165</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3190728</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>OM212627</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>OM212599</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9253199</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16-Mar-2024</td><td>9261197</td><td>B1001 : LUDHIANA</td><td>RAM CHANDER</td><td>E1014</td><td>248247</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2700893</td><td>B1001 : LUDHIANA</td><td>RAMESH</td><td>E1269</td><td>248246</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261495</td><td>B1001 : LUDHIANA</td><td>RAMESH</td><td>E1269</td><td>248246</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9224411</td><td>B1001 : LUDHIANA</td><td>RAMESH</td><td>E1269</td><td>248246</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9253192</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9264106</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263510</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>9246026</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>9262518</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254694</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263677</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>V81054</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>217732</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9247250</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247113</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>V80777</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8585330</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>D3170917</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9254047</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9255016</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>9247204</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8626755</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263099</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273744</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9247276</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247234</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263650</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263689</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263061</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>D3170921</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>D3248975</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22-Mar-2024</td><td>D3248976</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>D3248978</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267858</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9267817</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9267880</td><td>B1001 : LUDHIANA</td><td>JAGSIR SINGH JASSI</td><td>E1023</td><td>248245</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>F40116</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248244</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9261153</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248244</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267863</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248244</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9267775</td><td>B1008 : AMRITSAR</td><td>HONEY</td><td>E1053</td><td>248244</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16-Mar-2024</td><td>933199</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16-Mar-2024</td><td>933199</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3248538</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3248552</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3248548</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3248550</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3248539</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>217662</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>406591</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>7856</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263051</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>D3190695</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9267792</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16-Mar-2024</td><td>933199</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9267792</td><td>B1003 : BATHINDA</td><td>BUNTY</td><td>E1063</td><td>248243</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263154</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>813489</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9250851</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263746</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933337</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246009</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261166</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261177</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933338</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263691</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16-Mar-2024</td><td>7522</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>V81049</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9273748</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263091</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>D3248582</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>D3248971</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3248520</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3248557</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3248555</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3248519</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>D3170992</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>V80797</td><td>B1001 : LUDHIANA</td><td>GURJOT SINGH</td><td>E1253</td><td>248242</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3102521</td><td>B1001 : LUDHIANA</td><td>BARAL LOGISTICS</td><td>E1288</td><td>248241</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18-Mar-2024</td><td>217644</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>217655</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9147765</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263048</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267844</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9262627</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9224413</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267856</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9274496</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247608</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9224408</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9261149</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9261149</td><td>B1002 : JALANDHAR</td><td>JASSI</td><td>E1061</td><td>248240</td><td>22-Mar-2024</td><td>RTO</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250878</td><td>B1001 : LUDHIANA</td><td>BARAL LOGISTICS</td><td>E1288</td><td>248239</td><td>22-Mar-2024</td><td>DLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>0569836</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>0569836</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>0569836</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16-Mar-2024</td><td>9261281</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9236751</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263513</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>D3190660</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>8626992</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263103</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263062</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263072</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>D3190747</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>933315</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16-Mar-2024</td><td>9261281</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>0569836</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9236751</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9248346</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273018</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263513</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>8626994</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263503</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9224412</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263634</td><td>B1003 : BATHINDA</td><td>JEET</td><td>E1300</td><td>248238</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>007029</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>2693398</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>8611995</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>9238046</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>7853</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9264107</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263030</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9225384</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>9238046</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>9238046</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>007029</td><td>B1003 : BATHINDA</td><td>DIMPLE</td><td>E1308</td><td>248237</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>501347889</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>8626953</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9219496</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9219497</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>DLVRD</td><td>22-03-2024 00:00:00</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15-Mar-2024</td><td>9224381</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9236752</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9249311</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9249366</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9250712</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9250831</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9251769</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9262479</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9262833</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263035</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263069</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263076</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263627</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263630</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>9267793</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267824</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267830</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9273743</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19-Mar-2024</td><td>933297</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>933299</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>933310</td><td>B1002 : JALANDHAR</td><td>MANNU</td><td>E1060</td><td>248236</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9255020</td><td>B1001 : LUDHIANA</td><td>SELF OFFICE</td><td>E1134</td><td>248235</td><td>22-Mar-2024</td><td>DLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>R151887</td><td>B1001 : LUDHIANA</td><td>SELF OFFICE</td><td>E1134</td><td>248235</td><td>22-Mar-2024</td><td>DLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>7580</td><td>B1002 : JALANDHAR</td><td>SAIF ALI KHAN</td><td>E1057</td><td>248234</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16-Mar-2024</td><td>07523</td><td>B1002 : JALANDHAR</td><td>SAIF ALI KHAN</td><td>E1057</td><td>248234</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>F7102</td><td>B1002 : JALANDHAR</td><td>SARWAN</td><td>E1118</td><td>248233</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>8577269</td><td>B1002 : JALANDHAR</td><td>SARWAN</td><td>E1118</td><td>248233</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267835</td><td>B1002 : JALANDHAR</td><td>SARWAN</td><td>E1118</td><td>248233</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267811</td><td>B1002 : JALANDHAR</td><td>SARWAN</td><td>E1118</td><td>248233</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9267873</td><td>B1002 : JALANDHAR</td><td>SARWAN</td><td>E1118</td><td>248233</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>8577269</td><td>B1002 : JALANDHAR</td><td>SARWAN</td><td>E1118</td><td>248233</td><td>22-Mar-2024</td><td>UNDLVRD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2006104</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>793967</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8629991</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9225463</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9236508</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246005</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246019</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246021</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246154</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261049</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261483</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9262492</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9274477</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933330</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933336</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933347</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933352</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>D3170864</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>OM203549</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8617828</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8617826</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8617821</td><td>B1001 : LUDHIANA</td><td>DINESH GURASPUR</td><td>E1265</td><td>248232</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>OM212596</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9224211</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254692</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254701</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>809036</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9254066</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2701492</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>2700594</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9247280</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9274270</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9274481</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261123</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9219335</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9261176</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9250875</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>D3170955</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>D3248951</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>D3170942</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9264117</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9264115</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9267878</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8582032</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8582031</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246023</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246014</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9218293</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8597313</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263047</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263007</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>8629992</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263676</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9246149</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9236505</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9261214</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9219032</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>933342</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>OM212596</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263801</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9263802</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9247226</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9263509</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9222982</td><td>B1001 : LUDHIANA</td><td>CHANDANDEEP</td><td>E1272</td><td>248231</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248283</td><td>B1001 : LUDHIANA</td><td>PINTU</td><td>E1219</td><td>248230</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248284</td><td>B1001 : LUDHIANA</td><td>PINTU</td><td>E1219</td><td>248230</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248300</td><td>B1001 : LUDHIANA</td><td>PINTU</td><td>E1219</td><td>248230</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248297</td><td>B1001 : LUDHIANA</td><td>PINTU</td><td>E1219</td><td>248230</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21-Mar-2024</td><td>9248296</td><td>B1001 : LUDHIANA</td><td>PINTU</td><td>E1219</td><td>248230</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20-Mar-2024</td><td>9248345</td><td>B1001 : LUDHIANA</td><td>PINTU</td><td>E1219</td><td>248230</td><td>22-Mar-2024</td><td>OFD</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr>
+</table>

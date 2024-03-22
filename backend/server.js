@@ -19,7 +19,9 @@ server.use((req,res,next)=>{
 })
 
 const userRoutes = require("./routes/userRoutes")
-server.use("/",userRoutes)
+const publicRoutes = require("./routes/publicRoutes")
+server.use("/api",userRoutes)
+server.use("/",publicRoutes)
 
 db.init()
 .then((err)=>{

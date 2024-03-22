@@ -1,0 +1,36 @@
+SrNo	AwbNo	RefNo	BookingDate	Client	BookingMode	BookingBranch	BillingBranch	Boxes	ActualWeight	ChargeWeight	RateOnCode	StnNo	CustomerType	BookingType	PacketContent	Origin	Destination	Consignor	ConsignorPhoneNo	ConsignorPincode	Consignee	ConsigneeAddress	ConsigneePin	ConsigneePhoneNo	IsManifested	ManifestNo	ManualManifestNo	ManifestDate	ToBranch	ChallanNo	CDNo	RunSheetNo	PktStatus	RcRemarks	CODAmount	DeliveryUpdatedBy	IsPhysicalPOD	IsAndroid	CreatedBy	CreatedDate	ModifiedBy	ModifiedDate
+
+-------Report Query/Query-------------
+
+-------AwbNo Query------Same as tracking-------
+
+
+
+Manifest Date	Manifest No	Manual Manifest No	Mode	From Branch Name	To Branch Name	VendorName	ManifestTime	NoOfConsignment	Manifest Status	TotalPending
+
+-------------table 1--------------
+
+
+SNo	Awb No	Booking Date	Destination	Consignee	PCS	Weight	Status
+
+
+--------table 2-------------
+
+----------manifest report summarised----------
+
+
+
+Manifest Date	ManifestNo	AwbNo	ToPayAmount	Cash	COD	Packages	Weight	DimesionalWeight	Client	Consignor	Consignee	Origin	Destination	Vendor	Mode	PktStatus	COD Amount	Booking Date	Delivery Date
+
+-----------------manifest report detailed-------------
+
+
+POD Image	AwbNo	Booking Date	CCode	CName	BCode	BName	Delivery Status	Receiver Name	Receiver Time	Delivery Date
+
+----------------------View Pod scan------------------
+
+
+ReceivedDate	FromBCode	ReceivedBCode	ChallanNo	ManifestNo	PCS	Weight	TotalDkt	RcPCS	RcWeight	RcTotalDkt
+
+--------------------Arrival Entry Report-------------
+

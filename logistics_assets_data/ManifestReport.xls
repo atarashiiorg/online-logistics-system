@@ -1,0 +1,1051 @@
+<style> .text { mso-number-format:\@; }</style> <table cellspacing="0" rules="all" border="1" id="dgridExcelExport" style="border-collapse:collapse;">
+	<tr>
+		<td>SRNo</td><td>ManifestDate</td><td>ManifestNo</td><td>AwbNo</td><td>ToPayAmount</td><td>Cash</td><td>COD</td><td>Packages</td><td>Weight</td><td>DimesionalWeight</td><td>Client</td><td>Consignor</td><td>Consignee</td><td>Origin</td><td>Destination</td><td>Vendor</td><td>Mode</td><td>PktStatus</td><td>BookingDate</td><td>DelvDate</td>
+	</tr><tr>
+		<td>1</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9250883</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>13.000</td><td>&nbsp;</td><td>GARG COMPUTER : C1471</td><td>GARG COMPUTER</td><td>DHIMAN COMPUTER</td><td>KOTAKPURA</td><td>PAONTA SAHIB</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>2</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217689</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>VIKASH GARMENTS STORE (HAMIRPUR)</td><td>LUDHIANA</td><td>HAMIRPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>3</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217717</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (KANGRA)</td><td>LUDHIANA</td><td>KANGRA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>4</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217706</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>4</td><td>68.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>&nbsp;</td><td>LUDHIANA</td><td>KULLU</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>5</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217745</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>5</td><td>135.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>A.J. ENTERPRISES</td><td>LUDHIANA</td><td>KULLU</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>6</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217741</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>PIO APPARELS</td><td>LUDHIANA</td><td>MANDI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>7</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217715</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (SHIMLA2)</td><td>LUDHIANA</td><td>SHIMLA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>8</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217720</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>KASHMIR CRAFT EMPORIUM</td><td>LUDHIANA</td><td>SHIMLA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>9</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217743</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>2</td><td>54.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (CHAMBA)</td><td>LUDHIANA</td><td>CHAMBA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>10</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9250882</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>13.000</td><td>&nbsp;</td><td>GARG COMPUTER : C1471</td><td>GARG COMPUTER</td><td>SATTELITE COMPUTER</td><td>KOTAKPURA</td><td>SHIMLA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>11</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217680</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (DHARAMSHALA)</td><td>LUDHIANA</td><td>DHARAMSHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>12</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217682</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>2</td><td>34.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (DHARAMSHALA)</td><td>LUDHIANA</td><td>DHARAMSHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>13</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9250884</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>22.000</td><td>&nbsp;</td><td>GARG COMPUTER : C1471</td><td>GARG COMPUTER</td><td>RAJESH ENTERPRISES</td><td>KOTAKPURA</td><td>DHARAMSHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>14</td><td>22-Mar-2024</td><td>20240322015134530</td><td>406558</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>METTLE APPARELS PVT. LTD. : C1429</td><td>METTLE APPARELS PRIVATE LIMITED</td><td>ATHRAV ENTERPRISES (NEHRAN)</td><td>LUDHIANA</td><td>DEHRA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>16-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>15</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217691</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>ATHRAV ENTERPRISES (NEHRAN)</td><td>LUDHIANA</td><td>DEHRA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>16</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217707</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>2</td><td>54.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (ROHTAK)</td><td>LUDHIANA</td><td>ROHTAK</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>17</td><td>22-Mar-2024</td><td>20240322015134530</td><td>8598980</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>87.000</td><td>&nbsp;</td><td>NEVA GARMENTS : C1304</td><td>NEVA GARMENTS</td><td>R L AGENCIES</td><td>LUDHIANA</td><td>ROHTAK</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>18</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217709</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>4</td><td>108.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>JAISHREE TRADING CO. PRIVATE LIMITED (JIND)</td><td>LUDHIANA</td><td>JIND</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>19</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217657</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>SHIVA APPARELS (CHARKHI DADRI)</td><td>LUDHIANA</td><td>CHARKHI DADRI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>19-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>20</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217740</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>5</td><td>135.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>SHIVA APPARELS (HASI)</td><td>LUDHIANA</td><td>HANSI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>21</td><td>22-Mar-2024</td><td>20240322015134530</td><td>8598955</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>NEVA GARMENTS : C1304</td><td>NEVA GARMENTS</td><td>PODDAR TRADERS</td><td>LUDHIANA</td><td>HISSAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>22</td><td>22-Mar-2024</td><td>20240322015134530</td><td>8598978</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>67.000</td><td>&nbsp;</td><td>NEVA GARMENTS : C1304</td><td>NEVA GARMENTS</td><td>R S AGENCIES</td><td>LUDHIANA</td><td>SIRSA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>23</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9274468</td><td>0.00</td><td>300.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>CASH ASR : C1160</td><td>I M</td><td>LITAPX</td><td>AMRITSAR</td><td>SIRSA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>24</td><td>22-Mar-2024</td><td>20240322015134530</td><td>8584628</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>15.000</td><td>&nbsp;</td><td>FOREVER NUTRITION : C1482</td><td>FOREVER</td><td>ARMAAN</td><td>LUDHIANA</td><td>PANIPAT</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>25</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9246146</td><td>350.00</td><td>0.00</td><td>0.00</td><td>3</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>PREMIER COMPUTER</td><td>COMPUTER EMPIRE</td><td>LUDHIANA</td><td>PANIPAT</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>26</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217577</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>SHREE SHYAM GARMENTS (PAN-KNZPS4544D)</td><td>LUDHIANA</td><td>BHIWANI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>16-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>27</td><td>22-Mar-2024</td><td>20240322015134530</td><td>8598979</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>NEVA GARMENTS : C1304</td><td>NEVA GARMENTS</td><td>POSHAK TRADING</td><td>LUDHIANA</td><td>KARNAL</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>28</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9274199</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>JAI GANPATI FASHION : C1161</td><td>JA</td><td>JAI</td><td>AMRITSAR</td><td>KARNAL</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>29</td><td>22-Mar-2024</td><td>20240322015134530</td><td>R149088</td><td>0.00</td><td>0.00</td><td>0.00</td><td>10</td><td>80.000</td><td>&nbsp;</td><td>RD LOGISTICS : C1239</td><td>RASHI PERIPHERALS</td><td>RASHI PERIPHERALS</td><td>LUDHIANA</td><td>JAMMU</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>30</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247216</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>YONGAL SONS</td><td>LUDHIANA</td><td>JAMMU</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>31</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247217</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>SWAMI SALES</td><td>LUDHIANA</td><td>JAMMU</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>32</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9249480</td><td>0.00</td><td>250.00</td><td>0.00</td><td>3</td><td>30.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>PUKHRAJ</td><td>BAHADUR SING</td><td>JALANDHAR</td><td>JAMMU</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>33</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9249208</td><td>450.00</td><td>0.00</td><td>0.00</td><td>2</td><td>26.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>PURAN AGE</td><td>ADARSH VIDEO</td><td>JALANDHAR</td><td>JAMMU</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>34</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217677</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>VIKASH GARMENTS STORE (PAN-AERPC3989B)</td><td>LUDHIANA</td><td>BILASPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>19-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>35</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9250879</td><td>250.00</td><td>0.00</td><td>0.00</td><td>1</td><td>32.000</td><td>&nbsp;</td><td>TOPAY BTD : C1148</td><td>LITTLE DREME</td><td>JAIN SONS</td><td>BHUCHO</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>36</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9222754</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>ATOS : C1088</td><td>RAJIV KUMAR</td><td>MR RAJINDER</td><td>DHURI</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>37</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9263508</td><td>0.00</td><td>250.00</td><td>0.00</td><td>3</td><td>52.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>A S CLOTHING</td><td>KRISHNA SONS</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>38</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9246011</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>2.000</td><td>&nbsp;</td><td>CREATIVE NEWTECH : C1420</td><td>CREATIVE NEWTECH</td><td>THE COMPUTER FEDERATE</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>39</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9263010</td><td>300.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>JAGDAMBAY ENTERPRISES : C1305</td><td>JAGDAMBA ENTERPRISES</td><td>JAINS SONS</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>40</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9246148</td><td>180.00</td><td>0.00</td><td>0.00</td><td>5</td><td>25.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MICRO IT SOLUTION</td><td>INDEPENDENT BUSINESS</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>41</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9261484</td><td>450.00</td><td>0.00</td><td>0.00</td><td>5</td><td>75.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>J D E</td><td>PARAMOUNT ENT</td><td>JALANDHAR</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>42</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9261350</td><td>1.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>SONU JAL FAST EX</td><td>VISSION LOGISTICS</td><td>JALANDHAR</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>43</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9248295</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>BAJAJ TEPLA PUNJAB : C1451</td><td>BAJAJ ELECTRICAL</td><td>SAHIL PLYWOOD</td><td>TEPLA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>44</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9274200</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>58.000</td><td>&nbsp;</td><td>JAI GANPATI FASHION : C1161</td><td>JAI</td><td>JAI</td><td>AMRITSAR</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>45</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9274465</td><td>250.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY ASR : C1159</td><td>BATA  LAA</td><td>BATA</td><td>AMRITSAR</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>46</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9274109</td><td>420.00</td><td>0.00</td><td>0.00</td><td>7</td><td>90.000</td><td>&nbsp;</td><td>TOPAY ASR : C1159</td><td>MOBI TECH</td><td>MOBITECH COMPUTER</td><td>AMRITSAR</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>47</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9250880</td><td>1080.00</td><td>0.00</td><td>0.00</td><td>25</td><td>180.000</td><td>&nbsp;</td><td>TOPAY BTD : C1148</td><td>MILIT TRADING</td><td>DISHA AGENCIES</td><td>BATHINDA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>48</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9250755</td><td>180.00</td><td>0.00</td><td>0.00</td><td>3</td><td>30.000</td><td>&nbsp;</td><td>TOPAY BTD : C1148</td><td>NAVKAR AGANCIES</td><td>VISION ELECTRONIC</td><td>BATHINDA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>49</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9261248</td><td>0.00</td><td>180.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>BATA INDIA  LTD</td><td>BATA INDIA</td><td>JALANDHAR</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>50</td><td>22-Mar-2024</td><td>20240322015134530</td><td>8616296</td><td>0.00</td><td>0.00</td><td>0.00</td><td>17</td><td>500.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>AGRIM TECHZONE</td><td>ANNEX LOGISTICS PVT LTD</td><td>PATHANKOT</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>51</td><td>22-Mar-2024</td><td>20240322015134530</td><td>8616450</td><td>0.00</td><td>150.00</td><td>0.00</td><td>3</td><td>17.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>COMPUTER WORLD</td><td>NORTH INDIA COMPUTER</td><td>PATHANKOT</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>52</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9225457</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>7.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>CHARMS COOLECTION</td><td>JAINSONS AGENCIES</td><td>PATIALA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>53</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9225461</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>39.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>NEW GEN OFFICE SYSTEMS</td><td>PHUTELA COMPUTER</td><td>PATIALA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>54</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9274489</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>ATOS : C1088</td><td>ATOS</td><td>ATOS</td><td>AMRITSAR</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>55</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9262458</td><td>0.00</td><td>150.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>CASH ASR : C1160</td><td>I T SY</td><td>SUPERON E</td><td>AMRITSAR</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>56</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9246165</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>PREMIER COMPUTER : C1049</td><td>PREMIER COMPUTER</td><td>SAVEX TECHNOLOGIES</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>57</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247274</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>JAIN ELITE CLOTHING</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>58</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247262</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>EMM ELL GARMENTS</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>59</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247257</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>EMM ELL GARMENTS</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>60</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247218</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>90.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>CITY LOOK</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>61</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247235</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>CITY LOOK</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>62</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9246166</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>PREMIER COMPUTER : C1049</td><td>PREMIER COMPUTER</td><td>NORTH INDIA COMPUTER</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>63</td><td>22-Mar-2024</td><td>20240322015134530</td><td>R149089</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>RD LOGISTICS : C1239</td><td>RASHI PERIPHERALS</td><td>RASHI PERIPHERALS</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>64</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9263001</td><td>140.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>SHRI DURGA : C1447</td><td>SHRI DURGA ENTERPRISES</td><td>KRISHNA SONS</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>65</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247161</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>44.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>EMM ELL GARMENTS</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>66</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247225</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>TREND SHOP  NX</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>67</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247164</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>JGS ENTERPRISES</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>68</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9246139</td><td>960.00</td><td>0.00</td><td>0.00</td><td>15</td><td>160.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>K C ELECTRONICS</td><td>KC ELECTRONICS</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>69</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9263690</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>HIGHER END PERIPHERIPALS</td><td>DIVANSH COMPUTER</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>70</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9246016</td><td>180.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>PAWAR LAPTOP</td><td>ENSUE INFO</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>71</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9248705</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>AUGUST MARKETING</td><td>COMPUTER WARE HOUSE</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>72</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9263507</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>A S CLOTHING</td><td>JAIN SONS</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>73</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9263505</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>A S CLOTHING</td><td>AARTI TELECOM</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>74</td><td>22-Mar-2024</td><td>20240322015134530</td><td>933349</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>3.390</td><td>3.390</td><td>MODI CARE : C1172</td><td>MODICARE_LUDHIANA : C1172</td><td>CHANCHAL RANI</td><td>LUDHIANA</td><td>CHAJJU MAJRA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>75</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247256</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>KHARAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>76</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9267890</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>KHARAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>77</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9263504</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>A S CLOTHING</td><td>SHABAD GARMENTS</td><td>LUDHIANA</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>78</td><td>22-Mar-2024</td><td>20240322015134530</td><td>8609402</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>DAICHI INTERNATIONAL</td><td>ADITYA TULI</td><td>LUDHIANA</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>79</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9273531</td><td>1370.00</td><td>0.00</td><td>0.00</td><td>4</td><td>220.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>GOEL KNIT</td><td>KAPSONS INTERNATIONAL PVT. LTD.</td><td>LUDHIANA</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>80</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247166</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>JAI SHREE</td><td>LUDHIANA</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>81</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247275</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>JAI SHREE TRADING CO PVT LTD</td><td>LUDHIANA</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>82</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9264114</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>MAVI TRAVELS</td><td>RAMANDEEP</td><td>PATIALA</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>83</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9261482</td><td>0.00</td><td>0.00</td><td>0.00</td><td>12</td><td>141.000</td><td>&nbsp;</td><td>KAPSONS FASHION : C1359</td><td>KAPSON</td><td>KAPSON</td><td>JALANDHAR</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>84</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9261496</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>8.000</td><td>&nbsp;</td><td>KAPSONS FASHION : C1359</td><td>KAPSON</td><td>KAPSON</td><td>JALANDHAR</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>85</td><td>22-Mar-2024</td><td>20240322015134530</td><td>933362</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>2.460</td><td>2.460</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>Shally</td><td>LUDHIANA</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>86</td><td>22-Mar-2024</td><td>20240322015134530</td><td>933361</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>0.550</td><td>0.550</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>RAJNI</td><td>LUDHIANA</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>87</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9225459</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>7.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>CHARMS COOLECTION</td><td>JAISHREE  TRADING CO. (P) LTD.</td><td>PATIALA</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>88</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9215608</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>16.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>DHINGRA COLLECTIONS</td><td>GOODLUCK HANDLOOM MOHALI</td><td>PATIALA</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>89</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9274043</td><td>0.00</td><td>180.00</td><td>0.00</td><td>1</td><td>12.000</td><td>&nbsp;</td><td>CASH ASR : C1160</td><td>SWASTIK</td><td>GLOBAL</td><td>AMRITSAR</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>90</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9274469</td><td>200.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY ASR : C1159</td><td>HR  ANIL</td><td>A C BASHI</td><td>AMRITSAR</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>91</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9261244</td><td>0.00</td><td>150.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>M N ENTERPISES</td><td>AYAM AUDIO</td><td>JALANDHAR</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>92</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9261121</td><td>0.00</td><td>150.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>SHIV STATION</td><td>ICICI BANK</td><td>JALANDHAR</td><td>MOHALI</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>93</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247236</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>SAHNI EMPORIUM</td><td>LUDHIANA</td><td>PANCHKULA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>94</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247277</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>KOHLI BROTHERS</td><td>LUDHIANA</td><td>PANCHKULA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>95</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247215</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>SAHNI EMPORIUM</td><td>LUDHIANA</td><td>PANCHKULA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>96</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9262276</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY ASR : C1159</td><td>KARTIK ENTERPRISES</td><td>GULTI FAS</td><td>AMRITSAR</td><td>PANCHKULA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>97</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9238056</td><td>0.00</td><td>1.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>JAI SHIV ENTERPRISES</td><td>UPPER CRUST</td><td>FEROZEPUR</td><td>ZIRAKPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>98</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9238054</td><td>0.00</td><td>1.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>GURU NANAK</td><td>ASSA ENTERPRISES</td><td>FEROZEPUR</td><td>ZIRAKPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>99</td><td>22-Mar-2024</td><td>20240322015134530</td><td>8584627</td><td>1680.00</td><td>0.00</td><td>0.00</td><td>43</td><td>280.000</td><td>&nbsp;</td><td>FOREVER NUTRITION : C1482</td><td>FOREVER</td><td>NUTRITION  VALLEY</td><td>LUDHIANA</td><td>ZIRAKPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>100</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9246161</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>PREMIER COMPUTER</td><td>SUSHMA INFNINUM</td><td>LUDHIANA</td><td>ZIRAKPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>101</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9247258</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>ZIRAKPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>102</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9274478</td><td>0.00</td><td>180.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>CASH ASR : C1160</td><td>DHARAM</td><td>BHASAL</td><td>AMRITSAR</td><td>ZIRAKPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>103</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9250892</td><td>0.00</td><td>220.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>CASH BTD : C1149</td><td>KANHA COLLECTION</td><td>TIMSY</td><td>BATHINDA</td><td>ZIRAKPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>104</td><td>22-Mar-2024</td><td>20240322015134530</td><td>217712</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>SHIVA APPARELS</td><td>LUDHIANA</td><td>NARNAUL</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>105</td><td>22-Mar-2024</td><td>20240322015134530</td><td>9222318</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>40.000</td><td>&nbsp;</td><td>METTLE APPARELS PVT. LTD. : C1429</td><td>METTLE APP</td><td>VRINKA APP</td><td>LUDHIANA</td><td>DEHRADUN</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>18-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>106</td><td>22-Mar-2024</td><td>20240322040358513</td><td>406561</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>METTLE APPARELS PVT. LTD. : C1429</td><td>METTLE APPARELS PRIVATE LIMITED</td><td>DKS PARADISE</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>18-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>107</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217719</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>3</td><td>81.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (NDI AMBALA)</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>108</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217721</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>2</td><td>34.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>JAI SHREE TRADING CO. PVT. LTD. (AMBALA)</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>109</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217728</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>ATHRAV ENTERPRISES</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>110</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217713</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>20</td><td>540.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (NH-1)</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>111</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217640</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>4</td><td>108.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>ADARSH EMPORIUM</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>18-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>112</td><td>22-Mar-2024</td><td>20240322040358513</td><td>9250886</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>GARG COMPUTER : C1471</td><td>GARG COMPUTER</td><td>COMPUTER NETWORK</td><td>KOTAKPURA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>113</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217602</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>4</td><td>68.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (AMBALA)</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>16-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>114</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217599</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>20</td><td>540.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (NH-1)</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>16-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>115</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217695</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>2</td><td>54.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (AMBALA)</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>116</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217696</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>3</td><td>81.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (NH-1)</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>117</td><td>22-Mar-2024</td><td>20240322040358513</td><td>9266362</td><td>250.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>UBHI ENTERPRISES</td><td>TRANSFORMIUM NUTRITION</td><td>PHAGWARA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>118</td><td>22-Mar-2024</td><td>20240322040358513</td><td>8616351</td><td>0.00</td><td>1600.00</td><td>0.00</td><td>3</td><td>200.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>GORKHA DEPARTMENT</td><td>K C AVENUE</td><td>PATHANKOT</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>119</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217679</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>2</td><td>34.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (NH-1)</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>19-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>120</td><td>22-Mar-2024</td><td>20240322040358513</td><td>9247116</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>90.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>121</td><td>22-Mar-2024</td><td>20240322040358513</td><td>9247233</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>51.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>122</td><td>22-Mar-2024</td><td>20240322040358513</td><td>9247242</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>123</td><td>22-Mar-2024</td><td>20240322040358513</td><td>9233750</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>124</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217589</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>ATHRAV ENTERPRISES</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>16-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>125</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217683</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>SHREE RIWAZ EXCLUSIVE</td><td>LUDHIANA</td><td>YAMUNANAGAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>126</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217685</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>2</td><td>34.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>PARADISE SHOPEE</td><td>LUDHIANA</td><td>YAMUNANAGAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>127</td><td>22-Mar-2024</td><td>20240322040358513</td><td>9225376</td><td>0.00</td><td>0.00</td><td>0.00</td><td>4</td><td>50.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>BATA INDIA  LTD ( BHUPINDRA ROAD)</td><td>BATA INDIA LTD</td><td>PATIALA</td><td>YAMUNANAGAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>128</td><td>22-Mar-2024</td><td>20240322040358513</td><td>9233752</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>KURUKSHETRA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>129</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217674</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>2</td><td>34.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>O-EIGHT RETAIL PRIVATE LIMTED.</td><td>LUDHIANA</td><td>KURUKSHETRA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>19-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>130</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217669</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>O-EIGHT RETAIL PRIVATE LIMTED.</td><td>LUDHIANA</td><td>KURUKSHETRA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>19-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>131</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217714</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>2</td><td>54.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (KAITHAL)</td><td>LUDHIANA</td><td>KAITHAL</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>132</td><td>22-Mar-2024</td><td>20240322040358513</td><td>217616</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>2</td><td>34.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>OCTAVE APPARELS (KAITHAL)</td><td>LUDHIANA</td><td>KAITHAL</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>18-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>133</td><td>22-Mar-2024</td><td>20240322040358513</td><td>9233749</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>ADARSH EMPORIUM</td><td>LUDHIANA</td><td>LADWA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>134</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9254065</td><td>0.00</td><td>0.00</td><td>0.00</td><td>5</td><td>21.000</td><td>&nbsp;</td><td>G.MOBILE : C1092</td><td>G</td><td>MAHADEV TRADERS</td><td>ZIRAKPUR</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>135</td><td>22-Mar-2024</td><td>20240322041102807</td><td>2699682</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>14.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>REGALIZ MEDICARE</td><td>BHASIN TRADERS</td><td>ZIRAKPUR</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>136</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9261494</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>KAPSONS FASHION : C1359</td><td>KAPSON</td><td>KAPSON</td><td>JALANDHAR</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>137</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9261351</td><td>240.00</td><td>0.00</td><td>0.00</td><td>1</td><td>40.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>PARAM INTERNATION</td><td>aman kakkar</td><td>JALANDHAR</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>138</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9235078</td><td>180.00</td><td>0.00</td><td>0.00</td><td>3</td><td>30.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>BIHARI LAL</td><td>RAMANDEEP</td><td>JALANDHAR</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>139</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9261245</td><td>240.00</td><td>0.00</td><td>0.00</td><td>1</td><td>40.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>PARAM INTERNATION</td><td>AMAN KAKKAR</td><td>JALANDHAR</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>140</td><td>22-Mar-2024</td><td>20240322041102807</td><td>8544257</td><td>840.00</td><td>0.00</td><td>0.00</td><td>21</td><td>120.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>TOP SHOES</td><td>NEW PARBHAT SHOE</td><td>CHANDIGARH</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>141</td><td>22-Mar-2024</td><td>20240322041102807</td><td>8585331</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>NAGPAL SHOE</td><td>NEW VENSON SHOE</td><td>CHANDIGARH</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>142</td><td>22-Mar-2024</td><td>20240322041102807</td><td>8611944</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>EK ONKAR</td><td>BANDGEE COMPUTER</td><td>CHANDIGARH</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>143</td><td>22-Mar-2024</td><td>20240322041102807</td><td>R138757</td><td>0.00</td><td>0.00</td><td>0.00</td><td>8</td><td>60.000</td><td>&nbsp;</td><td>RD LOGISTICS : C1239</td><td>I T SY</td><td>NEW</td><td>AMRITSAR</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>144</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9250889</td><td>0.00</td><td>180.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CASH BTD : C1149</td><td>V.KAPIL</td><td>CHAWLA TEXTILE</td><td>BATHINDA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>145</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9250876</td><td>0.00</td><td>220.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>CASH BTD : C1149</td><td>DESINGER WRITTING</td><td>JOGINDER TRADING</td><td>BATHINDA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>146</td><td>22-Mar-2024</td><td>20240322041102807</td><td>D3170893</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>45.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>BEST SELLER WHOL SALE</td><td>KAPSONS FASHION</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>147</td><td>22-Mar-2024</td><td>20240322041102807</td><td>D3170907</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>BEST SELLER WHOL SALE</td><td>KAPSONS FASHION</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>148</td><td>22-Mar-2024</td><td>20240322041102807</td><td>D3248960</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>BEST UNITED INDIA</td><td>SMART SHOPPING</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>149</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9254698</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>ATOS : C1088</td><td>ATOS</td><td>AMARJEET SINGH</td><td>CHANDIGARH</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>150</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9254695</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>ATOS : C1088</td><td>ATOS</td><td>AMARJEET SINGH</td><td>CHANDIGARH</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>151</td><td>22-Mar-2024</td><td>20240322041102807</td><td>2692500</td><td>0.00</td><td>0.00</td><td>0.00</td><td>10</td><td>67.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>EPSON INDIA</td><td>CROWN COMPUTER</td><td>CHANDIGARH</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>152</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9241649</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CONSISTENT INFO SYSTEM : C1015</td><td>CONSISTENT INFO SYSTEM</td><td>SINGLA ELECTRICALS</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>153</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9245007</td><td>100.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>JAGDAMBAY ENTERPRISES : C1305</td><td>JAGDAMBA ENTERPRISES</td><td>PEHNAVA GARMENT</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>154</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9247231</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE CLOTHING</td><td>CHARMS COLLECTION</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>155</td><td>22-Mar-2024</td><td>20240322041102807</td><td>D3248977</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>BEST UNITED INDIA</td><td>SMART SHOPPING</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>156</td><td>22-Mar-2024</td><td>20240322041102807</td><td>D3248949</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>VERO MODA RETAIL</td><td>SMART SHOPPING</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>157</td><td>22-Mar-2024</td><td>20240322041102807</td><td>D3248576</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>ONLY RETAIL PVT. LTD.</td><td>SMART SHOPPING</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>158</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9247240</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>THE CRAZE EXCLUSIVE</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>159</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9247119</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>THE CRAZE EXCLUSIVE</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>160</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9247237</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>CHARMS COLLECTION</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>161</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9246006</td><td>0.00</td><td>750.00</td><td>0.00</td><td>23</td><td>150.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>MAX IT HUB</td><td>THE COMPUTER EMPIRE</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>162</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9263685</td><td>0.00</td><td>1.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>JASBIR SINGH</td><td>64 ENGG</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>163</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9263682</td><td>0.00</td><td>1.00</td><td>0.00</td><td>7</td><td>70.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>JASBIR SINGH</td><td>42 MED REDT</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>164</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9247247</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>STYLEX JEANS</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>165</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9273031</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>S MOBILE DEVICES PVT.LTD : C1344</td><td>S MOBILE DEVICES PVT LTD</td><td>SHREE GANESH</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>166</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9273036</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>S MOBILE DEVICES PVT.LTD : C1344</td><td>S MOBILE DEVICES PVT LTD</td><td>SONU MOBILE</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>167</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9263111</td><td>100.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>SHRI DURGA : C1447</td><td>SHRI DURGA ENTERPRISES</td><td>MIGSONS</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>168</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9236503</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>CHOICE NETWORK</td><td>WALIA ELECTRONICS</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>169</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9247209</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>THE CRAZE EXCLUSIVE</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>170</td><td>22-Mar-2024</td><td>20240322041102807</td><td>D2138703</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>54.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>SAKSHI OVERSEAS</td><td>SANGMESHWAR TRADERS</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>171</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9263680</td><td>150.00</td><td>0.00</td><td>0.00</td><td>3</td><td>28.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>RX SOLUTION</td><td>SIMARN ENG</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>172</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9236502</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>CHOICE NETWORK</td><td>SMARTZ SOLUTION</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>173</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9246156</td><td>450.00</td><td>0.00</td><td>0.00</td><td>5</td><td>90.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MIDHA ELECTRO WORLD</td><td>TPS COMPUTER</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>174</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9246157</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>26.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MIDHA ELECTRO WORLD</td><td>APPOLO COMPUTER</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>175</td><td>22-Mar-2024</td><td>20240322041102807</td><td>8597304</td><td>180.00</td><td>0.00</td><td>0.00</td><td>4</td><td>35.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>STUNNING TECHNOLOGIES</td><td>CLICK TECHNOLOGIES</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>176</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9263115</td><td>140.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>SHRI DURGA : C1447</td><td>SHRI DURGA ENTERPRISES</td><td>BATRA COLLECTION</td><td>LUDHIANA</td><td>SAMANA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>177</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9247208</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>THE CRAZE EXCLUSIVE</td><td>LUDHIANA</td><td>SAMANA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>178</td><td>22-Mar-2024</td><td>20240322041102807</td><td>809033</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>MAA ENTERPRISES</td><td>BATRA COLECTION</td><td>CHANDIGARH</td><td>SAMANA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>179</td><td>22-Mar-2024</td><td>20240322041102807</td><td>933346</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>9.400</td><td>18.800</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>JUJHAR SINGH AULAKH</td><td>LUDHIANA</td><td>SAMANA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>180</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9238053</td><td>0.00</td><td>1.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>GARG DISTRIBUTER</td><td>NITIN KUMAR</td><td>FEROZEPUR</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>181</td><td>22-Mar-2024</td><td>20240322041102807</td><td>754804</td><td>250.00</td><td>0.00</td><td>0.00</td><td>1</td><td>25.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>CITY INFOTECH</td><td>SINGLA ELECTRICALS</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>182</td><td>22-Mar-2024</td><td>20240322041102807</td><td>811291</td><td>0.00</td><td>0.00</td><td>0.00</td><td>11</td><td>115.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>DELTA TECH</td><td>SENIOUR SUPPDT OF POLICE</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>183</td><td>22-Mar-2024</td><td>20240322041102807</td><td>811269</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>TECH FORCE</td><td>PRABHAT GOYAL</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>184</td><td>22-Mar-2024</td><td>20240322041102807</td><td>A12593</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>PANCHANAN INTERNATIONAL</td><td>CHAWLA FASHION</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>185</td><td>22-Mar-2024</td><td>20240322041102807</td><td>D3190767</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>32.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>NUMERO UNO CLOTHING LTD</td><td>G UNITED</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>186</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9219299</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>WINGS PARTY</td><td>MURRARI LAL MITTAL</td><td>JALANDHAR</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>187</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9248286</td><td>0.00</td><td>0.00</td><td>0.00</td><td>18</td><td>180.000</td><td>&nbsp;</td><td>BAJAJ TEPLA PUNJAB : C1451</td><td>BAJAJ ELECTRICAL</td><td>SARASWATI TRADERS</td><td>TEPLA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>188</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9263511</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>22.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>JINDAL BROS</td><td>RAMAN GARMENTS</td><td>LUDHIANA</td><td>NABHA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>189</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9246164</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>PREMIER COMPUTER</td><td>DARSHAN COMPUTER</td><td>LUDHIANA</td><td>NABHA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>190</td><td>22-Mar-2024</td><td>20240322041102807</td><td>9247210</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>SEHGAL NX</td><td>LUDHIANA</td><td>NABHA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>191</td><td>22-Mar-2024</td><td>20240322041154460</td><td>&nbsp;</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>&nbsp;</td><td>0.000</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>192</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9246151</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>JEPD THE ILLUMINATIONS</td><td>BDR COMPUTER</td><td>LUDHIANA</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>193</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9263805</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>SETIA AGENCIES</td><td>SONIA GARMENTS</td><td>LUDHIANA</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>194</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247252</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>SHUBHAM CLOTHING</td><td>LUDHIANA</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>195</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247230</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>SHUBHAM CLOTHING</td><td>LUDHIANA</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>196</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9225452</td><td>0.00</td><td>0.00</td><td>0.00</td><td>7</td><td>51.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>DIWAN ENTERPRISES</td><td>MEDICARE HOSPITAL</td><td>PATIALA</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>197</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9262459</td><td>180.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>TOPAY ASR : C1159</td><td>I T SY</td><td>BDR COMPUTER</td><td>AMRITSAR</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>198</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9261148</td><td>0.00</td><td>300.00</td><td>0.00</td><td>21</td><td>60.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>CALL TONIK</td><td>AGGARAWAL DIST</td><td>JALANDHAR</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>199</td><td>22-Mar-2024</td><td>20240322044132790</td><td>8598102</td><td>0.00</td><td>150.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>ASHOK & COMPANY</td><td>RAMESH CLOTH HOUSE</td><td>SUNAM</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>200</td><td>22-Mar-2024</td><td>20240322044132790</td><td>933341</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>14.210</td><td>42.630</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>KARANPREET SINGH</td><td>LUDHIANA</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>201</td><td>22-Mar-2024</td><td>20240322044132790</td><td>933353</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>0.420</td><td>0.420</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>GURDITTA RAM</td><td>LUDHIANA</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>202</td><td>22-Mar-2024</td><td>20240322044132790</td><td>933350</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>8.850</td><td>26.550</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>MAHESH GARG</td><td>LUDHIANA</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>203</td><td>22-Mar-2024</td><td>20240322044132790</td><td>1035498</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>0.915</td><td>&nbsp;</td><td>SKYWAYS COURIER : C1463</td><td>S.MOBILE</td><td>AGGARAWAL DIST</td><td>CHANDIGARH</td><td>MUKTSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>204</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9264120</td><td>250.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAYPTL : C1202</td><td>KHANNE DI HATTI</td><td>BANSAL GEN. STORE</td><td>PATIALA</td><td>KOTAKPURA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>205</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9264113</td><td>500.00</td><td>0.00</td><td>0.00</td><td>2</td><td>50.000</td><td>&nbsp;</td><td>TOPAYPTL : C1202</td><td>DELUXE FASHION</td><td>BANSAL GENERAL STORE</td><td>PATIALA</td><td>KOTAKPURA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>206</td><td>22-Mar-2024</td><td>20240322044132790</td><td>2700896</td><td>350.00</td><td>0.00</td><td>0.00</td><td>1</td><td>31.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>LUXMI ENTERPRISES</td><td>GLOBAL COMPUTER</td><td>CHANDIGARH</td><td>KOTAKPURA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>207</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247245</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>BUCHO MANDI</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>208</td><td>22-Mar-2024</td><td>20240322044132790</td><td>M4404505</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>INGS</td><td>PBT</td><td>LUDHIANA</td><td>BUCHO MANDI</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>209</td><td>22-Mar-2024</td><td>20240322044132790</td><td>1035496</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>0.915</td><td>&nbsp;</td><td>SKYWAYS COURIER : C1463</td><td>S.MOBILE</td><td>JAIN</td><td>CHANDIGARH</td><td>MAUR MANDI</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>210</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9261296</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>ACE COMMNICATION</td><td>DHANRAJ ENTERPRISES</td><td>JALANDHAR</td><td>RAMPURA PHUL</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>211</td><td>22-Mar-2024</td><td>20240322044132790</td><td>933363</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>8.690</td><td>26.070</td><td>MODI CARE : C1172</td><td>MODICARE_LUDHIANA : C1172</td><td>MONIKARANI</td><td>LUDHIANA</td><td>RAMPURA PHUL</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>212</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9236509</td><td>200.00</td><td>0.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>CHOICE NETWORK</td><td>AMAN COMPUTER</td><td>LUDHIANA</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>213</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247162</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>RAHUL GARMENTS</td><td>LUDHIANA</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>214</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9273027</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>S MOBILE DEVICES PVT.LTD : C1344</td><td>S MOBILE DEVICES PVT LTD</td><td>SHREE RAM MOBILE PLAYERS</td><td>LUDHIANA</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>215</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247249</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>KHARTIS</td><td>LUDHIANA</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>216</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247243</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>3.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>RAHUL GARMENTS</td><td>LUDHIANA</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>217</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247205</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>VISHAL GARMENTS</td><td>LUDHIANA</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>218</td><td>22-Mar-2024</td><td>20240322044132790</td><td>2700895</td><td>0.00</td><td>0.00</td><td>0.00</td><td>12</td><td>72.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>LUXMI ENTERPRISES</td><td>PCDA</td><td>CHANDIGARH</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>219</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9246017</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>PAWAR LAPTOP</td><td>KATARIA COMPUTER</td><td>LUDHIANA</td><td>BHAGTA BHAI</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>220</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247222</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>BHUCHO</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>221</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247219</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>KHARATIS</td><td>LUDHIANA</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>222</td><td>22-Mar-2024</td><td>20240322044132790</td><td>0562413</td><td>0.00</td><td>0.00</td><td>0.00</td><td>4</td><td>88.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>NOVATEUR ELECTRICAL</td><td>SEEMA ELECTRICAL</td><td>LUDHIANA</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>223</td><td>22-Mar-2024</td><td>20240322044132790</td><td>8584629</td><td>0.00</td><td>0.00</td><td>0.00</td><td>5</td><td>60.000</td><td>&nbsp;</td><td>FOREVER NUTRITION : C1482</td><td>FOREVER</td><td>PRINCE</td><td>LUDHIANA</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>224</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9267862</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>225</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9254702</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>0.010</td><td>&nbsp;</td><td>ATOS : C1088</td><td>ATOS</td><td>TARUN</td><td>CHANDIGARH</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>226</td><td>22-Mar-2024</td><td>20240322044132790</td><td>2005920</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.840</td><td>&nbsp;</td><td>SKYWAYS COURIER : C1463</td><td>S MOBIILE</td><td>ATO  Z</td><td>CHANDIGARH</td><td>ABOHAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>227</td><td>22-Mar-2024</td><td>20240322044132790</td><td>500378029568</td><td>0.00</td><td>0.00</td><td>0.00</td><td>4</td><td>46.000</td><td>&nbsp;</td><td>ALLIED EXPRESS : C1236</td><td>PRAM HIKVISION INDIA PVT LTD</td><td>AVION TECHNOLOGIES</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>228</td><td>22-Mar-2024</td><td>20240322044132790</td><td>D3248973</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>ONLY RETAIL PVT. LTD.</td><td>SPN GROUP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>229</td><td>22-Mar-2024</td><td>20240322044132790</td><td>D3248968</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>BEST UNITED INDIA</td><td>SPN GROUP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>230</td><td>22-Mar-2024</td><td>20240322044132790</td><td>D3170993</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>ONLY RETAIL PVT. LTD.</td><td>SPN GROUP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>231</td><td>22-Mar-2024</td><td>20240322044132790</td><td>D3190760</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>40.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>NUMERO UNO CLOTHING LTD</td><td>SHIV ENTERPRISES</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>232</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9263681</td><td>400.00</td><td>0.00</td><td>0.00</td><td>4</td><td>80.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>RX SOLUTION</td><td>NAVKAR AGENCIES</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>233</td><td>22-Mar-2024</td><td>20240322044132790</td><td>933358</td><td>0.00</td><td>0.00</td><td>0.00</td><td>5</td><td>25.630</td><td>128.150</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>VINOD SINGH</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>234</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9248294</td><td>0.00</td><td>0.00</td><td>0.00</td><td>40</td><td>400.000</td><td>&nbsp;</td><td>BAJAJ TEPLA PUNJAB : C1451</td><td>BAJAJ ELECTRICAL</td><td>SHAM LAL GOYAL  SONS</td><td>TEPLA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>235</td><td>22-Mar-2024</td><td>20240322044132790</td><td>8619334</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>11.240</td><td>&nbsp;</td><td>UNIMARK : C1119</td><td>UNIMARK PHARMA</td><td>GARG PHARMA</td><td>ZIRAKPUR</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>236</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9221230</td><td>0.00</td><td>150.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>SAI COPER CARE</td><td>222 FILED</td><td>JALANDHAR</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>237</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9261055</td><td>0.00</td><td>100.00</td><td>0.00</td><td>1</td><td>2.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>D M</td><td>MOHAN</td><td>JALANDHAR</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>238</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9261294</td><td>300.00</td><td>0.00</td><td>0.00</td><td>6</td><td>60.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>ACE COMMUNCATION</td><td>SHREE BALA JI</td><td>JALANDHAR</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>239</td><td>22-Mar-2024</td><td>20240322044132790</td><td>8617892</td><td>200.00</td><td>0.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>B S KHANNA & SONS</td><td>AMAR CLOTH EMPORIUM</td><td>SUNAM</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>240</td><td>22-Mar-2024</td><td>20240322044132790</td><td>933345</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>17.480</td><td>34.960</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>AJAY KUMAR WADHWA</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>241</td><td>22-Mar-2024</td><td>20240322044132790</td><td>2700591</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>K25</td><td>NAVKAR AGENCIES</td><td>CHANDIGARH</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>242</td><td>22-Mar-2024</td><td>20240322044132790</td><td>2701493</td><td>180.00</td><td>0.00</td><td>0.00</td><td>2</td><td>25.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>BRIGHT COMPUTER</td><td>DELHI RADIO</td><td>CHANDIGARH</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>243</td><td>22-Mar-2024</td><td>20240322044132790</td><td>2006186</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>5.390</td><td>&nbsp;</td><td>SKYWAYS COURIER : C1463</td><td>S.MOBILE</td><td>rishu</td><td>CHANDIGARH</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>244</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9274307</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>55.200</td><td>&nbsp;</td><td>JAI GANPATI FASHION : C1161</td><td>JAI</td><td>JA</td><td>AMRITSAR</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>245</td><td>22-Mar-2024</td><td>20240322044132790</td><td>V80476</td><td>0.00</td><td>0.00</td><td>0.00</td><td>20</td><td>135.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>GLOBAL PRODUCTS</td><td>VK AGENCIES</td><td>MOHALI</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>246</td><td>22-Mar-2024</td><td>20240322044132790</td><td>V79160</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>24.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>ODIN HEALTHCARE</td><td>SHRI GANAPTI PHARMA</td><td>PANCHKULA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>247</td><td>22-Mar-2024</td><td>20240322044132790</td><td>D3170901</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>BEST SELLER WHOL SALE</td><td>KAPSONS FASHION</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>248</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9254697</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>ATOS : C1088</td><td>ATOS</td><td>SUKHPAL SINGH</td><td>CHANDIGARH</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>249</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9255021</td><td>0.00</td><td>200.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>CASH CHD : C1156</td><td>BATA INDIA</td><td>BATA INDIA</td><td>CHANDIGARH</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>250</td><td>22-Mar-2024</td><td>20240322044132790</td><td>2006181</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>2.860</td><td>&nbsp;</td><td>SKYWAYS COURIER : C1463</td><td>S.MOBILE</td><td>BRIJ LAL</td><td>CHANDIGARH</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>251</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9255019</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>SSE GLOBAL : C1459</td><td>SSE GLOBAL</td><td>DK.</td><td>CHANDIGARH</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>252</td><td>22-Mar-2024</td><td>20240322044132790</td><td>8619345</td><td>640.00</td><td>0.00</td><td>0.00</td><td>5</td><td>80.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>lifeine</td><td>DELHI  RADIO</td><td>CHANDIGARH</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>253</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9241650</td><td>0.00</td><td>0.00</td><td>0.00</td><td>5</td><td>60.000</td><td>&nbsp;</td><td>CONSISTENT INFO SYSTEM : C1015</td><td>CONSISTENT INFO SYSTEM</td><td>MANYU INTERNATIONAL</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>254</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9267855</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>255</td><td>22-Mar-2024</td><td>20240322044132790</td><td>D3170678</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>BEST UNITED INDIA</td><td>SPN GROUP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>256</td><td>22-Mar-2024</td><td>20240322044132790</td><td>D3248957</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>VERO MODA RETAIL</td><td>SPN GROUP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>257</td><td>22-Mar-2024</td><td>20240322044132790</td><td>D3248962</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>BEST UNITED INDIA</td><td>SPN GROUP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>258</td><td>22-Mar-2024</td><td>20240322044132790</td><td>D3170895</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>BEST SELLER WHOL SALE</td><td>KAPSONS FASHION</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>259</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247212</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>ANU ENTERPRIISES</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>260</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9267831</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>261</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9267889</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>262</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9267877</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE AP[</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>263</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9267885</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>90.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>264</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9267892</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>265</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9246013</td><td>650.00</td><td>0.00</td><td>0.00</td><td>6</td><td>130.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>ADTYM MARKETING</td><td>GOYAL ELECTRICALS</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>266</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9246152</td><td>250.00</td><td>0.00</td><td>0.00</td><td>10</td><td>50.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>JEPD THE ILLUMINATIONS</td><td>M K COMPUTER</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>267</td><td>22-Mar-2024</td><td>20240322044132790</td><td>OM207347</td><td>0.00</td><td>0.00</td><td>0.00</td><td>10</td><td>455.000</td><td>&nbsp;</td><td>SHRI VINAIK : C1413</td><td>CARRIER AIRCONDITIONING &REF</td><td>INDUSIND BANK</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>268</td><td>22-Mar-2024</td><td>20240322044132790</td><td>OM207452</td><td>0.00</td><td>0.00</td><td>0.00</td><td>6</td><td>270.000</td><td>&nbsp;</td><td>SHRI VINAIK : C1413</td><td>CARRIER AIRCONDITIONING &REF</td><td>INDUSIND BANK</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>269</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9246158</td><td>180.00</td><td>0.00</td><td>0.00</td><td>4</td><td>25.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MIDHA ELECTRO WORLD</td><td>SHIVAM COMPUTER</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>270</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247115</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>VARDHMAN APP</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>271</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9246030</td><td>200.00</td><td>0.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>SAPPHIRE INFOMATIQUE</td><td>SUN COMPUTER</td><td>LUDHIANA</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>272</td><td>22-Mar-2024</td><td>20240322044132790</td><td>OM207526</td><td>0.00</td><td>0.00</td><td>0.00</td><td>10</td><td>405.000</td><td>&nbsp;</td><td>SHRI VINAIK : C1413</td><td>CARRIER AIRCONDITIONING &REF</td><td>ICICI BANK LTD</td><td>LUDHIANA</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>273</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9273035</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>S MOBILE DEVICES PVT.LTD : C1344</td><td>S MOBILE DEVICES PVT LTD</td><td>MOBI CALL CARE</td><td>LUDHIANA</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>274</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247224</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>275</td><td>22-Mar-2024</td><td>20240322044132790</td><td>2005923</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.840</td><td>&nbsp;</td><td>SKYWAYS COURIER : C1463</td><td>S.MOBILE</td><td>VEENA</td><td>CHANDIGARH</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>276</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9221222</td><td>0.00</td><td>150.00</td><td>0.00</td><td>2</td><td>10.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>SAI COPER CARE</td><td>HQ 16 ARTY</td><td>JALANDHAR</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>277</td><td>22-Mar-2024</td><td>20240322044132790</td><td>933354</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>3.060</td><td>6.120</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>SATWANT KAUR</td><td>LUDHIANA</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>278</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247251</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>SUNNY RETAIL</td><td>LUDHIANA</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>279</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247260</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>280</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9267879</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>320.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>281</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9263683</td><td>0.00</td><td>1.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>VITTAL ENTERPRISES</td><td>SANTOSH DEVI</td><td>LUDHIANA</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>282</td><td>22-Mar-2024</td><td>20240322044132790</td><td>2700902</td><td>0.00</td><td>0.00</td><td>0.00</td><td>12</td><td>72.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>LUXMI ENTERPRISES</td><td>PCDA</td><td>CHANDIGARH</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>283</td><td>22-Mar-2024</td><td>20240322044132790</td><td>2701486</td><td>450.00</td><td>0.00</td><td>0.00</td><td>12</td><td>75.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>BRIGHT COMPUTER</td><td>SUN COMPUTERS</td><td>CHANDIGARH</td><td>FARIDKOT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>284</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9267891</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>FAZILKA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>285</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9233755</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>FAZILKA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>286</td><td>22-Mar-2024</td><td>20240322044132790</td><td>933334</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>6.350</td><td>12.700</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>SURESH KUMAR</td><td>LUDHIANA</td><td>FAZILKA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>287</td><td>22-Mar-2024</td><td>20240322044132790</td><td>933331</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>3.690</td><td>3.690</td><td>MODI CARE : C1172</td><td>MODICARE_LUDHIANA : C1172</td><td>BALWINDER SINGH</td><td>LUDHIANA</td><td>GURU HAR SAHAI</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>288</td><td>22-Mar-2024</td><td>20240322044132790</td><td>D3190725</td><td>0.00</td><td>0.00</td><td>0.00</td><td>17</td><td>255.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>NUMERO UNO CLOTHING LTD</td><td>PUSHWINDER KUMAR</td><td>LUDHIANA</td><td>JALALABAD</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>289</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9263687</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>HIGHER END PERIPHERIPALS</td><td>DHAMIJA COMPUTER</td><td>LUDHIANA</td><td>JALALABAD</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>290</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9261053</td><td>0.00</td><td>100.00</td><td>0.00</td><td>1</td><td>2.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>D M</td><td>PIRTHI CHAND</td><td>JALANDHAR</td><td>JALALABAD</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>291</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9261167</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>MANNIT O</td><td>ARIK COM</td><td>JALANDHAR</td><td>JALALABAD</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>292</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9263118</td><td>100.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>SHRI DURGA : C1447</td><td>SHRI DURGA ENTERPRISES</td><td>LIFE STYLE</td><td>LUDHIANA</td><td>KOTKAPURA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>293</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247273</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>LIFE STYLE</td><td>LUDHIANA</td><td>KOTKAPURA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>294</td><td>22-Mar-2024</td><td>20240322044132790</td><td>8626970</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MAIL BOX FASHION</td><td>UTTAM GARMENTS</td><td>LUDHIANA</td><td>MALOUT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>295</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9263006</td><td>140.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>SHRI DURGA : C1447</td><td>SHRI DURGA ENTERPRISES</td><td>SIYA COLLECTION</td><td>LUDHIANA</td><td>MALOUT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>296</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247121</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>VISHAL GARMENTS</td><td>LUDHIANA</td><td>MALOUT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>297</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9247279</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>VISHAL GARMENT</td><td>LUDHIANA</td><td>MALOUT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>298</td><td>22-Mar-2024</td><td>20240322044132790</td><td>217727</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>SHREE BALAJI ENTERPRISES</td><td>LUDHIANA</td><td>MALOUT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>299</td><td>22-Mar-2024</td><td>20240322044132790</td><td>1035497</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>3.600</td><td>&nbsp;</td><td>SKYWAYS COURIER : C1463</td><td>S.MOBILE</td><td>DIVYA</td><td>CHANDIGARH</td><td>MALOUT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>300</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9274037</td><td>0.00</td><td>0.00</td><td>0.00</td><td>11</td><td>110.000</td><td>&nbsp;</td><td>GHAIO MALL : C1264</td><td>GHIIO</td><td>NARANG</td><td>AMRITSAR</td><td>MALOUT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>301</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9254064</td><td>0.00</td><td>0.00</td><td>0.00</td><td>4</td><td>14.000</td><td>&nbsp;</td><td>G.MOBILE : C1092</td><td>G</td><td>KAMAL ENTERPISES</td><td>ZIRAKPUR</td><td>MALOUT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>302</td><td>22-Mar-2024</td><td>20240322044132790</td><td>9261493</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>H4U  NUTRATION</td><td>PARAMJEET KAUR</td><td>JALANDHAR</td><td>MALOUT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>303</td><td>22-Mar-2024</td><td>20240322044132790</td><td>933333</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>7.870</td><td>7.870</td><td>MODI CARE : C1172</td><td>MODICARE_LUDHIANA : C1172</td><td>SIMERJEET KAUR KHIPAL</td><td>LUDHIANA</td><td>MALOUT</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>304</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9261247</td><td>0.00</td><td>0.00</td><td>0.00</td><td>10</td><td>50.000</td><td>&nbsp;</td><td>ORIENT FAN DAGA CO : C1439</td><td>KALYAN ELELCTONIC</td><td>ASBERSTORE</td><td>JALANDHAR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>305</td><td>22-Mar-2024</td><td>20240322050253067</td><td>8626398</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>ORIENT FAN DAGA CO : C1439</td><td>MAANIT ELECTRONIC</td><td>ASBERSTORE</td><td>JALANDHAR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>306</td><td>22-Mar-2024</td><td>20240322050253067</td><td>8626399</td><td>0.00</td><td>0.00</td><td>0.00</td><td>4</td><td>40.000</td><td>&nbsp;</td><td>ORIENT FAN DAGA CO : C1439</td><td>MAANIT ELELCTRONIC</td><td>ASBERSTORE</td><td>JALANDHAR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>307</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9219265</td><td>0.00</td><td>0.00</td><td>0.00</td><td>8</td><td>37.500</td><td>&nbsp;</td><td>OSWAL MEDIA : C1130</td><td>OSWAL MIDEA</td><td>BSN INFOCOM</td><td>JALANDHAR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>308</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9249310</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>MANAV ENTERPIESS</td><td>SHOE MALLET</td><td>JALANDHAR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>309</td><td>22-Mar-2024</td><td>20240322050253067</td><td>8617850</td><td>320.00</td><td>0.00</td><td>0.00</td><td>2</td><td>64.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>B.S KHANNA SONS</td><td>PRINCE BINNY</td><td>SUNAM</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>310</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9254070</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>G.MOBILE : C1092</td><td>G</td><td>CHAMPION ENTERPISES</td><td>ZIRAKPUR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>311</td><td>22-Mar-2024</td><td>20240322050253067</td><td>2693401</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>ION EXCHANGE</td><td>SS ENT</td><td>ZIRAKPUR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>312</td><td>22-Mar-2024</td><td>20240322050253067</td><td>V79568</td><td>0.00</td><td>0.00</td><td>0.00</td><td>5</td><td>50.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>BIOVEDA</td><td>METRO CASH & CARRY</td><td>ZIRAKPUR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>313</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9261046</td><td>0.00</td><td>150.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>BONITA</td><td>JASCO PAINT</td><td>JALANDHAR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>314</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9261051</td><td>0.00</td><td>150.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>D M INT</td><td>ROHAN</td><td>JALANDHAR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>315</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9261487</td><td>1380.00</td><td>0.00</td><td>0.00</td><td>23</td><td>230.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>MEXICO LAB</td><td>BIOHACK NUTRA</td><td>JALANDHAR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>316</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9255018</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>SSE GLOBAL : C1459</td><td>SSE GLOBAL</td><td>DK.</td><td>CHANDIGARH</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>317</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9255483</td><td>720.00</td><td>0.00</td><td>0.00</td><td>8</td><td>120.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>MARSHAL ELECTRONICS</td><td>RIMAX COMPUTER</td><td>CHANDIGARH</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>318</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9250887</td><td>0.00</td><td>220.00</td><td>0.00</td><td>2</td><td>25.000</td><td>&nbsp;</td><td>CASH BTD : C1149</td><td>SANJEEV MEDICAL</td><td>SHRI DEVRAJ DISTRIBUTORS</td><td>BATHINDA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>319</td><td>22-Mar-2024</td><td>20240322050253067</td><td>V81055</td><td>0.00</td><td>0.00</td><td>0.00</td><td>14</td><td>80.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>JP PHARMA</td><td>MS PHARMA</td><td>MOHALI</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>320</td><td>22-Mar-2024</td><td>20240322050253067</td><td>V81052</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>JP PHARMA</td><td>IVY HEALTH</td><td>MOHALI</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>321</td><td>22-Mar-2024</td><td>20240322050253067</td><td>V79161</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>12.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>ODIN HEALTHCARE</td><td>DPT ENTERPRISES</td><td>PANCHKULA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>322</td><td>22-Mar-2024</td><td>20240322050253067</td><td>V80799</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>7.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>GODREJ & BOYCE MFG. CO. LTD</td><td>AS TRADING CO</td><td>RAJPURA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>323</td><td>22-Mar-2024</td><td>20240322050253067</td><td>V80800</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>4.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>GODREJ & BOYCE MFG. CO. LTD</td><td>AS TRADING AGENCY</td><td>RAJPURA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>324</td><td>22-Mar-2024</td><td>20240322050253067</td><td>2698308</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>13.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>NO EXIT</td><td>NO EXIT</td><td>CHANDIGARH</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>325</td><td>22-Mar-2024</td><td>20240322050253067</td><td>006193</td><td>0.00</td><td>0.00</td><td>0.00</td><td>12</td><td>416.000</td><td>&nbsp;</td><td>SHAURYA LOGISTIC SOLUTION : C1437</td><td>CARRIER MEDIA</td><td>COOLING EXPERTS</td><td>CHANDIGARH</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>326</td><td>22-Mar-2024</td><td>20240322050253067</td><td>2006053</td><td>0.00</td><td>0.00</td><td>0.00</td><td>5</td><td>17.000</td><td>&nbsp;</td><td>SKYWAYS COURIER : C1463</td><td>S.MOBILE</td><td>SPACE COM</td><td>CHANDIGARH</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>327</td><td>22-Mar-2024</td><td>20240322050253067</td><td>2006045</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>6.800</td><td>&nbsp;</td><td>SKYWAYS COURIER : C1463</td><td>S</td><td>SPACE AIR SOLUTIONS</td><td>CHANDIGARH</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>328</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0564543</td><td>800.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>KBN</td><td>NR ENGINEERS</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>329</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0574208</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>ADITYA INFOTECH</td><td>JIP JAP COMPUTER</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>330</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0571741</td><td>0.00</td><td>0.00</td><td>0.00</td><td>6</td><td>40.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>NOVATEUR ELECTRICAL</td><td>ARORA ELECTRIC STORE</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>331</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0565856</td><td>0.00</td><td>0.00</td><td>0.00</td><td>20</td><td>158.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>POLYMED</td><td>MEDCORP OVER SALES</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>332</td><td>22-Mar-2024</td><td>20240322050253067</td><td>8612042</td><td>180.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>S S TRADERS</td><td>A S TRADERS</td><td>SANGRUR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>333</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9264118</td><td>0.00</td><td>0.00</td><td>0.00</td><td>8</td><td>30.000</td><td>&nbsp;</td><td>ORIENT FAN DAGA CO : C1439</td><td>J C ELECTRONICS</td><td>ASBESTOS & ALLIED AGENCIES</td><td>PATIALA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>334</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9267872</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>335</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0565841</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>23.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>POLYMED</td><td>SACHDEVA ENTERPRISES</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>336</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9222866</td><td>0.00</td><td>0.00</td><td>0.00</td><td>9</td><td>150.000</td><td>&nbsp;</td><td>G K TRADERS : C1022</td><td>G K TRADERS</td><td>HAPPY PHOTO SALES</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>337</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9263026</td><td>140.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>JAGDAMBAY ENTERPRISES : C1305</td><td>JAGDAMBA ENTERPRISES</td><td>SHOPPER PLAZA</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>338</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0574572</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>9.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>DR LAL PATH LAB</td><td>FPSC</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>339</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0574565</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>7.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>DR LAL PATH LAB</td><td>PSC 187</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>340</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9247232</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>CASUAL PLUS</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>341</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9267887</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>90.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>342</td><td>22-Mar-2024</td><td>20240322050253067</td><td>217722</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>CHUNMUN STORE PVT. LTD. (AMRITSAR)</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>343</td><td>22-Mar-2024</td><td>20240322050253067</td><td>217729</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>CHUNMUN STORE PVT. LTD. (AMRITSAR)</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>344</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9267876</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>90.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>345</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9267757</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>346</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9263678</td><td>500.00</td><td>0.00</td><td>0.00</td><td>13</td><td>100.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>RX INFOTECH</td><td>GLOBAL COMPUTER</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>347</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9218294</td><td>150.00</td><td>0.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>RASHI PERIPHERALS : C1053</td><td>RASHI PERIPHERALS</td><td>COMPUTER WORLD</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>348</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9273034</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>S MOBILE DEVICES PVT.LTD : C1344</td><td>S MOBILE DEVICES PVT LTD</td><td>SOOD COMMUNICATION</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>349</td><td>22-Mar-2024</td><td>20240322050253067</td><td>8629996</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>SAVEX TECHNOLOGIES PVT LTD : C1058</td><td>SAVEX TECHNOLOGIES</td><td>COMPUTER WORLD</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>350</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9263116</td><td>140.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>SHRI DURGA : C1447</td><td>SHRI DURGA ENTERPRISES</td><td>RAVI EXCLUSIVE</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>351</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9247241</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>RAVI EXCLUISVE</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>352</td><td>22-Mar-2024</td><td>20240322050253067</td><td>8626980</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MAIL BOX FASHION</td><td>BALA JI EXCLUSIVE</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>353</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9266250</td><td>0.00</td><td>0.00</td><td>0.00</td><td>4</td><td>12.000</td><td>&nbsp;</td><td>VRP Telematics : C1123</td><td>VRP TELEMATICS PVT LTD</td><td>SHIVAM INFOSYS</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>354</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9246034</td><td>900.00</td><td>0.00</td><td>0.00</td><td>15</td><td>150.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>BRIGHT COMPUTER</td><td>GANESH COMPUTER</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>355</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9246027</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>SAPPHIRE INFOMATIQUE</td><td>MI COMPUTER SOLUTION</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>356</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9246028</td><td>300.00</td><td>0.00</td><td>0.00</td><td>4</td><td>60.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>SAPPHIRE INFOMATIQUE</td><td>ZIP ZAP COMPUTER</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>357</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9263679</td><td>150.00</td><td>0.00</td><td>0.00</td><td>3</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>RX INFOTECH</td><td>ADVANCE SOLUTION</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>358</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0561138</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>39.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>POLY MEDICARE LTD</td><td>SACHDEVA ENTERPRISES</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>359</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0568196</td><td>0.00</td><td>0.00</td><td>0.00</td><td>8</td><td>138.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>POLY MEDICARE LTD</td><td>MUKUL SURGI PHARMA</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>360</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0574221</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>ADITYA INFOTECH</td><td>SIGMA CCTV</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>361</td><td>22-Mar-2024</td><td>20240322050253067</td><td>8597312</td><td>700.00</td><td>0.00</td><td>0.00</td><td>10</td><td>140.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MAX IT HUB</td><td>GLOBAL COMPUTER</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>362</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9263506</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>A S CLOTHING</td><td>BHAPE DI HATTI</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>363</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9246007</td><td>500.00</td><td>0.00</td><td>0.00</td><td>8</td><td>100.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MAX IT HUB</td><td>NV COMPUTER</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>364</td><td>22-Mar-2024</td><td>20240322050253067</td><td>07592</td><td>0.00</td><td>0.00</td><td>0.00</td><td>12</td><td>180.000</td><td>&nbsp;</td><td>AAKASH TRANS LOGISTICS : C1255</td><td>BATA INDIA</td><td>BATA INDIA 03677</td><td>GURGAON</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>365</td><td>22-Mar-2024</td><td>20240322050253067</td><td>7855</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>45.000</td><td>&nbsp;</td><td>AAKASH TRANS LOGISTICS : C1255</td><td>BATA INDIA</td><td>BATA INDIA 07625</td><td>GURGAON</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>366</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9199776</td><td>300.00</td><td>0.00</td><td>0.00</td><td>4</td><td>60.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>JAIN TRADERS</td><td>R S COMPUTER</td><td>MALERKOTLA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>367</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9238052</td><td>0.00</td><td>1.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>GARG DISTRIBUTER</td><td>SANJEEV SURI</td><td>FEROZEPUR</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>368</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9246168</td><td>0.00</td><td>180.00</td><td>0.00</td><td>1</td><td>9.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>INSIGHT POWER</td><td>GLOBAL DIAGNOSITCS</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>369</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0561141</td><td>0.00</td><td>0.00</td><td>0.00</td><td>4</td><td>35.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>POLY MEDICAL</td><td>BAGGA HEALTH CARE</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>370</td><td>22-Mar-2024</td><td>20240322050253067</td><td>8597314</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MAX IT HUB</td><td>M S WALIA COMPUTER</td><td>LUDHIANA</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>371</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9263109</td><td>140.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>SHRI DURGA : C1447</td><td>SHRI DURGA ENTERPRISES</td><td>OM SONS</td><td>LUDHIANA</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>372</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9236504</td><td>350.00</td><td>0.00</td><td>0.00</td><td>4</td><td>70.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>CHOICE NETWORK</td><td>THIRD EYE</td><td>LUDHIANA</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>373</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9247206</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>SACHDEVA NX</td><td>LUDHIANA</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>374</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9247120</td><td>360.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>TRENDZ</td><td>LUDHIANA</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>375</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9233753</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>376</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9263032</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>JAGDAMBAY ENTERPRISES : C1305</td><td>JAGDAMBA ENTERPRISES</td><td>FASHIONISTA</td><td>LUDHIANA</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>377</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9261047</td><td>0.00</td><td>150.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>BONITA</td><td>KASTURI LAL</td><td>JALANDHAR</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>378</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9249207</td><td>0.00</td><td>150.00</td><td>0.00</td><td>2</td><td>10.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>PURAN  AGANCIES</td><td>KANAV GIFT</td><td>JALANDHAR</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>379</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9261056</td><td>0.00</td><td>150.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>D M</td><td>KASTURI ;LAL</td><td>JALANDHAR</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>380</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9261263</td><td>300.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>TOPAY JLD : C1153</td><td>BONITA</td><td>VAID ELECTONIC</td><td>JALANDHAR</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>381</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9249367</td><td>0.00</td><td>0.00</td><td>0.00</td><td>23</td><td>80.000</td><td>&nbsp;</td><td>Pardeep Enterprises  : C1131</td><td>PARDEEP ENTERPIESS</td><td>NAVDEEP MOULDING</td><td>JALANDHAR</td><td>BATALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>382</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9261045</td><td>0.00</td><td>150.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>CASH JLD : C1154</td><td>BONITA</td><td>KHALSA PLYWOODS</td><td>JALANDHAR</td><td>JANDIALA GURU</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>383</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9246147</td><td>550.00</td><td>0.00</td><td>0.00</td><td>4</td><td>100.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>PREMIER COMPUTER</td><td>SUMIT COMPUTER</td><td>LUDHIANA</td><td>RAYYA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>384</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9247238</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>JOSHI ENTERPRISES</td><td>LUDHIANA</td><td>TARAN TAARN</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>385</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9267884</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>TARAN TAARN</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>386</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9247213</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>JAGDIESH GALAXY</td><td>LUDHIANA</td><td>TARAN TAARN</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>387</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9241648</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>10.000</td><td>&nbsp;</td><td>CONSISTENT INFO SYSTEM : C1015</td><td>CONSISTENT INFO SYSTEM</td><td>ANAND COMPUTER</td><td>LUDHIANA</td><td>TARAN TAARN</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>388</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9254069</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>13.000</td><td>&nbsp;</td><td>S.MOBILE : C1108</td><td>S</td><td>SHRI KRISHNA TARDING CO</td><td>ZIRAKPUR</td><td>TARAN TAARN</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>389</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9247278</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>POOJA GARMENTS</td><td>LUDHIANA</td><td>BHIKHIWIND</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>390</td><td>22-Mar-2024</td><td>20240322050253067</td><td>217736</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>TREND SHOP (MANAWALA)</td><td>LUDHIANA</td><td>MANAWALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>391</td><td>22-Mar-2024</td><td>20240322050253067</td><td>217699</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>TREND SHOP (MANAWALA)</td><td>LUDHIANA</td><td>MANAWALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>392</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9245006</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>JAGDAMBAY ENTERPRISES : C1305</td><td>JAGDAMBA ENTERPRISES</td><td>PRINCE COLLECTION</td><td>LUDHIANA</td><td>AJNALA</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>393</td><td>22-Mar-2024</td><td>20240322050253067</td><td>7584</td><td>0.00</td><td>0.00</td><td>0.00</td><td>26</td><td>390.000</td><td>&nbsp;</td><td>AAKASH TRANS LOGISTICS : C1255</td><td>BATA INDIA</td><td>BATA INDIA 03172</td><td>GURGAON</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>394</td><td>22-Mar-2024</td><td>20240322050253067</td><td>7585</td><td>0.00</td><td>0.00</td><td>0.00</td><td>18</td><td>270.000</td><td>&nbsp;</td><td>AAKASH TRANS LOGISTICS : C1255</td><td>BATA INDIA</td><td>BATA INDIA 03355</td><td>GURGAON</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>395</td><td>22-Mar-2024</td><td>20240322050253067</td><td>7596</td><td>0.00</td><td>0.00</td><td>0.00</td><td>9</td><td>135.000</td><td>&nbsp;</td><td>AAKASH TRANS LOGISTICS : C1255</td><td>BATA INDIA</td><td>BATA INDIA 03836</td><td>GURGAON</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>396</td><td>22-Mar-2024</td><td>20240322050253067</td><td>7862</td><td>0.00</td><td>0.00</td><td>0.00</td><td>10</td><td>150.000</td><td>&nbsp;</td><td>AAKASH TRANS LOGISTICS : C1255</td><td>BATA INDIA</td><td>BATA INDIA 07405</td><td>GURGAON</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>397</td><td>22-Mar-2024</td><td>20240322050253067</td><td>07861</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>AAKASH TRANS LOGISTICS : C1255</td><td>BATA INDIA</td><td>BATA INDIA 07698</td><td>GURGAON</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>398</td><td>22-Mar-2024</td><td>20240322050253067</td><td>7582</td><td>0.00</td><td>0.00</td><td>0.00</td><td>36</td><td>540.000</td><td>&nbsp;</td><td>AAKASH TRANS LOGISTICS : C1255</td><td>BATA INDIA</td><td>BATA INDIA 03169</td><td>GURGAON</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>399</td><td>22-Mar-2024</td><td>20240322050253067</td><td>8617829</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>35.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>B S KHANNA & SONS</td><td>SANDHU THE ROYAL</td><td>SUNAM</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>400</td><td>22-Mar-2024</td><td>20240322050253067</td><td>8617849</td><td>200.00</td><td>0.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>B.S KHANNA SONS</td><td>THE SUPERB</td><td>SUNAM</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>401</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9250885</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY BTD : C1148</td><td>garg compuetr</td><td>N K COMPUTER</td><td>KOTAKPURA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>402</td><td>22-Mar-2024</td><td>20240322050253067</td><td>7583</td><td>0.00</td><td>0.00</td><td>0.00</td><td>26</td><td>260.000</td><td>&nbsp;</td><td>AAKASH TRANS LOGISTICS : C1255</td><td>BATA INDIA</td><td>BATA INDIA</td><td>JAMALPURA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>19-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>403</td><td>22-Mar-2024</td><td>20240322050253067</td><td>0574575</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>7.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>DR LAL PATH LAB</td><td>BABA BUDHA SAHIB</td><td>LUDHIANA</td><td>RAMDAS</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>404</td><td>22-Mar-2024</td><td>20240322050253067</td><td>9267828</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>PATTI</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>405</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9273670</td><td>1100.00</td><td>0.00</td><td>0.00</td><td>6</td><td>180.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>GILLWOOD CRAFT</td><td>SATWINDER ELECTRONICS</td><td>LUDHIANA</td><td>SHAKOT</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>406</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9263004</td><td>140.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>SHRI DURGA : C1447</td><td>SHRI DURGA ENTERPRISES</td><td>D S SHOPING</td><td>LUDHIANA</td><td>SHAKOT</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>407</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9210877</td><td>0.00</td><td>0.00</td><td>0.00</td><td>4</td><td>40.000</td><td>&nbsp;</td><td>SHARMA ENTERPRESS : C1416</td><td>SHARMA ENTERPRISES</td><td>SONU DI HATTI</td><td>FEROZEPUR</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>408</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9263803</td><td>0.00</td><td>150.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CASH CLIENT : C1147</td><td>MODRAN AGENCIES</td><td>THE TOY VILLE</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>409</td><td>22-Mar-2024</td><td>20240322055207650</td><td>0574513</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>DR LAL PATH LAB</td><td>LIFE  CARE CLINICAL</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>410</td><td>22-Mar-2024</td><td>20240322055207650</td><td>0574544</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>DR LAL PATH LAB</td><td>LPL JALANDHAR</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>411</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9241651</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CONSISTENT INFO SYSTEM : C1015</td><td>CONSISTENT INFO SYSTEM</td><td>DHIR  & CO</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>412</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9241652</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>35.000</td><td>&nbsp;</td><td>CONSISTENT INFO SYSTEM : C1015</td><td>CONSISTENT INFO SYSTEM</td><td>COMPUTER ACCESSORIES</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>413</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2699679</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>15.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>REGALIZ MEDICARE</td><td>DEVANSHU DISTRIBUTORS</td><td>ZIRAKPUR</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>414</td><td>22-Mar-2024</td><td>20240322055207650</td><td>V79644</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>23.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>BLOSSOM KOCHAR</td><td>SHAMA AGENCIES</td><td>ZIRAKPUR</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>415</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9248298</td><td>0.00</td><td>0.00</td><td>0.00</td><td>10</td><td>100.000</td><td>&nbsp;</td><td>BAJAJ TEPLA PUNJAB : C1451</td><td>BAJAJ ELECTRICAL</td><td>SWASTIK ELECTRO WORLD</td><td>TEPLA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>416</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9248301</td><td>0.00</td><td>0.00</td><td>0.00</td><td>34</td><td>340.000</td><td>&nbsp;</td><td>BAJAJ TEPLA PUNJAB : C1451</td><td>BAJAJ ELECTRICAL</td><td>SWASTIK ELECRO WORLD</td><td>TEPLA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>417</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9250860</td><td>0.00</td><td>600.00</td><td>0.00</td><td>3</td><td>98.000</td><td>&nbsp;</td><td>CASH BTD : C1149</td><td>KANHA TRADING COMPANY</td><td>GULSHAN KUMAR</td><td>RAMPURA PHUL</td><td>ADAMPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>418</td><td>22-Mar-2024</td><td>20240322055207650</td><td>D3170889</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>BARAL LOGISTICS PVT LTD : C1403</td><td>BEST SELLER WHOL SALE</td><td>WARDAR AMSR</td><td>GURGAON</td><td>DASUYA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>419</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9263005</td><td>140.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>SHRI DURGA : C1447</td><td>SHRI DURGA ENTERPRISES</td><td>ATTITUDE</td><td>LUDHIANA</td><td>DASUYA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>420</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9236510</td><td>200.00</td><td>0.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>CHOICE NETWORK</td><td>ADVANCE COMPUTER</td><td>LUDHIANA</td><td>DASUYA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>421</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9224406</td><td>160.00</td><td>0.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>JAIN</td><td>KHULLAR</td><td>CHANDIGARH</td><td>DASUYA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>422</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2701418</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>NO EXIT</td><td>NO EXIT</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>423</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2698991</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>PARAMOUNT IT</td><td>ENFORCEMENT</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>424</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9250752</td><td>320.00</td><td>0.00</td><td>0.00</td><td>10</td><td>53.000</td><td>&nbsp;</td><td>TOPAY BTD : C1148</td><td>NAVKAR AGENCIES</td><td>KALYAN COMPUTERS</td><td>BATHINDA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>425</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9254062</td><td>0.00</td><td>0.00</td><td>0.00</td><td>44</td><td>185.000</td><td>&nbsp;</td><td>G.MOBILE : C1092</td><td>G</td><td>CELLTRONIC INC</td><td>ZIRAKPUR</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>426</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9253197</td><td>0.00</td><td>0.00</td><td>0.00</td><td>8</td><td>23.000</td><td>&nbsp;</td><td>HMD MOBILE INDIA PVT LTD : C1383</td><td>HMD MOBILE INDIA PVT LTD</td><td>CELLTRONIC INC</td><td>ZIRAKPUR</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>427</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9253201</td><td>0.00</td><td>0.00</td><td>0.00</td><td>9</td><td>20.000</td><td>&nbsp;</td><td>HMD MOBILE INDIA PVT LTD : C1383</td><td>HMD MOBILE INDIA PVT LTD</td><td>CELLTRONIC INC</td><td>ZIRAKPUR</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>428</td><td>22-Mar-2024</td><td>20240322055207650</td><td>004297</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>SHAURYA LOGISTIC SOLUTION : C1437</td><td>CARRIER MEDIA</td><td>SUPER TECH ELECTRONICS</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>429</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9141577</td><td>180.00</td><td>0.00</td><td>0.00</td><td>2</td><td>25.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>PMG</td><td>TECH CAM</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>430</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2690581</td><td>200.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>TRICADE INFRA</td><td>KEY POINT COMPUTER</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>431</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2699970</td><td>180.00</td><td>0.00</td><td>0.00</td><td>3</td><td>20.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>CRYSTAL TRADERS</td><td>AR TRADERS</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>432</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2699969</td><td>180.00</td><td>0.00</td><td>0.00</td><td>6</td><td>20.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>CRYSTAL TRADERS</td><td>DATAMAX</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>433</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2699968</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>CRYSTAL TRADERS</td><td>MAANIT OVERSEAS</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>434</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2698309</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>56.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>NO EXIT</td><td>NO EXIT</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>435</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2694855</td><td>200.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>EPSILON</td><td>AMBIKA COMPUTERS</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>436</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2700595</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>K25</td><td>DIGITAL WORLD</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>437</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2700901</td><td>0.00</td><td>0.00</td><td>0.00</td><td>42</td><td>240.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>LUXMI ENTERPRISES</td><td>PRINCIPAL CONTROLLER</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>438</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2698898</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>PARAMOUNT IT</td><td>CGST</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>439</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2700592</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>K25</td><td>TOUCH AUTOMATION</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>440</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9264094</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>AGGARWAL COMPUTERS</td><td>SATYAM SPORTS</td><td>PATIALA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>441</td><td>22-Mar-2024</td><td>20240322055207650</td><td>V80805</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>6.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>GODREJ & BOYCE MFG. CO. LTD</td><td>STEEL SHIELD</td><td>RAJPURA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>442</td><td>22-Mar-2024</td><td>20240322055207650</td><td>V80787</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>GODREJ & BOYCE MFG. CO. LTD</td><td>STEEL SHIELD</td><td>RAJPURA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>443</td><td>22-Mar-2024</td><td>20240322055207650</td><td>V80784</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>GODREJ & BOYCE MFG. CO. LTD</td><td>STEEL SHIELD</td><td>RAJPURA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>444</td><td>22-Mar-2024</td><td>20240322055207650</td><td>V80783</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>VISION LOGISTIC : C1238</td><td>GODREJ & BOYCE MFG. CO. LTD</td><td>HANDS ON TRADERS</td><td>RAJPURA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>445</td><td>22-Mar-2024</td><td>20240322055207650</td><td>844268</td><td>475.00</td><td>0.00</td><td>0.00</td><td>5</td><td>50.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>BRIGHT COMP.</td><td>MANNAT OVERASEAS</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>446</td><td>22-Mar-2024</td><td>20240322055207650</td><td>217724</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>CHUNMUN STORE PVT. LTD. (JALLANDHAR)</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>447</td><td>22-Mar-2024</td><td>20240322055207650</td><td>8612043</td><td>420.00</td><td>0.00</td><td>0.00</td><td>6</td><td>70.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>S S TRADERS</td><td>H4U NUTRITION</td><td>SANGRUR</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>448</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9264123</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>R S INTERIOR</td><td>CHEEP MATTING HOUSE</td><td>PATIALA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>449</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9264121</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>R S INTERIOR</td><td>FREINDS PACKING</td><td>PATIALA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>450</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9264119</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>SETHI MEDICAL AGENCY</td><td>V CARE PHARMA</td><td>PATIALA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>451</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9264116</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>RAJIV PATIALA : C1165</td><td>TEEN GALLERY</td><td>GARG AGENCIES</td><td>PATIALA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>452</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247248</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>453</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9267886</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>90.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>454</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9233754</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>455</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9188636</td><td>0.00</td><td>0.00</td><td>0.00</td><td>8</td><td>14.000</td><td>&nbsp;</td><td>INGRAM MICRO INDIA PVT. LTD. : C1027</td><td>INGRAM MICRO INDIA P LTD</td><td>DIGITAL WORLD</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>456</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9267875</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>457</td><td>22-Mar-2024</td><td>20240322055207650</td><td>217723</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>CHUNMUN STORE PVT. LTD. (JALLANDHAR)</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>458</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247259</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>459</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9218281</td><td>150.00</td><td>0.00</td><td>0.00</td><td>6</td><td>25.000</td><td>&nbsp;</td><td>RASHI PERIPHERALS : C1053</td><td>RASHI PERIPHERALS</td><td>KALYAN COMPUTER</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>460</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247220</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>461</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247211</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>ARISTROCRATE GALLERY</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>462</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247214</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>RAM GAREMENTS</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>463</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247221</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>40.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>464</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9218269</td><td>850.00</td><td>0.00</td><td>0.00</td><td>20</td><td>170.000</td><td>&nbsp;</td><td>RASHI PERIPHERALS : C1053</td><td>RASHI PERIPHERALS</td><td>TOUCH AUTOMATION</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>465</td><td>22-Mar-2024</td><td>20240322055207650</td><td>8629994</td><td>0.00</td><td>0.00</td><td>0.00</td><td>6</td><td>10.000</td><td>&nbsp;</td><td>SAVEX TECHNOLOGIES PVT LTD : C1058</td><td>SAVEX TECHNOLOGIES</td><td>S S SALES</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>466</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247253</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>XPRESION LONDON</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>467</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247244</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>468</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247246</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>469</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247167</td><td>0.00</td><td>0.00</td><td>0.00</td><td>2</td><td>60.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>OCTAVE CLOTHING</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>470</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9263809</td><td>1800.00</td><td>0.00</td><td>0.00</td><td>19</td><td>300.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>SUPPLEMENT HOUSE</td><td>H4 U</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>471</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9236501</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>CHOICE NETWORK</td><td>KEY POINT COMPUTER</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>472</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9263688</td><td>150.00</td><td>0.00</td><td>0.00</td><td>4</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>HIGHER END PERIPHERIPALS</td><td>NET PRO</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>473</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9246035</td><td>150.00</td><td>0.00</td><td>0.00</td><td>2</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>BRIGHT COMPUTER</td><td>S K COMPUTER</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>474</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9246032</td><td>600.00</td><td>0.00</td><td>0.00</td><td>4</td><td>120.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>EYEVIEW TECH</td><td>SKYZEAL TECH</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>475</td><td>22-Mar-2024</td><td>20240322055207650</td><td>8626978</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MAIL BOX FASHION</td><td>ANGELS FASHION</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>476</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9246020</td><td>150.00</td><td>0.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>NAVKAR AGENCIES</td><td>WARNER ELECTRONIC</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>477</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9246015</td><td>150.00</td><td>0.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>SIGMA CC TV</td><td>OPEN CHOICE COMPUTER</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>478</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9246024</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>DATALINK COMPUTERS</td><td>DATAMAX COMPUTER</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>479</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9246153</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MIDHA ELECTRO WORLD</td><td>UNIFIED SOLUTION</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>480</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9246145</td><td>500.00</td><td>0.00</td><td>0.00</td><td>25</td><td>110.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>PREMIER COMPUTER</td><td>IMPEL INFOSYS</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>481</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9246008</td><td>180.00</td><td>0.00</td><td>0.00</td><td>6</td><td>35.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>CLASSIC INFOTECH</td><td>J D ENTERPRISES</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>482</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9246012</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>5.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>S C NETWORKS</td><td>THE PERFECT SOUND</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>483</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9248704</td><td>200.00</td><td>0.00</td><td>0.00</td><td>10</td><td>40.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>AUGUST MARKETING</td><td>J D ENTERPRISES</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>484</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9266249</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>10.000</td><td>&nbsp;</td><td>VRP Telematics : C1123</td><td>VRP TELEMATICS PVT LTD</td><td>COMPUTER ARCADE</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>485</td><td>22-Mar-2024</td><td>20240322055207650</td><td>8597322</td><td>150.00</td><td>0.00</td><td>0.00</td><td>3</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MODERN COMPUTER</td><td>IMPEL INFOSYS</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>486</td><td>22-Mar-2024</td><td>20240322055207650</td><td>8626972</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>MAIL BOX FASHION</td><td>SURI SONS UNIT 2</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>487</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9246022</td><td>200.00</td><td>0.00</td><td>0.00</td><td>3</td><td>40.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>SAPPHIRE INFOMATIQUE</td><td>VIKAS ELECTRONIC</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>488</td><td>22-Mar-2024</td><td>20240322055207650</td><td>8597309</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>15.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>STUNNING TECHNOLOGIES</td><td>NEW PREET ELECTRONICS</td><td>LUDHIANA</td><td>KAPURTHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>489</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9263110</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>SHRI DURGA : C1447</td><td>SHRI DURGA ENTERPRISES</td><td>GLAM GIRLZ</td><td>LUDHIANA</td><td>KAPURTHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>490</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9247255</td><td>180.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE CLOTHING : C1381</td><td>OCTAVE CLOTHING</td><td>LIBAS COLLECTION</td><td>LUDHIANA</td><td>KAPURTHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>491</td><td>22-Mar-2024</td><td>20240322055207650</td><td>217726</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>17.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>TREND SHOP (KAPURTHALA)</td><td>LUDHIANA</td><td>KAPURTHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>492</td><td>22-Mar-2024</td><td>20240322055207650</td><td>217730</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>NEW BODY SHOP</td><td>LUDHIANA</td><td>KAPURTHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>493</td><td>22-Mar-2024</td><td>20240322055207650</td><td>217735</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>1</td><td>27.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APPARELS</td><td>TREND SHOP (KAPURTHALA)</td><td>LUDHIANA</td><td>KAPURTHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>494</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9245008</td><td>140.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>JAGDAMBAY ENTERPRISES : C1305</td><td>JAGDAMBA ENTERPRISES</td><td>GLAM GIRLZ</td><td>LUDHIANA</td><td>KAPURTHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>495</td><td>22-Mar-2024</td><td>20240322055207650</td><td>2701866</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>40.000</td><td>&nbsp;</td><td>MANOJ MISHRA : C1100</td><td>technova</td><td>KV2</td><td>CHANDIGARH</td><td>KAPURTHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>496</td><td>22-Mar-2024</td><td>20240322055207650</td><td>933360</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>12.430</td><td>37.290</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>ANIL JOSHI</td><td>LUDHIANA</td><td>KAPURTHALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>497</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9263033</td><td>100.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>JAGDAMBAY ENTERPRISES : C1305</td><td>JAGDAMBA ENTERPRISES</td><td>VISHAL GARMENTS</td><td>LUDHIANA</td><td>MUKERIAN</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>498</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9250872</td><td>670.00</td><td>0.00</td><td>0.00</td><td>7</td><td>112.000</td><td>&nbsp;</td><td>TOPAY BTD : C1148</td><td>pk pharma</td><td>NARESH AYUR VEDIC</td><td>BHUCHO</td><td>GARDHIWALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>499</td><td>22-Mar-2024</td><td>20240322055207650</td><td>933310</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>0.260</td><td>0.260</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>RITU</td><td>LUDHIANA</td><td>HOSHIARPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>20-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>500</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9267871</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE APP</td><td>OCTAVE APP</td><td>LUDHIANA</td><td>NAKODAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>501</td><td>22-Mar-2024</td><td>20240322055207650</td><td>0563470</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>CCF LOGISTICS : C1013</td><td>G M MODULAR PVT LTD</td><td>PREET ELECTRICALS</td><td>LUDHIANA</td><td>TANDA URMAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>502</td><td>22-Mar-2024</td><td>20240322055207650</td><td>9236506</td><td>150.00</td><td>0.00</td><td>0.00</td><td>1</td><td>10.000</td><td>&nbsp;</td><td>TOPAY CLIENT : C1146</td><td>CHOICE NETWORK</td><td>DASHMESH COMPUTER</td><td>LUDHIANA</td><td>TANDA URMAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>503</td><td>22-Mar-2024</td><td>20240322055346097</td><td>&nbsp;</td><td>0.00</td><td>0.00</td><td>&nbsp;</td><td>&nbsp;</td><td>0.000</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>INTRANSIT</td><td>&nbsp;</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>504</td><td>22-Mar-2024</td><td>20240322095549807</td><td>933297</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>2.410</td><td>2.410</td><td>MODI CARE : C1172</td><td>Modicare_Ludhiana</td><td>Parwinder Singh</td><td>LUDHIANA</td><td>HOSHIARPUR</td><td>FAST EXPRESS CARGO</td><td>ROAD</td><td>OFD</td><td>19-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>505</td><td>22-Mar-2024</td><td>20240322121255320</td><td>10290</td><td>0.00</td><td>0.00</td><td>0.00</td><td>21</td><td>188.000</td><td>&nbsp;</td><td>I-TEK LOGICS PRIVATE LIMITED : C1488</td><td>ECENTRIC DIGITAL LIMITED</td><td>TERRACIS CITIZENSERVICE LLP</td><td>LUDHIANA</td><td>NAWASHEHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>06-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>506</td><td>22-Mar-2024</td><td>20240322121255320</td><td>10294</td><td>0.00</td><td>0.00</td><td>0.00</td><td>62</td><td>521.000</td><td>&nbsp;</td><td>I-TEK LOGICS PRIVATE LIMITED : C1488</td><td>ECENTRIC DIGITAL LIMITED</td><td>TERRACIS CITIZENSERVICE LLP</td><td>LUDHIANA</td><td>NAWASHEHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>06-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>507</td><td>22-Mar-2024</td><td>20240322121255320</td><td>10287</td><td>0.00</td><td>0.00</td><td>0.00</td><td>13</td><td>105.500</td><td>&nbsp;</td><td>I-TEK LOGICS PRIVATE LIMITED : C1488</td><td>ECENTRIC DIGITAL LIMITED</td><td>TERRACIS CITIZENSERVICE LLP</td><td>LUDHIANA</td><td>MIRPUR JATTAN</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>06-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>508</td><td>22-Mar-2024</td><td>20240322122524270</td><td>9253195</td><td>0.00</td><td>0.00</td><td>0.00</td><td>71</td><td>180.000</td><td>&nbsp;</td><td>HMD MOBILE INDIA PVT LTD : C1383</td><td>HMD MOBILE INDIA PVT LTD</td><td>ELIVE TECHNOCRTS</td><td>ZIRAKPUR</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>OFD</td><td>21-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>509</td><td>22-Mar-2024</td><td>20240322142420980</td><td>9224418</td><td>800.00</td><td>0.00</td><td>0.00</td><td>10</td><td>100.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>JAIN</td><td>sugali</td><td>CHANDIGARH</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>510</td><td>22-Mar-2024</td><td>20240322142420980</td><td>9224425</td><td>240.00</td><td>0.00</td><td>0.00</td><td>3</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>JAIN</td><td>PINDI BAGS</td><td>CHANDIGARH</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>511</td><td>22-Mar-2024</td><td>20240322142420980</td><td>9224424</td><td>480.00</td><td>0.00</td><td>0.00</td><td>6</td><td>60.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>JAIN</td><td>LOVELY</td><td>CHANDIGARH</td><td>AMRITSAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>512</td><td>22-Mar-2024</td><td>20240322142420980</td><td>9224426</td><td>720.00</td><td>0.00</td><td>0.00</td><td>9</td><td>90.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>JAIN</td><td>PAPPU ATTACHI HOUSE</td><td>CHANDIGARH</td><td>NAWANSHAHR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>513</td><td>22-Mar-2024</td><td>20240322142420980</td><td>9224420</td><td>160.00</td><td>0.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>JAIN</td><td>SHILPA</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>514</td><td>22-Mar-2024</td><td>20240322142420980</td><td>9224423</td><td>160.00</td><td>0.00</td><td>0.00</td><td>2</td><td>20.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>JAIN</td><td>ASHU</td><td>CHANDIGARH</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>515</td><td>22-Mar-2024</td><td>20240322142420980</td><td>9224422</td><td>240.00</td><td>0.00</td><td>0.00</td><td>3</td><td>30.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>JAIN</td><td>SATISH</td><td>CHANDIGARH</td><td>ABOHAR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>516</td><td>22-Mar-2024</td><td>20240322142420980</td><td>9224419</td><td>160.00</td><td>0.00</td><td>0.00</td><td>1</td><td>1.000</td><td>&nbsp;</td><td>TOPAY CHD : C1155</td><td>JAIN</td><td>PUNJAB</td><td>CHANDIGARH</td><td>MULLANPUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>517</td><td>22-Mar-2024</td><td>20240322143127370</td><td>9255495</td><td>0.00</td><td>0.00</td><td>0.00</td><td>7</td><td>70.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAVE</td><td>OCATAV E</td><td>CHANDIGARH</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>518</td><td>22-Mar-2024</td><td>20240322143127370</td><td>9255494</td><td>0.00</td><td>0.00</td><td>0.00</td><td>3</td><td>30.000</td><td>&nbsp;</td><td>OCTAVE APPERALS : C1230</td><td>OCTAV APP</td><td>EXCEED CLOTHING</td><td>CHANDIGARH</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>519</td><td>22-Mar-2024</td><td>20240322144058877</td><td>809058</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>MAA ENTERPRISES</td><td>CHHABRA</td><td>CHANDIGARH</td><td>BALACHAUR</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>520</td><td>22-Mar-2024</td><td>20240322144058877</td><td>809052</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>25.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>MAA ENTERPRISES</td><td>happy lehnga</td><td>CHANDIGARH</td><td>AHMEDGARH</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>521</td><td>22-Mar-2024</td><td>20240322144058877</td><td>809049</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>20.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>MAA ENTERPRISES</td><td>VEENU GARMENT</td><td>CHANDIGARH</td><td>KHANNA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>522</td><td>22-Mar-2024</td><td>20240322144058877</td><td>809059</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>25.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>MAA ENTERPRISES</td><td>MIGSONS</td><td>CHANDIGARH</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr><tr>
+		<td>523</td><td>22-Mar-2024</td><td>20240322144058877</td><td>809045</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>25.000</td><td>&nbsp;</td><td>ANNEX LOGISTICS PVT LTD : C1142</td><td>MAA ENTERPRISES</td><td>ATTITUDE</td><td>CHANDIGARH</td><td>DASUYA</td><td>GILL TRANSPORT</td><td>ROAD</td><td>INTRANSIT</td><td>22-Mar-2024</td><td>&nbsp;</td>
+	</tr>
+</table>

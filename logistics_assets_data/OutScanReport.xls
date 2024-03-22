@@ -1,0 +1,35 @@
+<style> .text { mso-number-format:\@; }</style> <table cellspacing="0" rules="all" border="1" id="dgridExcelExport" style="border-collapse:collapse;">
+	<tr>
+		<td>SRNo</td><td>ManifestDate</td><td>ManifestNo</td><td>ManualManifestNo</td><td>Mode</td><td>FromBranchName</td><td>ToBranchName</td><td>VendorName</td><td>VendorCode</td><td>ManifestTime</td><td>NoOfConsignment</td><td>Weight</td><td>Manifest Status</td><td>TotalPending</td>
+	</tr><tr>
+		<td>1</td><td>22-Mar-2024</td><td>="20240322015134530"</td><td>=""</td><td>RO</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>V1006</td><td>01:51 AM</td><td>93</td><td>3502.400</td><td>Open</td><td>93</td>
+	</tr><tr>
+		<td>2</td><td>22-Mar-2024</td><td>="20240322015134530"</td><td>=""</td><td>RO</td><td>LUDHIANA</td><td>CHANDIGARH</td><td>GILL TRANSPORT</td><td>V1006</td><td>01:51 AM</td><td>12</td><td>3502.400</td><td>Open</td><td>12</td>
+	</tr><tr>
+		<td>3</td><td>22-Mar-2024</td><td>="20240322040358513"</td><td>=""</td><td>RO</td><td>LUDHIANA</td><td>AMBALA</td><td>FAST EXPRESS CARGO</td><td>V1008</td><td>04:03 AM</td><td>28</td><td>2277.000</td><td>Open</td><td>28</td>
+	</tr><tr>
+		<td>4</td><td>22-Mar-2024</td><td>="20240322041102807"</td><td>=""</td><td>RO</td><td>LUDHIANA</td><td>PATIALA</td><td>GILL TRANSPORT</td><td>V1006</td><td>04:10 AM</td><td>57</td><td>1468.400</td><td>Open</td><td>57</td>
+	</tr><tr>
+		<td>5</td><td>22-Mar-2024</td><td>="20240322041154460"</td><td>=""</td><td>RO</td><td>CHANDIGARH</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>V1006</td><td>04:11 AM</td><td>0</td><td>&nbsp;</td><td>Open</td><td>0</td>
+	</tr><tr>
+		<td>6</td><td>22-Mar-2024</td><td>="20240322044132790"</td><td>=""</td><td>RO</td><td>LUDHIANA</td><td>BATHINDA</td><td>FAST EXPRESS CARGO</td><td>V1008</td><td>04:41 AM</td><td>112</td><td>4382.250</td><td>Open</td><td>112</td>
+	</tr><tr>
+		<td>7</td><td>22-Mar-2024</td><td>="20240322050253067"</td><td>=""</td><td>RO</td><td>LUDHIANA</td><td>AMRITSAR</td><td>FAST EXPRESS CARGO</td><td>V1008</td><td>05:02 AM</td><td>101</td><td>4706.000</td><td>Open</td><td>101</td>
+	</tr><tr>
+		<td>8</td><td>22-Mar-2024</td><td>="20240322055207650"</td><td>=""</td><td>RO</td><td>LUDHIANA</td><td>JALANDHAR</td><td>GILL TRANSPORT</td><td>V1006</td><td>05:51 AM</td><td>98</td><td>2977.690</td><td>Open</td><td>98</td>
+	</tr><tr>
+		<td>9</td><td>22-Mar-2024</td><td>="20240322055346097"</td><td>=""</td><td>RO</td><td>CHANDIGARH</td><td>LUDHIANA</td><td>FAST EXPRESS CARGO</td><td>V1008</td><td>05:53 AM</td><td>0</td><td>&nbsp;</td><td>Open</td><td>0</td>
+	</tr><tr>
+		<td>10</td><td>22-Mar-2024</td><td>="20240322095549807"</td><td>=""</td><td>RO</td><td>LUDHIANA</td><td>JALANDHAR</td><td>FAST EXPRESS CARGO</td><td>V1008</td><td>09:55 AM</td><td>1</td><td>2.410</td><td>Open</td><td>1</td>
+	</tr><tr>
+		<td>11</td><td>22-Mar-2024</td><td>="20240322121255320"</td><td>=""</td><td>RO</td><td>AMRITSAR</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>V1006</td><td>12:12 PM</td><td>3</td><td>814.500</td><td>Open</td><td>3</td>
+	</tr><tr>
+		<td>12</td><td>22-Mar-2024</td><td>="20240322122524270"</td><td>=""</td><td>RO</td><td>CHANDIGARH</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>V1006</td><td>12:25 PM</td><td>1</td><td>180.000</td><td>Open</td><td>1</td>
+	</tr><tr>
+		<td>13</td><td>22-Mar-2024</td><td>="20240322142420980"</td><td>=""</td><td>RO</td><td>CHANDIGARH</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>V1006</td><td>02:23 PM</td><td>8</td><td>351.000</td><td>Open</td><td>8</td>
+	</tr><tr>
+		<td>14</td><td>22-Mar-2024</td><td>="20240322143127370"</td><td>=""</td><td>RO</td><td>CHANDIGARH</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>V1006</td><td>02:31 PM</td><td>2</td><td>100.000</td><td>Open</td><td>2</td>
+	</tr><tr>
+		<td>15</td><td>22-Mar-2024</td><td>="20240322144058877"</td><td>=""</td><td>RO</td><td>CHANDIGARH</td><td>LUDHIANA</td><td>GILL TRANSPORT</td><td>V1006</td><td>02:40 PM</td><td>5</td><td>115.000</td><td>Open</td><td>5</td>
+	</tr>
+</table>

@@ -1,7 +1,7 @@
 import React from "react"
 import style from './style.module.css'
 import ReactLoading from "react-loading"
-export function Loading() {
+export default function Loading() {
     return (
         <div className={style.overlay}>
             <ReactLoading

@@ -51,13 +51,13 @@ import ClientMaster from './components/master/clientMaster';
 import SearchRes from './components/searchRes';
 import { TrackingPage } from './pages/tracking';
 import { LazyComp } from './components/minComp';
-import { Loading } from './pages/loading';
-import { NotFound } from './pages/notFound';
+import Loading from './pages/loading';
+import NotFound from './pages/notFound';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Loading/>
+    element: <LazyComp><Home /></LazyComp>
   },
   {
     path: "/home",
@@ -65,7 +65,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <LazyComp><Login /></LazyComp>
+    element: <Login />
   },
   {
     path: "/track",

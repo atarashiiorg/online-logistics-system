@@ -20,7 +20,6 @@ async function isDocketValid(docket){
             return {valid:false, msg:docket + " is not valid or not issued to any branch"}
         }
     } catch (error) {
-        console.log("isDocketValid",error)
         return {valid:false, msg:'error occured while checking valid'}
     }
 }
@@ -34,7 +33,6 @@ async function isDocketBooked(docket){
             return {booked:false,'msg':'docket '+docket+' is not booked yet'}
         }
     } catch (error) {
-        console.log("isDocketBooked",error)
         return {booked:false,'msg':'error occured while checking booked'}
     }
 }
@@ -57,7 +55,6 @@ async function sendShipperForPrinting(req, res) {
         else
             res.status(304).json({'msg':'not modified'})
     } catch (error) {
-        console.log(error);
         res.status(500).json({'err':error})
     }
 }
@@ -76,7 +73,6 @@ async function receiveShipperFromPrinting(req, res) {
         })
         res.status(200).json({'data':response,'msg':'success'})
     } catch (err) {
-        console.log(err);
         res.status(500).json({'err':err})
     }
 }
@@ -121,7 +117,6 @@ async function shipperIssueToBranch(req, res) {
         }
         res.status(304).end()
     } catch (err) {
-        console.log(err);
         res.status(500).json({'err':err})
     }
 }

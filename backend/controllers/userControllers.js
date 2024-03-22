@@ -1,12 +1,7 @@
 const User = require("../models/user")
 const jwt = require("jsonwebtoken")
-const Shipper = require("../models/shipper")
-const Shipment = require("../models/shipment")
-const Invoice = require("../models/invoice")
 const Booking = require("../models/booking")
-const ConsignorConsignee = require("../models/consignorConsignee")
 const Branch = require("../models/branch")
-const { isDocketValid, isDocketBooked, isShipperSeriesValid, isShipperIssuedAlready } = require("./shipperControllers")
 
 async function loginUser(req, res) {
     try {
@@ -19,7 +14,7 @@ async function loginUser(req, res) {
         if (user.password == req.body.password) {
             const token = jwt.sign({ _id: user._id }, process.env.JWT_KEY)
             const n_user = { ...user._doc }
-            delete nuser.password
+            delete n_user.password
             res.status(200).json({ user: n_user, token: token })
         } else {
             res.status(401).json({ 'msg': 'invalid password' })
@@ -30,7 +25,6 @@ async function loginUser(req, res) {
     }
 }
 
-
 async function trackAwb(req, res) {
     try {
         const doc_num = req.query.docket
@@ -40,6 +34,7 @@ async function trackAwb(req, res) {
             .populate("consignorConsignee")
             .populate("branch")
             .populate("client")
+            .populate("tracking")
         if (bookings) {
             res.status(200).json({ used: true, valid: true, bookings, msg:'success' })
             return

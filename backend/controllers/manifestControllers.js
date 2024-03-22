@@ -6,14 +6,17 @@ const ejs = require("ejs")
 const fs = require('fs')
 const path = require("path")
 const { getManifestName, generateManifestPdf } = require("../services/helpers")
+const { getPopulatedManifest } = require("../services/dbServices")
 
 async function createManifest(req, res) {
     try {
+        // route
         if (req.body.vendor == "") {
             res.status(203).json({ 'msg': 'vendor is not provided' })
             return
         }
 
+        //route
         if (req.body.dockets.length <= 0) {
             res.status(203).json({ 'msg': 'docket list is not provided' })
             return
@@ -41,25 +44,13 @@ async function createManifest(req, res) {
 }
 
 async function getManifests(req, res) {
+    //mid based
+    const bid = req.query.bid
+    const mid = req.query.mid
     try {
-        if (req.query.mid) {
-            const manifest = await Manifest.findById({ _id: req.query.mid })
-                .populate("fromBCode")
-                .populate("toBCode")
-                .populate({
-                    path: "dockets.booking",
-                    populate: [
-                        {
-                            path: "shipment",
-                            populate: [{ path: "origin" }, { path: "destination" }]
-                        },
-                        { path: "invoice" },
-                        { path: "client" },
-                        { path: "consignorConsignee" }
-                    ]
-                })
-                .populate("vendor")
-
+        if (mid) {
+            const manifest = await getPopulatedManifest({ _id: mid },true)
+           
             let totalpieces = 0
             let totalWeight = 0
             let totalToPay = 0
@@ -116,34 +107,33 @@ async function getManifests(req, res) {
         return
     }
 
+    //bid based
     try {
-        const bid = req.query.bid
-        if(!bid){
-            res.status(404).json({'msg':'no data found'})
+        if(bid){   
+            const manifests = await getPopulatedManifest({toBCode:bid})
+            res.status(200).json({ 'msg': 'success', data: manifests })
             return
-        }
-        const manifests = await Manifest.find({toBCode:bid})
-            .populate("fromBCode")
-            .populate({
-                path: "dockets.booking",
-                populate: [
-                    { path: "shipment" },
-                    { path: "invoice" },
-                    { path: "consignorConsignee" }
-                ]
-            })
-            // .populate("vendor")
-        res.status(200).json({ 'msg': 'success', data: manifests })
+        } 
     } catch (err) {
         console.log(err)
         res.status(500).json({ 'err': err })
+        return
+    }
+
+    //all
+    try{
+        const manifests = await getPopulatedManifest()
+        res.status(200).json({'msg':'success',data:manifests})
+        return
+    } catch(err) {
+        res.status(500).json({'err':err})
+        return
     }
 }
 
 async function checkDockets(dockets) {
     try {
         for (let i = 0; i < dockets.length; i++) {
-            console.log(await isDocketValid(dockets[i]));
             if (!(await isDocketValid(dockets[i])).valid) {
                 console.log("1");
                 return { passed: false, msg: dockets[i] + " is not a valid docket number or may not be issued to any branch" }

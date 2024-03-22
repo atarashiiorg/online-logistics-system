@@ -31,7 +31,7 @@ export const Docket = (props) => {
 
 import tableStyle from './tableStyle.module.css'
 import React from "react"
-import { Loading } from "../../pages/loading"
+import Loading from "../../pages/loading"
 export const TableComp = (props) => {
     return (
         <div className={tableStyle.tableContainer}>

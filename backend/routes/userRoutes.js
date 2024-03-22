@@ -37,8 +37,19 @@ const {
     getState,
     updateState
 } = require("../controllers/stateControllers")
-const { getZone, createZone, updateZone } = require("../controllers/zoneControllers")
-const { getDestination, createDestination, updateDestination } = require("../controllers/destinationControllers")
+const { 
+    getZone, 
+    createZone, 
+    updateZone 
+} = require("../controllers/zoneControllers")
+const { 
+    getDestination, 
+    createDestination, 
+    updateDestination 
+} = require("../controllers/destinationControllers")
+const {
+    getRunsheets
+} = require("../controllers/drsControllers")
 
 const userRoutes = require("express")()
 
@@ -67,6 +78,7 @@ userRoutes.route("/booking")
 .post(createBooking)
 
 userRoutes.route("/track")
+.all(authorize)
 .get(trackAwb)
 
 userRoutes.use("/branch",authorize)
@@ -94,6 +106,10 @@ userRoutes.use("/manifest", authorize)
 userRoutes.route("/manifest")
 .post(createManifest)
 .get(getManifests)
+
+userRoutes.route("/runsheet")
+.all(authorize)
+.get(getRunsheets)
 
 userRoutes.get("/run",(req,res)=>{
     res.sendFile(path.resolve("views/runsheet.html"))

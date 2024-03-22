@@ -7,6 +7,7 @@ import { TableComp } from '../../minComp'
 import { useGetData } from '../../../apiHandlers/getApis'
 import { serverUrl } from '../../../constants'
 import { useDownloader } from '../../../apiHandlers/getApis'
+import Loading from '../../../pages/loading'
 
 export function TableTotalFound(props) {
     return (
@@ -45,6 +46,9 @@ export default function ManifestPrint() {
     const [err, loading, manifests] = useGetData("manifest")
     return (
         <>
+        {
+            loading?<Loading/>:""
+        }
             <div className={style.formContainer}>
                 <p>Manifest Print</p>
                 <div>

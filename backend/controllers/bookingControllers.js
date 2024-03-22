@@ -6,15 +6,17 @@ const Invoice = require("../models/invoice");
 const Shipment = require("../models/shipment");
 const ConsignorConsignee = require("../models/consignorConsignee");
 const Booking = require("../models/booking");
+const { initiateTracking, getPopulatedBooking } = require("../services/dbServices");
 
 async function createBooking(req, res) {
     try {
         const isValid = await isDocketValid(req.body.awbDetails.docketNumber)
+
         if (!isValid.valid) {
             res.status(403).json({ 'msg': isValid.msg })
             return
         }
-        console.log(isValid.branch._id, req.body.branch);
+
         if (isValid.branch._id != req.body.branch) {
             res.status(403).json({ 'msg': 'this shipper is not issued to this branch try changing branch' })
             return
@@ -26,24 +28,32 @@ async function createBooking(req, res) {
             return
         }
 
-        const invoice = await Invoice.create(req.body.billingDetails)
-        const shipment = await Shipment.create({
+        const invoice = new Invoice(req.body.billingDetails)
+        const shipment = new Shipment({
             ...req.body.awbDetails,
             ...req.body.dimWeight,
             ...req.body.volWeight
         })
 
-        const consignorConsignee = await ConsignorConsignee.create(req.body.consignorConsignee)
-        console.log(consignorConsignee);
+        const consignorConsignee = new ConsignorConsignee(req.body.consignorConsignee)
 
-        const booking = await Booking.create({
+        const tracking = await initiateTracking(req.body.awbDetails.docketNumber,isValid.branch.branchName,req.body.awbDetails.bookingDate,"")
+        const booking = new Booking({
             ...req.body.awbDetails,
             branch: req.body.branch,
             invoice: invoice._id,
             shipment: shipment._id,
             consignorConsignee: consignorConsignee._id,
-            client: req.body.client
-        })
+            client: req.body.client,
+            tracking:tracking._id
+        })        
+        
+        await invoice.save()
+        await shipment.save()
+        await consignorConsignee.save()
+        await tracking.save()
+        await booking.save()
+        
         res.status(201).json({ 'msg': 'success' })
     } catch (err) {
         if (err.code == 11000) {
@@ -63,10 +73,7 @@ async function getBooking(req, res) {
                 .populate("consignorConsignee")
             res.status(200).json({'msg':'success',data:bookings})
         } else {
-            const booking = await Booking.findOne({ docketNumber: req.query.docket })
-                .populate("shipment")
-                .populate("invoice")
-                .populate("consignorConsignee")
+            const booking = await getPopulatedBooking({ docketNumber: req.query.docket },true)
             const obj = {
                 _id: booking?._id,
                 docketNumber: booking?.docketNumber,

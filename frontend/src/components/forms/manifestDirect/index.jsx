@@ -221,6 +221,7 @@ export default function ManifestDirect() {
     } //for updating manifest form fields values
 
     const addDocket = () => {
+        console.log(docket)
         //validation
         setManifest(p => {
             const dockets = [...p.dockets]

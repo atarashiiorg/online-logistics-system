@@ -1,8 +1,28 @@
 const mongoose = require('mongoose');
 const trackingSchema = new mongoose.Schema({
-    status:String,
-    vendor:{ type: mongoose.Types.ObjectId, ref:"Vendor"},
-    deliveryBoy:{type:String}
+    docketNumber:{
+        type:String,
+        unique:true
+    },
+    details:[
+        {
+            action:String,
+            actionDate:Date,
+            actionBy:{
+                type:mongoose.Types.ObjectId,
+                ref:"Employee"
+            }
+        }
+    ],
+    status:{
+        type:String,
+        default:"in-trasit"//'delivered'//'misroute'//'out for delivery'//'return to origin'//'undelivered'
+    },
+    receiver:String,
+    receiverType:String,//'sign'//'stamp'//'sign & stamp'
+    receivingDate:Date,
+    podReceivingDate:Date,
+    podRemarks:String
 },{
     timestamps:true
 })
