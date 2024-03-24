@@ -19,13 +19,13 @@ input, select{
 
 .formContainer{
     width: 100%;
-    border: 1px solid dodgerblue;
+    border: 1px solid #ef9b1b;
     margin-bottom: 15px;
 }
 
 .formContainer>p{
     padding: 8px;
-    background-color: dodgerblue;
+    background-color: #ef9b1b;
     display: flex;
     color: white;
 }

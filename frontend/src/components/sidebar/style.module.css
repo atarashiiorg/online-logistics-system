@@ -1,14 +1,14 @@
 .container{
     width: 230px;
     height: 100%;
-    background-color: #808080;
+    background-color: #122540;
     overflow: auto;
     scrollbar-width: none;
 }
 
 .d_item, .d_item_active{
     padding: 10px 20px;
-    background-color: #494949;
+    background-color: #122540;
     color: white;   
     font-family: Arial, Helvetica, sans-serif;
     border-bottom: 1px solid rgb(141, 139, 139);
@@ -22,11 +22,11 @@
 }
 
 .d_item_active{
-    background-color: rgb(41, 40, 40);
+    background-color: #122540;
 }
 
 .ds_item, .ds_item_active{
-    background-color: rgb(112, 112, 111);
+    background-color: #122540;
     padding: 5px 20px;
     height: 100%;
     width: 100%;
@@ -41,12 +41,12 @@
 }
 
 .ds_item_active{
-    background-color: rgb(245, 132, 79);
+    background-color: #ef9b1b;
     color: white;
 }
 
 .ds_item:hover{
-    background-color: orange;
+    background-color: #ef9b1b;
     color: white;
 }
 

@@ -52,7 +52,7 @@ export default function SendShipperForPrinting() {
             message.warning("shipper to must be greater than shipper from.")
             return
         }
-        const res = await fetch(serverUrl + "sendshipper", {
+        const res = await fetch(serverUrl + "shipper", {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
