@@ -153,8 +153,8 @@ export default function BookingEntry() {
             message.warning("Please enter destination")
             return
         }
-        if(billingDetails.clientName==""){
-            message.warning("Please enter client name")
+        if(billingDetails.clientName=="" || client == ""){
+            message.warning("Please enter valid client name")
             return
         }
         if(billingDetails.billingAt==""){
@@ -200,7 +200,7 @@ export default function BookingEntry() {
     return (
         <>
         {
-            console.log(awbDetails)
+            console.log(billingDetails.clientName)
         }
             <div className={style.formContainer}>
                 <p>AWB Details</p>

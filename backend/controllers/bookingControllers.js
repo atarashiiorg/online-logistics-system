@@ -57,6 +57,7 @@ async function createBooking(req, res) {
 
         res.status(201).json({ 'msg': 'success' })
     } catch (err) {
+        console.log(err)
         if (err.code == 11000) {
             res.status(409).json({ 'msg': 'this docket number already booked' })
             return
