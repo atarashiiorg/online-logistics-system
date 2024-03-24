@@ -71,15 +71,24 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
     }
 
     const [currDocket, setCurrDocket] = useState("")
-
+    const {currBranch} = useContext(UserAuthContext)
 
     const setVal = async(e) => {
         if (e.keyCode == 13) {
-            const data = await useFetchDocketForManifest(currDocket)
-            console.log(data)
-            if(!data.err){
+            if(currDocket.length<7){
+                message.warning("Enter a valid docket Number")
+                return
+            }
+
+            if(!currBranch._id){
+                message.warning("Please select current branch first")
+                return
+            }
+            const data = await useFetchDocketForManifest(currDocket, currBranch._id)
+            if(data.res){
                 setDocket(data.data)
             } else {
+                console.log(data.err)
                 message.error(data?.err)
             }
             return
@@ -222,6 +231,10 @@ export default function ManifestDirect() {
 
     const addDocket = () => {
         console.log(docket)
+        if(!docket._id){
+            message.warning("Enter a valid docket number")
+            return
+        }
         //validation
         setManifest(p => {
             const dockets = [...p.dockets]

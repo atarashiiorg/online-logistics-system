@@ -5,6 +5,7 @@ const ejs = require("ejs")
 const path = require("path")
 const pdf = require('html-pdf')
 const Runsheet = require("../models/runsheet")
+const Employee = require("../models/employee")
 
 const getNewBranchCode = async () => {
     const branch = await Branch.findOne({}).sort({ 'createdAt': -1 })
@@ -13,6 +14,16 @@ const getNewBranchCode = async () => {
         return `B${Number(bCode) + 1}`
     } else {
         return "B1001"
+    }
+}
+
+const getNewEmployeeCode = async () => {
+    const emp = await Employee.findOne({}).sort({ 'createdAt': -1 })
+    if (emp) {
+        const eCode = emp.eCode.substring(1, emp.eCode.length)
+        return `E${Number(eCode) + 1}`
+    } else {
+        return "E1001"
     }
 }
 
@@ -105,5 +116,6 @@ module.exports = {
     getNewVendorCode,
     getManifestName,
     generateManifestPdf,
-    getRunsheetNumber
+    getRunsheetNumber,
+    getNewEmployeeCode
 }

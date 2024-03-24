@@ -2,9 +2,11 @@ const User = require("../models/user")
 const jwt = require("jsonwebtoken")
 const Booking = require("../models/booking")
 const Branch = require("../models/branch")
+const bcrypt = require("bcrypt")
 
 async function loginUser(req, res) {
     try {
+        // const match = await bcrypt.compare(password, user.passwordHash);
         const user = await User.findOne({ username: req.body.username })
         console.log("user", user);
         if (!user) {

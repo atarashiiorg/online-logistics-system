@@ -163,6 +163,10 @@ export default function SideBar() {
         {
             path: "master/ClientMaster",
             value: "Client Master"
+        },
+        {
+            path: "master/EmployeeMaster",
+            value: "Employee Master"
         }
     ]
 

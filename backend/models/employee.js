@@ -5,13 +5,19 @@ const employeeSchema = mongoose.Schema({
     name:String,
     role:{
         type:String,
-        default:"emp"//emp/adm/dlb/hm/bm
+        default:"emp"
     },
     address:String,
-    phone:String,
-    email:String
+    mobile:String,
+    email:String,
+    isActive:{
+        type:Boolean,
+        default:false
+    },
+    password:String
 },{
     timestamps:true
 })
 
 const Employee = mongoose.model("Employee",employeeSchema)
+module.exports = Employee

@@ -53,6 +53,7 @@ import { TrackingPage } from './pages/tracking';
 import { LazyComp } from './components/minComp';
 import Loading from './pages/loading';
 import NotFound from './pages/notFound';
+import { EmployeeMaster } from './components/master/employeeMaster';
 
 const router = createBrowserRouter([
   {
@@ -176,6 +177,10 @@ const router = createBrowserRouter([
       {
         path: "master/ClientMaster",
         element: <ClientMaster />
+      },
+      {
+        path: "master/EmployeeMaster",
+        element: <EmployeeMaster />
       },
       //General Master Routes
       {

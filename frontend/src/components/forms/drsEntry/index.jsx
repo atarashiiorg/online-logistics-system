@@ -72,6 +72,9 @@ export default function DrsEntry() {
     }
     return (
         <>
+        {
+            console.log(drs)
+        }
             <div className={style.formContainer}>
                 <p>DRS Entry</p>
                 <div>
@@ -87,7 +90,7 @@ export default function DrsEntry() {
                     <input type="text" list='empList' placeholder='Emp Name' value={drs?.empText} onInput={e => drsHandler(e, "employee")} />
                     <datalist id="empList">
                         {
-                            drs.vendorType != null ? employeeList?.map(e => <option value={e.eCode + " : " + e.name}>{e.eCode} : {e.name}</option>) : null
+                           employeeList?.map(e => <option value={e.eCode + " : " + e.name}>{e.eCode} : {e.name}</option>)
                         }
                     </datalist>
                     <label htmlFor="">Date</label>

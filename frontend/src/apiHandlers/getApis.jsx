@@ -87,12 +87,15 @@ export const useDownloader = async (mid)=>{
         }
 }
 
-export const useFetchDocketForManifest = async (docket) => {
+export const useFetchDocketForManifest = async (docket, branch) => {
     try {
-        const res = await fetch(serverUrl + "booking?docket=" + docket)
+        const res = await fetch(serverUrl + "booking?docket=" + docket+"&branch="+branch)
         const data = await res.json()
-        return {res:true,data:data.data}
+        if(res.ok)
+            return {res:true,data:data.data}
+        else 
+            return {res:false,err:data.msg}
     } catch (error) {
-        return {err:error}
+        return {res:false,err:error}
     }
 }

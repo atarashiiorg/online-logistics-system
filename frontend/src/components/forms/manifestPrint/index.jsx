@@ -8,6 +8,8 @@ import { useGetData } from '../../../apiHandlers/getApis'
 import { serverUrl } from '../../../constants'
 import { useDownloader } from '../../../apiHandlers/getApis'
 import Loading from '../../../pages/loading'
+import { useContext } from 'react'
+import UserAuthContext from '../../../contexts/authContext'
 
 export function TableTotalFound(props) {
     return (
@@ -43,7 +45,8 @@ const TableRow = (m) => {
 }
 
 export default function ManifestPrint() {
-    const [err, loading, manifests] = useGetData("manifest")
+    const {currBranch} = useContext(UserAuthContext)
+    const [err, loading, manifests] = useGetData("manifest?fbid="+currBranch._id,[currBranch])
     return (
         <>
         {

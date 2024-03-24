@@ -49,6 +49,52 @@ async function getPopulatedManifest(opts, single) {
     })
 }
 
+
+async function findManifestByDocketNumber(docketNumber) {
+    try {
+        const booking = await Booking.findOne({ docketNumber })
+            .populate({
+                path: 'tracking',
+                populate: { path: 'currentManifest' }
+            })
+        if (!booking) {
+            return null
+        } else {
+            const manifest = await Manifest.findById(booking?.tracking?.currentManifest)
+            if (!manifest)
+                return null
+            return manifest;
+        }
+    } catch (error) {
+        console.error("Error finding manifest:", error);
+        throw error;
+    }
+}
+
+async function updateTrackingManifest(dockets, details, manifest) {
+    try {
+        for (let i = 0; i < dockets.length; i++) {
+            const booking = await Booking.findOne({ docketNumber: dockets[i] }).populate('tracking');
+            if (!booking) {
+                console.log(`Booking not found for docket number: ${dockets[i]}`);
+                continue; // Move to the next iteration if booking is not found
+            }
+            
+            const res = await Tracking.updateOne(
+                { _id: booking.tracking._id },
+                {
+                    $push: { details: { ...details } },
+                    $set: { currentManifest: manifest }
+                }
+            );
+            console.log(res);
+        }
+    } catch (err) {
+        throw err;
+    }
+}
+
+
 async function getPopulatedBooking(opts, single) {
     return new Promise((resolve, reject) => {
         try {
@@ -64,6 +110,13 @@ async function getPopulatedBooking(opts, single) {
                 resolve(booking)
             } else {
                 const bookings = Booking.find(opts || {})
+                    .populate({
+                        path: "shipment",
+                        populate: [{ path: "origin" }, { path: "destination" }]
+                    })
+                    .populate("invoice")
+                    .populate("consignorConsignee")
+                    .populate("tracking")
                 resolve(bookings)
             }
         } catch (error) {
@@ -92,5 +145,7 @@ async function initiateTracking(docket, branchName, date, by) {
 module.exports = {
     getPopulatedManifest,
     getPopulatedBooking,
-    initiateTracking
+    initiateTracking,
+    findManifestByDocketNumber,
+    updateTrackingManifest
 }

@@ -16,10 +16,13 @@ const manifestSchema = new mongoose.Schema({
             }
         }
     ],
-
     createdBy: {
         type: mongoose.Types.ObjectId,
         ref: "User"
+    },
+    isReceived:{
+        type:Boolean,
+        default:false
     }
 }, {
     timestamps: true

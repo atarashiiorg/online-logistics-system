@@ -6,7 +6,8 @@ const Invoice = require("../models/invoice");
 const Shipment = require("../models/shipment");
 const ConsignorConsignee = require("../models/consignorConsignee");
 const Booking = require("../models/booking");
-const { initiateTracking, getPopulatedBooking } = require("../services/dbServices");
+const { initiateTracking, getPopulatedBooking, findManifestByDocketNumber } = require("../services/dbServices");
+const Manifest = require("../models/manifest");
 
 async function createBooking(req, res) {
     try {
@@ -37,7 +38,7 @@ async function createBooking(req, res) {
 
         const consignorConsignee = new ConsignorConsignee(req.body.consignorConsignee)
 
-        const tracking = await initiateTracking(req.body.awbDetails.docketNumber,isValid.branch.branchName,req.body.awbDetails.bookingDate,"")
+        const tracking = await initiateTracking(req.body.awbDetails.docketNumber, isValid.branch.branchName, req.body.awbDetails.bookingDate, "")
         const booking = new Booking({
             ...req.body.awbDetails,
             branch: req.body.branch,
@@ -45,15 +46,15 @@ async function createBooking(req, res) {
             shipment: shipment._id,
             consignorConsignee: consignorConsignee._id,
             client: req.body.client,
-            tracking:tracking._id
-        })        
-        
+            tracking: tracking._id
+        })
+
         await invoice.save()
         await shipment.save()
         await consignorConsignee.save()
         await tracking.save()
         await booking.save()
-        
+
         res.status(201).json({ 'msg': 'success' })
     } catch (err) {
         if (err.code == 11000) {
@@ -71,9 +72,40 @@ async function getBooking(req, res) {
             const bookings = await Booking.find()
                 .populate("shipment")
                 .populate("consignorConsignee")
-            res.status(200).json({'msg':'success',data:bookings})
+            res.status(200).json({ 'msg': 'success', data: bookings })
         } else {
-            const booking = await getPopulatedBooking({ docketNumber: req.query.docket },true)
+
+            const isValid = await isDocketValid(req.query.docket)
+            if(!isValid.valid){
+                res.status(403).json({"msg":isValid.msg})
+                return
+            }
+
+            const manifest = await findManifestByDocketNumber(req.query.docket)
+            let booking
+            let msg
+            if (manifest) {
+                if (manifest.toBCode == req.query.branch) {
+                    booking = await getPopulatedBooking({ docketNumber: req.query.docket }, true)
+                    msg = "Docket manifested to current branch"
+                } else {
+                    booking=null
+                    msg="Docket not manifest to this branch"
+                }
+            } else {
+                booking = await getPopulatedBooking({ branch: req.query.branch, docketNumber: req.query.docket }, true)
+                if(!booking){
+                    msg = "Docket not booked by current branch"
+                } else {
+                    msg = "Docket booked by current branch"
+                }
+            }
+
+            if (!booking) {
+                res.status(403).json({ 'msg': msg })
+                return
+            }
+
             const obj = {
                 _id: booking?._id,
                 docketNumber: booking?.docketNumber,
@@ -86,9 +118,9 @@ async function getBooking(req, res) {
                 weight: booking?.shipment?.totalActualWeight,
                 toPay: booking?.invoice?.amountToPay,
                 cod: booking?.invoice?.codAmount,
-                itemContent:booking?.invoice?.itemContent
+                itemContent: booking?.invoice?.itemContent
             }
-            res.status(200).json({'msg':'success',data:obj})
+            res.status(200).json({ 'msg': msg, data: obj })
         }
     } catch (error) {
         console.log(error)

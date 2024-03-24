@@ -50,6 +50,12 @@ const {
 const {
     getRunsheets
 } = require("../controllers/drsControllers")
+const { 
+    getEmployee, 
+    createEmployee, 
+    updateEmployee, 
+    deleteEmployee 
+} = require("../controllers/employeeControllers")
 
 const userRoutes = require("express")()
 
@@ -94,6 +100,13 @@ userRoutes.route("/client")
 .get(getClients)
 .delete(deleteClient)
 .patch(updateClient)
+
+userRoutes.route("/employee")
+.all(authorize)
+.get(getEmployee)
+.post(createEmployee)
+.patch(updateEmployee)
+.delete(deleteEmployee)
 
 userRoutes.use("/vendor", authorize)
 userRoutes.route("/vendor")

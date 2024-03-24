@@ -6,10 +6,15 @@ const ejs = require("ejs")
 const fs = require('fs')
 const path = require("path")
 const { getManifestName, generateManifestPdf } = require("../services/helpers")
-const { getPopulatedManifest } = require("../services/dbServices")
+const { getPopulatedManifest, updateTrackingManifest } = require("../services/dbServices")
 
 async function createManifest(req, res) {
     try {
+
+        if(req.body.toBCode==""){
+            res.status(203).json({ 'msg': 'ToBCode is not provided' })
+            return
+        }
         // route
         if (req.body.vendor == "") {
             res.status(203).json({ 'msg': 'vendor is not provided' })
@@ -33,6 +38,7 @@ async function createManifest(req, res) {
         const manifestNumber = getManifestName()
         const manifest = await Manifest.create({ ...req.body, manifestNumber })
         if (manifest) {
+            await updateTrackingManifest(dockets,{action:"manifest created in "+manifestNumber,actionDate:new Date()},manifest._id)
             res.status(201).json({ 'data': manifest, 'msg': 'success' })
         } else {
             res.status(304).json({ 'msg': 'something went wrong' })
@@ -47,6 +53,7 @@ async function getManifests(req, res) {
     //mid based
     const bid = req.query.bid
     const mid = req.query.mid
+    const fbid = req.query.fbid
     try {
         if (mid) {
             const manifest = await getPopulatedManifest({ _id: mid },true)
@@ -110,7 +117,19 @@ async function getManifests(req, res) {
     //bid based
     try {
         if(bid){   
-            const manifests = await getPopulatedManifest({toBCode:bid})
+            const manifests = await getPopulatedManifest({toBCode:bid,isReceived:false})
+            res.status(200).json({ 'msg': 'success', data: manifests })
+            return
+        } 
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ 'err': err })
+        return
+    }
+    //
+    try {
+        if(fbid){   
+            const manifests = await getPopulatedManifest({fromBCode:fbid})
             res.status(200).json({ 'msg': 'success', data: manifests })
             return
         } 
@@ -122,7 +141,7 @@ async function getManifests(req, res) {
 
     //all
     try{
-        const manifests = await getPopulatedManifest()
+        const manifests = await getPopulatedManifest({})
         res.status(200).json({'msg':'success',data:manifests})
         return
     } catch(err) {
@@ -136,7 +155,7 @@ async function checkDockets(dockets) {
         for (let i = 0; i < dockets.length; i++) {
             if (!(await isDocketValid(dockets[i])).valid) {
                 console.log("1");
-                return { passed: false, msg: dockets[i] + " is not a valid docket number or may not be issued to any branch" }
+                return { passed: false, msg: "This is not a valid docket number or may not be issued to any branch" }
             }
             if (!(await isDocketBooked(dockets[i])).booked) {
                 console.log("2");

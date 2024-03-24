@@ -75,7 +75,7 @@ export function TrackingPage() {
                             <div className={style.upper}>
                                 <div className={style.upper_child}>
                                     <div className={style.status}>
-                                        {trackingData?.status || ""}
+                                        {trackingData?.tracking?.status || ""}
                                     </div>
                                 </div>
                                 <div className={style.upper_child}>

@@ -14,6 +14,10 @@ const trackingSchema = new mongoose.Schema({
             }
         }
     ],
+    currentManifest:{
+        type:mongoose.Types.ObjectId,
+        ref:"Manifest"
+    },
     status:{
         type:String,
         default:"in-trasit"//'delivered'//'misroute'//'out for delivery'//'return to origin'//'undelivered'

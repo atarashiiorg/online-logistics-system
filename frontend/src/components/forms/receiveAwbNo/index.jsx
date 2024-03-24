@@ -36,6 +36,11 @@ const TableRow = (props) => {
 export default function ReceiveAwbNo() {
     const { currBranch } = useContext(UserAuthContext)
     const [err, loading, manifests, setManifests] = useGetData("manifest?bid=" + currBranch._id, [currBranch])
+
+    const receiveAll = ()=>{
+        
+    }
+
     return (
         <>
             <div className={style.formContainer}>
@@ -47,9 +52,9 @@ export default function ReceiveAwbNo() {
                     <input type="time" />
 
                     <label htmlFor="">Message</label>
-                    <input type="text" placeholder='To Branch' />
-                    <label htmlFor="">Awb No</label>
-                    <input type="text" placeholder='Manifest No' />
+                    <input type="text" placeholder='Message' />
+                    <label htmlFor="">Docket No</label>
+                    <input type="text" placeholder='Docket No' />
 
                     <label htmlFor="">Auto Receive</label>
                     <span><input type="checkbox" /></span>
