@@ -34,10 +34,10 @@ export default function BookingEntry() {
         ewayBillNo: "",
         itemContent: "",
         bookingType: "",
-        topayAmt: "",
+        amountToPay: "",
         odaCharges: "",
         codType: "",
-        codAmt: ""
+        codAmount: ""
     }
     const initialConsignorConsignee = {
         consignor: "",
@@ -57,15 +57,16 @@ export default function BookingEntry() {
         weights: []
     }
     const initialDimWeight = {
-        totalDimWeight: "",
-        totalActualWeight: "",
-        totalChargeWeight: ""
+        totalDimWeight: 0,
+        totalActualWeight: 0,
+        totalChargeWeight: 0
     }
     const [awbDetails, setAwbDetails] = useState(initialAwbDetails)
     const [billingDetails, setBillingDetails] = useState(initialBillingDetails)
     const [consignorConsignee, setConsignorConsignee] = useState(initialConsignorConsignee)
     const [volWeight, setVolWeight] = useState(initialVolWeight)
     const [dimWeight, setDimWeight] = useState(initialDimWeight)
+    const [wid,setWid] = useState(0)
 
     const resetForm = () => {
         setAwbDetails(initialAwbDetails)
@@ -121,12 +122,17 @@ export default function BookingEntry() {
         setDimWeight(p => {
             const obj = { ...p };
             if (f == "totalDimWeight+") {
-                obj.totalDimWeight += parseFloat(val).toFixed(2)
+                console.log(parseFloat(val),"dim +")
+                obj.totalDimWeight = (parseFloat(obj.totalDimWeight)+parseFloat(val)).toFixed(2)
                 obj.totalChargeWeight = parseFloat(obj.totalDimWeight) > parseFloat(obj.totalActualWeight) ? obj.totalDimWeight : obj.totalActualWeight
                 return obj
             }
             if (f == "totalDimWeight-") {
-                obj.totalDimWeight -= parseFloat(val).toFixed(2)
+                console.log(parseFloat(obj.totalDimWeight),"dim -")
+                obj.totalDimWeight = (parseFloat(obj.totalDimWeight)+ parseFloat(val)).toFixed(2)
+                if(isNaN(obj.totalDimWeight)){
+                    obj.totalDimWeight=0.0
+                }
                 obj.totalChargeWeight = parseFloat(obj.totalDimWeight) > parseFloat(obj.totalActualWeight) ? obj.totalDimWeight : obj.totalActualWeight
                 return obj
             }
@@ -163,12 +169,12 @@ export default function BookingEntry() {
                 height: "",
                 divisor: "",
                 pcs: "",
-                weights: [...p.weights]
+                weights: [...p.weights],
+                ...p
             }
         })
     }
 
-    let wid = 0
     const handleAddVolWeight = () => {
         if (!parseFloat(volWeight.len) || !parseFloat(volWeight.height) || !parseFloat(volWeight.breadth) ||  !parseFloat(volWeight.pcs)) {
             message.warning("Enter a numeric value")
@@ -183,8 +189,7 @@ export default function BookingEntry() {
             divisor: volWeight.divisor,
             dimWeight: volWeight.dimWeight,
         }
-        wid += 1
-        console.log(wid)
+        setWid(p=>p+1)
         handleTotalWeight(newObj.dimWeight, "totalDimWeight+")
         resetVolWeight()
         setVolWeight(p => {
@@ -234,11 +239,11 @@ export default function BookingEntry() {
             message.warning("Please enter billing branch")
             return
         }
-        if ((billingDetails.bookingType == 'topay' || billingDetails.bookingType == 'cash') && (parseInt(billingDetails.topayAmt) <= 0 || billingDetails.topayAmt == "")) {
+        if ((billingDetails.bookingType == 'topay' || billingDetails.bookingType == 'cash') && (parseInt(billingDetails.amountToPay) <= 0 || billingDetails.amountToPay == "")) {
             message.warning("Please enter topay/cash amount greater than 0")
             return
         }
-        if (billingDetails.codType == 'cod' && (parseInt(billingDetails.codAmt) <= 0 || billingDetails.codAmt == "")) {
+        if (billingDetails.codType == 'cod' && (parseInt(billingDetails.codAmount) <= 0 || billingDetails.codAmount == "")) {
             message.warning("Please enter cod amount greater than 0")
             return
         }
@@ -273,10 +278,10 @@ export default function BookingEntry() {
     return (
         <>
             {
-                // console.log(volWeight)
+                console.log(volWeight)
             }
             {
-                console.log(dimWeight)
+                // console.log(dimWeight)
             }
             <div className={style.formContainer}>
                 <p>AWB Details</p>
@@ -365,7 +370,7 @@ export default function BookingEntry() {
                         <option value="cash">CASH</option>
                     </select>
                     <label htmlFor="">To Pay/Cash Amt. <Mandatory /></label>
-                    <input type="text" disabled={billingDetails.bookingType == "credit" || billingDetails.bookingType == "null"} placeholder='To Pay/Cash Amount' value={billingDetails.topayAmt} onInput={e => handleBillingDetails(e, "topayAmt")} />
+                    <input type="text" disabled={billingDetails.bookingType == "credit" || billingDetails.bookingType == "null"} placeholder='To Pay/Cash Amount' value={billingDetails.amountToPay} onInput={e => handleBillingDetails(e, "amountToPay")} />
                     <label htmlFor="">ODA Charges</label>
                     <input type="text" placeholder='0.00' value={billingDetails.odaCharges} onInput={e => handleBillingDetails(e, "odaCharges")} />
 
@@ -376,7 +381,7 @@ export default function BookingEntry() {
                         <option value="cod" >COD</option>
                     </select>
                     <label htmlFor="">COD Amount <Mandatory /></label>
-                    <input type="text" placeholder='COD Amount' disabled={billingDetails.codType == "null" || billingDetails.codType == "noncod"} value={billingDetails.codAmt} onInput={e => handleBillingDetails(e, "codAmt")} />
+                    <input type="text" placeholder='COD Amount' disabled={billingDetails.codType == "null" || billingDetails.codType == "noncod"} value={billingDetails.codAmount} onInput={e => handleBillingDetails(e, "codAmount")} />
                 </div>
             </div>
 

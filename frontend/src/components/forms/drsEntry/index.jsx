@@ -1,9 +1,12 @@
 import { FaCheck, FaCross } from 'react-icons/fa6'
 import style from './style.module.css'
-import { FaTimes } from 'react-icons/fa'
+import { FaTimes, FaTrashAlt } from 'react-icons/fa'
 import { IoRefresh } from 'react-icons/io5'
-import { useState } from 'react'
-import { useGetData } from '../../../apiHandlers/getApis'
+import { useContext, useState } from 'react'
+import { useFetchDocketForManifest, useGetData } from '../../../apiHandlers/getApis'
+import UserAuthContext from '../../../contexts/authContext'
+import { message } from 'antd'
+import { TableComp } from '../../minComp/index'
 
 export default function DrsEntry() {
     const initialDrs = {
@@ -16,16 +19,56 @@ export default function DrsEntry() {
         vendorType: null,
         vendor: "",
         vehicleType: "",
-        vehicleNumber:"",
+        vehicleNumber: "",
         driver: "",
         area: "",
         dockets: [],
         message: ""
     }
     const [drs, setDrs] = useState(initialDrs)
-    const [docket, setDocket] = useState({})
+    const [docket, setDocket] = useState({ dnum: "", weight: "" })
     const [errEmp, loadingEmp, employeeList] = useGetData("employee")
     const [errVendor, loadingVendor, vendorList] = useGetData("vendor")
+    const { currBranch } = useContext(UserAuthContext)
+
+
+    const handleDocket = async (e) => {
+        console.log("doket ke updat")
+        if (e.keyCode == 13) {
+            if (!currBranch._id) {
+                message.warning("Please select From BCode")
+                return
+            }
+
+            if (docket.length < 3) {
+                message.warning("Enter a valid docket Number")
+                return
+            }
+
+            const data = await useFetchDocketForManifest(docket.dnum, currBranch._id)
+            if (data.res) {
+                setDocket(p => ({ ...p, weight: data.data?.weight }))
+                setDrs(p => {
+                    return { ...p, dockets: [...p.dockets, data.data] }
+                })
+            } else {
+                console.log(data.err)
+                message.error(data?.err)
+            }
+            return
+        } else if (e.keyCode == 8 || e.keyCode == 46) {
+            return
+        }
+        setDocket(p => ({ ...p, dnum: e.target.value }))
+    }
+
+    const removeDocket = (id)=>{
+        const newArr = drs.dockets.filter(d=>d._id!=id)
+        setDocket({dnum:"",weight:""})
+        setDrs(p=>{
+            return {...p,dockets:[...newArr]}
+        })
+    }
 
     const drsHandler = (e, f) => {
         setDrs(p => {
@@ -49,18 +92,18 @@ export default function DrsEntry() {
                     return obj
                 case "vehicleType":
                     obj.vehicleType = e.target.value
-                    if(e.target.value!="null")
+                    if (e.target.value != "null")
                         obj.vehicleNumber = obj?.vendor?.vehicleNumber
-                    else 
+                    else
                         obj.vehicleNumber = ""
                     console.log(e.target.value)
                     return obj
                 case "vendorType":
                     obj.vendorType = e.target.value
-                    if(obj.vendorType=="null" || obj.vendorType=="self"){
-                        obj.vendor=""
-                        obj.vehicleType="",
-                        obj.vehicleNumber=""
+                    if (obj.vendorType == "null" || obj.vendorType == "self") {
+                        obj.vendor = ""
+                        obj.vehicleType = "",
+                            obj.vehicleNumber = ""
                     }
                     return obj
                 default:
@@ -72,9 +115,6 @@ export default function DrsEntry() {
     }
     return (
         <>
-        {
-            console.log(drs)
-        }
             <div className={style.formContainer}>
                 <p>DRS Entry</p>
                 <div>
@@ -90,17 +130,17 @@ export default function DrsEntry() {
                     <input type="text" list='empList' placeholder='Emp Name' value={drs?.empText} onInput={e => drsHandler(e, "employee")} />
                     <datalist id="empList">
                         {
-                           employeeList?.map(e => <option value={e.eCode + " : " + e.name}>{e.eCode} : {e.name}</option>)
+                            employeeList?.map(e => <option value={e.eCode + " : " + e.name}>{e.eCode} : {e.name}</option>)
                         }
                     </datalist>
                     <label htmlFor="">Date</label>
                     <div>
-                        <input type="date" value={new Date()} onInput={e => drsHandler(e, "date")} />
+                        <input type="date" onInput={e => drsHandler(e, "date")} />
                         <input type="text" placeholder='Phone No' onInput={e => drsHandler(e, "mobile")} />
                     </div>
 
                     <label htmlFor="">Vendor Type</label>
-                    <select onChange={e =>{drsHandler(e, "vendorType")}} >
+                    <select onChange={e => { drsHandler(e, "vendorType") }} >
                         <option value="null">--Select Vendor Type--</option>
                         <option value="paper">Paper</option>
                         <option value="self">Self</option>
@@ -110,11 +150,11 @@ export default function DrsEntry() {
                         <option value={null}>--Select Vendor--</option>
                         {
                             //load available vendors
-                            drs.vendorType!="null"?vendorList?.map(v => <option value={v._id}>{v.vendorCode} : {v.ownerPanName}</option>):null
+                            drs.vendorType != "null" ? vendorList?.map(v => <option value={v._id}>{v.vendorCode} : {v.ownerPanName}</option>) : null
                         }
                     </select>
                     <label htmlFor="">Vehicle Type</label>
-                    <select disabled={drs.vendorType == "self"} onChange={e=>drsHandler(e,"vehicleType")}>
+                    <select disabled={drs.vendorType == "self"} onChange={e => drsHandler(e, "vehicleType")}>
                         <option value={"null"}>--Select Vehicle Type--</option>
                         {
                             drs.vendor ? <option value={drs?.vendor?.vehicleType}>{drs?.vendor?.vehicleType}</option> : ""
@@ -130,11 +170,11 @@ export default function DrsEntry() {
 
                     <label htmlFor="">Docket No</label>
                     <p>
-                        <input type="text" placeholder='Docket No' onInput={e => setDocket(p => e.target.value)} />
+                        <input type="text" placeholder='Docket No' onKeyUp={handleDocket} />
                     </p>
                     <label htmlFor="">Total Weight</label>
                     <p>
-                        <input type="text" placeholder='0.00' disabled />
+                        <input type="text" value={docket.weight} placeholder='0.00' disabled />
                     </p>
                     <label htmlFor="">Message</label>
                     <textarea cols="30" rows="2" placeholder='Message' onInput={e => drsHandler(e, "message")}></textarea>
@@ -147,6 +187,45 @@ export default function DrsEntry() {
                 <button className={style.buttonDel}><FaTimes /> Del Docket</button>
                 <button className={style.buttonRef}><IoRefresh /> Reset</button>
             </div>
+
+            {
+                drs.dockets.length > 0 ?
+                    <TableComp>
+                        <div>
+                            <table style={{ minWidth: "100%" }}>
+                                <thead>
+                                    <th>Docket No.</th>
+                                    <th>Origin</th>
+                                    <th>Destination</th>
+                                    <th>Client</th>
+                                    <th>Consignee</th>
+                                    <th>Weight</th>
+                                    <th>ToPay</th>
+                                    <th>Cod</th>
+                                    <th>Remove</th>
+                                </thead>
+                                <tbody>
+                                    {console.log(drs.dockets) }
+                                    {
+                                        drs.dockets.map(d => {
+                                            return <tr>
+                                                <td>{d.docketNumber}</td>
+                                                <td>{d.origin}</td>
+                                                <td>{d.destination}</td>
+                                                <td>{d.client}</td>
+                                                <td>{d.consignee}</td>
+                                                <td>{d.weight||0}</td>
+                                                <td>{d.toPay||0}</td>
+                                                <td>{d.cod||0}</td>
+                                                <td style={{textAlign:"center"}}><FaTrashAlt style={{color:"red", fontSize:"18px"}} onClick={e=>removeDocket(d._id)} /></td>
+                                            </tr>
+                                        })
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </TableComp> : null
+            }
         </>
     )
 }

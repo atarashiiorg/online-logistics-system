@@ -2,7 +2,7 @@ const Booking = require("../models/booking");
 const Branch = require("../models/branch");
 const Shipper = require("../models/shipper")
 
-async function isDocketValid(docket){
+async function isDocketValid(docket) {
     try {
         const res_doc = await Branch.findOne({
             shippers: {
@@ -14,26 +14,26 @@ async function isDocketValid(docket){
                 }
             }
         })
-        if(res_doc){
-            return {valid:true,msg:docket + " is issued to "+res_doc.branchName+" branch",'branch':res_doc}
+        if (res_doc) {
+            return { valid: true, msg: docket + " is issued to " + res_doc.branchName + " branch", 'branch': res_doc }
         } else {
-            return {valid:false, msg:docket + " is not valid or not issued to any branch"}
+            return { valid: false, msg: docket + " is not valid or not issued to any branch" }
         }
     } catch (error) {
-        return {valid:false, msg:'error occured while checking valid'}
+        return { valid: false, msg: 'error occured while checking valid' }
     }
 }
 
-async function isDocketBooked(docket){
+async function isDocketBooked(docket) {
     try {
-        const res_doc = await Booking.findOne({docketNumber:docket})
-        if(res_doc){
-            return {booked:true,'msg':'docket '+docket+' is booked'}
+        const res_doc = await Booking.findOne({ docketNumber: docket })
+        if (res_doc) {
+            return { booked: true, 'msg': 'docket ' + docket + ' is booked' }
         } else {
-            return {booked:false,'msg':'docket '+docket+' is not booked yet'}
+            return { booked: false, 'msg': 'docket ' + docket + ' is not booked yet' }
         }
     } catch (error) {
-        return {booked:false,'msg':'error occured while checking booked'}
+        return { booked: false, 'msg': 'error occured while checking booked' }
     }
 }
 
@@ -46,22 +46,27 @@ async function sendShipperForPrinting(req, res) {
             ]
         })
         if (shippers.length > 0) {
-            res.status(409).json({'msg':'this shipper series is already used'})
+            res.status(409).json({ 'msg': 'this shipper series is already used' })
             return
         }
         const result = await Shipper.create({ ...req.body, branchCode: req.body.branch })
         if (result)
-            res.status(200).json({'msg':'shipper created successfully'})
+            res.status(200).json({ 'msg': 'shipper created successfully' })
         else
-            res.status(304).json({'msg':'not modified'})
+            res.status(304).json({ 'msg': 'not modified' })
     } catch (error) {
-        res.status(500).json({'err':error})
+        res.status(500).json({ 'err': error })
     }
 }
 
-async function receiveShipperFromPrinting(req, res) {
+async function getShippers(req, res) {
     try {
-        const shippers = await Shipper.find({}).populate("branch")
+        let shippers
+        if (req.query.received) {
+            shippers = await Shipper.find({ isReceived: true }).populate("branch")
+        } else {
+            shippers = await Shipper.find({isReceived:false}).populate("branch")
+        }
         let response = []
         await shippers.forEach(s => {
             const branchCode = s.branch.branchCode
@@ -71,9 +76,9 @@ async function receiveShipperFromPrinting(req, res) {
             obj = { branchCode, branchName, ...obj }
             response.push(obj)
         })
-        res.status(200).json({'data':response,'msg':'success'})
+        res.status(200).json({ 'data': response, 'msg': 'success' })
     } catch (err) {
-        res.status(500).json({'err':err})
+        res.status(500).json({ 'err': err })
     }
 }
 
@@ -86,14 +91,14 @@ async function shipperIssueToBranch(req, res) {
         const receivedBy = req.body.receivedBy
 
         const isValid = await isShipperSeriesValid(docketFrom, docketTo)
-        if(!isValid.valid){
-            res.status(403).json({'msg':isValid.msg})
+        if (!isValid.valid) {
+            res.status(403).json({ 'msg': isValid.msg })
             return
         }
 
-        const isIssued = await isShipperIssuedAlready(docketFrom,docketTo)
-        if(!isIssued.issued){
-            res.status(409).json({'msg':isIssued.msg})
+        const isIssued = await isShipperIssuedAlready(docketFrom, docketTo)
+        if (!isIssued.issued) {
+            res.status(409).json({ 'msg': isIssued.msg })
             return
         }
 
@@ -112,31 +117,31 @@ async function shipperIssueToBranch(req, res) {
         )
 
         if (result.modifiedCount > 0) {
-            res.status(200).json({'msg':'success'})
+            res.status(200).json({ 'msg': 'success' })
             return
         }
         res.status(304).end()
     } catch (err) {
-        res.status(500).json({'err':err})
+        res.status(500).json({ 'err': err })
     }
 }
 
 
-async function isShipperSeriesValid(docketFrom, docketTo){
+async function isShipperSeriesValid(docketFrom, docketTo) {
     try {
-        const shipper = await Shipper.findOne({docketFrom,docketTo})
-        if(shipper){
-            return {valid:true,'msg':'shipper is valid'}
+        const shipper = await Shipper.findOne({ docketFrom, docketTo })
+        if (shipper) {
+            return { valid: true, 'msg': 'shipper is valid' }
         } else {
-            return {valid:false, 'msg':'shipper is not valid'}
+            return { valid: false, 'msg': 'shipper is not valid' }
         }
     } catch (error) {
-        return {valid:false,'msg':'error occured while checking shipper valid'}
+        return { valid: false, 'msg': 'error occured while checking shipper valid' }
     }
 }
 
 
-async function isShipperIssuedAlready(docketFrom, docketTo){
+async function isShipperIssuedAlready(docketFrom, docketTo) {
     try {
         const branch = await Branch.findOne({
             shippers: {
@@ -148,13 +153,26 @@ async function isShipperIssuedAlready(docketFrom, docketTo){
                 }
             }
         })
-        if(branch){
-            return {issued:true,'msg':'shipper is series already issued', 'branch':branch}
+        if (branch) {
+            return { issued: true, 'msg': 'shipper is series already issued', 'branch': branch }
         } else {
-            return {issued:false,'msg':'shipper series is not issued yet'}
+            return { issued: false, 'msg': 'shipper series is not issued yet' }
         }
     } catch (error) {
-            return {issued:false, 'msg':'error occured while checking shipper issued'}        
+        return { issued: false, 'msg': 'error occured while checking shipper issued' }
+    }
+}
+
+async function updateShipper(req, res) {
+    try {
+        const result = await Shipper.updateOne({ _id: req.query.sid }, { isReceived: true })
+        if (result.modifiedCount > 0)
+            res.status(200).json({ 'msg': "success" })
+        else
+            res.status(403).json({ 'msg': "can not receive shipper" })
+    } catch (err) {
+        console.log(err)
+        res.status(500).json({ err })
     }
 }
 
@@ -162,8 +180,9 @@ module.exports = {
     isDocketValid,
     isDocketBooked,
     sendShipperForPrinting,
-    receiveShipperFromPrinting,
+    getShippers,
     isShipperSeriesValid,
     isShipperIssuedAlready,
-    shipperIssueToBranch
+    shipperIssueToBranch,
+    updateShipper
 }

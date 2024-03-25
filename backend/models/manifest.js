@@ -23,6 +23,10 @@ const manifestSchema = new mongoose.Schema({
     isReceived:{
         type:Boolean,
         default:false
+    },
+    isPrinted:{
+        type:Boolean,
+        default:false
     }
 }, {
     timestamps: true

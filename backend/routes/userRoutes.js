@@ -24,9 +24,10 @@ const {
     updateVendor
 } = require("../controllers/vendorControllers")
 const { 
-    receiveShipperFromPrinting, 
+    getShippers, 
     sendShipperForPrinting,
-    shipperIssueToBranch
+    shipperIssueToBranch,
+    updateShipper
 } = require("../controllers/shipperControllers")
 
 const {
@@ -71,8 +72,9 @@ userRoutes.post("/login", loginUser)
 
 userRoutes.use("/shipper",authorize)
 userRoutes.route("/shipper")
-.get(receiveShipperFromPrinting)
+.get(getShippers)
 .post(sendShipperForPrinting)
+.patch(updateShipper)
 
 userRoutes.use("/issueshippertobranch", authorize)
 userRoutes.route("/issueshippertobranch")

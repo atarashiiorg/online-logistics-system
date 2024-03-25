@@ -4,10 +4,9 @@ import { BsRecycle, BsSearch } from 'react-icons/bs'
 import { IoCheckmark, IoRefresh, IoRefreshCircle, IoRefreshCircleOutline, IoRefreshSharp } from 'react-icons/io5'
 import { IoIosRefresh } from 'react-icons/io'
 import { FaCheck } from 'react-icons/fa'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { Docket, Mandatory } from '../../minComp/index'
 import UserAuthContext from '../../../contexts/authContext'
-import { serverUrl } from '../../../constants'
 import { useFetchDocketForManifest, useGetData } from '../../../apiHandlers/getApis'
 import { usePostData } from "../../../apiHandlers/postApis";
 import { message } from 'antd'
@@ -75,15 +74,16 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
 
     const setVal = async(e) => {
         if (e.keyCode == 13) {
-            if(currDocket.length<7){
+            if(!currBranch._id){
+                message.warning("Please select From BCode")
+                return
+            }
+
+            if(currDocket.length<3){
                 message.warning("Enter a valid docket Number")
                 return
             }
 
-            if(!currBranch._id){
-                message.warning("Please select current branch first")
-                return
-            }
             const data = await useFetchDocketForManifest(currDocket, currBranch._id)
             if(data.res){
                 setDocket(data.data)
@@ -101,7 +101,6 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
 
     return (
         <>
-        {console.log(currDocket)}
             <div className={style.formContainer}>
                 <p>AWB Details</p>
                 <div className={style.secondContainer}>
@@ -212,8 +211,7 @@ export default function ManifestDirect() {
                 return obj
             }
             if (f == "date") {
-                obj.manifestDate = e.target.valueAsDate
-                console.log(obj);
+                obj.manifestDate = e.target.value
                 return obj
             }
             if (f == "toBCode") {
@@ -281,12 +279,39 @@ export default function ManifestDirect() {
     }
 
     const handleSave = async () => {
+        if(manifest.toBCode==""){
+            message.warning("Please select ToBCode.")
+            return
+        }
+        if(manifest.fromBCode==""){
+            message.warning("Please select FromBCode.")
+            return
+        }
+        if(manifest.manifestDate==""){
+            message.warning("Please select manifest date")
+            return
+        }
+        if(manifest.vendor==""){
+            message.warning("Please select vendor")
+            return
+        }
+        if(manifest.mode==""){
+            message.warning("Please select mode")
+            return
+        }
         const res = await usePostData({ ...manifest, fromBCode: currBranch._id },"manifest")
         if(res.res){
             reset()
         }
     } // api call for saving manifest data on the server
 
+
+    useEffect(()=>{
+        setManifest(p=>{
+            return {...p,dockets:[]}
+        })
+        setDocket(initialDocket)
+    },[currBranch])
 
     return (
         <>
@@ -296,7 +321,7 @@ export default function ManifestDirect() {
                 <button><IoIosRefresh onClick={reset} /> Reset</button>
                 <button onClick={handleSave}><IoCheckmark /> Save</button>
             </div>
-            <SearchManifest />
+            {/* <SearchManifest /> */}
         </>
     )
 }

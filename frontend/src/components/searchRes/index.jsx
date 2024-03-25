@@ -58,7 +58,7 @@ export default function SearchRes() {
                                     </tr>
                                     <tr>
                                         <td>Weight</td>
-                                        <td>{docketTracking?.bookings?.shipment?.actualWeight}</td>
+                                        <td>{docketTracking?.bookings?.shipment?.totalChargeWeight}</td>
                                         <td>Boxes</td>
                                         <td>{docketTracking?.bookings?.shipment?.totalBoxes}</td>
                                     </tr>
