@@ -24,27 +24,27 @@ export function VolWeight({volWeight,handleVolWeight}){
                             <span>
                                 <div>
                                     <label htmlFor="">Length</label>
-                                    <input type="text" placeholder='Length (cm.)' />
+                                    <input type="text" placeholder='Length (in.)' value={volWeight.len==0?"":volWeight.len} onInput={e=>handleVolWeight(e,"len")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Breadth</label>
-                                    <input type="text" placeholder='Breadth (cm.)' />
+                                    <input type="text" placeholder='Breadth (in.)' value={volWeight.breadth==0?"":volWeight.breadth} onInput={e=>handleVolWeight(e,"breadth")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Height</label>
-                                    <input type="text" placeholder='Height (cm.)' />
+                                    <input type="text" placeholder='Height (in.)' value={volWeight.height==0?"":volWeight.height} onInput={e=>handleVolWeight(e,"height")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Pcs</label>
-                                    <input type="text" placeholder='0' />
+                                    <input type="text" placeholder='0' value={volWeight.pcs==0?"":volWeight.pcs} onInput={e=>handleVolWeight(e,"pcs")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Divisor</label>
-                                    <input type="text" placeholder='0' />
+                                    <input type="text" placeholder='0' value={volWeight.divisor==0?"":volWeight.divisor} onInput={e=>handleVolWeight(e,"divisor")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Dimensional Weight</label>
-                                    <input type="text" placeholder='0.00' />
+                                    <input type="text" placeholder='0.00' value={volWeight.dimWeight} />
                                 </div>
                                 <button className={style.buttonSave}><FaRegSave /> Add</button>
                                 <button className={style.buttonRef}><IoRefresh /> Reset</button>

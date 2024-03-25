@@ -29,15 +29,15 @@ export default function BookingEntry() {
     const initialBillingDetails = {
         clientName:"",
         invoiceNumber:"",
-        invoiceValue:"0.0",
+        invoiceValue:"",
         billingAt:"",
         ewayBillNo:"",
         itemContent:"",
         bookingType:"",
-        topayAmt:"0.0",
-        odaCharges:"0.0",
+        topayAmt:"",
+        odaCharges:"",
         codType:"",
-        codAmt:"0.0"
+        codAmt:""
         }
     const initialConsignorConsignee = {
         consignor:"",
@@ -46,13 +46,19 @@ export default function BookingEntry() {
         consigneeContact:""
         }
     const initialVolWeight =  {
-        totalBoxes:0,
-        actualWeight:0.0
+        totalBoxes:"",
+        actualWeight:"",
+        len:0,
+        breadth:0,
+        height:0,
+        pcs:0,
+        divisor:0,
+        dimWeight:0
     }
     const initialDimWeight = {
-        totalDimWeiht:0.0,
-        totalActualWeight:0.0,
-        totalChargeWeight:0.0
+        totalDimWeiht:"",
+        totalActualWeight:"",
+        totalChargeWeight:""
     }
     const [awbDetails, setAwbDetails] = useState(initialAwbDetails)
     const [billingDetails, setBillingDetails] = useState(initialBillingDetails)
@@ -123,7 +129,8 @@ export default function BookingEntry() {
         setVolWeight(p=>{
             const obj = {...p}
             obj[field] = e.target.value
-            handleTotalWeight(e.target.value)
+            obj.dimWeight = (((parseFloat(obj.len)||1)*(parseFloat(obj.breadth)||1)*(parseFloat(obj.height)||1))/(obj.divisor||1))*(obj.pcs||1)*6
+            // handleTotalWeight(e.target.value)
             return obj
         })
     }
