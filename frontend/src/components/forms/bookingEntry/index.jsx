@@ -57,7 +57,7 @@ export default function BookingEntry() {
         weights: []
     }
     const initialDimWeight = {
-        totalDimWeiht: "",
+        totalDimWeight: "",
         totalActualWeight: "",
         totalChargeWeight: ""
     }
@@ -117,11 +117,21 @@ export default function BookingEntry() {
         })
     }
 
-    const handleTotalWeight = (val) => {
+    const handleTotalWeight = (val, f) => {
         setDimWeight(p => {
             const obj = { ...p };
-            obj.totalActualWeight = val
-            obj.totalChargeWeight = val
+            if (f == "totalDimWeight+") {
+                obj.totalDimWeight += parseFloat(val).toFixed(2)
+                obj.totalChargeWeight = parseFloat(obj.totalDimWeight) > parseFloat(obj.totalActualWeight) ? obj.totalDimWeight : obj.totalActualWeight
+                return obj
+            }
+            if (f == "totalDimWeight-") {
+                obj.totalDimWeight -= parseFloat(val).toFixed(2)
+                obj.totalChargeWeight = parseFloat(obj.totalDimWeight) > parseFloat(obj.totalActualWeight) ? obj.totalDimWeight : obj.totalActualWeight
+                return obj
+            }
+            obj.totalActualWeight = parseFloat(val).toFixed(2)
+            obj.totalChargeWeight = parseFloat(obj.totalDimWeight) > parseFloat(obj.totalActualWeight) ? obj.totalDimWeight : obj.totalActualWeight
             return obj;
         });
     }
@@ -129,15 +139,43 @@ export default function BookingEntry() {
     const handleVolWeight = (e, field) => {
         setVolWeight(p => {
             const obj = { ...p }
+            if (field == "totalBoxes") {
+                obj[field] = e.target.value
+                return obj
+            }
+            if (field == "actualWeight") {
+                handleTotalWeight(e.target.value)
+                obj[field] = e.target.value
+                return obj
+            }
             obj[field] = e.target.value
-            obj.dimWeight = (((parseFloat(obj.len) || 1) * (parseFloat(obj.breadth) || 1) * (parseFloat(obj.height) || 1)) / (obj.divisor || 1)) * (obj.pcs || 1) * 6
-            // handleTotalWeight(e.target.value)
+            obj.dimWeight = (((parseFloat(obj.len) || 1) * (parseFloat(obj.breadth) || 1) * (parseFloat(obj.height) || 1)) / 1728 * 6 * (obj.pcs || 1)).toFixed(2)
             return obj
         })
     }
 
+    const resetVolWeight = () => {
+        setVolWeight(p => {
+            return {
+                dimWeight: "",
+                len: "",
+                breadth: "",
+                height: "",
+                divisor: "",
+                pcs: "",
+                weights: [...p.weights]
+            }
+        })
+    }
+
+    let wid = 0
     const handleAddVolWeight = () => {
+        if (!parseFloat(volWeight.len) || !parseFloat(volWeight.height) || !parseFloat(volWeight.breadth) ||  !parseFloat(volWeight.pcs)) {
+            message.warning("Enter a numeric value")
+            return
+        }
         const newObj = {
+            id: wid,
             len: volWeight.len,
             breadth: volWeight.breadth,
             height: volWeight.height,
@@ -145,10 +183,22 @@ export default function BookingEntry() {
             divisor: volWeight.divisor,
             dimWeight: volWeight.dimWeight,
         }
-
-        setVolWeight(p=>{
-            return {...p,weights:[...p.weights,newObj]}
+        wid += 1
+        console.log(wid)
+        handleTotalWeight(newObj.dimWeight, "totalDimWeight+")
+        resetVolWeight()
+        setVolWeight(p => {
+            return { ...p, weights: [...p.weights, newObj] }
         })
+    }
+
+    const deleteWeight = (id) => {
+        const oldData = volWeight.weights.filter(w => w.id == id)
+        const newArr = volWeight.weights.filter(w => w.id != id)
+        setVolWeight(p => {
+            return { ...p, weights: [...newArr] }
+        })
+        handleTotalWeight(oldData[0].dimWeight, "totalDimWeight-")
     }
 
     const handleSave = async () => {
@@ -223,7 +273,10 @@ export default function BookingEntry() {
     return (
         <>
             {
-                console.log(billingDetails.clientName)
+                // console.log(volWeight)
+            }
+            {
+                console.log(dimWeight)
             }
             <div className={style.formContainer}>
                 <p>AWB Details</p>
@@ -342,13 +395,13 @@ export default function BookingEntry() {
                 </div>
             </div>
 
-            <VolWeight volWeight={volWeight} handleVolWeight={handleVolWeight} add={handleAddVolWeight} />
+            <VolWeight volWeight={volWeight} handleVolWeight={handleVolWeight} add={handleAddVolWeight} reset={resetVolWeight} deleteWeight={deleteWeight} />
 
             <div className={style.formContainer}>
                 <p>Overall Weight Details</p>
                 <div>
                     <label htmlFor="">Total Dimensional Weight</label>
-                    <input type="text" placeholder='0.00' disabled value={dimWeight.totalDimWeiht} />
+                    <input type="text" placeholder='0.00' disabled value={dimWeight.totalDimWeight} />
                     <label htmlFor="">Total Actual Weight</label>
                     <input type="text" placeholder='0.00' disabled value={dimWeight.totalActualWeight} />
                     <label htmlFor="">Total Charge Weight</label>

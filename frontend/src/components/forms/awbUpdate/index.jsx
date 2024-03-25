@@ -6,7 +6,7 @@ import { FaCheck, FaRegSave, FaTrashAlt } from 'react-icons/fa'
 import { IoRefresh } from 'react-icons/io5'
 import { Mandatory, TableComp } from '../../minComp'
 
-export function VolWeight({ volWeight, handleVolWeight, add }) {
+export function VolWeight({ volWeight, handleVolWeight, add, reset, deleteWeight }) {
     const [show, setShow] = useState(false)
     return (
         <>
@@ -40,16 +40,16 @@ export function VolWeight({ volWeight, handleVolWeight, add }) {
                                 </div>
                                 <div>
                                     <label htmlFor="">Divisor</label>
-                                    <input type="text" placeholder='0' value={volWeight.divisor == 0 ? "" : volWeight.divisor} onInput={e => handleVolWeight(e, "divisor")} />
+                                    <input type="text" placeholder='0' disabled value={volWeight.divisor == 0 ? "" : volWeight.divisor} onInput={e => handleVolWeight(e, "divisor")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Dimensional Weight</label>
                                     <input type="text" placeholder='0.00' value={volWeight.dimWeight} />
                                 </div>
                                 <button className={style.buttonSave} onClick={add}><FaRegSave /> Add</button>
-                                <button className={style.buttonRef}><IoRefresh /> Reset</button>
+                                <button className={style.buttonRef} onClick={reset} ><IoRefresh /> Reset</button>
                             </span>
-                            <span style={{width:"100%"}}>
+                            {volWeight.weights.length>0?<span style={{width:"100%"}}>
                                 <TableComp>
                                     <div>
                                         <table style={{ minWidth: "100%" }}>
@@ -74,7 +74,7 @@ export function VolWeight({ volWeight, handleVolWeight, add }) {
                                                             <td>{w.pcs}</td>
                                                             <td>{w.divisor}</td>
                                                             <td>{w.dimWeight}</td>
-                                                            <td><FaTrashAlt /></td>
+                                                            <td><FaTrashAlt style={{color:"red"}} onClick={e=>deleteWeight(w.id)} /></td>
                                                         </tr>
                                                     ))
                                                 }
@@ -82,7 +82,7 @@ export function VolWeight({ volWeight, handleVolWeight, add }) {
                                         </table>
                                     </div>
                                 </TableComp>
-                            </span>
+                            </span>:null}
                         </>
                         : null
                 }
