@@ -7,6 +7,7 @@ import { useFetchDocketForManifest, useGetData } from '../../../apiHandlers/getA
 import UserAuthContext from '../../../contexts/authContext'
 import { message } from 'antd'
 import { TableComp } from '../../minComp/index'
+import Loading from '../../../pages/loading'
 
 export default function DrsEntry() {
     const initialDrs = {
@@ -40,7 +41,7 @@ export default function DrsEntry() {
                 return
             }
 
-            if (docket.length < 3) {
+            if (!parseInt(docket.dnum) || docket.length < 3 ) {
                 message.warning("Enter a valid docket Number")
                 return
             }
@@ -48,8 +49,12 @@ export default function DrsEntry() {
             const data = await useFetchDocketForManifest(docket.dnum, currBranch._id)
             if (data.res) {
                 setDocket(p => ({ ...p, weight: data.data?.weight }))
+                const idx = drs.dockets.findIndex(d=>d._id==data.data?._id)
+                if(idx>-1){
+                    return
+                }
                 setDrs(p => {
-                    return { ...p, dockets: [...p.dockets, data.data] }
+                    return { ...p, dockets:[...p.dockets,data.data] }
                 })
             } else {
                 console.log(data.err)
@@ -57,9 +62,11 @@ export default function DrsEntry() {
             }
             return
         } else if (e.keyCode == 8 || e.keyCode == 46) {
+            setDocket(p=>{
+                return {...p,weight:0}
+            })
             return
         }
-        setDocket(p => ({ ...p, dnum: e.target.value }))
     }
 
     const removeDocket = (id)=>{
@@ -113,8 +120,16 @@ export default function DrsEntry() {
             }
         })
     }
+
+    const resetForm = ()=>{
+        setDrs(p=>initialDrs)
+        setDocket({dnum:"",weight:""})
+    }
     return (
         <>
+        {
+            loadingEmp?<Loading/>:loadingVendor?<Loading/>:null
+        }
             <div className={style.formContainer}>
                 <p>DRS Entry</p>
                 <div>
@@ -170,7 +185,7 @@ export default function DrsEntry() {
 
                     <label htmlFor="">Docket No</label>
                     <p>
-                        <input type="text" placeholder='Docket No' onKeyUp={handleDocket} />
+                        <input type="text" placeholder='Docket No' value={docket.dnum} onKeyDown={handleDocket} onInput={e=>setDocket(p=>{return {...p,dnum:e.target.value}})} />
                     </p>
                     <label htmlFor="">Total Weight</label>
                     <p>

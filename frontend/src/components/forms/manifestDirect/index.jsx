@@ -10,6 +10,7 @@ import UserAuthContext from '../../../contexts/authContext'
 import { useFetchDocketForManifest, useGetData } from '../../../apiHandlers/getApis'
 import { usePostData } from "../../../apiHandlers/postApis";
 import { message } from 'antd'
+import Loading from '../../../pages/loading'
 
 export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, currBranch, branches, vendors }) {
     return (
@@ -18,7 +19,7 @@ export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, 
                 <p>Manifest Direct <span><input type="checkbox" onChange={handleUpdate} /> Update</span></p>
                 <div>
                     <label htmlFor="">To BCode <Mandatory /></label>
-                    <input list='list1' type="text" placeholder='To BCode' onInput={e => manifestHandler(e, "toBCode")} />
+                    <input list='list1' type="text" value={manifest.toBCodeText} placeholder='To BCode' onInput={e => manifestHandler(e, "toBCode")} />
                     <datalist id='list1'>
                         {
                             branches.map(b => <option key={b._id} value={b.branchCode + " : " + b.branchName}>{b.branchCode} : {b.branchName}</option>)
@@ -28,19 +29,19 @@ export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, 
                     <input type="text" disabled={!update} placeholder="SYSTEM GENERATED" value={manifest.manifestNumber} onInput={e => manifestHandler(e, "manifestNumber")} />
 
                     <label htmlFor="">Manifest Date <Mandatory /></label>
-                    <input type="date" onInput={e => manifestHandler(e, "date")} />
+                    <input type="date" value={manifest.manifestDate} onInput={e => manifestHandler(e, "date")} />
                     {/* <div>
                         <input type="date" />
                         <input type="time" />
                     </div> */}
                     <label htmlFor="">Mode <Mandatory /></label>
-                    <select onChange={e => manifestHandler(e, "mode")}>
-                        <option value="null">--Select Service Type</option>
+                    <select value={manifest.mode} onChange={e => manifestHandler(e, "mode")}>
+                        <option value="">--Select Service Type--</option>
                         <option value="surface">SURFACE</option>
                     </select>
 
                     <label htmlFor="">From BCode <Mandatory /></label>
-                    <input type="text" disabled value={currBranch.branchCode + ":" + currBranch.branchName || ""} />
+                    <input type="text" disabled value={currBranch?(currBranch?.branchCode + ":" + currBranch?.branchName):"Please select Current Branch"} />
                     <label htmlFor="">Vendor Name <Mandatory /></label>
                     <input type="text" list='vendors' placeholder='Vendor Name' value={manifest.vName} onInput={e => manifestHandler(e, "vendor")} />
                     <datalist id='vendors'>
@@ -74,7 +75,7 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
 
     const setVal = async(e) => {
         if (e.keyCode == 13) {
-            if(!currBranch._id){
+            if(!currBranch?._id){
                 message.warning("Please select From BCode")
                 return
             }
@@ -84,7 +85,7 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
                 return
             }
 
-            const data = await useFetchDocketForManifest(currDocket, currBranch._id)
+            const data = await useFetchDocketForManifest(currDocket, currBranch?._id)
             if(data.res){
                 setDocket(data.data)
             } else {
@@ -96,7 +97,6 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
             reset()
             return
         }
-        setCurrDocket(e.target.value)
     }
 
     return (
@@ -106,11 +106,11 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
                 <div className={style.secondContainer}>
                     <div>
                         <label htmlFor="">Docket No</label>
-                        <input type="text" placeholder='Docket No' onKeyUp={setVal} />
+                        <input type="text" placeholder='Docket No' value={currDocket} onKeyUp={setVal} onInput={e=>setCurrDocket(e.target.value)} />
                     </div>
                     <div>
                         <label htmlFor="">Item Content</label>
-                        <input type="text" value={docket.itemContent} name="" id="" />
+                        <input type="text" placeholder='Item Content' value={docket.itemContent} name="" id="" />
                     </div>
                     <div>
                         <label htmlFor="">Consignee</label>
@@ -173,13 +173,14 @@ export default function ManifestDirect() {
     const [err, loading, vendors] = useGetData("vendor")
     const initialManifest = {
         toBCode: "",
+        toBCodeText:"",
         manifestNumber: "",
         manifestDate: "",
         mode: "",
-        fromBCode: currBranch._id,
+        fromBCode: currBranch?._id,
         vendor: "",
-        dockets: [],
-        vName: ""
+        vName: "",
+        dockets: []
     }
 
     const initialDocket = {
@@ -201,6 +202,7 @@ export default function ManifestDirect() {
     const [manifest, setManifest] = useState(initialManifest)
 
     const manifestHandler = (e, f) => {
+        console.log(manifest)
         setManifest(p => {
             const obj = { ...p }
             if (f == "vendor") {
@@ -220,6 +222,7 @@ export default function ManifestDirect() {
                     return b.branchCode == bCode
                 })
                 obj.toBCode = branches[idx]?._id
+                obj.toBCodeText = e.target.value
                 return obj
             }
             obj[f] = e.target.value
@@ -273,8 +276,9 @@ export default function ManifestDirect() {
         docketList: manifest.dockets
     } //props for awbform
 
-    const reset = () => {
-        setManifest(initialManifest)
+    const resetForm = () => {
+        console.log("resetted")
+        setManifest(p=>initialManifest)
         setDocket(initialDocket)
     }
 
@@ -299,7 +303,11 @@ export default function ManifestDirect() {
             message.warning("Please select mode")
             return
         }
-        const res = await usePostData({ ...manifest, fromBCode: currBranch._id },"manifest")
+        if(manifest.toBCode==manifest.fromBCode){
+            message.warning("FromBCode and ToBCode can not be same")
+            return
+        }
+        const res = await usePostData({ ...manifest, fromBCode: currBranch?._id },"manifest")
         if(res.res){
             reset()
         }
@@ -314,11 +322,13 @@ export default function ManifestDirect() {
     },[currBranch])
 
     return (
-        <>
+        <>{
+            loading?<Loading/>:null
+        }
             <ManifestForm  {...manifestProps} />
             <AwbForm {...awbProps} />
             <div className={style.actions}>
-                <button><IoIosRefresh onClick={reset} /> Reset</button>
+                <button onClick={resetForm}><IoIosRefresh /> Reset</button>
                 <button onClick={handleSave}><IoCheckmark /> Save</button>
             </div>
             {/* <SearchManifest /> */}

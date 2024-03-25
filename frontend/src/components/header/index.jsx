@@ -14,7 +14,7 @@ export default function Header() {
     const {branches} = useContext(UserAuthContext)
     const {currBranch, setCurrBranch} = useContext(UserAuthContext)
     const {docketTracking, setDocketTracking} = useContext(UserAuthContext)
-    const [bCode,setBCode] = useState("")
+    // const [bCode,setBCode] = useState("")
     const navigate = useNavigate()
 
     const handleSearch = async()=>{
@@ -33,7 +33,7 @@ export default function Header() {
     }
 
     const selectBranch=(e)=>{
-        setBCode(e.target.value)
+        // setBCode(e.target.value)
         const b = branches.filter(br=>br._id==e.target.value)
         setCurrBranch(p=>b[0])
     }
@@ -54,8 +54,8 @@ export default function Header() {
                     <IoSearchSharp style={{fontSize:"22px"}} className={style.searchIcon} onClick={e=>{handleSearch()}}/>
                 </div>
                 <div className={style.c1}>
-                    <select onChange={selectBranch}>
-                        <option value="null">--Select Branch--</option>
+                    <select value={currBranch._id} onChange={selectBranch}>
+                        <option value="">--Select Branch--</option>
                         {
                             branches.map(b=><option value={b._id} key={b._id}>{b.branchName}</option>)
                         }
