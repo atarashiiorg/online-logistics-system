@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .page {
+            display: flex;
+            background-color: white;
+            width: 297mm;
+            height: 210mm;
+            padding: 20px;
+        }
+
+        .container {
+            height: 100%;
+            width: 100%;
+            background-color: red;
+            padding-inline: 20px;
+        }
+
+        .header,
+        .footer {
+            width: 100%;
+            height: 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .main-content {
+            height: 90%;
+            width: 100%;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+        .first-row {
+            height: 18%;
+            background-color: white;
+            display: grid;
+            grid-template-columns: 35% 14% 14% 14% 23%;
+        }
+
+        .logo {
+            border-right: 1px solid black;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-img,
+        .logo-address {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid black;
+        }
+
+        .logo-address {
+            flex: 1;
+        }
+
+        .col {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 30%;
+            border-right: 1px solid black;
+        }
+
+        .col>div {
+            border-bottom: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .second-row {
+            display: flex;
+            width: 100%;
+            height: 82%;
+            background-color: whitesmoke;
+        }
+
+        .scol {
+            flex: 1;
+            border-right: 1px solid black;
+            display: grid;
+            grid-template-columns: 100%;
+            grid-template-rows: 10% 28% 28% 28% 6%;
+        }
+
+        .scol-srow{
+            border-bottom: 1px solid black;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .scol-srow:last-child{
+            border:none;
+            background-color: dodgerblue;
+        }
+        .scol-srow>h3{
+            padding: 0;
+            font-size: 18px;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+
+<body style="background-color: black; display: flex; justify-content: center; align-items: center;">
+    <div class="page">
+        <div class="container">
+            <div class="header">
+                <h2>Ph No. <%= comp_mobile %></h2>
+                <h2>GSTIN: <%= comp_gst %></h2>
+            </div>
+            <div class="main-content">
+                <div class="first-row">
+                    <div class="logo">
+                        <div class="logo-img">Logo Image</div>
+                        <div class="logo-address">
+                            <%= own_address %>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>Origin</div>
+                        <div>
+                            <%= origin %>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>Destination</div>
+                        <div>
+                            <%= destination %>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>Date</div>
+                        <div>Credit</div>
+                        <div>No. Of Packages</div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <%= bookingDate %>
+                        </div>
+                        <div>
+                            <%= creditAmt %>
+                        </div>
+                        <div>
+                            <%= piecies %>
+                        </div>
+                    </div>
+                </div>
+                <div class="second-row">
+                    <div class="scol">
+                        <div class="scol-srow">
+                            <h3>Consignor (Shipper)</h3>
+                        </div>
+                        <div class="scol-srow">
+                            <span style="position: absolute; left: 5px; top: 15px;"><%= consignor %></span>
+                            <span style="position: absolute; left: 5px; bottom: 70px;"><%= origin %></span>
+                            <span style="position: absolute; right: 5px; bottom: 30px;">________________</span>
+                        </div>
+                        <div class="scol-srow">
+                            <span style="position: absolute; left: 5px; top: 30px;">Tax invoice bill no</span>
+                            <span style="position: absolute; right: 5px; top: 35px;"><%= invoiceNo %></span>
+                            <span style="position: absolute; right: 5px; top: 40px;">________________</span>
+                            <span style="position: absolute; left: 5px; bottom: 40px;">Tax invoice bill no</span>
+                            <span style="position: absolute; right: 5px; bottom: 35px;"><%= invoiceVal %></span>
+                            <span style="position: absolute; right: 5px; bottom: 30px;">________________</span>
+                        </div>
+                        <div class="scol-srow"></div>
+                        <div class="scol-srow"></div>
+                    </div>
+                    <div class="scol">
+                        <div class="scol-srow">
+                            <h3>Consignee (Receiver)</h3>
+                        </div>
+                        <div class="scol-srow">
+                            <span style="position: absolute; left: 5px; top: 15px;"><%= Consignee %></span>
+                            <span style="position: absolute; left: 5px; bottom: 70px;"><%= destination %></span>
+                            <span style="position: absolute; right: 5px; bottom: 30px;">________________</span>
+                        </div>
+                        <div class="scol-srow">
+                            <span style="position: absolute; top: 0; padding: 6px; background-color: dodgerblue; width: 100%; text-align: center;">Trace This Bill</span>
+                            <h2>BARCODE</h2>
+                            <h2>*<%= docketNumber %>*</h2>
+                        </div>
+                        <div class="scol-srow">
+                            <span style="position: absolute; top: 0; padding: 6px; background-color: dodgerblue; width: 100%; text-align: center;">Received On Good Order &amp; Conditions</span>
+                            <span style="position: absolute; width: 60%; display: flex;justify-content: space-between; left: 5px; bottom: 5px;"><p style="margin-left: 5px;">Date</p><p>Name</p></span>
+                        </div>
+                        <div class="scol-srow">
+                            Non Negotiable
+                        </div>
+                    </div>
+                    <div class="scol">
+                        <div class="scol-srow"></div>
+                        <div class="scol-srow"></div>
+                        <div class="scol-srow"></div>
+                        <div class="scol-srow"></div>
+                        <div class="scol-srow"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer">
+                <h2>Tracking: www.safedispatchlogistics.in/track</h2>
+                <h2>Email: info.safedispatch@gmail.com</h2>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
