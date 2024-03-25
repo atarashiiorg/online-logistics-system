@@ -2,21 +2,21 @@ import { useState } from 'react'
 import style from './style.module.css'
 import { CgAdd } from 'react-icons/cg'
 import { BsSave } from 'react-icons/bs'
-import { FaCheck, FaRegSave } from 'react-icons/fa'
+import { FaCheck, FaRegSave, FaTrashAlt } from 'react-icons/fa'
 import { IoRefresh } from 'react-icons/io5'
-import { Mandatory } from '../../minComp'
+import { Mandatory, TableComp } from '../../minComp'
 
-export function VolWeight({volWeight,handleVolWeight}){
+export function VolWeight({ volWeight, handleVolWeight, add }) {
     const [show, setShow] = useState(false)
     return (
         <>
             <div className={style.formContainer}>
                 <p><input type="checkbox" onChange={e => e.target.checked ? setShow(true) : setShow(false)} /> Vol Weight</p>
                 <div>
-                    <label htmlFor="">Total Boxes <Mandatory/></label>
-                    <input type="text" placeholder='0' value={volWeight?.totalBoxes} onInput={e=>handleVolWeight(e,"totalBoxes")}/>
-                    <label htmlFor="">Actual Weight <Mandatory/></label>
-                    <input type="text" placeholder='0.00' value={volWeight?.actualWeight} onInput={e=>handleVolWeight(e,"actualWeight")}/>
+                    <label htmlFor="">Total Boxes <Mandatory /></label>
+                    <input type="text" placeholder='0' value={volWeight?.totalBoxes} onInput={e => handleVolWeight(e, "totalBoxes")} />
+                    <label htmlFor="">Actual Weight <Mandatory /></label>
+                    <input type="text" placeholder='0.00' value={volWeight?.actualWeight} onInput={e => handleVolWeight(e, "actualWeight")} />
                 </div>
                 {
                     show ?
@@ -24,30 +24,64 @@ export function VolWeight({volWeight,handleVolWeight}){
                             <span>
                                 <div>
                                     <label htmlFor="">Length</label>
-                                    <input type="text" placeholder='Length (in.)' value={volWeight.len==0?"":volWeight.len} onInput={e=>handleVolWeight(e,"len")} />
+                                    <input type="text" placeholder='Length (in.)' value={volWeight.len == 0 ? "" : volWeight.len} onInput={e => handleVolWeight(e, "len")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Breadth</label>
-                                    <input type="text" placeholder='Breadth (in.)' value={volWeight.breadth==0?"":volWeight.breadth} onInput={e=>handleVolWeight(e,"breadth")} />
+                                    <input type="text" placeholder='Breadth (in.)' value={volWeight.breadth == 0 ? "" : volWeight.breadth} onInput={e => handleVolWeight(e, "breadth")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Height</label>
-                                    <input type="text" placeholder='Height (in.)' value={volWeight.height==0?"":volWeight.height} onInput={e=>handleVolWeight(e,"height")} />
+                                    <input type="text" placeholder='Height (in.)' value={volWeight.height == 0 ? "" : volWeight.height} onInput={e => handleVolWeight(e, "height")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Pcs</label>
-                                    <input type="text" placeholder='0' value={volWeight.pcs==0?"":volWeight.pcs} onInput={e=>handleVolWeight(e,"pcs")} />
+                                    <input type="text" placeholder='0' value={volWeight.pcs == 0 ? "" : volWeight.pcs} onInput={e => handleVolWeight(e, "pcs")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Divisor</label>
-                                    <input type="text" placeholder='0' value={volWeight.divisor==0?"":volWeight.divisor} onInput={e=>handleVolWeight(e,"divisor")} />
+                                    <input type="text" placeholder='0' value={volWeight.divisor == 0 ? "" : volWeight.divisor} onInput={e => handleVolWeight(e, "divisor")} />
                                 </div>
                                 <div>
                                     <label htmlFor="">Dimensional Weight</label>
                                     <input type="text" placeholder='0.00' value={volWeight.dimWeight} />
                                 </div>
-                                <button className={style.buttonSave}><FaRegSave /> Add</button>
+                                <button className={style.buttonSave} onClick={add}><FaRegSave /> Add</button>
                                 <button className={style.buttonRef}><IoRefresh /> Reset</button>
+                            </span>
+                            <span style={{width:"100%"}}>
+                                <TableComp>
+                                    <div>
+                                        <table style={{ minWidth: "100%" }}>
+                                            <thead>
+                                                <tr>
+                                                    <th>Length</th>
+                                                    <th>Breadth</th>
+                                                    <th>Height</th>
+                                                    <th>Piecies</th>
+                                                    <th>Divisor</th>
+                                                    <th>Dimensional Weight</th>
+                                                    <th>Remove</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {
+                                                    volWeight.weights.map(w => (
+                                                        <tr>
+                                                            <td>{w.len}</td>
+                                                            <td>{w.breadth}</td>
+                                                            <td>{w.height}</td>
+                                                            <td>{w.pcs}</td>
+                                                            <td>{w.divisor}</td>
+                                                            <td>{w.dimWeight}</td>
+                                                            <td><FaTrashAlt /></td>
+                                                        </tr>
+                                                    ))
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </TableComp>
                             </span>
                         </>
                         : null
@@ -67,11 +101,11 @@ export function ForwardingForm() {
                     show ?
                         <div>
                             <label htmlFor="">Forwarder Name 1</label>
-                            <input type="text" placeholder='Forwarder Name 1'/>
+                            <input type="text" placeholder='Forwarder Name 1' />
                             <label htmlFor="">Forwarder No 2</label>
-                            <input type="text" placeholder='Forwarder No 1'/>
+                            <input type="text" placeholder='Forwarder No 1' />
                             <label htmlFor="">Forwarding Date</label>
-                            <input type="date" placeholder='Forwarding Date'/>
+                            <input type="date" placeholder='Forwarding Date' />
                         </div> :
                         <i style={{ padding: "20px" }}></i>
                 }
@@ -124,16 +158,16 @@ export function BillingDetails() {
                 <p>Billing Details</p>
                 <div>
                     <label htmlFor="">Client Name</label>
-                    <input type="text" placeholder='Client Name'/>
+                    <input type="text" placeholder='Client Name' />
                     <label htmlFor="">Invoice No</label>
-                    <input type="text" placeholder='Invoice No'/>
+                    <input type="text" placeholder='Invoice No' />
                     <label htmlFor="">Invoice Value</label>
-                    <input type="text" placeholder='0.00'/>
+                    <input type="text" placeholder='0.00' />
 
                     <label htmlFor="">Billing At</label>
-                    <input type="text" placeholder=''/>
+                    <input type="text" placeholder='' />
                     <label htmlFor="">E-way Bill No.</label>
-                    <input type="text" placeholder='E-way Bill No'/>
+                    <input type="text" placeholder='E-way Bill No' />
                     <label htmlFor="">Item Content</label>
                     <select disabled>
                         <option value="nondoc" selected>NONDOC : NON DOCUMENT</option>
@@ -146,9 +180,9 @@ export function BillingDetails() {
                         <option value="cash">CASH</option>
                     </select>
                     <label htmlFor="">To Pay/Cash Amt</label>
-                    <input type="text" placeholder='To Pay/Cash Amount' disabled/>
+                    <input type="text" placeholder='To Pay/Cash Amount' disabled />
                     <label htmlFor="">ODA Charges</label>
-                    <input type="text" placeholder='0.00'/>
+                    <input type="text" placeholder='0.00' />
 
                     <label htmlFor="">COD Type</label>
                     <select>
@@ -156,7 +190,7 @@ export function BillingDetails() {
                         <option value="cod">COD</option>
                     </select>
                     <label htmlFor="">COD Amount</label>
-                    <input type="text" placeholder='COD Amount'/>
+                    <input type="text" placeholder='COD Amount' />
                 </div>
             </div>
         </>
@@ -170,16 +204,16 @@ export function ConsignorDetails() {
                 <p>Consignor Details <span><input type="checkbox" /> Fix</span></p>
                 <div>
                     <label htmlFor="">Consignor</label>
-                    <input type="text" placeholder='Consignor'/>
+                    <input type="text" placeholder='Consignor' />
                     <label htmlFor="">Address</label>
-                    <input type="text" placeholder='Consignor Address'/>
+                    <input type="text" placeholder='Consignor Address' />
                     <label htmlFor="">Address 2</label>
-                    <input type="text" placeholder='Consignor Address 2'/>
+                    <input type="text" placeholder='Consignor Address 2' />
 
                     <label htmlFor="">Pin</label>
-                    <input type="text" placeholder='Consignor Pin'/>
+                    <input type="text" placeholder='Consignor Pin' />
                     <label htmlFor="">Phone</label>
-                    <input type="text" placeholder='Consignor Phone'/>
+                    <input type="text" placeholder='Consignor Phone' />
                 </div>
             </div>
         </>
@@ -193,18 +227,18 @@ export function ConsigneeDetails() {
                 <p>Consignee Details <span><input type="checkbox" /> Fix</span></p>
                 <div>
                     <label htmlFor="">Consignee</label>
-                    <input type="text" placeholder='Consignee'/>
+                    <input type="text" placeholder='Consignee' />
                     <label htmlFor="">Address</label>
-                    <input type="text" placeholder='Consignee Address'/>
+                    <input type="text" placeholder='Consignee Address' />
                     <label htmlFor="">Address 2</label>
-                    <input type="text" placeholder='Consignee Address 2'/>
+                    <input type="text" placeholder='Consignee Address 2' />
 
                     <label htmlFor="">Pin</label>
-                    <input type="text" placeholder='Consignee Pin'/>
+                    <input type="text" placeholder='Consignee Pin' />
                     <label htmlFor="">Phone</label>
-                    <input type="text" placeholder='Consignee Phone'/>
+                    <input type="text" placeholder='Consignee Phone' />
                     <label htmlFor="">Store</label>
-                    <input type="text" placeholder='Store'/>
+                    <input type="text" placeholder='Store' />
                 </div>
             </div>
         </>
@@ -212,30 +246,30 @@ export function ConsigneeDetails() {
 }
 
 export function InsuranceDetails() {
-    const [show,setShow] = useState(false)
+    const [show, setShow] = useState(false)
     return (
         <>
             <div className={style.formContainer}>
-                <p><input type="checkbox" onChange={e=>e.target.checked?setShow(true):setShow(false)} /> Insurance Details</p>
+                <p><input type="checkbox" onChange={e => e.target.checked ? setShow(true) : setShow(false)} /> Insurance Details</p>
                 {
-                    show?
-                    <div>
-                    <label htmlFor="">Risk of Good At</label>
-                    <select >
-                        <option value="">OWNER</option>
-                        <option value="">CARRIER</option>
-                    </select>
-                    <label htmlFor="">Policy Date</label>
-                    <input type="date" />
-                    <label htmlFor="">Insurance Value</label>
-                    <input type="text" placeholder='0.00'/>
+                    show ?
+                        <div>
+                            <label htmlFor="">Risk of Good At</label>
+                            <select >
+                                <option value="">OWNER</option>
+                                <option value="">CARRIER</option>
+                            </select>
+                            <label htmlFor="">Policy Date</label>
+                            <input type="date" />
+                            <label htmlFor="">Insurance Value</label>
+                            <input type="text" placeholder='0.00' />
 
-                    <label htmlFor="">Policy No</label>
-                    <input type="text" placeholder='Policy No'/>
-                    <label htmlFor="">Insurance Comp.</label>
-                    <input type="text" placeholder='Insurance Company'/>
-                </div>:
-                <i style={{padding:"20px"}}></i>
+                            <label htmlFor="">Policy No</label>
+                            <input type="text" placeholder='Policy No' />
+                            <label htmlFor="">Insurance Comp.</label>
+                            <input type="text" placeholder='Insurance Company' />
+                        </div> :
+                        <i style={{ padding: "20px" }}></i>
                 }
             </div>
         </>
@@ -249,16 +283,16 @@ export function OverallWeight() {
                 <p>Overall Weight Details</p>
                 <div>
                     <label htmlFor="">Total Dimensional Weight</label>
-                    <input type="text" placeholder='0.00'/>
+                    <input type="text" placeholder='0.00' />
                     <label htmlFor="">Total Actual Weight</label>
-                    <input type="text" placeholder='0.00'/>
+                    <input type="text" placeholder='0.00' />
                     <label htmlFor="">Total Charge Weight</label>
-                    <input type="text" placeholder='0.00'/>
+                    <input type="text" placeholder='0.00' />
                 </div>
                 <span>
                     <div>
                         <label htmlFor="">Description</label>
-                        <textarea cols="50" rows="3" placeholder='Description' style={{padding:"10px"}}></textarea>
+                        <textarea cols="50" rows="3" placeholder='Description' style={{ padding: "10px" }}></textarea>
                     </div>
                 </span>
             </div>
@@ -289,10 +323,10 @@ export default function AwbUpdate() {
             <ConsignorDetails />
             <ConsigneeDetails />
             <InsuranceDetails />
-            <VolWeight volWeight={{"":""}} handleVolWeight={()=>{}} />
+            <VolWeight volWeight={{ "": "" }} handleVolWeight={() => { }} />
             <OverallWeight />
             <div className={style.actions}>
-                <button><FaCheck/> Update</button>
+                <button><FaCheck /> Update</button>
             </div>
         </>
     )

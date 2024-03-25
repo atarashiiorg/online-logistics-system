@@ -118,3 +118,7 @@ span>div>input{
 .buttonSave{
     background-color: crimson;
 }
+
+.weightTable{
+    width: 100%;
+}
