@@ -5,155 +5,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manifest</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            display: flex;
-            justify-content: center;
-            background-color: black;
-        }
-
-        .page {
-            background-color: white;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 10px;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .manifestDetails {
-            width: 100%;
-            border: 1px solid black;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-
-        .header {
-            margin-top: 20px;
-            width: 100%;
-            padding: 10px;
-            text-align: center;
-            border-left: 1px solid;
-            border-right: 1px solid;
-            border-top: 1px solid;
-            position: relative;
-        }
-
-        .left,
-        .right {
-            height: fit-content;
-            width: 70%;
-            display: grid;
-            grid-template-columns: 100%;
-            padding-block: 10px;
-            padding-inline: 5px;
-            gap: 5px;
-        }
-
-        .right {
-            width: 30%;
-        }
-
-        .docketTable {
-            width: 100%;
-            text-align: left;
-            table-layout: fixed;
-            border-collapse: collapse;
-        }
-
-        .docketDetails>table td:not(:last-child),
-        .docketDetails>table th:not(:last-child) {
-            padding-bottom: 5px;
-            padding-right: 2px;
-            padding-left: 2px;
-        }
-
-        .docketDetails>table td:not(:last-child) {
-            overflow-wrap: break-word;
-        }
-
-        .last-row:not(:last-child){
-            border-right: 1px solid black;
-            padding-left: 2px;
-        }
-        .last-row{
-            border-top: 1px solid black;
-        }
-
-        .sign {
-            height: 150px;
-            padding: 10px;
-            flex-direction: column;
-        }
-
-        .sign>p {
-            text-transform: uppercase;
-            margin-top: 10px;
-        }
-
-        #signature {
-            align-self: flex-end;
-            margin-bottom: 10px;
-            margin-right: 25px;
-        }
-
-        #printedAt {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-        }
-    </style>
+   <style>
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .page{
+        padding: 10px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .logo{
+        display: flex;
+        flex-direction: column;
+    }
+    .heading{
+        margin-top: 10px;
+        padding: 4px;
+        border: 1px solid black;
+        width: 100%;
+        position: relative;
+        height: 60px;
+    }
+    .heading>h3{
+        text-align: center;
+        margin: 0;
+    }
+    #printedAt{
+        position: absolute;
+        bottom: 10px; 
+        right: 20px;
+        font-size: 12px;
+    }
+    .header{
+        width: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        padding-block: 15px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+    }
+    .right{
+        padding-right: 80px;
+    }
+    .right, .left{
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .content{
+        width: 100%;
+        margin-block: 10px;
+        border-top: 1px solid black;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        /* border-bottom: 1px solid black; */
+    }
+    .content>table{
+        border-collapse: collapse;
+        min-width: 100%;
+        font-size: 11px;
+    }
+    .content>table th:not(:last-child),
+    .content>table td:not(:last-child){
+        border-right: 1px solid black;
+        padding: 5px;
+    }
+    .content>table th,
+    .content>table td{
+        border-bottom: 1px solid black;
+    }
+    .content>table td:last-child{
+        padding: 5px;
+    }
+    .content>table td{
+        text-transform: uppercase;
+    }
+    .manifestDetails{
+        width: 100%;
+        padding-block: 15px;
+        padding-inline: 10px;
+        height: 150px;
+        border: 1px solid black;
+        position: relative;
+        font-size: 12px;
+    }
+    #sign{
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+    }
+    .data{
+        text-transform: uppercase;
+    }
+   </style>
 </head>
-
 <body>
     <div class="page">
-        <h3 style="text-align: center;">SAFE DISPATCH</h3>
-        <p style="text-align: center;">Address kajshdkjhdjkhkajsdhkjk</p>
-        <div class="header">
+        <div class="logo">
+            <h3 style="margin: 0;text-align: center; font-size: initial;">SAFE DISPATCH LOGISTICS</h3>
+            <blockquote style="margin: 0; text-align: center;">Your Comfirt is our Priority</blockquote>
+            <p style="text-align: center;">Plot No. 237, Industrial Area-A, Near Cheema Chownk, Ludhiana</p>
+        </div>
+        <div class="heading">
             <h3>Manifest Print</h3>
             <p id="printedAt">Printed @ <%= printedAt %>
             </p>
         </div>
-        <div style="position: relative;
-                    padding: 10px;
-                    border: 1px solid black;
-                    width: 100%;
-                    margin-bottom: 15px;
-                    display: flex;
-                    height: 80px;">
-            <div style="display: grid;
-                        grid-template-columns: 100%;
-                        position: absolute;
-                        top: 10;
-                        left: 10px;" >
-                <p>Mode: <%= mode %></p>
-                <p>Branch: <%= branch %></p>
-                <p>Destination: <%= destination %></p>
-                <p>Vendor: <%= vendor %></p>
+        <div class="header">
+            <div class="left">
+                <p>Mode: <span class="data"><%= mode %></span></p>
+                <p>From Branch: <span class="data"><%= branch %></span></p>
+                <p>To Branch: <span class="data"><%= destination %></span></p>
+                <p>Vendor: <span class="data"><%= vendor %></span></p>
                 <p>Driver: </p>
             </div>
-            <div style="display: grid;
-                        grid-template-columns: 100%;
-                        position: absolute;
-                        right: 10px;
-                        top: 10px;">
-                <p>Manifest Date: <%= manifestDate %></p>
-                <p>Manifest No: <%= manifestNumber %></p>
-                <p>Total Docket: <%= totalDockets %></p>
+            <div class="right">
+                <p>Manifest Date: <span class="data"><%= manifestDate %></span></p>
+                <p>Manifest No: <span class="data"><%= manifestNumber %></span></p>
+                <p>Total Docket: <span class="data"><%= totalDockets %></span></p>
                 <p>Vehicle No: </p>
             </div>
-
         </div>
-
-        <div class="docketDetails manifestDetails">
+        <div class="content">
             <table class="docketTable">
                 <thead>
                     <tr>
@@ -173,45 +154,45 @@
                 <tbody>
                     <% data.forEach((d,index )=> { %>
                         <tr>
-                            <td>
+                            <td class="data">
                                 <%= index+1 %>
                             </td>
-                            <td><%= d.docketNumber %></td>
-                            <td><%= d.date %> </td>
-                            <td><%= d.origin %></td>
-                            <td><%= d.client %></td>
-                            <td><%= d.destination %></td>
-                            <td><%= d.consignee %></td>
-                            <td><%= d.pieces %></td>
-                            <td><%= d.weight %></td>
-                            <td><%= d.toPay %></td>
-                            <td><%= d.cod %></td>
+                            <td class="data"><%= d.docketNumber %></td>
+                            <td class="data"><%= d.date %> </td>
+                            <td class="data"><%= d.origin %></td>
+                            <td class="data"><%= d.client %></td>
+                            <td class="data"><%= d.destination %></td>
+                            <td class="data"><%= d.consignee %></td>
+                            <td class="data"><%= d.pieces %></td>
+                            <td class="data"><%= d.weight %></td>
+                            <td class="data"><%= d.toPay %></td>
+                            <td class="data"><%= d.cod %></td>
                         </tr>
                         <% }) %>
+                        <tr>
+                            <td colspan="6"></td>
+                            <td >Total:</td>
+                            <td>
+                                <%= totalpieces %>
+                            </td>
+                            <td>
+                                <%= totalWeight %>
+                            </td>
+                            <td>
+                                <%= totalToPay %>
+                            </td>
+                            <td>
+                                <%= totalCod %>
+                            </td>
+                        </tr>
                 </tbody>
-                <tr>
-                    <td colspan="6" class="last-row"></td>
-                    <td class="last-row">Total:</td>
-                    <td class="last-row">
-                        <%= totalpieces %>
-                    </td>
-                    <td class="last-row">
-                        <%= totalWeight %>
-                    </td>
-                    <td class="last-row">
-                        <%= totalToPay %>
-                    </td>
-                    <td class="last-row">
-                        <%= totalCod %>
-                    </td>
-                </tr>
             </table>
         </div>
 
-        <div class="manifestDetails sign" style="position: relative;">
-            <p style="font-size: 9px;">i confirm having received _____________________ packages on _____________________ at _________________
+        <div class="manifestDetails">
+            <p style="text-transform: uppercase;">i confirm having received _____________________ packages on _____________________ at _________________
                 verify the same.</p>
-            <p id="signature" style="position: absolute; bottom: 10px; right: 20px;">originating hub/br incharge</p>
+            <p id="sign" style="text-transform: uppercase;">Originating HUB/BR InCharge</p>
         </div>
     </div>
 </body>

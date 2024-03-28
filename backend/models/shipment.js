@@ -11,6 +11,10 @@ const shipmentSchema = new mongoose.Schema({
     mode: String,
     customerType: String,
     isOda: Boolean,
+    odaAmount:{
+        type:Number,
+        default:0
+    },
     totalBoxes: Number,
     actualWeight: Number,
     totalDimensionalWeight: Number,

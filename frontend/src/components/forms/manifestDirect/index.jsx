@@ -3,9 +3,9 @@ import style from './style.module.css'
 import { BsRecycle, BsSearch } from 'react-icons/bs'
 import { IoCheckmark, IoRefresh, IoRefreshCircle, IoRefreshCircleOutline, IoRefreshSharp } from 'react-icons/io5'
 import { IoIosRefresh } from 'react-icons/io'
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaTrashAlt } from 'react-icons/fa'
 import { useContext, useEffect, useState } from 'react'
-import { Docket, Mandatory } from '../../minComp/index'
+import { Docket, Mandatory, TableComp } from '../../minComp/index'
 import UserAuthContext from '../../../contexts/authContext'
 import { useFetchDocketForManifest, useGetData } from '../../../apiHandlers/getApis'
 import { usePostData } from "../../../apiHandlers/postApis";
@@ -41,7 +41,7 @@ export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, 
                     </select>
 
                     <label htmlFor="">From BCode <Mandatory /></label>
-                    <input type="text" disabled value={currBranch?(currBranch?.branchCode + ":" + currBranch?.branchName):"Please select Current Branch"} />
+                    <input type="text" disabled value={currBranch ? (currBranch?.branchCode + ":" + currBranch?.branchName) : "Please select Current Branch"} />
                     <label htmlFor="">Vendor Name <Mandatory /></label>
                     <input type="text" list='vendors' placeholder='Vendor Name' value={manifest.vName} onInput={e => manifestHandler(e, "vendor")} />
                     <datalist id='vendors'>
@@ -71,29 +71,29 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
     }
 
     const [currDocket, setCurrDocket] = useState("")
-    const {currBranch} = useContext(UserAuthContext)
+    const { currBranch } = useContext(UserAuthContext)
 
-    const setVal = async(e) => {
+    const setVal = async (e) => {
         if (e.keyCode == 13) {
-            if(!currBranch?._id){
+            if (!currBranch?._id) {
                 message.warning("Please select From BCode")
                 return
             }
 
-            if(currDocket.length<3){
+            if (currDocket.length < 3) {
                 message.warning("Enter a valid docket Number")
                 return
             }
 
             const data = await useFetchDocketForManifest(currDocket, currBranch?._id)
-            if(data.res){
+            if (data.res) {
                 setDocket(data.data)
             } else {
                 console.log(data.err)
                 message.error(data?.err)
             }
             return
-        } else if(e.keyCode==8 || e.keyCode==46){
+        } else if (e.keyCode == 8 || e.keyCode == 46) {
             reset()
             return
         }
@@ -106,11 +106,15 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
                 <div className={style.secondContainer}>
                     <div>
                         <label htmlFor="">Docket No</label>
-                        <input type="text" placeholder='Docket No' value={currDocket} onKeyUp={setVal} onInput={e=>setCurrDocket(e.target.value)} />
+                        <input type="text" placeholder='Docket No' value={currDocket} onKeyUp={setVal} onInput={e => setCurrDocket(e.target.value)} />
                     </div>
                     <div>
                         <label htmlFor="">Item Content</label>
                         <input type="text" placeholder='Item Content' value={docket.itemContent} name="" id="" />
+                    </div>
+                    <div>
+                        <label htmlFor="">Consignor</label>
+                        <input type="text" value={docket.consignor} placeholder='Consignor' />
                     </div>
                     <div>
                         <label htmlFor="">Consignee</label>
@@ -133,16 +137,42 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
                         <button className={style.buttonRef} onClick={e => reset()}><GiCycle /></button>
                     </span>
                 </div>
-                {
-                    docketList.length > 0 ?
-                        <div style={docketListStyle}>
-                            {
-                                docketList.map(p => <Docket key={p.docketNumber} {...p} deleteDocket={deleteDocket} />)
-                            }
-                        </div> :
-                        null
-                }
             </div>
+
+            {docketList.length > 0 ? <TableComp style={{ display: "flex" }}>
+                <div>
+                    <table style={{ width: "100%" }}>
+                        <thead>
+                            <tr>
+                                <th>Docket Number</th>
+                                <th>Item Content</th>
+                                <th>Consignor</th>
+                                <th>Consignee</th>
+                                <th>Destination</th>
+                                <th>Pcs</th>
+                                <th>Weight</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                docketList.map(d => {
+                                    return <tr>
+                                        <td>{d.docketNumber}</td>
+                                        <td>{d?.itemContent}</td>
+                                        <td>{d.consignor}</td>
+                                        <td>{d.consignee}</td>
+                                        <td>{d.destination}</td>
+                                        <td>{d.pieces}</td>
+                                        <td>{d.weight}</td>
+                                        <td><FaTrashAlt style={{ color: "red" }} onClick={e => deleteDocket(d.docketNumber)} /></td>
+                                    </tr>
+                                })
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </TableComp> : null}
         </>
     )
 }
@@ -173,7 +203,7 @@ export default function ManifestDirect() {
     const [err, loading, vendors] = useGetData("vendor")
     const initialManifest = {
         toBCode: "",
-        toBCodeText:"",
+        toBCodeText: "",
         manifestNumber: "",
         manifestDate: "",
         mode: "",
@@ -188,10 +218,10 @@ export default function ManifestDirect() {
         docketNumber: "",
         date: "",
         origin: "",
-        client: "",
+        consignor: "",
         destination: "",
         consignee: "",
-        itemContent:"",
+        itemContent: "",
         pieces: 0,
         weight: 0,
         toPay: 0,
@@ -202,7 +232,6 @@ export default function ManifestDirect() {
     const [manifest, setManifest] = useState(initialManifest)
 
     const manifestHandler = (e, f) => {
-        console.log(manifest)
         setManifest(p => {
             const obj = { ...p }
             if (f == "vendor") {
@@ -231,15 +260,24 @@ export default function ManifestDirect() {
     } //for updating manifest form fields values
 
     const addDocket = () => {
-        console.log(docket)
-        if(!docket._id){
+        if (!docket._id) {
             message.warning("Enter a valid docket number")
             return
         }
         //validation
+        try {
+            const idx = manifest.dockets?.findIndex(d=>d?.docketNumber==docket?.docketNumber)
+            if(idx>-1){
+                message.warning("Docket already added.")
+                return
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
         setManifest(p => {
             const dockets = [...p.dockets]
-            dockets.push({...docket, booking:docket._id})
+            dockets.push({ ...docket, booking: docket._id })
             return { ...p, dockets }
         })
         setDocket(initialDocket)
@@ -278,52 +316,52 @@ export default function ManifestDirect() {
 
     const resetForm = () => {
         console.log("resetted")
-        setManifest(p=>initialManifest)
+        setManifest(p => initialManifest)
         setDocket(initialDocket)
     }
 
     const handleSave = async () => {
-        if(manifest.toBCode==""){
+        if (manifest.toBCode == "") {
             message.warning("Please select ToBCode.")
             return
         }
-        if(manifest.fromBCode==""){
+        if (manifest.fromBCode == "") {
             message.warning("Please select FromBCode.")
             return
         }
-        if(manifest.manifestDate==""){
+        if (manifest.manifestDate == "") {
             message.warning("Please select manifest date")
             return
         }
-        if(manifest.vendor==""){
+        if (manifest.vendor == "") {
             message.warning("Please select vendor")
             return
         }
-        if(manifest.mode==""){
+        if (manifest.mode == "") {
             message.warning("Please select mode")
             return
         }
-        if(manifest.toBCode==manifest.fromBCode){
+        if (manifest.toBCode == currBranch._id) {
             message.warning("FromBCode and ToBCode can not be same")
             return
         }
-        const res = await usePostData({ ...manifest, fromBCode: currBranch?._id },"manifest")
-        if(res.res){
+        const res = await usePostData({ ...manifest, fromBCode: currBranch?._id }, "manifest")
+        if (res.res) {
             reset()
         }
     } // api call for saving manifest data on the server
 
 
-    useEffect(()=>{
-        setManifest(p=>{
-            return {...p,dockets:[]}
+    useEffect(() => {
+        setManifest(p => {
+            return { ...p, dockets: [] }
         })
         setDocket(initialDocket)
-    },[currBranch])
+    }, [currBranch])
 
     return (
         <>{
-            loading?<Loading/>:null
+            loading ? <Loading /> : null
         }
             <ManifestForm  {...manifestProps} />
             <AwbForm {...awbProps} />

@@ -1,31 +1,40 @@
 const mongoose = require('mongoose');
 
 const runsheetSchema = new mongoose.Schema({
-    runsheetNumber:{
-        type:Number,
-        unique:true
+    runsheetNumber: {
+        type: Number,
+        unique: true
     },
-    mobile:String,
-    employee:{
+    branch:{
         type:mongoose.Types.ObjectId,
-        ref:"Employee"
+        ref:"Branch"
     },
-    date:Date,
-    vendorType:String,
-    vendor:{
-        type:mongoose.Types.ObjectId,
-        ref:"Vendor"
+    date: Date,
+    mobile: String,
+    employee: {
+        type: mongoose.Types.ObjectId,
+        ref: "Employee"
     },
-    driver:String,
-    area:String,
-    booking:{
-        type:mongoose.Types.ObjectId,
-        ref:"Booking"
-    }
-},{
-    timestamps:true
+    date: Date,
+    vendorType: String,
+    vendor: {
+        type: mongoose.Types.ObjectId,
+        ref: "Vendor"
+    },
+    vehicleNumber: String,
+    driver: String,
+    area: String,
+    dockets: [
+        {
+            booking: {
+                type: mongoose.Types.ObjectId,
+                ref: "Booking"
+            }
+        }]
+}, {
+    timestamps: true
 })
 
-const Runsheet = mongoose.model("Runsheet",runsheetSchema)
+const Runsheet = mongoose.model("Runsheet", runsheetSchema)
 
 module.exports = Runsheet

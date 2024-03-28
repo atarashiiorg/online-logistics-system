@@ -58,9 +58,9 @@ function getFilenameFromContentDisposition(contentDisposition) {
     return null;
 }
 
-export const useDownloader = async (mid)=>{
+export const useDownloader = async (endpoint)=>{
         try {
-            const response = await fetch(serverUrl+"manifest?mid="+mid);
+            const response = await fetch(serverUrl+endpoint);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }

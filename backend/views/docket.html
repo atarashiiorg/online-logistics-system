@@ -65,8 +65,18 @@
             justify-content: center;
             align-items: center;
             border-bottom: 1px solid black;
+            object-fit: contain;
         }
 
+        .logo-img{
+            background-color: #4b3d53;
+        }
+
+        .logo-img>img{
+            object-fit: contain;
+            height: 70px;
+            scale: 1.4;
+        }
         .logo-address {
             flex: 1;
         }
@@ -101,7 +111,7 @@
             grid-template-rows: 10% 28% 28% 28% 6%;
         }
 
-        .scol-srow{
+        .scol-srow {
             border-bottom: 1px solid black;
             position: relative;
             display: flex;
@@ -109,14 +119,165 @@
             justify-content: center;
             align-items: center;
         }
-        .scol-srow:last-child{
-            border:none;
+
+        .scol-srow:last-child {
+            border: none;
             background-color: dodgerblue;
         }
-        .scol-srow>h3{
+
+        .scol-srow>h3 {
             padding: 0;
             font-size: 18px;
             text-transform: capitalize;
+        }
+
+        .scol-srow-full {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dim-col:not(:last-child) {
+            width: 50%;
+            border-right: 1px solid black;
+        }
+
+        .dim-col-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dim-col-right {
+            height: 100%;
+            width: 50%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .dim-col-right>div:not(:last-child) {
+            width: 1fr;
+            border-right: 1px solid black;
+        }
+
+        .dim-col-row:not(:last-child) {
+            height: 50%;
+            border-bottom: 1px solid black;
+        }
+
+        .dim-col-row-upper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .dim-col-row-upper>div:not(:last-child) {
+            border-right: 1px solid black;
+        }
+
+        .dim-col-row-lower {
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .redText {
+            color: red;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .weightDetails {
+            display: grid;
+            grid-template-rows: 15% 30% 35% 20%;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .weightDetails>div:not(:last-child) {
+            width: 100%;
+            height: 100%;
+            border-bottom: 1px solid black;
+        }
+
+        .six-col-weight {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        .six-col-weight>div:not(:last-child) {
+            border-right: 1px solid black;
+        }
+
+        .two-col-weight {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            background-color: #6495ec;
+        }
+
+        .two-col-weight>div:not(:last-child) {
+            border-right: 1px solid black;
+        }
+
+        .three-col-weight {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            background-color: red;
+            height: 100%;
+            width: 100%;
+        }
+
+        .three-col-weight>div:not(:last-child) {
+            border-right: 1px solid black;
+            color: white;
+        }
+
+        .three-col-weight :not(:last-child) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .six-row-grid {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .six-row-grid>div {
+            flex: 1;
+            width: 100%;
+        }
+
+        .six-row-grid>div:not(:last-child) {
+            border-bottom: 1px solid black;
+        }
+
+        .basis {
+            display: grid;
+            grid-template-columns: 40% 60%;
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .basis>input,
+        .basis>label {
+            align-self: center;
+        }
+
+        .basis>input {
+            filter: hue-rotate(0deg);
+            height: 22px;
+            border: 2px solid black;
+        }
+        .checkbox{
+            height: 20px; 
+            width: 20px; 
+            border: 2px solid red;
+            align-self: center;
+            justify-self: center;
         }
     </style>
 </head>
@@ -125,33 +286,36 @@
     <div class="page">
         <div class="container">
             <div class="header">
-                <h2>Ph No. <%= comp_mobile %></h2>
-                <h2>GSTIN: <%= comp_gst %></h2>
+                <h2>Ph No. <%= comp_mobile %>
+                </h2>
+                <h2>GSTIN: <%= comp_gst %>
+                </h2>
             </div>
             <div class="main-content">
                 <div class="first-row">
                     <div class="logo">
-                        <div class="logo-img">Logo Image</div>
+                        <div class="logo-img"><img src="../public/assests/sdlLogo.png"/></div>
                         <div class="logo-address">
-                            <%= own_address %>
+                            <p style="text-align: center; font-size: 13px;">Plot No. 237, Industrial Area-A, Near Cheema
+                                Chownk, Ludhiana</p>
                         </div>
                     </div>
                     <div class="col">
-                        <div>Origin</div>
+                        <div style="background-color: #f0e68c;">Origin</div>
                         <div>
                             <%= origin %>
                         </div>
                     </div>
                     <div class="col">
-                        <div>Destination</div>
+                        <div style="background-color: #6495ec;">Destination</div>
                         <div>
                             <%= destination %>
                         </div>
                     </div>
                     <div class="col">
-                        <div>Date</div>
+                        <div style="background-color: #f0e68c;">Date</div>
                         <div>Credit</div>
-                        <div>No. Of Packages</div>
+                        <div style="background-color: #f0e68c;">No. Of Packages</div>
                     </div>
                     <div class="col">
                         <div>
@@ -167,53 +331,177 @@
                 </div>
                 <div class="second-row">
                     <div class="scol">
-                        <div class="scol-srow">
+                        <div class="scol-srow" style="background-color: red;">
                             <h3>Consignor (Shipper)</h3>
                         </div>
                         <div class="scol-srow">
-                            <span style="position: absolute; left: 5px; top: 15px;"><%= consignor %></span>
-                            <span style="position: absolute; left: 5px; bottom: 70px;"><%= origin %></span>
+                            <span style="position: absolute; left: 5px; top: 15px;">
+                                <%= consignor %>
+                            </span>
+                            <span style="position: absolute; left: 5px; bottom: 70px;">
+                                <%= origin %>
+                            </span>
                             <span style="position: absolute; right: 5px; bottom: 30px;">________________</span>
                         </div>
                         <div class="scol-srow">
                             <span style="position: absolute; left: 5px; top: 30px;">Tax invoice bill no</span>
-                            <span style="position: absolute; right: 5px; top: 35px;"><%= invoiceNo %></span>
+                            <span style="position: absolute; right: 5px; top: 35px;">
+                                <%= invoiceNo %>
+                            </span>
                             <span style="position: absolute; right: 5px; top: 40px;">________________</span>
                             <span style="position: absolute; left: 5px; bottom: 40px;">Tax invoice bill no</span>
-                            <span style="position: absolute; right: 5px; bottom: 35px;"><%= invoiceVal %></span>
+                            <span style="position: absolute; right: 5px; bottom: 35px;">
+                                <%= invoiceVal %>
+                            </span>
                             <span style="position: absolute; right: 5px; bottom: 30px;">________________</span>
                         </div>
-                        <div class="scol-srow"></div>
-                        <div class="scol-srow"></div>
+                        <div class="scol-srow">
+                            <span
+                                style="position: absolute; width: 60%; display: flex;justify-content: space-between; left: 5px; bottom: 5px;">
+                                <p style="margin-left: 5px;">Date</p>
+                                <p>Name</p>
+                            </span>
+                        </div>
+                        <div class="scol-srow" style="background-color: #6495ec;"></div>
                     </div>
                     <div class="scol">
-                        <div class="scol-srow">
+                        <div class="scol-srow" style="background-color: #6495ec;">
                             <h3>Consignee (Receiver)</h3>
                         </div>
                         <div class="scol-srow">
-                            <span style="position: absolute; left: 5px; top: 15px;"><%= Consignee %></span>
-                            <span style="position: absolute; left: 5px; bottom: 70px;"><%= destination %></span>
+                            <span style="position: absolute; left: 5px; top: 15px;">
+                                <%= Consignee %>
+                            </span>
+                            <span style="position: absolute; left: 5px; bottom: 70px;">
+                                <%= destination %>
+                            </span>
                             <span style="position: absolute; right: 5px; bottom: 30px;">________________</span>
                         </div>
                         <div class="scol-srow">
-                            <span style="position: absolute; top: 0; padding: 6px; background-color: dodgerblue; width: 100%; text-align: center;">Trace This Bill</span>
-                            <h2>BARCODE</h2>
+                            <span
+                                style="position: absolute; top: 0; padding: 6px; background-color: #6495ec; width: 100%; text-align: center;">Trace
+                                This Bill</span>
+                            <canvas id="barcode"></canvas>
                             <h2>*<%= docketNumber %>*</h2>
                         </div>
                         <div class="scol-srow">
-                            <span style="position: absolute; top: 0; padding: 6px; background-color: dodgerblue; width: 100%; text-align: center;">Received On Good Order &amp; Conditions</span>
-                            <span style="position: absolute; width: 60%; display: flex;justify-content: space-between; left: 5px; bottom: 5px;"><p style="margin-left: 5px;">Date</p><p>Name</p></span>
+                            <span
+                                style="position: absolute; top: 0; padding: 6px; background-color: red; width: 100%; text-align: center;">Received
+                                On Good Order &amp; Conditions</span>
+                            <span
+                                style="position: absolute; width: 60%; display: flex;justify-content: space-between; left: 5px; bottom: 5px;">
+                                <p style="margin-left: 5px;">Date</p>
+                                <p>Name</p>
+                            </span>
                         </div>
-                        <div class="scol-srow">
+                        <div class="scol-srow" style="background-color: #6495ec;">
                             Non Negotiable
                         </div>
                     </div>
                     <div class="scol">
-                        <div class="scol-srow"></div>
-                        <div class="scol-srow"></div>
-                        <div class="scol-srow"></div>
-                        <div class="scol-srow"></div>
-                        <div class="scol-srow"></div>
+                        <div class="scol-srow">
+                            <div class="scol-srow-full">
+                                <div class="dim-col dim-col-left">
+                                    <div class="dim-col-row dim-col-row-upper">
+                                        <div class="redText">L</div>
+                                        <div class="redText">B</div>
+                                        <div class="redText">H</div>
+                                    </div>
+                                    <div class="dim-col-row dim-col-row-lower">
+                                        <div class="redText">Inches/Centimeter</div>
+                                    </div>
+                                </div>
+                                <div class="dim-col dim-col-right">
+                                    <div class="redText">CFT</div>
+                                    <div class="redText">No Of Packages</div>
+                                    <div class="redText">Total</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scol-srow weightDetails">
+                            <div class="six-col-weight">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div class="two-col-weight">
+                                <div>Actual Weight (Kgs)</div>
+                                <div>Charged Weight (Kgs)</div>
+                            </div>
+                            <div class="two-col-weight" style="background-color: white;">
+                                <div></div>
+                                <div></div>
+                            </div>
+                            <div class="three-col-weight">
+                                <div>Details</div>
+                                <div>Amount</div>
+                                <div style="color: white; display: flex; justify-content: center; align-items: center;">
+                                    Basis
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scol-srow">
+                            <div class="three-col-weight" style="background-color: white;">
+                                <div class="six-row-grid">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div class="six-row-grid">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div class="basis">
+                                    <div class="checkbox"></div>
+                                    <label for="">Cash</label>
+                                    <div class="checkbox"></div>
+                                    <label for="">Credit</label>
+                                    <div class="checkbox"></div>
+                                    <label for="">Topay</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scol-srow">
+                            <div class="three-col-weight" style="background-color: white;">
+                                <div class="six-row-grid">
+                                    <div style="background-color: #6495ec;"><h3 style="color: black;">SUBTOTAL</h3></div>
+                                    <div style="font-size: 13px; color: black;">C.G.S.T</div>
+                                    <div style="font-size: 13px; color: black;">S.G.S.T / U.G.S.T</div>
+                                    <div style="font-size: 13px; color: black;">I.G.S.T</div>
+                                    <div style="font-size: 15px; color: black; background-color: red; display: flex; justify-content: center; align-items: center;">GRAND TOTAL</div>
+                                </div>
+                                <div class="six-row-grid">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                                <div>
+                                    <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
+                                        <div style="border-bottom:1px solid black; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;">
+                                            <div class="redText">DOOR DELIVERY</div>
+                                            <div class="checkbox"></div>
+                                        </div>
+                                        <div style="border-bottom:1px solid black; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;">
+                                            <div class="redText">GODOWN</div>
+                                            <div class="checkbox"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="scol-srow" style="background-color: #6495ec;"></div>
                     </div>
                 </div>
             </div>

@@ -54,7 +54,7 @@ export default function Header() {
                     <IoSearchSharp style={{fontSize:"22px"}} className={style.searchIcon} onClick={e=>{handleSearch()}}/>
                 </div>
                 <div className={style.c1}>
-                    <select value={currBranch._id} onChange={selectBranch}>
+                    <select value={currBranch?._id||""} onChange={selectBranch}>
                         <option value="">--Select Branch--</option>
                         {
                             branches.map(b=><option value={b._id} key={b._id}>{b.branchName}</option>)

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Runsheet</title>
+    <style>
+        html {
+            -webkit-print-color-adjust: exact;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .page {
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 10px;
+        }
+
+        .upperNav {
+            padding: 10px;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            position: relative;
+        }
+
+        .heading {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .header {
+            width: 100%;
+            border: 1px solid black;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .left,
+        .right {
+            padding-block: 5px;
+            display: grid;
+            grid-template-columns: 1fr;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .left {
+            border-right: 1px solid black;
+        }
+
+        .content {
+            width: 100%;
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+            /* border-bottom: 1px solid black; */
+        }
+
+        .content>table {
+            min-width: 100%;
+            border-collapse: collapse;
+        }
+
+        .content>table th:not(:last-child) {
+            border-right: 1px solid black;
+            padding: 4px;
+        }
+
+        .content>table th {
+            border-bottom: 1px solid black;
+        }
+
+
+        .content>table td {
+            border-bottom: 1px solid black;
+        }
+
+        .content>table td:not(:last-child) {
+            /* border-bottom: 1px solid black; */
+            border-right: 1px solid black;
+            padding-inline: 4px;
+            text-align: center;
+        }
+
+        .content>table td:last-child {
+            width: 18%;
+        }
+
+        .content>table>tbody>td>div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            height: 80px;
+            object-fit: contain;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .barcode {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+
+        .barcode>img {
+            height: 80px;
+            width: fit-content;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
+</head>
+
+<body>
+    <div class="page">
+        <div class="upperNav">
+            <img src="" class="logo" alt="">
+            <div class="address">
+                <h3 style="margin: 0;text-align: center; font-size: initial;">SAFE DISPATCH LOGISTICS</h3>
+                <blockquote style="margin: 0; text-align: center;">Your Comfirt is our Priority</blockquote>
+                <p style="text-align: center;">Plot No. 237, Industrial Area-A, Near Cheema Chownk, Ludhiana</p>
+            </div>
+        </div>
+        <div class="heading">
+            <p>Login Branch: </p>
+            <h3>Delivery Runsheet</h3>
+            <p>DRS Date: <%= runsheetDate %>
+            </p>
+        </div>
+        <div class="header">
+            <div class="left" style="float: left;">
+                <p>Boy Name: <%= deliveryBoy %>
+                </p>
+                <p>Phone No: <%= mobile %>
+                </p>
+                <p>Area: <%= area %>
+                </p>
+            </div>
+            <div class="right" style="float: right;">
+                <p>Driver: <%= driver %>
+                </p>
+                <p>Vehicle No: <%= vehicleNo %>
+                </p>
+                <p>DRS No. <%= runsheetNumber %>
+                </p>
+                <canvas class="barcode" id="barcode"></canvas>
+            </div>
+        </div>
+        <div class="content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Docket No.</th>
+                        <th>Consignor/Origin</th>
+                        <th>Consignee/Destination</th>
+                        <th>Pcs/Wt</th>
+                        <th>Cash</th>
+                        <th>Topay</th>
+                        <th>COD</th>
+                        <th>Receiver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% dockets.forEach((d,i)=> { %>
+                        <tr>
+                            <td>
+                                <%= i+1 %>
+                            </td>
+                            <td>
+                                <%= d.docketNumber %>
+                            </td>
+                            <td>
+                                <div>
+                                    <p>
+                                        <%= d.consignor %>
+                                    </p>
+                                    <p>
+                                        <%= d.origin %>
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <p>
+                                        <%= d.consignee %>
+                                    </p>
+                                    <p>
+                                        <%= d.destination %>
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <p>
+                                        <%= d.pcs %>
+                                    </p>
+                                    <p>
+                                        <%= d.weight %>
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+                                <%= d.cash %>
+                            </td>
+                            <td>
+                                <%= d.topay %>
+                            </td>
+                            <td>
+                                <%= d.cod %>
+                            </td>
+                            <td></td>
+                        </tr>
+                        <% }) %>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td><strong>Total</strong></td>
+                                <td>
+                                    <div>
+                                        <p>
+                                            <%= totalPcs %>
+                                        </p>
+                                        <p>
+                                            <%= totalWeight %>
+                                        </p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <%= totalCash %>
+                                </td>
+                                <td>
+                                    <%= totalToPay %>
+                                </td>
+                                <td>
+                                    <%= totalCod %>
+                                </td>
+                                <td></td>
+                            </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script>
+    // Ensure JsBarcode is called after DOM content is fully loaded
+    window.onload = function () {
+        JsBarcode("#barcode", '<%= runsheetNumber %>', {
+            format: "CODE128",
+            lineColor: "black",
+            width: 1.6,
+            height: 40,
+            displayValue: false,
+            scale: 3, // Increase scale factor
+            textOpts: {
+                fontOptions: "bold", // Set font options for human-readable text
+                fontSize: 14 // Adjust font size
+            },
+            options: {
+                output: 'svg', // Set output format to SVG for better quality
+                dpi: 300 // Set DPI (dots per inch)
+            }
+        });
+    };
+</script>
+
+</html>

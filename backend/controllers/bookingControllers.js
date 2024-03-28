@@ -83,15 +83,21 @@ async function getBooking(req, res) {
             }
 
             const manifest = await findManifestByDocketNumber(req.query.docket)
+
             let booking
             let msg
             if (manifest) {
                 if (manifest.toBCode == req.query.branch) {
+                    const docket = manifest.dockets.filter(d=>d.booking?.docketNumber==req.query.docket)[0]
+                    if(!docket.isReceived){
+                        res.status(403).json({'msg':'docket manifested to current branch but not received yet'})
+                        return
+                    }
                     booking = await getPopulatedBooking({ docketNumber: req.query.docket }, true)
                     msg = "Docket manifested to current branch"
                 } else {
                     booking=null
-                    msg="Docket not manifest to this branch"
+                    msg="Docket not manifested to this branch"
                 }
             } else {
                 booking = await getPopulatedBooking({ branch: req.query.branch, docketNumber: req.query.docket }, true)
@@ -107,6 +113,15 @@ async function getBooking(req, res) {
                 return
             }
 
+            if(booking.tracking.status=="in-transit"||booking.tracking.status=="booked"){
+                //continue
+            } else {
+                res.status(403).json({'msg':'can not create manifest or runsheet. current status of packet is '+booking.tracking.status})
+                return
+            }
+
+            console.log("status->",booking.tracking.status)
+
             const obj = {
                 _id: booking?._id,
                 docketNumber: booking?.docketNumber,
@@ -115,8 +130,9 @@ async function getBooking(req, res) {
                 client: booking?.invoice?.clientName,
                 destination: booking?.shipment?.destination?.destName,
                 consignee: booking?.consignorConsignee?.consignee,
+                consignor: booking?.consignorConsignee?.consignor,
                 pieces: booking?.shipment?.totalBoxes,
-                weight: booking?.shipment?.totalActualWeight,
+                weight: booking?.shipment?.totalChargeWeight,
                 toPay: booking?.invoice?.amountToPay,
                 cod: booking?.invoice?.codAmount,
                 itemContent: booking?.invoice?.itemContent

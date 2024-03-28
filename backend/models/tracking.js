@@ -20,13 +20,32 @@ const trackingSchema = new mongoose.Schema({
     },
     status:{
         type:String,
-        default:"in-trasit"//'delivered'//'misroute'//'out for delivery'//'return to origin'//'undelivered'
+        default:"booked"//'delivered'//'misroute'//'out for delivery'//'return to origin'//'undelivered'//'booked'
     },
-    receiver:String,
-    receiverType:String,//'sign'//'stamp'//'sign & stamp'
-    receivingDate:Date,
-    podReceivingDate:Date,
-    podRemarks:String
+    statusRemarks:{
+        type:String,
+        default:""
+    },
+    receiver:{
+        type:String,
+        default:""
+    },
+    receiverType:{
+        type:String,
+        default:""
+    },//'sign'//'stamp'//'sign & stamp'
+    receivingDate:{
+        type:Date,
+        default:null
+    },
+    podReceivingDate:{
+        type:Date,
+        default:null
+    },
+    podRemarks:{
+        type:String,
+        default:""
+    }
 },{
     timestamps:true
 })

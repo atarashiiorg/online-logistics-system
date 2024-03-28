@@ -31,7 +31,7 @@ const TableRow = (m) => {
         <tr>
             <td><FaPrint style={{ color: "blueviolet" }} onClick={
                 async e => {
-                    await useDownloader(m._id)
+                    await useDownloader("manifest?mid="+m._id)
                 }
             } /></td>
             <td>{m.manifestNumber}</td>

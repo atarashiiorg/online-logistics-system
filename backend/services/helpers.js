@@ -6,6 +6,7 @@ const path = require("path")
 const pdf = require('html-pdf')
 const Runsheet = require("../models/runsheet")
 const Employee = require("../models/employee")
+const convertHTMLToPDF = require("pdf-puppeteer")
 
 const getNewBranchCode = async () => {
     const branch = await Branch.findOne({}).sort({ 'createdAt': -1 })
@@ -49,16 +50,16 @@ const getNewVendorCode = async () => {
 }
 
 const getRunsheetNumber = async () => {
-    try{
-        const drs = await Runsheet.findOne().sort({'createdAt':-1})
-        if(drs){
-            return drs.runsheetNumber+1
+    try {
+        const drs = await Runsheet.findOne().sort({ 'createdAt': -1 })
+        if (drs) {
+            return drs.runsheetNumber + 1
         } else {
             const y = new Date().getFullYear()
             const d = new Date().getDate()
             return parseInt(`${y}${d}001`)
         }
-    } catch(err){
+    } catch (err) {
         return err
     }
 }
@@ -72,22 +73,10 @@ const getManifestName = () => {
     return name
 }
 
-function generateManifestPdf(data, filename) {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const html = await readEjs(data)
-            const pdf = await createPdfFromHtml(filename, html)
-            resolve(pdf)
-        } catch (error) {
-            reject(error)
-        }
-    })
-}
-
-function readEjs(data) {
+function readEjs(template, data) {
     return new Promise((resolve, reject) => {
         try {
-            ejs.renderFile("views/manifest.ejs", data, (err, html) => {
+            ejs.renderFile(`views/${template}.ejs`, data, (err, html) => {
                 err ? reject(err) : resolve(html)
             })
         } catch (error) {
@@ -96,26 +85,78 @@ function readEjs(data) {
     })
 }
 
-function createPdfFromHtml(filename, html) {
+function createPdfFromHtml(html){
     return new Promise((resolve, reject) => {
-        try {
-            var options = {
-                format: "letter",
-            }
-            pdf.create(html, options).toFile("files/" + filename + ".pdf", (err, name) => {
-                err ? reject(err) : resolve("files/" + filename + ".pdf")
-            })
-        } catch (error) {
-            reject(error)
-        }
+        convertHTMLToPDF(html, (pdf) => {
+            resolve(pdf)
+        }, { format: 'A4' }, {
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox'
+            ]
+        });
     })
+}
+
+function getFormttedDate(date) {
+    const inputDate = new Date(date);
+    const day = inputDate.getDate();
+    const month = inputDate.toLocaleString('default', { month: 'short' });
+    const year = inputDate.getFullYear();
+    return `${day}-${month}-${year}`;
+}
+
+async function getDataForRunsheetPdf(runsheetObj) {
+    try {
+        let runsheet = {
+            deliveryBoy: runsheetObj?.employee?.name,
+            mobile: runsheetObj?.mobile,
+            runsheetDate: getFormttedDate(runsheetObj?.date),
+            loginBranch: "",
+            area: runsheetObj?.area,
+            driver: runsheetObj?.driver,
+            vehicleNo: runsheetObj.vendorType == "self" ? runsheetObj.vehicleNumber : runsheetObj.vendor.vehicleNumber,
+            runsheetNumber: runsheetObj?.runsheetNumber,
+        }
+        let totalPcs = 0
+        let totalWeight = 0
+        let totalCash = 0
+        let totalToPay = 0
+        let totalCod = 0
+        const dockets = runsheetObj.dockets.map(d => {
+            totalPcs = parseInt(totalPcs)+parseInt(d?.booking?.shipment?.totalBoxes||0)
+            totalWeight = (parseFloat(totalWeight)+parseFloat(d?.booking?.shipment?.totalChargeWeight||0)).toFixed(2)
+            totalCash = (parseFloat(totalCash)+parseFloat(d?.booking?.invoice?.codAmount||0)).toFixed(2)
+            totalCod = (parseFloat(totalCod)+parseFloat(d?.booking?.invoice?.codAmount || 0)).toFixed(2)
+            totalToPay = (parseFloat(totalToPay)+parseFloat(d?.booking?.invoice?.amountToPay || 0)).toFixed(2)
+            return {
+                docketNumber: d?.booking?.docketNumber || "",
+                consignor: d?.booking?.consignorConsignee?.consignor || "",
+                origin: d?.booking?.shipment?.origin?.destName || "",
+                consignee: d?.booking?.consignorConsignee?.consignee || "",
+                destination: d?.booking?.shipment?.destination?.destName || "",
+                pcs: d?.booking?.shipment?.totalBoxes || 0,
+                weight: d?.booking?.shipment?.totalChargeWeight || 0,
+                cash: 0,
+                topay: d?.booking?.invoice?.amountToPay || 0,
+                cod: d?.booking?.invoice?.codAmount || 0
+            }
+        })
+        runsheet = {...runsheet,dockets, totalToPay, totalCash,totalCod, totalPcs, totalWeight}
+       return runsheet
+    } catch (err) {
+        throw err
+    }
 }
 module.exports = {
     getNewBranchCode,
     getNewClientCode,
     getNewVendorCode,
     getManifestName,
-    generateManifestPdf,
+    createPdfFromHtml,
     getRunsheetNumber,
-    getNewEmployeeCode
+    getNewEmployeeCode,
+    getFormttedDate,
+    getDataForRunsheetPdf,
+    readEjs
 }

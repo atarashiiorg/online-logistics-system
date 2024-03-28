@@ -1,6 +1,8 @@
 import { useContext } from 'react'
 import style from './style.module.css'
 import UserAuthContext from '../../contexts/authContext'
+import {getFormttedDate} from '../../utils/helpers'
+import { TableComp } from '../minComp'
 
 export default function SearchRes() {
     const { docketTracking } = useContext(UserAuthContext)
@@ -10,6 +12,7 @@ export default function SearchRes() {
                 !docketTracking.show ?
                     <p>Please enter a docket number to search</p> :
                     docketTracking.used == true && docketTracking.valid == true ?
+                        <div className={style.page}>
                         <div className={style.container}>
                             <p>Docket No: {docketTracking?.bookings?.docketNumber}</p>
                             <table>
@@ -22,7 +25,7 @@ export default function SearchRes() {
                                     </tr>
                                     <tr>
                                         <td>Booking Date</td>
-                                        <td>{new Date(docketTracking?.bookings?.bookingDate).toLocaleDateString()}</td>
+                                        <td>{getFormttedDate(docketTracking?.bookings?.bookingDate)}</td>
                                         <td>Branch Name</td>
                                         <td>{docketTracking?.bookings?.branch?.branchName}</td>
                                     </tr>
@@ -48,11 +51,11 @@ export default function SearchRes() {
                                         <td>Rate On</td>
                                         <td>{docketTracking?.rateOn || "Weight"}</td>
                                         <td>Origin</td>
-                                        <td>{docketTracking?.bookings?.shipment?.origin}</td>
+                                        <td>{docketTracking?.bookings?.shipment?.origin?.destName}</td>
                                     </tr>
                                     <tr>
                                         <td>Destination</td>
-                                        <td>{docketTracking?.bookings?.shipment?.origin}</td>
+                                        <td>{docketTracking?.bookings?.shipment?.destination?.destName}</td>
                                         <td>Manifest Branch</td>
                                         <td>{docketTracking?.manifestBranch || "N/A"}</td>
                                     </tr>
@@ -76,21 +79,21 @@ export default function SearchRes() {
                                     </tr>
                                     <tr>
                                         <td>Packet Status</td>
-                                        <td style={{backgroundColor:"yellow"}}>{docketTracking?.tracking?.status || "Booked"}</td>
+                                        <td style={{backgroundColor:"yellow"}}>{docketTracking?.bookings?.tracking?.status || "Booked"}</td>
                                         <td>Rc Name</td>
                                         <td>{docketTracking?.tracking?.vendor.rcNumber || "N/A"}</td>
                                     </tr>
                                     <tr>
                                         <td>Status Remarks</td>
-                                        <td>{docketTracking?.tracking?.statusRemarks}</td>
+                                        <td>{docketTracking?.bookings?.tracking?.statusRemarks}</td>
                                         <td>Delivery Date</td>
-                                        <td>{docketTracking?.tracking?.deliveryDate || "Not Delivered Yet"}</td>
+                                        <td>{docketTracking?.bookings?.tracking?.receivingDate || "Not Delivered Yet"}</td>
                                     </tr>
                                     <tr>
                                         <td>POD Receiving Date</td>
-                                        <td>{docketTracking?.tracking?.podDate}</td>
+                                        <td>{docketTracking?.bookings?.tracking?.podReceivingDate}</td>
                                         <td>POD Remarks</td>
-                                        <td>{docketTracking?.tracking?.podRemarks}</td>
+                                        <td>{docketTracking?.bookings?.tracking?.podRemarks}</td>
                                     </tr>
                                     {/* <tr>
                                         <td>Client Bill No</td>
@@ -152,12 +155,44 @@ export default function SearchRes() {
                                     </tr> */}
                                 </tbody>
                             </table>
-
-                        </div> :
+                        </div> 
+                        <TableComp>
+                            <p>Tracking Details</p>
+                            <div>
+                                <table style={{minWidth:"100%"}}>
+                                    <thead>
+                                        <tr>
+                                            <th>Action Date</th>
+                                            <th>Status Details</th>
+                                            <th>Entry Date</th>
+                                            <th>Emp Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            docketTracking?.bookings?.tracking?.details?.length>0?
+                                            docketTracking?.bookings?.tracking?.details?.map(d=>{
+                                                return (
+                                                    <tr>
+                                                        <td>{getFormttedDate(d?.actionDate)}</td>
+                                                        <td>{d?.action}</td>
+                                                        <td><pre>{getFormttedDate(d.actionDate)}  {new Date(d.actionDate).toLocaleTimeString()}</pre></td>
+                                                        <td>{d?.ationBy?.name}</td>
+                                                    </tr>
+                                                )
+                                            }):
+                                            <tr><td colSpan={4} style={{textAlign:'center'}}>No Data Available</td></tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </TableComp>
+                        </div>:
                         docketTracking.used == false && docketTracking.valid == true?
                         <p>Docket number [{docketTracking?.awb}] is issued to branch {docketTracking?.docket[0].branchName}:[{docketTracking?.docket[0].branchCode}] and has not been booked yet.</p>:
                         <p>Docket number [{docketTracking?.awb}] is not valid.</p>
             }
+           
         </>
     )
 }

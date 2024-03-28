@@ -32,7 +32,8 @@ export function TrackingPage() {
             const res = await fetch(publicUrl + "track?docket=" + docket)
             const res_json = await res.json()
             if (res.ok) {
-                setTrackingData(p => res_json.data)
+                console.log(res_json);
+                setTrackingData(p => res_json.bookings)
             } else if (res.status == 500) {
                 message.error(res_json.err)
             } else {
@@ -59,6 +60,9 @@ export function TrackingPage() {
 
     return (
         <>
+        {
+            console.log(docket.length,trackingData)
+        }
             <div className={style.header}>
                 <div className={style.logo} onClick={e => navigate("/home")}>
                     <img src={logo} alt="Logo" />

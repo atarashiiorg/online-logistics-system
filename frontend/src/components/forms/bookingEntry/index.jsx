@@ -324,7 +324,7 @@ export default function BookingEntry() {
                             e.target.checked ? handleAwbDetails({ target: { value: true } }, "isOda") : handleAwbDetails({ target: { value: false } }, "isOda")
                         }} />
                         {awbDetails?.isOda ?
-                            <input type="text" placeholder='ODA Amount' value={awbDetails.odaAmount} onClick={e => handleAwbDetails(e, "odaAmount")} />
+                            <input type="text" placeholder='ODA Amount' value={awbDetails.odaAmount} onInput={e => handleAwbDetails(e, "odaAmount")} />
                             : null
                         }
                     </span>

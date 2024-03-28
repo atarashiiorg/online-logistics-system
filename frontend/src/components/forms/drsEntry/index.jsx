@@ -8,16 +8,17 @@ import UserAuthContext from '../../../contexts/authContext'
 import { message } from 'antd'
 import { TableComp } from '../../minComp/index'
 import Loading from '../../../pages/loading'
+import {usePostData} from '../../../apiHandlers/postApis'
 
 export default function DrsEntry() {
     const initialDrs = {
-        isNew: false,
+        isNew: true,
         runsheetNumber: "",
         employee: "",
         empText: "",
         date: "",
         mobile: "",
-        vendorType: null,
+        vendorType: "",
         vendor: "",
         vehicleType: "",
         vehicleNumber: "",
@@ -27,14 +28,13 @@ export default function DrsEntry() {
         message: ""
     }
     const [drs, setDrs] = useState(initialDrs)
-    const [docket, setDocket] = useState({ dnum: "", weight: "" })
-    const [errEmp, loadingEmp, employeeList] = useGetData("employee")
-    const [errVendor, loadingVendor, vendorList] = useGetData("vendor")
     const { currBranch } = useContext(UserAuthContext)
+    const [docket, setDocket] = useState({ dnum: "", weight: "" })
+    const [errEmp, loadingEmp, employeeList] = useGetData("employee?role=dlb&branch="+currBranch._id)
+    const [errVendor, loadingVendor, vendorList] = useGetData("vendor")
 
 
     const handleDocket = async (e) => {
-        console.log("doket ke updat")
         if (e.keyCode == 13) {
             if (!currBranch._id) {
                 message.warning("Please select From BCode")
@@ -54,7 +54,7 @@ export default function DrsEntry() {
                     return
                 }
                 setDrs(p => {
-                    return { ...p, dockets:[...p.dockets,data.data] }
+                    return { ...p, dockets:[...p.dockets,{...data.data, booking:data.data._id}] }
                 })
             } else {
                 console.log(data.err)
@@ -95,7 +95,7 @@ export default function DrsEntry() {
                     return obj
                 case "vendor":
                     const idx2 = vendorList.findIndex(v => v._id == e.target.value)
-                    obj.vendor = vendorList[idx2] || null
+                    obj.vendor = vendorList[idx2] || ""
                     return obj
                 case "vehicleType":
                     obj.vehicleType = e.target.value
@@ -125,8 +125,32 @@ export default function DrsEntry() {
         setDrs(p=>initialDrs)
         setDocket({dnum:"",weight:""})
     }
+
+
+    const handleSubmit = async()=>{
+        const rest = "to prepare runsheet"
+        if(drs.employee==""){
+            message.warning("Please select employee "+rest)
+            return
+        }
+        if(drs.date==""){
+            message.warning("Please select date "+rest)
+            return
+        }
+        // if(dr)
+        if(drs.dockets.length<=0){
+            message.warning("Please select some dockets"+rest)
+            return
+        }
+        const result = await usePostData(drs,"runsheet")
+        console.log(result);
+    }
+
     return (
         <>
+        {
+            console.log(drs)
+        }
         {
             loadingEmp?<Loading/>:loadingVendor?<Loading/>:null
         }
@@ -137,7 +161,7 @@ export default function DrsEntry() {
                     <div className={style.hybrid}>
                         <input type="text" placeholder='System Generated' value={drs?.runsheetNumber || ""} onInput={e => drsHandler(e, "runsheetNumber")} disabled={drs.isNew} />
                         <span>
-                            <input type="checkbox" onChange={e => drsHandler(e, "isNew")} />
+                            <input type="checkbox" checked={drs.isNew} onChange={e => drsHandler(e, "isNew")} />
                             <label htmlFor="">New</label>
                         </span>
                     </div>
@@ -155,22 +179,22 @@ export default function DrsEntry() {
                     </div>
 
                     <label htmlFor="">Vendor Type</label>
-                    <select onChange={e => { drsHandler(e, "vendorType") }} >
-                        <option value="null">--Select Vendor Type--</option>
+                    <select value={drs.vendorType} onChange={e => { drsHandler(e, "vendorType") }} >
+                        <option value="">--Select Vendor Type--</option>
                         <option value="paper">Paper</option>
                         <option value="self">Self</option>
                     </select>
                     <label htmlFor="">Vendor</label>
-                    <select disabled={drs.vendorType == "self"} onChange={e => drsHandler(e, "vendor")} >
-                        <option value={null}>--Select Vendor--</option>
+                    <select disabled={drs.vendorType == "self"} value={drs.vendor?._id} onChange={e => drsHandler(e, "vendor")} >
+                        <option value="">--Select Vendor--</option>
                         {
                             //load available vendors
-                            drs.vendorType != "null" ? vendorList?.map(v => <option value={v._id}>{v.vendorCode} : {v.ownerPanName}</option>) : null
+                            drs.vendorType != "" ? vendorList?.map(v => <option value={v._id}>{v.vendorCode} : {v.ownerPanName}</option>) : null
                         }
                     </select>
                     <label htmlFor="">Vehicle Type</label>
-                    <select disabled={drs.vendorType == "self"} onChange={e => drsHandler(e, "vehicleType")}>
-                        <option value={"null"}>--Select Vehicle Type--</option>
+                    <select disabled={drs.vendorType == "self"} value={drs.vehicleType} onChange={e => drsHandler(e, "vehicleType")}>
+                        <option value={""}>--Select Vehicle Type--</option>
                         {
                             drs.vendor ? <option value={drs?.vendor?.vehicleType}>{drs?.vendor?.vehicleType}</option> : ""
                         }
@@ -197,10 +221,10 @@ export default function DrsEntry() {
             </div>
 
             <div className={style.actions}>
-                <button className={style.buttonChk}><FaCheck /> Submit</button>
+                <button className={style.buttonChk} onClick={handleSubmit}><FaCheck /> Submit</button>
                 <button className={style.buttonDel}><FaTimes /> Delete</button>
                 <button className={style.buttonDel}><FaTimes /> Del Docket</button>
-                <button className={style.buttonRef}><IoRefresh /> Reset</button>
+                <button className={style.buttonRef} onClick={resetForm}><IoRefresh /> Reset</button>
             </div>
 
             {
@@ -212,7 +236,7 @@ export default function DrsEntry() {
                                     <th>Docket No.</th>
                                     <th>Origin</th>
                                     <th>Destination</th>
-                                    <th>Client</th>
+                                    <th>Consignor</th>
                                     <th>Consignee</th>
                                     <th>Weight</th>
                                     <th>ToPay</th>
@@ -227,7 +251,7 @@ export default function DrsEntry() {
                                                 <td>{d.docketNumber}</td>
                                                 <td>{d.origin}</td>
                                                 <td>{d.destination}</td>
-                                                <td>{d.client}</td>
+                                                <td>{d.consignor}</td>
                                                 <td>{d.consignee}</td>
                                                 <td>{d.weight||0}</td>
                                                 <td>{d.toPay||0}</td>

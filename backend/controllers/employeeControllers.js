@@ -51,7 +51,14 @@ async function deleteEmployee(req,res){
 
 async function getEmployee(req,res){
     try {
-        const employees = await Employee.find()
+        let employees;
+        if(req.query.role=="dlb"){
+            employees = await Employee.find({role:"dlb"})
+        } if(req.query.role=="emp"){
+            employees = await Employee.find({role:"emp"})
+        } else {
+            employees = await Employee.find({role:{$nin:['adm']}})
+        }
         const data = await employees.map(e=>{return {...e._doc,password:""}})
         res.status(200).json({'msg':'success',data})
     } catch (err) {

@@ -17,6 +17,7 @@ server.use((req,res,next)=>{
     console.log("body->",req.body);
     next()
 })
+server.use(express.static("public/"))
 
 const userRoutes = require("./routes/userRoutes")
 const publicRoutes = require("./routes/publicRoutes")

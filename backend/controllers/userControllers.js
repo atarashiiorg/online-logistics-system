@@ -3,6 +3,7 @@ const jwt = require("jsonwebtoken")
 const Booking = require("../models/booking")
 const Branch = require("../models/branch")
 const bcrypt = require("bcrypt")
+const { getPopulatedBooking } = require("../services/dbServices")
 
 async function loginUser(req, res) {
     try {
@@ -32,11 +33,15 @@ async function trackAwb(req, res) {
         const doc_num = req.query.docket
         const bookings = await Booking.findOne({ docketNumber: doc_num })
             .populate("invoice")
-            .populate("shipment")
+            .populate({
+                path: "shipment",
+                populate: [{ path: "origin" }, { path: "destination" }]
+            })
             .populate("consignorConsignee")
             .populate("branch")
             .populate("client")
             .populate("tracking")
+       
         if (bookings) {
             res.status(200).json({ used: true, valid: true, bookings, msg:'success' })
             return

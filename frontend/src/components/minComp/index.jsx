@@ -20,6 +20,7 @@ export const Docket = (props) => {
         <div style={docketStyle} >
             <p>{props?.docketNumber}</p>
             <p>{props?.itemContent}</p>
+            <p>{props?.consignor}</p>
             <p>{props?.consignee}</p>
             <p>{props?.destination}</p>
             <p>{props?.pieces}</p>

@@ -10,9 +10,21 @@ const manifestSchema = new mongoose.Schema({
     vendor: { type: mongoose.Types.ObjectId, ref: "Vendor" },
     dockets: [
         {
-            booking:{
-                type:mongoose.Types.ObjectId,
-                ref:"Booking"
+            booking: {
+                type: mongoose.Types.ObjectId,
+                ref: "Booking"
+            },
+            isReceived: {
+                type: Boolean,
+                default: false
+            },
+            rcDate:{
+                type:Date,
+                default:new Date()
+            },
+            messages:{
+                type:String,
+                default:""
             }
         }
     ],
@@ -20,13 +32,13 @@ const manifestSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "User"
     },
-    isReceived:{
-        type:Boolean,
-        default:false
+    isReceived: {
+        type: Boolean,
+        default: false
     },
-    isPrinted:{
-        type:Boolean,
-        default:false
+    isPrinted: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true
