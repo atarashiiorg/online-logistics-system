@@ -50,24 +50,48 @@ const {
 } = require("../controllers/destinationControllers")
 const {
     getRunsheets, createRunsheet
-} = require("../controllers/drsControllers")
+} = require("../controllers/runsheetControllers")
 const {
     getEmployee,
     createEmployee,
     updateEmployee,
     deleteEmployee
 } = require("../controllers/employeeControllers")
-const { readEjs } = require("../services/helpers")
-const convertHTMLToPDF = require("pdf-puppeteer");
+const { getAwb } = require("../controllers/awbControllers")
+const { getDataForManifestPdf, getDataForRunsheetPdf, getDataForAwbPdf } = require("../services/helpers")
 const userRoutes = require("express")()
 
 const authorize = (req, res, next) => {
     try {
+        const token = req.cookies.token
+        // if(!token){
+        //     res.status(401).json({msg:"Unauthorised access"})
+        //     return
+        // }
+        // const decodedToken = jwt.verify(token,process.env.JWT_KEY)
+        // console.log(decodedToken)
         next()
     } catch (error) {
+        console.log("authorize error->",error)
         res.status(401).json({ "msg": 'invalid token or token not found' })
     }
 }
+
+userRoutes.get("/pdf",async(req,res)=>{
+    console.log(req.query)
+    let data;
+    if(req.query.template=="manifest"){
+        data = await getDataForManifestPdf(req.query.mid)
+    } else if(req.query.template=="runsheet"){
+        data = await getDataForRunsheetPdf(req.query.rid)
+    } else if(req.query.template=="docket"){
+        data = await getDataForAwbPdf({docketNumber:{$in:req.query.doc.split(",")}})
+        // data = data[0]
+        // console.log(da/ta)
+    }
+    res.render(req.query.template,{bookings:data})
+    return
+})
 
 userRoutes.post("/login", loginUser)
 
@@ -89,6 +113,10 @@ userRoutes.route("/booking")
 userRoutes.route("/track")
     .all(authorize)
     .get(trackAwb)
+
+userRoutes.route("/awb")
+.all(authorize)
+.get(getAwb)
 
 userRoutes.use("/branch", authorize)
 userRoutes.route("/branch")

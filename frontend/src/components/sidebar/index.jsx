@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './style.module.css'
 import { AiFillDashboard } from 'react-icons/ai'
 import { GiGearHammer } from 'react-icons/gi'
@@ -9,27 +9,64 @@ import { SiGooglebigquery } from "react-icons/si";
 import { IoDocumentOutline } from "react-icons/io5"
 import { IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from 'react-icons/io'
 import { Link, useNavigate } from 'react-router-dom'
+import { message } from 'antd'
+import Loading from '../../pages/loading'
 
-const DashboardItem = ({ icon, title, dropdown, index, active, setActive }) => {
+const DynamicFaIcon = ({ name }) => {
+    console.log(name)
+    switch (name) {
+        case 'GiGearHammer':
+            return <GiGearHammer />
+        case 'BsGearFill':
+            return <BsGearFill />
+        case 'FaRegCalendarAlt':
+            return <FaRegCalendarAlt />
+        case 'FaGears':
+            return <FaGears />
+        case 'IoDocumentOutline':
+            return <IoDocumentOutline/>
+        case 'FaUser':
+            return <FaUser/>
+        case 'FaFileAlt':
+            return <FaFileAlt/>
+        case 'SiGooglebigquery':
+            return <SiGooglebigquery/>
+        case 'FaFileImport':
+            return <FaFileImport/>
+        default:
+            return <AiFillDashboard />
+    }
+};
+
+const DashboardItem = ({ icon, title, dropdown, index, active, setActive, allowed }) => {
     const [showList, setVisibility] = useState(false)
-    const navigate = useNavigate() 
+    const navigate = useNavigate()
     const [activeOp, setActiveOp] = useState(-1)
-    const show=()=>{
+
+    if (!allowed) {
+        // return null
+    }
+
+    const show = () => {
         setActive(index)
         setVisibility(p => !p)
     }
 
-    const setThisActive=(i)=>{
+    const setThisActive = (i) => {
         setActive(index)
-        if(index==active){
+        if (index == active) {
             console.log("setting op");
             setActiveOp(i)
         }
     }
+
     return (
         <div>
-            <div className={active==index?style.d_item_active:style.d_item} onClick={e => dropdown.length > 0 ? show() : navigate("/dashboard")}>
-                {icon}
+            <div className={active == index ? style.d_item_active : style.d_item} onClick={e => dropdown.length > 0 ? show() : navigate("/dashboard")}>
+                {/* {`<${icon}/>`} */}
+                <DynamicFaIcon name={icon} />
+                {/* <h1>{icon}</h1> */}
+                {/* <BsGearFill /> */}
                 <span>{title}</span>
                 {dropdown.length <= 0
                     ?
@@ -39,11 +76,14 @@ const DashboardItem = ({ icon, title, dropdown, index, active, setActive }) => {
                 }
             </div>
             {
-                showList&&active==index ?
+                showList && active == index ?
                     dropdown.map((op, i) => {
+                        if (!op.allowed) {
+                            // return null
+                        }
                         return (
-                            <Link onClick={e=>setThisActive(i)} to={op.path} key={op + i}>
-                                <div className={activeOp==i?style.ds_item_active:style.ds_item}>
+                            <Link onClick={e => setThisActive(i)} to={op.path} key={op + i}>
+                                <div className={activeOp == i ? style.ds_item_active : style.ds_item}>
                                     {op.value}
                                 </div>
                             </Link>
@@ -202,8 +242,8 @@ export default function SideBar() {
             value: "Change Password"
         },
         {
-            path: "UserAdmin/EmployeeBranchAccess",
-            value: "Employee Branch Access"
+            path: "UserAdmin/ManageEmployeeAccess",
+            value: "Manage Employee Access"
         },
         {
             path: "UserAdmin/ResetPassword",
@@ -276,62 +316,83 @@ export default function SideBar() {
         }
     ]
 
-    const sideBarOptions = [
-        {
-            icon: <AiFillDashboard />,
-            title: "Dashboard",
-            dropdown: []
-        },
-        {
-            icon: <GiGearHammer />,
-            title: "Operation",
-            dropdown: operations
-        },
-        {
-            icon: <BsGearFill />,
-            title: "Shipper",
-            dropdown: shipper
-        },
-        {
-            icon: <FaRegCalendarAlt />,
-            title: "Master",
-            dropdown: master
-        },
-        {
-            icon: <FaGears />,
-            title: "General Master",
-            dropdown: generalMaster
-        },
-        {
-            icon: <IoDocumentOutline />,
-            title: "MIS Report",
-            dropdown: misReport
-        },
-        {
-            icon: <FaUser />,
-            title: "User Admin",
-            dropdown: userAdmin
-        },
-        {
-            icon: <FaFileAlt />,
-            title: "Report",
-            dropdown: report
-        },
-        {
-            icon: <SiGooglebigquery />,
-            title: "Query",
-            dropdown: query
-        },
-        {
-            icon: <FaFileImport />,
-            title: "Import",
-            dropdown: imported
-        }
-    ]
-
+    // const sideBarOptions = [
+    //     {
+    //         icon: <AiFillDashboard />,
+    //         title: "Dashboard",
+    //         dropdown: []
+    //     },
+    //     {
+    //         icon: <GiGearHammer />,
+    //         title: "Operation",
+    //         dropdown: operations
+    //     },
+    //     {
+    //         icon: <BsGearFill />,
+    //         title: "Shipper",
+    //         dropdown: shipper
+    //     },
+    //     {
+    //         icon: <FaRegCalendarAlt />,
+    //         title: "Master",
+    //         dropdown: master
+    //     },
+    //     {
+    //         icon: <FaGears />,
+    //         title: "General Master",
+    //         dropdown: generalMaster
+    //     },
+    //     {
+    //         icon: <IoDocumentOutline />,
+    //         title: "MIS Report",
+    //         dropdown: misReport
+    //     },
+    //     {
+    //         icon: <FaUser />,
+    //         title: "User Admin",
+    //         dropdown: userAdmin
+    //     },
+    //     {
+    //         icon: <FaFileAlt />,
+    //         title: "Report",
+    //         dropdown: report
+    //     },
+    //     {
+    //         icon: <SiGooglebigquery />,
+    //         title: "Query",
+    //         dropdown: query
+    //     },
+    //     {
+    //         icon: <FaFileImport />,
+    //         title: "Import",
+    //         dropdown: imported
+    //     }
+    // ]
+    const [sideBarOptions, setSideBarOptions] = useState([])
     const [active, setActive] = useState(-1)
+    const [loadingSidebar, setLoadingSideBar] = useState(false)
+    useEffect(() => {
+        (
+            async () => {
+                try {
+                    setLoadingSideBar(true)
+                    const res = await fetch("http://127.0.0.1:8000/api/permission")
+                    const json = await res.json()
+
+                    setSideBarOptions(p => [...json.permission])
+                    setLoadingSideBar(false)
+                } catch (err) {
+                    message.error(err)
+                    setLoadingSideBar(false)
+                }
+            }
+        )()
+    }, [])
     return (
         <div className={style.container}>
+            {
+                loadingSidebar ? <Loading /> : null
+            }
             {
                 sideBarOptions.map((op, i) => <DashboardItem {...op} key={op + i} index={i} active={active} setActive={setActive} />)
             }

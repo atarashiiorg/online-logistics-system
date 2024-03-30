@@ -1,12 +1,7 @@
 const Manifest = require("../models/manifest")
-const Booking = require("../models/booking")
 const { isDocketValid, isDocketBooked } = require("./shipperControllers")
-const pdf = require("html-pdf")
-const ejs = require("ejs")
-const fs = require('fs')
-const path = require("path")
-const { getManifestName, generateManifestPdf, getFormttedDate, readEjs, createPdfFromHtml } = require("../services/helpers")
-const { getPopulatedManifest, updateTrackingManifest, findManifestByDocketNumber } = require("../services/dbServices")
+const { getManifestName, getFormttedDate, readEjs, createPdfFromHtml, getDataForManifestPdf } = require("../services/helpers")
+const { getPopulatedManifest, updateTrackingManifest } = require("../services/dbServices")
 const { default: mongoose } = require("mongoose")
 const { PassThrough } = require('stream')
 const Branch = require("../models/branch")
@@ -42,19 +37,17 @@ async function createManifest(req, res) {
         const toBranch = await Branch.findById(req.body.toBCode)
         const manifestNumber = getManifestName()
         const manifest = await Manifest.create({ ...req.body, manifestNumber })
-        // if(trackingIds)
         if (manifest) {
             await updateTrackingManifest(dockets,"docketNumber", {
                 action: `Packet manifested from ${fromBranch.branchName.toUpperCase()} to ${toBranch.branchName.toUpperCase()} in Manifest No. ${manifestNumber}`,
                 actionDate: new Date(),
-            }, manifest._id)
+            },{ currentManifest: manifest._id})
             await updateTrackingManifest(dockets,"docketNumber", {
                 action: `Packet Dispatched to ${toBranch.branchName.toUpperCase()}`,
                 actionDate: new Date(),
-            }, manifest._id)
+            }, {currentManifest:manifest._id})
             for(let i=0;i<dockets.length;i++){
-                const manifest = await Booking.findOne({docketNumber:dockets[i]})
-                const tracking = await Tracking.findById(manifest.tracking)
+                const tracking = await Tracking.findOne({docketNumber:dockets[i]})
                 if(tracking.status=="booked"){
                     tracking.status = "in-transit"
                     await tracking.save()
@@ -62,7 +55,7 @@ async function createManifest(req, res) {
                     continue
                 }
             }
-            res.status(201).json({ 'data': manifest, 'msg': 'success' })
+            res.status(201).json({ 'msg': 'success' })
         } else {
             res.status(304).json({ 'msg': 'something went wrong' })
         }
@@ -79,57 +72,13 @@ async function getManifests(req, res) {
     const fbid = req.query.fbid
     try {
         if (mid) {
-            const manifest = await getPopulatedManifest({ _id: mid }, true)
-
-            let totalpieces = 0
-            let totalWeight = 0
-            let totalToPay = 0
-            let totalCod = 0
-            manifest.dockets.map(docket => {
-                totalToPay += +docket.booking.invoice.amountToPay
-                totalCod += +docket.booking.invoice.codAmount
-                totalWeight += +docket.booking.shipment.totalChargeWeight
-                totalpieces += +docket.booking.shipment.totalBoxes
-                return
-            })
-            const dockets = manifest.dockets.map(d => {
-                return {
-                    docketNumber: d?.booking?.docketNumber,
-                    date: getFormttedDate(d?.booking?.bookingDate),
-                    origin: d?.booking?.shipment?.origin?.destName,
-                    client: d?.booking?.invoice?.clientName,
-                    destination: d?.booking?.shipment?.destination?.destName,
-                    consignee: d?.booking?.consignorConsignee?.consignee,
-                    pieces: d?.booking?.shipment?.totalBoxes || 0,
-                    weight: d?.booking?.shipment?.totalChargeWeight || 0.0,
-                    toPay: d?.booking?.invoice?.amountToPay || 0.0,
-                    cod: d?.booking?.invoice?.codAmount || 0.0
-                }
-            })
-
-            const dataObj = {
-                printedAt: new Date().toDateString(),
-                data: dockets,
-                totalpieces,
-                totalWeight,
-                totalToPay,
-                totalCod,
-                mode: manifest.mode,
-                branch: manifest?.fromBCode?.branchName,
-                destination: manifest?.toBCode?.branchName,
-                vendor: manifest?.vendor?.ownerName || "N/A",
-                totalDockets: manifest?.dockets?.length,
-                manifestDate: new Date(manifest?.manifestDate).toDateString(),
-                manifestNumber: manifest?.manifestNumber
-            }
-
-            const html = await readEjs("manifest", dataObj)
-            const pdfBuffer = await createPdfFromHtml(html)
+            const data = await getDataForManifestPdf(mid)
+            const pdfBuffer = await createPdfFromHtml('manifest',data)
             const pdfStream = new PassThrough()
             pdfStream.end(pdfBuffer)
             res.set({
                 'Content-Type': 'application/pdf',
-                'Content-Disposition': `attachment; filename="${manifest.manifestNumber}.pdf"`
+                'Content-Disposition': `attachment; filename="${data.manifestNumber}.pdf"`
             });
             pdfStream.pipe(res)
             return
@@ -144,13 +93,14 @@ async function getManifests(req, res) {
     try {
         if (tbid) {
             const manifests = await getPopulatedManifest({ toBCode: new mongoose.Types.ObjectId(tbid) }, false, true)
-            const response = manifests.map(m => {
-                if (m.dockets.length > 0) {
-                    return m
-                } else return null
-            })
-            console.log(response);
-            res.status(200).json({ 'msg': 'success', data: manifests })
+            let response = []
+            for(let i=0;i<manifests.length;i++){
+                console.log(manifests[i].dockets.length>0)
+                if (manifests[i].dockets.length > 0) {
+                    response.push(manifests[i])
+                } else continue
+            }
+            res.status(200).json({ 'msg': 'success', data: response })
             return
         }
     } catch (err) {
@@ -210,23 +160,24 @@ async function receiveManifest(req, res) {
         // console.log(docketsToRecive)
         // res.end()
         // return
+        console.log("RECEIVING AWB NUMBER")
         const branch = await Branch.findById(req.query.bid)
-        const result = await docketsToRecive.map(async(d) => {
+        for(let i=0;i<docketsToRecive.length;i++){
             const manifest = await Manifest.findOneAndUpdate(
-                { 'dockets.booking': d.docket },
-                { $set: { 'dockets.$[elem].isReceived': true, 'dockets.$[elem].rcDate':d.rcDate,'dockets.$[elem].message':d.message} },
-                { new: true, arrayFilters: [{ 'elem.booking': d.docket }] }
+                { 'dockets.booking': docketsToRecive[i].docket },
+                { $set: { 'dockets.$[elem].isReceived': true, 'dockets.$[elem].rcDate':docketsToRecive[i].rcDate,'dockets.$[elem].message':docketsToRecive[i].message} },
+                { new: true, arrayFilters: [{ 'elem.booking': docketsToRecive[i].docket }] }
             );
-            console.log(manifest);
-            await updateTrackingManifest([d.docket],"_id", {
+            console.log("RECEIVED->",manifest);
+            await updateTrackingManifest([docketsToRecive[i].docket],"_id", {
                 action: `Packet Received at ${branch.branchName.toUpperCase()}`,
                 actionDate: new Date(),
-            },manifest._id)
-        })
+            },{currentManifest:manifest._id})
+        }
         res.status(200).json({ 'msg': 'success' })
     } catch (error) {
         console.log(error);
-        res.status(500).json({error})
+        res.status(500).json({err})
     }
 }
 

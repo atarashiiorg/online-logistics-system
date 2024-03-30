@@ -19,6 +19,7 @@ export const usePostData = async (data,endPoint) => {
             message.error(res_json.err)
             return {res:false}
         } else {
+            console.log(res_json.msg)
             message.warning(res_json.msg)
             return {res:false}
         }

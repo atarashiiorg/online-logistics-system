@@ -30,13 +30,14 @@ export default function DrsEntry() {
     const [drs, setDrs] = useState(initialDrs)
     const { currBranch } = useContext(UserAuthContext)
     const [docket, setDocket] = useState({ dnum: "", weight: "" })
-    const [errEmp, loadingEmp, employeeList] = useGetData("employee?role=dlb&branch="+currBranch._id)
+    const [errEmp, loadingEmp, employeeList] = useGetData("employee?role=dlb&branch="+currBranch?._id)
     const [errVendor, loadingVendor, vendorList] = useGetData("vendor")
+    const [isPosting,setIsPosting] = useState(false)
 
 
     const handleDocket = async (e) => {
         if (e.keyCode == 13) {
-            if (!currBranch._id) {
+            if (!currBranch) {
                 message.warning("Please select From BCode")
                 return
             }
@@ -46,7 +47,7 @@ export default function DrsEntry() {
                 return
             }
 
-            const data = await useFetchDocketForManifest(docket.dnum, currBranch._id)
+            const data = await useFetchDocketForManifest(docket.dnum, currBranch?._id)
             if (data.res) {
                 setDocket(p => ({ ...p, weight: data.data?.weight }))
                 const idx = drs.dockets.findIndex(d=>d._id==data.data?._id)
@@ -129,6 +130,10 @@ export default function DrsEntry() {
 
     const handleSubmit = async()=>{
         const rest = "to prepare runsheet"
+        if(!currBranch){
+            message.warning("Please select current branch")
+            return
+        }
         if(drs.employee==""){
             message.warning("Please select employee "+rest)
             return
@@ -142,14 +147,18 @@ export default function DrsEntry() {
             message.warning("Please select some dockets"+rest)
             return
         }
-        const result = await usePostData(drs,"runsheet")
-        console.log(result);
+        setIsPosting(true)
+        const result = await usePostData({...drs,branch:currBranch?._id},"runsheet")
+        if(result.res){
+            resetForm()
+        }
+        setIsPosting(false)
     }
 
     return (
         <>
         {
-            console.log(drs)
+            isPosting?<Loading/>:null
         }
         {
             loadingEmp?<Loading/>:loadingVendor?<Loading/>:null

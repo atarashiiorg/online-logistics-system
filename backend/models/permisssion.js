@@ -1,27 +1,18 @@
-import { FaCheck } from 'react-icons/fa'
-import style from './style.module.css'
-import { FaArrowRotateLeft } from 'react-icons/fa6'
-import { SearchManifest } from '../../forms/manifestDirect'
-import { TableTotalFound } from '../../forms/manifestPrint'
-import { useGetData } from '../../../apiHandlers/getApis'
-import { useState } from 'react'
-import { TableComp } from '../../minComp'
+const mongoose = require('mongoose');
 
-export default function EmployeeBranchAccess() {
-    const [name, setName] = useState("")
-    const [search, setSearch] = useState(false)
-    const [err, loading, employee] = useGetData("employee?name=" + name, [search])
-
-    const initialPermissions = [
+const permissionSchema = mongoose.Schema({
+    permission:{
+        type:Array,
+        default:[
         {
             allowed: false,
-            icon: "AiFillDashboard",
-            title: "Dashboard",
+            icon:'AiFillDashboard',
+            title:"Dashboard",
             dropdown: []
         },
         {
             allowed: false,
-            icon: "GiGearHammer",
+            icon:'GiGearHammer',
             title: "Operation",
             dropdown: [
                 {
@@ -32,351 +23,298 @@ export default function EmployeeBranchAccess() {
                 {
                     path: "Operations/AwbUpdate",
                     value: "AWB Update",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/ManifestDirect",
                     value: "Manifest Direct",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/ManifestPrint",
                     value: "Manifest Print",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/DispatchEntry",
                     value: "Dispatch Entry",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/ReceiveAwbNo",
                     value: "Receive AwbNo",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/DrsEntry",
                     value: "DRS Entry",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/DeliveryStatusEntry",
                     value: "Delivery Status Entry",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/RunsheetPrint",
                     value: "Runsheet Print",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/PodScanUpload",
                     value: "PODScan Upload",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/AwbPrint",
                     value: "AWB Print",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/UpdateForwarding",
                     value: "Update ForwardingNo",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/UpdateClientOfAwb",
                     value: "Update Client Of AwbNo",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/HoldStatusEntry",
                     value: "Hold Status Entry",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/UpdatePhysicalPod",
                     value: "Update Physical POD",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/ManifestToContractor",
                     value: "Manifest to contractor",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Operations/ManifestToContractorPrint",
                     value: "Manifest to contractor print",
-                    allowed: false
-                }
+                    allowed:false
+                },
             ]
         },
         {
-            allowed: false,
-            icon: "BsGearFill",
-            title: "Shipper",
+            allowed:false,
+            icon: 'BsGearFill',
+            title:"Shipper",
             dropdown: [
                 {
                     path: "shipper/SendShipperForPrinting",
                     value: "Send Shipper For Printing",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "shipper/ReceiveShipperFromPrinter",
                     value: "Receive Shipper from printer",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "shipper/ShipperIssueToBranch",
                     value: "Shipper issue to branch",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "shipper/ShipperIssueToClient",
                     value: "Shipper issue to client",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "shipper/IssueToEmployee",
                     value: "shipper issue to employee",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "shipper/ShipperTransfer",
                     value: "shipper transfer",
-                    allowed: false
+                    allowed:false
                 }
             ]
         },
         {
-            allowed: false,
-            icon: "FaRegCalendarAlt",
-            title: "Master",
+            allowed:false,
+            icon: 'FaRegCalendarAlt',
+            title:"Master",
             dropdown: [
                 {
                     path: "master/BranchMaster",
                     value: "Branch Master",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "master/ClientMaster",
                     value: "Client Master",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "master/EmployeeMaster",
                     value: "Employee Master",
-                    allowed: false
+                    allowed:false
                 }
             ]
         },
         {
-            allowed: false,
-            icon: "FaGears",
-            title: "General Master",
+            allowed:false,
+            icon: 'FaGears',
+            title:"General Master",
             dropdown: [
                 {
                     path: "GeneralMaster/StateMaster",
                     value: "State Master",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "GeneralMaster/ZoneMaster",
                     value: "Zone Master",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "GeneralMaster/DestinationMaster",
                     value: "Destination Master",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "GeneralMaster/VendorVehicleMaster",
                     value: "Vendor Vehicle Master",
-                    allowed: false
+                    allowed:false
                 }
             ]
         },
         {
-            allowed: false,
-            icon: "IoDocumentOutline",
-            title: "MIS Report",
+            allowed:false,
+            icon: 'IoDocumentOutline',
+            title:"MIS Report",
             dropdown: [
                 {
                     path: "Mis/MisReport",
                     value: "Mis Report",
-                    allowed: false
+                    allowed:false
                 }
             ]
         },
         {
-            allowed: false,
-            icon: "FaUser",
-            title: "User Admin",
+            allowed:false,
+            icon: 'FaUser',
+            title:"User Admin",
             dropdown: [
                 {
                     path: "UserAdmin/ChangePassword",
                     value: "Change Password",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "UserAdmin/ManageEmployeeAccess",
                     value: "Manage Employee Access",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "UserAdmin/ResetPassword",
                     value: "Reset Password",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "UserAdmin/UserLogReport",
                     value: "User Log Report",
-                    allowed: false
+                    allowed:false
                 }
             ]
         },
         {
-            allowed: false,
-            icon: "FaFileAlt",
-            title: "Report",
+            allowed:false,
+            icon: 'FaFileAlt',
+            title:"Report",
             dropdown: [
                 {
                     path: "Report/ManifestReportSummarised",
                     value: "Manifest Report Summarised",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Report/ManifesReportDetailed",
                     value: "Manifest Report Detailed",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Report/ViewPodScan",
                     value: "View POD scan",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Report/ArrivalEntryReport",
                     value: "Arrival Entry Report",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Report/AwbActivityReport",
                     value: "AWB Activity Report",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Report/BookingReport",
                     value: "Booking Report",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Report/DrsReport",
                     value: "DRS Report",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Report/DeliveryStatusReport",
                     value: "Delivery Status Report",
-                    allowed: false
+                    allowed:false
                 }
             ]
         },
         {
-            allowed: false,
-            icon: "SiGooglebigquery",
-            title: "Query",
+            allowed:false,
+            icon: 'SiGooglebigquery',
+            title:"Query",
             dropdown: [
                 {
                     path: "Query/AwbNoQuery",
                     value: "AwbNo Query",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Query/ReportQuery",
                     value: "Report Query",
-                    allowed: false
+                    allowed:false
                 }
             ]
         },
         {
-            allowed: false,
-            icon: "FaFileImport",
-            title: "Import",
+            allowed:false,
+            icon: 'FaFileImport',
+            title:"Import",
             dropdown: [
                 {
                     path: "Import/ImportPacketBooking",
                     value: "Import Packet Booking",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Import/",
                     value: "Import Delivery Status",
-                    allowed: false
+                    allowed:false
                 },
                 {
                     path: "Import/",
                     value: "Import Physical POD",
-                    allowed: false
+                    allowed:false
                 }
             ]
         }
-    ]
+    ]}
+})
 
-    const [permissions, setPermissions] = useState(initialPermissions)
-
-    const searchEmp = (e) => {
-        if (e.keyCode == 13) {
-            setSearch(p => !p)
-        }
-    }
-    return (
-        <>
-            <div className={style.formContainer}>
-                <p>Manage Employee Access</p>
-                <div>
-                    <label htmlFor="">Employee</label>
-                    <input type="text" value={name} onKeyDown={searchEmp} onInput={e => setName(e.target.value)} placeholder='Employee' />
-                    {/* <label htmlFor="">Branch</label>
-                    <input type="text" placeholder='Branch'/> */}
-                </div>
-            </div>
-
-            <div className={style.actions}>
-                <button className={style.buttonChk}><FaCheck /> Save</button>
-                <button className={style.buttonRef}><FaArrowRotateLeft /> Reset</button>
-            </div>
-
-            <TableComp>
-                <p>Employee</p>
-                <div>
-                    <table style={{ minWidth: "100%" }}>
-                        <thead>
-                            <tr>
-                                <th>Emp Code</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Role</th>
-                                <th>isActive</th>
-
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </TableComp>
-            
-            {
-                permissions.map(page=>{
-                    return (
-                        <>
-                            <input type="checkbox" checked={page.allowed} />
-                            <label htmlFor="">{page.title}</label>
-                        </>
-                    )
-                })
-            }
-        </>
-    )
-}
+const Permission = mongoose.model("Permission", permissionSchema)
+module.exports = Permission

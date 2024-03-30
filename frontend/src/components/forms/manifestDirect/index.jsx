@@ -75,7 +75,7 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
 
     const setVal = async (e) => {
         if (e.keyCode == 13) {
-            if (!currBranch?._id) {
+            if (!currBranch) {
                 message.warning("Please select From BCode")
                 return
             }
@@ -321,6 +321,10 @@ export default function ManifestDirect() {
     }
 
     const handleSave = async () => {
+        if(!currBranch){
+            message.warning("Please select current branch")
+            return
+        }
         if (manifest.toBCode == "") {
             message.warning("Please select ToBCode.")
             return
@@ -341,13 +345,13 @@ export default function ManifestDirect() {
             message.warning("Please select mode")
             return
         }
-        if (manifest.toBCode == currBranch._id) {
+        if (manifest.toBCode == currBranch?._id) {
             message.warning("FromBCode and ToBCode can not be same")
             return
         }
         const res = await usePostData({ ...manifest, fromBCode: currBranch?._id }, "manifest")
         if (res.res) {
-            reset()
+            resetForm()
         }
     } // api call for saving manifest data on the server
 

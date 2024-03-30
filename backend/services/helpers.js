@@ -3,10 +3,10 @@ const Client = require("../models/client")
 const Vendor = require("../models/vendor")
 const ejs = require("ejs")
 const path = require("path")
-const pdf = require('html-pdf')
 const Runsheet = require("../models/runsheet")
 const Employee = require("../models/employee")
-const convertHTMLToPDF = require("pdf-puppeteer")
+const puppeteer = require('pdf-puppeteer')
+const { getPopulatedBooking, getPopulatedManifest } = require("./dbServices")
 
 const getNewBranchCode = async () => {
     const branch = await Branch.findOne({}).sort({ 'createdAt': -1 })
@@ -76,6 +76,7 @@ const getManifestName = () => {
 function readEjs(template, data) {
     return new Promise((resolve, reject) => {
         try {
+            console.log(data)
             ejs.renderFile(`views/${template}.ejs`, data, (err, html) => {
                 err ? reject(err) : resolve(html)
             })
@@ -85,17 +86,28 @@ function readEjs(template, data) {
     })
 }
 
-function createPdfFromHtml(html){
+function createPdf(html, opts) {
     return new Promise((resolve, reject) => {
-        convertHTMLToPDF(html, (pdf) => {
+        puppeteer(html, (pdf) => {
             resolve(pdf)
-        }, { format: 'A4' }, {
+        }, opts, {
             args: [
                 '--no-sandbox',
-                '--disable-setuid-sandbox'
-            ]
+                '--disable-setuid-sandbox',
+            ],
+            headless:'new'
         });
     })
+}
+
+async function createPdfFromHtml(template, data, orientation = 'portrait') {
+    const pdfOptions = {
+        format: 'A4',
+        landscape: orientation.toLowerCase() === 'landscape'
+    };
+    const html = await readEjs(template,{...data})
+    const pdf = await createPdf(html,pdfOptions)
+    return pdf
 }
 
 function getFormttedDate(date) {
@@ -106,8 +118,26 @@ function getFormttedDate(date) {
     return `${day}-${month}-${year}`;
 }
 
-async function getDataForRunsheetPdf(runsheetObj) {
+async function getDataForRunsheetPdf(rid) {
     try {
+
+        const runsheetObj = await Runsheet.findOne({ _id: rid })
+            .populate("employee")
+            .populate({
+                path: "dockets.booking",
+                populate: [
+                    {
+                        path: "shipment",
+                        populate: [{ path: "origin" }, { path: "destination" }]
+                    },
+                    { path: "invoice" },
+                    { path: "client" },
+                    { path: "consignorConsignee" }
+                ]
+            })
+            .populate("vendor")
+
+
         let runsheet = {
             deliveryBoy: runsheetObj?.employee?.name,
             mobile: runsheetObj?.mobile,
@@ -118,17 +148,18 @@ async function getDataForRunsheetPdf(runsheetObj) {
             vehicleNo: runsheetObj.vendorType == "self" ? runsheetObj.vehicleNumber : runsheetObj.vendor.vehicleNumber,
             runsheetNumber: runsheetObj?.runsheetNumber,
         }
+        console.log(runsheetObj)
         let totalPcs = 0
         let totalWeight = 0
         let totalCash = 0
         let totalToPay = 0
         let totalCod = 0
         const dockets = runsheetObj.dockets.map(d => {
-            totalPcs = parseInt(totalPcs)+parseInt(d?.booking?.shipment?.totalBoxes||0)
-            totalWeight = (parseFloat(totalWeight)+parseFloat(d?.booking?.shipment?.totalChargeWeight||0)).toFixed(2)
-            totalCash = (parseFloat(totalCash)+parseFloat(d?.booking?.invoice?.codAmount||0)).toFixed(2)
-            totalCod = (parseFloat(totalCod)+parseFloat(d?.booking?.invoice?.codAmount || 0)).toFixed(2)
-            totalToPay = (parseFloat(totalToPay)+parseFloat(d?.booking?.invoice?.amountToPay || 0)).toFixed(2)
+            totalPcs = parseInt(totalPcs) + parseInt(d?.booking?.shipment?.totalBoxes || 0)
+            totalWeight = (parseFloat(totalWeight) + parseFloat(d?.booking?.shipment?.totalChargeWeight || 0)).toFixed(2)
+            totalCash = (parseFloat(totalCash) + parseFloat(d?.booking?.invoice?.codAmount || 0)).toFixed(2)
+            totalCod = (parseFloat(totalCod) + parseFloat(d?.booking?.invoice?.codAmount || 0)).toFixed(2)
+            totalToPay = (parseFloat(totalToPay) + parseFloat(d?.booking?.invoice?.amountToPay || 0)).toFixed(2)
             return {
                 docketNumber: d?.booking?.docketNumber || "",
                 consignor: d?.booking?.consignorConsignee?.consignor || "",
@@ -142,11 +173,85 @@ async function getDataForRunsheetPdf(runsheetObj) {
                 cod: d?.booking?.invoice?.codAmount || 0
             }
         })
-        runsheet = {...runsheet,dockets, totalToPay, totalCash,totalCod, totalPcs, totalWeight}
-       return runsheet
+        runsheet = { ...runsheet, dockets, totalToPay, totalCash, totalCod, totalPcs, totalWeight }
+        console.log(runsheet)
+        return runsheet
     } catch (err) {
         throw err
     }
+}
+
+async function getDataForManifestPdf(mid) {
+    const manifest = await getPopulatedManifest({ _id: mid }, true)
+
+    let totalpieces = 0
+    let totalWeight = 0
+    let totalToPay = 0
+    let totalCod = 0
+    manifest.dockets.map(docket => {
+        totalToPay += +docket.booking.invoice.amountToPay
+        totalCod += +docket.booking.invoice.codAmount
+        totalWeight += +docket.booking.shipment.totalChargeWeight
+        totalpieces += +docket.booking.shipment.totalBoxes
+        return
+    })
+    const dockets = manifest.dockets.map(d => {
+        return {
+            docketNumber: d?.booking?.docketNumber,
+            date: getFormttedDate(d?.booking?.bookingDate),
+            origin: d?.booking?.shipment?.origin?.destName,
+            client: d?.booking?.invoice?.clientName,
+            destination: d?.booking?.shipment?.destination?.destName,
+            consignee: d?.booking?.consignorConsignee?.consignee,
+            pieces: d?.booking?.shipment?.totalBoxes || 0,
+            weight: d?.booking?.shipment?.totalChargeWeight || 0.0,
+            toPay: d?.booking?.invoice?.amountToPay || 0.0,
+            cod: d?.booking?.invoice?.codAmount || 0.0
+        }
+    })
+
+    const dataObj = {
+        printedAt: new Date().toDateString(),
+        data: dockets,
+        totalpieces,
+        totalWeight,
+        totalToPay,
+        totalCod,
+        mode: manifest.mode,
+        branch: manifest?.fromBCode?.branchName,
+        destination: manifest?.toBCode?.branchName,
+        vendor: manifest?.vendor?.ownerName || "N/A",
+        totalDockets: manifest?.dockets?.length,
+        manifestDate: new Date(manifest?.manifestDate).toDateString(),
+        manifestNumber: manifest?.manifestNumber
+    }
+
+    return dataObj
+}
+
+async function getDataForAwbPdf(opts) {
+    let booking = await getPopulatedBooking(opts||{})
+    booking = booking.map(b => {
+        const obj = {
+            origin: b?.shipment?.origin?.destName || "",
+            destination: b?.shipment?.destination?.destName || "",
+            bookingDate: getFormttedDate(b?.bookingDate) || "",
+            creditAmt: "",
+            piecies: b?.shipment?.totalBoxes,
+            consignor: b?.consignorConsignee?.consignor || "",
+            Consignee: b?.consignorConsignee?.consignee || "",
+            chargedWeight: b?.shipment?.totalChargeWeight || "",
+            invoiceNo: b?.invoice?.invoiceNumber || "",
+            invoiceVal: b?.invoice?.invoiceValue || "",
+            docketNumber: b?.docketNumber,
+            bookingType: b?.invoice?.bookingType,
+            comp_mobile: "",
+            comp_gst: "",
+            withLogo: true
+        }
+        return obj
+    })
+    return booking
 }
 module.exports = {
     getNewBranchCode,
@@ -158,5 +263,7 @@ module.exports = {
     getNewEmployeeCode,
     getFormttedDate,
     getDataForRunsheetPdf,
+    getDataForManifestPdf,
+    getDataForAwbPdf,
     readEjs
 }

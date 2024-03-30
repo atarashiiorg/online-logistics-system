@@ -7,8 +7,12 @@ export default function UserAuthState(props){
     const [user, setUser] = useState(User)
     const [docketTracking, setDocketTracking] = useState({show:false})
     const [err, loading, branches, setBranches] = useGetBranches()
-    const [currBranch, setCurrBranch] = useState("null")
+    const [currBranch, setCurrBranch] = useState(null)
     const [docket, setDocket] = useState("")
+
+    useEffect(()=>{
+        
+    },[])
 
     return (
         <UserAuthContext.Provider value={

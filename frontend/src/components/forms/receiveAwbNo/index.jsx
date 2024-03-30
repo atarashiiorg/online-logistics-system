@@ -97,7 +97,7 @@ const TableRow = (props) => {
 export default function ReceiveAwbNo() {
     const { currBranch } = useContext(UserAuthContext)
     const [reload, setReload] = useState(false)
-    const [err, loading, manifests, setManifests] = useGetData("manifest?bid=" + currBranch._id, [currBranch, reload])
+    const [err, loading, manifests, setManifests] = useGetData("manifest?bid=" + currBranch?._id, [currBranch, reload])
     const [receiveAllCheck, setReceiveAllCheck] = useState(null)
     const [selectedDockets, setSelectedDockets] = useState([])
     const [docketNum, setDocketNum] = useState("")
@@ -108,7 +108,7 @@ export default function ReceiveAwbNo() {
             message.warning('Please select current branch.')
             return
         }
-        const result = await usePatchData(selectedDockets, "manifest?bid=" + currBranch._id)
+        const result = await usePatchData(selectedDockets, "manifest?bid=" + currBranch?._id)
         if (result.res) {
             setReload(p => !p)
         }

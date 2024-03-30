@@ -4,6 +4,7 @@ import SideBar from "../../components/sidebar"
 import { Navigate, Outlet } from "react-router-dom"
 import { useContext, useEffect } from "react"
 import UserAuthContext from "../../contexts/authContext"
+import logo from '../../assets/sdlLogo.png'
 
 export default function Dashboard() {
     const { user } = useContext(UserAuthContext)
@@ -20,8 +21,9 @@ export default function Dashboard() {
                             </div>
                         </div>
                     </div>
-                    : <Navigate to="/login"/>
+                    : <Navigate to="/login" />
             }
+            <img src={logo} alt="Logo" className={style.watermark} />
         </>
     )
 }

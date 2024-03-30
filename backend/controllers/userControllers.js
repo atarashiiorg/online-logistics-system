@@ -3,21 +3,26 @@ const jwt = require("jsonwebtoken")
 const Booking = require("../models/booking")
 const Branch = require("../models/branch")
 const bcrypt = require("bcrypt")
-const { getPopulatedBooking } = require("../services/dbServices")
+const Employee = require("../models/employee")
 
 async function loginUser(req, res) {
     try {
-        // const match = await bcrypt.compare(password, user.passwordHash);
-        const user = await User.findOne({ username: req.body.username })
+        const user = await Employee.findOne({ email: req.body.username, isActive: true })
         console.log("user", user);
         if (!user) {
-            res.status(404).end()
+            res.status(404).json({msg:"User not found"})
             return
         }
-        if (user.password == req.body.password) {
-            const token = jwt.sign({ _id: user._id }, process.env.JWT_KEY)
+        const match = await bcrypt.compare(req.body.password, user.password);
+        if (match) {
+            const token = jwt.sign({ _id: user._id, role:user.role, isLoggedIn: true }, process.env.JWT_KEY)
             const n_user = { ...user._doc }
             delete n_user.password
+            delete n_user._id
+            res.cookie('token',token,{
+                httpOnly:true,
+                maxAge: 60*60*1000
+            })
             res.status(200).json({ user: n_user, token: token })
         } else {
             res.status(401).json({ 'msg': 'invalid password' })

@@ -21,15 +21,15 @@ async function createEmployee(req,res){
 async function updateEmployee(req,res){
     try{
         newEmp = {...req.body}
-        delete newEmp.createdAt
-        delete newEmp.updatedAt
-        delete newEmp._id
-        delete newEmp.__v
+        delete newEmp?.createdAt
+        delete newEmp?.updatedAt
+        delete newEmp?._id
+        delete newEmp?.__v
         const plainPass = req.body.password
         bcrypt.hash(plainPass, 10)
         .then(async function(hash) {
             const emp = await Employee.findOneAndUpdate({_id:req.query.eid},{...newEmp,password:hash},{new:true})
-            delete emp.password
+            delete emp?.password
             res.status(200).json({'msg':'success',data:emp})
         })
     } catch(err){

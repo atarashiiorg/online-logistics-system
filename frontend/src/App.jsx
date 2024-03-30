@@ -209,7 +209,7 @@ const router = createBrowserRouter([
         element: <ChangePassword />
       },
       {
-        path: "UserAdmin/EmployeeBranchAccess",
+        path: "UserAdmin/ManageEmployeeAccess",
         element: <EmployeeBranchAccess />
       },
       {

@@ -7,6 +7,7 @@ import {message} from 'antd'
 import { serverUrl, title } from '../../constants'
 import UserAuthContext from '../../contexts/authContext'
 import {useNavigate} from 'react-router-dom'
+import logo from '../../assets/sdlLogo.png'
 
 export default function Header() {
     const {user,setUser} = useContext(UserAuthContext)
@@ -46,7 +47,8 @@ export default function Header() {
     return (
         <div className={style.header}>
             <div className={style.left}>
-                <h2>{title}</h2>
+                <img src={logo} alt="Logo"className={style.logo} />
+                {/* <h2>{title}</h2> */}
             </div>
             <div className={style.right}>
                 <div className={style.c1}>

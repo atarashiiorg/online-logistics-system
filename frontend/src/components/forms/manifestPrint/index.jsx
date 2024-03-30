@@ -8,8 +8,9 @@ import { useGetData } from '../../../apiHandlers/getApis'
 import { serverUrl } from '../../../constants'
 import { useDownloader } from '../../../apiHandlers/getApis'
 import Loading from '../../../pages/loading'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import UserAuthContext from '../../../contexts/authContext'
+import { message } from 'antd'
 
 export function TableTotalFound(props) {
     return (
@@ -31,7 +32,11 @@ const TableRow = (m) => {
         <tr>
             <td><FaPrint style={{ color: "blueviolet" }} onClick={
                 async e => {
-                    await useDownloader("manifest?mid="+m._id)
+                    m.setIsDownloading(true)
+                    const res = await useDownloader("manifest?mid="+m._id)
+                    if(res)
+                        message.error(res)
+                    m.setIsDownloading(false)
                 }
             } /></td>
             <td>{m.manifestNumber}</td>
@@ -46,11 +51,15 @@ const TableRow = (m) => {
 
 export default function ManifestPrint() {
     const {currBranch} = useContext(UserAuthContext)
-    const [err, loading, manifests] = useGetData("manifest?fbid="+currBranch._id,[currBranch])
+    const [err, loading, manifests] = useGetData("manifest?fbid="+currBranch?._id,[currBranch])
+    const [isDownloading, setIsDownloading] = useState(false)
     return (
         <>
         {
-            loading?<Loading/>:""
+            loading?<Loading/>:null
+        }
+        {
+            isDownloading?<Loading/>:null
         }
             <div className={style.formContainer}>
                 <p>Manifest Print</p>
@@ -91,7 +100,7 @@ export default function ManifestPrint() {
                         <tbody>
                             {
                                 manifests.length > 0 ?
-                                    manifests.map(m => <TableRow {...m} />) :
+                                    manifests.map(m => <TableRow {...m} setIsDownloading={setIsDownloading} />) :
                                     <tr><td colSpan={7}>No Data Available</td></tr>
                             }
                         </tbody>

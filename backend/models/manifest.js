@@ -22,7 +22,7 @@ const manifestSchema = new mongoose.Schema({
                 type:Date,
                 default:new Date()
             },
-            messages:{
+            message:{
                 type:String,
                 default:""
             }

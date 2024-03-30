@@ -128,7 +128,7 @@ export function EmployeeMaster() {
                     <label htmlFor="">Role</label>
                     <select value={employee.role} onChange={e => empHandler(e, "role")}>
                         <option value="null">---Select Employee Role---</option>
-                        <option value="adm">Admin</option>
+                        {/* <option value="adm">Admin</option> */}
                         <option value="emp">Employee</option>
                         <option value="dlb">Delivery Boy</option>
                     </select>

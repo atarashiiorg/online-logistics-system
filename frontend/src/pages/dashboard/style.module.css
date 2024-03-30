@@ -16,3 +16,14 @@
     overflow: auto;
     scrollbar-width: none;
 }
+
+.watermark{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 200px;
+    opacity: 0;
+    z-index: -999;
+    /* background-color: #1225408a; */
+}

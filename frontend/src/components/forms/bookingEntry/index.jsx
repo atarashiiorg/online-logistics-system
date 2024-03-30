@@ -9,6 +9,7 @@ import UserAuthContext from '../../../contexts/authContext'
 import { Mandatory } from '../../minComp'
 import { useGetData } from '../../../apiHandlers/getApis'
 import { usePostData } from '../../../apiHandlers/postApis'
+import Loading from '../../../pages/loading'
 
 export default function BookingEntry() {
     const { currBranch } = useContext(UserAuthContext)
@@ -67,6 +68,7 @@ export default function BookingEntry() {
     const [volWeight, setVolWeight] = useState(initialVolWeight)
     const [dimWeight, setDimWeight] = useState(initialDimWeight)
     const [wid,setWid] = useState(0)
+    const [isPosting, setIsPosting] = useState(false)
 
     const resetForm = () => {
         setAwbDetails(initialAwbDetails)
@@ -207,7 +209,7 @@ export default function BookingEntry() {
     }
 
     const handleSave = async () => {
-        if (currBranch == "null") {
+        if (!currBranch) {
             message.warning("Select a branch for booking")
             return
         }
@@ -265,10 +267,12 @@ export default function BookingEntry() {
             volWeight,
             dimWeight
         }
+        setIsPosting(true)
         const res = await usePostData(booking, "booking")
         if (res.res) {
             resetForm()
         }
+        setIsPosting(false)
     }
 
     const handleReset = () => {
@@ -281,7 +285,7 @@ export default function BookingEntry() {
                 console.log(volWeight)
             }
             {
-                // console.log(dimWeight)
+                isPosting?<Loading/>:null
             }
             <div className={style.formContainer}>
                 <p>AWB Details</p>
