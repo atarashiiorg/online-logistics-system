@@ -10,7 +10,7 @@ export const publicUrl = "http://127.0.0.1:8000/"
 
 
 export const title = 'Safe Dispatch';
-export const phone = '123-456-7890';
+export const phone = '+91 85709-73368';
 export const servicesArray = [
   {
     title: 'Air Freight',

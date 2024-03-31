@@ -1,16 +1,22 @@
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaMinus, FaPlus } from 'react-icons/fa'
 import style from './style.module.css'
 import { FaArrowRotateLeft } from 'react-icons/fa6'
 import { SearchManifest } from '../../forms/manifestDirect'
 import { TableTotalFound } from '../../forms/manifestPrint'
 import { useGetData } from '../../../apiHandlers/getApis'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { TableComp } from '../../minComp'
+import UserAuthContext from '../../../contexts/authContext'
+import Loading from '../../../pages/loading'
 
 export default function EmployeeBranchAccess() {
     const [name, setName] = useState("")
     const [search, setSearch] = useState(false)
-    const [err, loading, employee] = useGetData("employee?name=" + name, [search])
+    const [err, loading, employees] = useGetData("employee")
+    const { branches } = useContext(UserAuthContext)
+    const [activeAccordian, setActiveAccordian] = useState(-1)
+
+    const [currentEmp, setCurrEmp] = useState(null)
 
     const initialPermissions = [
         {
@@ -326,26 +332,53 @@ export default function EmployeeBranchAccess() {
 
     const [permissions, setPermissions] = useState(initialPermissions)
 
-    const searchEmp = (e) => {
-        if (e.keyCode == 13) {
-            setSearch(p => !p)
-        }
+    const handleAccordian=(i)=>{
+        setActiveAccordian(p=>{
+            if(p==i){
+                return -1
+            } else {
+                return i
+            }
+        })
+    }
+
+    const resetForm = ()=>{
+        setCurrEmp(null)
+        setName("")
     }
     return (
         <>
             <div className={style.formContainer}>
+                {
+                    loading?<Loading/>:null
+                }
                 <p>Manage Employee Access</p>
                 <div>
                     <label htmlFor="">Employee</label>
-                    <input type="text" value={name} onKeyDown={searchEmp} onInput={e => setName(e.target.value)} placeholder='Employee' />
+                    <input type="text" list='employees' value={name} onKeyDown={e=>{
+                        if(e.which == 8){
+                            setCurrEmp(null)
+                        }
+                    }} onInput={e =>{
+                        const eCode = e.target.value.split(" : ")[0]
+                        const idx = employees.findIndex(e=>e.eCode==eCode)
+                        if(idx>-1)
+                            setCurrEmp(p=>{return {...employees[idx]}})
+                        setName(e.target.value.split(" : ")[1])
+                    }} placeholder='Employee' />
+                    <datalist id='employees'>
+                    { 
+                        employees.map(e=><option value={e.eCode+" : "+e.name}>{e.eCode+" : "+e.name}</option>)
+                    }
+                    </datalist>
                     {/* <label htmlFor="">Branch</label>
                     <input type="text" placeholder='Branch'/> */}
                 </div>
             </div>
 
             <div className={style.actions}>
-                <button className={style.buttonChk}><FaCheck /> Save</button>
-                <button className={style.buttonRef}><FaArrowRotateLeft /> Reset</button>
+                <button className={style.buttonChk} ><FaCheck /> Save</button>
+                <button className={style.buttonRef} onClick={resetForm}><FaArrowRotateLeft /> Reset</button>
             </div>
 
             <TableComp>
@@ -360,23 +393,73 @@ export default function EmployeeBranchAccess() {
                                 <th>Phone</th>
                                 <th>Role</th>
                                 <th>isActive</th>
-
                             </tr>
                         </thead>
+                        <tbody>
+                            {
+                                currentEmp?
+                                <tr>
+                                    <td>{currentEmp.eCode}</td>
+                                    <td>{currentEmp.name}</td>
+                                    <td>{currentEmp.email}</td>
+                                    <td>{currentEmp.mobile}</td>
+                                    <td>{currentEmp.role}</td>
+                                    <td>{currentEmp.isActive?"YES":"NO"}</td>
+                                </tr>:
+                                <tr>
+                                    <td colSpan={6} style={{textAlign:"center"}}>No Data Available</td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                 </div>
             </TableComp>
-            
-            {
-                permissions.map(page=>{
-                    return (
-                        <>
-                            <input type="checkbox" checked={page.allowed} />
-                            <label htmlFor="">{page.title}</label>
-                        </>
-                    )
-                })
-            }
+
+           { currentEmp?<section>
+            <p className={style.accessTitle}><span>Page Access</span><span>Branch Access</span></p>
+            <div className={style.permissionsBlock}>
+                <div>
+                    {
+                        permissions.map((page, index) => {
+                            return (
+                                <div className={style.accordian}>
+                                    <div className={style.accordianTitle}>
+                                        <input type="checkbox" checked={page.allowed} />
+                                        <label htmlFor="">{page.title}</label>
+                                        {page.dropdown.length ? <span className={style.dropdownBtn} onClick={e=>handleAccordian(index)}>{activeAccordian==index?<FaMinus/>:<FaPlus />}</span> : null}
+                                    </div>
+                                    {
+                                        page.dropdown.length > 0 && activeAccordian == index ?
+                                            <div className={style.dropdown}>
+                                                {
+                                                    page.dropdown.map(d => {
+                                                        return (
+                                                            <div>
+                                                                <input type="checkbox" name="" id="" />
+                                                                <label>{d.path.split("/")[1].split(/(?=[A-Z])/).join(" ")}</label>
+                                                            </div>
+                                                        )
+                                                    })
+                                                }
+                                            </div> : null
+                                    }
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div>
+                    {
+                        branches.map(b => (
+                            <div className={style.branchComp}>
+                                <input type="checkbox" name="" id="" />
+                                <label htmlFor="">{b.branchName}</label>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+            </section>:null}
         </>
     )
 }

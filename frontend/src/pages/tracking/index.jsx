@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react'
 import style from './style.module.css'
 import UserAuthContext from '../../contexts/authContext'
 import UpperNavbar from '../../components/landing/upperNavbar'
-import logo from '../../assets/logo1.jpg'
+import logo from '../../assets/sdlLogo.png'
 import { useGetData } from '../../apiHandlers/getApis'
 import { publicUrl, serverUrl, title } from '../../constants'
 import { message } from 'antd'
@@ -19,21 +19,16 @@ const ActivityDateCell = ({ date }) => {
 export function TrackingPage() {
     const navigate = useNavigate()
     const { docket } = useContext(UserAuthContext)
-    const [trackingData, setTrackingData] = useState({})
+    const [trackingData, setTrackingData] = useState()
     const [loading, setLoading] = useState(false)
     const fetchData = async () => {
-        console.log(docket.length)
-        if (docket.length < 7) {
-            message.warning("Enter a valid docket number")
-            return
-        }
         try {
             setLoading(true)
             const res = await fetch(publicUrl + "track?docket=" + docket)
             const res_json = await res.json()
             if (res.ok) {
                 console.log(res_json);
-                setTrackingData(p => res_json.bookings)
+                setTrackingData(p => res_json.data)
             } else if (res.status == 500) {
                 message.error(res_json.err)
             } else {
@@ -61,7 +56,7 @@ export function TrackingPage() {
     return (
         <>
         {
-            console.log(docket.length,trackingData)
+            console.log(docket,trackingData)
         }
             <div className={style.header}>
                 <div className={style.logo} onClick={e => navigate("/home")}>
@@ -72,8 +67,9 @@ export function TrackingPage() {
             <UpperNavbar track={track} />
             {
                 loading?<Loading />:
-                docket.length == '' || !trackingData ?
-                    <div className={style.notValid}>Not a valid tracking number....</div> :
+                !trackingData && docket.length<10?
+                    <div className={style.notValid} style={{fontSize:"25px", color:'grey', fontWeight:"700"}}>Enter a Docket number to track</div> :
+                    !trackingData?<div className={style.notValid}>Not a valid tracking number....</div>:
                     <div className={style.container}>
                         <div className={style.box}>
                             <div className={style.upper}>
@@ -156,7 +152,7 @@ export function TrackingPage() {
                                                 trackingData?.tracking?.details?.map(d => {
                                                     return <tr>
                                                         <ActivityDateCell date={d.actionDate} />
-                                                        <td style={{ fontSize: "14px", fontWeight: "500" }}>{d.action}</td>
+                                                        <td style={{ fontSize: "13px", fontWeight: "600" }}>{d.action.split("in")[0]}</td>
                                                     </tr>
                                                 })
                                             }

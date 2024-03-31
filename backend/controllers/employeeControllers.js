@@ -59,6 +59,7 @@ async function getEmployee(req,res){
         } else {
             employees = await Employee.find({role:{$nin:['adm']}})
         }
+        
         const data = await employees.map(e=>{return {...e._doc,password:""}})
         res.status(200).json({'msg':'success',data})
     } catch (err) {

@@ -1,0 +1,46 @@
+.testimonials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(0,0,0,0.025);
+}
+
+.title {
+  text-align: center;
+}
+
+h1{
+  color:rgb(30 41 59);
+  font-size: 2em; /* Increase font size */
+}
+
+.sideImage{
+  object-fit: cover;
+  padding: 1em;
+}
+
+.slick {
+display: flex;
+flex-direction: column;
+gap: 5em;
+width: 60%;
+height: 100%;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.controls button {
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #a59f9f;
+  border: none;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: #ddd;
+}
