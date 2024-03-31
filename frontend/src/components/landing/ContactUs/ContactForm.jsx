@@ -13,7 +13,7 @@ const ContactForm = () => {
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     );
-    const recipient = 'manikss123456@gmail.com'; // Replace with your email address
+    const recipient = 'safedispatchlogistics@gmail.com'; // Replace with your email address
 
     const mailtoLink = `mailto:${recipient}?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;

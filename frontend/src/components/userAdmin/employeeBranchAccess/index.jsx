@@ -8,6 +8,7 @@ import { useContext, useState } from 'react'
 import { TableComp } from '../../minComp'
 import UserAuthContext from '../../../contexts/authContext'
 import Loading from '../../../pages/loading'
+import { serverUrl } from '../../../constants'
 
 export default function EmployeeBranchAccess() {
     const [name, setName] = useState("")
@@ -332,9 +333,25 @@ export default function EmployeeBranchAccess() {
 
     const [permissions, setPermissions] = useState(initialPermissions)
 
-    const handleAccordian=(i)=>{
-        setActiveAccordian(p=>{
-            if(p==i){
+    const fetchEmp = async(id)=>{
+        try {
+            const res = await fetch(serverUrl+"employee?eid="+id+"&full=true",{
+                credentials:'include',
+                method:"GET"
+            })
+            const json = await res.json()
+            if(res.ok){
+                setCurrEmp(json.data)
+                setPermissions(json.data.access.permissions.permissions)
+            }
+        } catch (error) {
+            
+        }
+    }
+
+    const handleAccordian = (i) => {
+        setActiveAccordian(p => {
+            if (p == i) {
                 return -1
             } else {
                 return i
@@ -342,34 +359,64 @@ export default function EmployeeBranchAccess() {
         })
     }
 
-    const resetForm = ()=>{
+    const resetForm = () => {
         setCurrEmp(null)
         setName("")
+        setPermissions(initialPermissions)
     }
+
+    const handlePermissions = (e, index1, index2, f) => {
+        setPermissions(p => {
+            const obj = structuredClone(p)
+            if (f) {
+                obj[index1].dropdown[index2].allowed = e.target.checked
+                let isChecked = false
+                for (let i = 0; i < obj[index1].dropdown.length; i++) {
+                    if (obj[index1].dropdown[i].allowed) {
+                        console.log("internal input->", obj[index1].dropdown[i].allowed)
+                        isChecked = true
+                        break
+                    }
+                }
+                obj[index1].allowed = isChecked
+            } else {
+                let isChecked = false
+                for (let i = 0; i < obj[index1].dropdown.length; i++) {
+                    if (obj[index1].dropdown[i].allowed) {
+                        console.log("internal input->", obj[index1].dropdown[i].allowed)
+                        isChecked = true
+                        break
+                    }
+                }
+                if(!isChecked){
+                    obj[index1].allowed = e.target.checked
+                } else {
+                    obj[index1].allowed = isChecked
+                }
+            }
+            return obj
+        })
+    }
+
+    // const 
     return (
         <>
             <div className={style.formContainer}>
                 {
-                    loading?<Loading/>:null
+                    loading ? <Loading /> : null
                 }
                 <p>Manage Employee Access</p>
                 <div>
                     <label htmlFor="">Employee</label>
-                    <input type="text" list='employees' value={name} onKeyDown={e=>{
-                        if(e.which == 8){
+                    <input type="text" list='employees' value={name} onKeyDown={e => {
+                        if (e.which == 8) {
                             setCurrEmp(null)
                         }
-                    }} onInput={e =>{
-                        const eCode = e.target.value.split(" : ")[0]
-                        const idx = employees.findIndex(e=>e.eCode==eCode)
-                        if(idx>-1)
-                            setCurrEmp(p=>{return {...employees[idx]}})
-                        setName(e.target.value.split(" : ")[1])
-                    }} placeholder='Employee' />
+                    }} onInput={e => {}} placeholder='Employee' />
                     <datalist id='employees'>
-                    { 
-                        employees.map(e=><option value={e.eCode+" : "+e.name}>{e.eCode+" : "+e.name}</option>)
-                    }
+                        {
+                            employees.map(e => <option value={e.eCode + " : " + e.name}>{e.eCode + " : " + e.name}</option>)
+                        }
                     </datalist>
                     {/* <label htmlFor="">Branch</label>
                     <input type="text" placeholder='Branch'/> */}
@@ -397,69 +444,69 @@ export default function EmployeeBranchAccess() {
                         </thead>
                         <tbody>
                             {
-                                currentEmp?
-                                <tr>
-                                    <td>{currentEmp.eCode}</td>
-                                    <td>{currentEmp.name}</td>
-                                    <td>{currentEmp.email}</td>
-                                    <td>{currentEmp.mobile}</td>
-                                    <td>{currentEmp.role}</td>
-                                    <td>{currentEmp.isActive?"YES":"NO"}</td>
-                                </tr>:
-                                <tr>
-                                    <td colSpan={6} style={{textAlign:"center"}}>No Data Available</td>
-                                </tr>
+                                currentEmp ?
+                                    <tr>
+                                        <td>{currentEmp.eCode}</td>
+                                        <td>{currentEmp.name}</td>
+                                        <td>{currentEmp.email}</td>
+                                        <td>{currentEmp.mobile}</td>
+                                        <td>{currentEmp.role}</td>
+                                        <td>{currentEmp.isActive ? "YES" : "NO"}</td>
+                                    </tr> :
+                                    <tr>
+                                        <td colSpan={6} style={{ textAlign: "center" }}>No Data Available</td>
+                                    </tr>
                             }
                         </tbody>
                     </table>
                 </div>
             </TableComp>
 
-           { currentEmp?<section>
-            <p className={style.accessTitle}><span>Page Access</span><span>Branch Access</span></p>
-            <div className={style.permissionsBlock}>
-                <div>
-                    {
-                        permissions.map((page, index) => {
-                            return (
-                                <div className={style.accordian}>
-                                    <div className={style.accordianTitle}>
-                                        <input type="checkbox" checked={page.allowed} />
-                                        <label htmlFor="">{page.title}</label>
-                                        {page.dropdown.length ? <span className={style.dropdownBtn} onClick={e=>handleAccordian(index)}>{activeAccordian==index?<FaMinus/>:<FaPlus />}</span> : null}
+            {currentEmp ? <section>
+                <p className={style.accessTitle}><span>Page Access</span><span>Branch Access</span></p>
+                <div className={style.permissionsBlock}>
+                    <div>
+                        {
+                            permissions.map((page, index) => {
+                                return (
+                                    <div className={style.accordian}>
+                                        <div className={style.accordianTitle}>
+                                            <input type="checkbox" checked={page.allowed} onChange={e => handlePermissions(e, index)} />
+                                            <label htmlFor="">{page.title}</label>
+                                            {page.dropdown.length ? <span className={style.dropdownBtn} onClick={e => handleAccordian(index)}>{activeAccordian == index ? <FaMinus /> : <FaPlus />}</span> : null}
+                                        </div>
+                                        {
+                                            page.dropdown.length > 0 && activeAccordian == index ?
+                                                <div className={style.dropdown}>
+                                                    {
+                                                        page.dropdown.map((d, index2) => {
+                                                            return (
+                                                                <div>
+                                                                    <input type="checkbox" checked={d.allowed} onChange={e => handlePermissions(e, index, index2, d.path)} />
+                                                                    <label>{d.path.split("/")[1].split(/(?=[A-Z])/).join(" ")}</label>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div> : null
+                                        }
                                     </div>
-                                    {
-                                        page.dropdown.length > 0 && activeAccordian == index ?
-                                            <div className={style.dropdown}>
-                                                {
-                                                    page.dropdown.map(d => {
-                                                        return (
-                                                            <div>
-                                                                <input type="checkbox" name="" id="" />
-                                                                <label>{d.path.split("/")[1].split(/(?=[A-Z])/).join(" ")}</label>
-                                                            </div>
-                                                        )
-                                                    })
-                                                }
-                                            </div> : null
-                                    }
+                                )
+                            })
+                        }
+                    </div>
+                    <div>
+                        {
+                            branches.map(b => (
+                                <div className={style.branchComp}>
+                                    <input type="checkbox" name="" id="" />
+                                    <label htmlFor="">{b.branchName}</label>
                                 </div>
-                            )
-                        })
-                    }
+                            ))
+                        }
+                    </div>
                 </div>
-                <div>
-                    {
-                        branches.map(b => (
-                            <div className={style.branchComp}>
-                                <input type="checkbox" name="" id="" />
-                                <label htmlFor="">{b.branchName}</label>
-                            </div>
-                        ))
-                    }
-                </div>
-            </div>
-            </section>:null}
+            </section> : null}
         </>
     )
 }

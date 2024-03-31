@@ -379,7 +379,7 @@ export default function SideBar() {
                     const res = await fetch("http://127.0.0.1:8000/api/permission")
                     const json = await res.json()
 
-                    setSideBarOptions(p => [...json.permission])
+                    setSideBarOptions(p => [...json.access])
                     setLoadingSideBar(false)
                 } catch (err) {
                     message.error(err)

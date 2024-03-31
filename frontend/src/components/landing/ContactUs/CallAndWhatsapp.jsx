@@ -36,7 +36,7 @@ const CallAndWhatsapp = () => {
           color: 'rgb(60, 60, 60)',
         }}
       >
-        +1 234 567 890
+        +91 85709-73368
       </p>
       <h2
         style={{
@@ -60,8 +60,9 @@ const CallAndWhatsapp = () => {
           alignItems: 'center',
           gap: '1em',
         }}
+        href='https://wa.me/918570973368'
       >
-        Click here to Whatsapp
+        Whatsapp here
         <FaWhatsapp />
       </a>
       <h2
@@ -86,8 +87,10 @@ const CallAndWhatsapp = () => {
           alignItems: 'center',
           gap: '1em',
         }}
+
+        href='tel:+918570973368'
       >
-        Click here to call
+        Call here
         <BsFillTelephoneOutboundFill />
       </a>
     </div>

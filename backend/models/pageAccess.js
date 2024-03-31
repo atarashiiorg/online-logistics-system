@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
-const permissionSchema = mongoose.Schema({
-    permission:{
+const pageAccessSchema = mongoose.Schema({
+    eCode: String,
+    access:{
         type:Array,
         default:[
         {
@@ -316,5 +317,5 @@ const permissionSchema = mongoose.Schema({
     ]}
 })
 
-const Permission = mongoose.model("Permission", permissionSchema)
-module.exports = Permission
+const PageAccess = mongoose.model("PageAccess", pageAccessSchema)
+module.exports = PageAccess

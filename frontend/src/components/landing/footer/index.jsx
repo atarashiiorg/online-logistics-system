@@ -68,7 +68,7 @@ const Footer = () => (
           >
             Location
           </h2>
-          <p className={styles.textGray200}>Haryana</p>
+          <p className={styles.textGray200}>Haryana, Punjab</p>
           <div className={`${styles.wideColumn} ${styles.narrowColumn}`}>
             <h2
               className={`${styles.uppercase} ${styles.mb2} ${styles.mt4} ${styles.fontBold}`}
@@ -78,6 +78,7 @@ const Footer = () => (
             <a href="tel:+918570973368">
               <p
                 className={`${styles.textGray200} ${styles.hoverUnderline} ${styles.mt2}`}
+                style={{width:"300px"}}
               >
                 Phone: +91 85709-73368
               </p>
@@ -85,8 +86,10 @@ const Footer = () => (
             <a href="mailto:safedispatchlogistics@gmail.com">
               <p
                 className={`${styles.textGray200} ${styles.hoverUnderline} ${styles.mt2}`}
+                style={{width:"300px"}}
               >
-                Email: safedispatchlogistics@gmail.com
+                Email: safedispatchlogistics@gmail.com,
+                director.safedispatch@gmail.com
               </p>
             </a>
           </div>

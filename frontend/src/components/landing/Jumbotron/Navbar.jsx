@@ -2,6 +2,7 @@ import style from './style.module.css';
 const Navbar = () => {
   return (
     <div className={style.navbar}>
+      
       <ul>
         <li>
           <a href="#">Home</a>

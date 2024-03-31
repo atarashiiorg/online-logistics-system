@@ -14,7 +14,17 @@ const employeeSchema = mongoose.Schema({
         type:Boolean,
         default:false
     },
-    password:String
+    password:String,
+    permissions:{
+        branchAccess:{
+            type:mongoose.Types.ObjectId,
+            ref:"BranchAccess"
+        },
+        pageAccess:{
+            type:mongoose.Types.ObjectId,
+            ref:"PageAccess"
+        }
+    }
 },{
     timestamps:true
 })
