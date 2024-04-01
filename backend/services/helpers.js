@@ -6,6 +6,7 @@ const path = require("path")
 const Runsheet = require("../models/runsheet")
 const Employee = require("../models/employee")
 const puppeteer = require('pdf-puppeteer')
+const {Worker}=require('worker_threads')
 const { getPopulatedBooking, getPopulatedManifest } = require("./dbServices")
 
 const getNewBranchCode = async () => {
@@ -75,28 +76,45 @@ const getManifestName = () => {
 
 function readEjs(template, data) {
     return new Promise((resolve, reject) => {
-        try {
-            console.log(data)
-            ejs.renderFile(`views/${template}.ejs`, data, (err, html) => {
-                err ? reject(err) : resolve(html)
-            })
-        } catch (error) {
-            reject(err)
-        }
+        const worker=new Worker('./worker.js')
+        worker.postMessage({template,data});
+        worker.on('message',(html)=>{
+            resolve(html);
+        })
+        worker.on('error',(err)=>{
+            reject(err);
+        })
+
+        // try {
+        //     console.log(data)
+        //     ejs.renderFile(`views/${template}.ejs`, data, (err, html) => {
+        //         err ? reject(err) : resolve(html)
+        //     })
+        // } catch (error) {
+        //     reject(err)
+        // }
     })
 }
 
 function createPdf(html, opts) {
     return new Promise((resolve, reject) => {
-        puppeteer(html, (pdf) => {
-            resolve(pdf)
-        }, opts, {
-            args: [
-                '--no-sandbox',
-                '--disable-setuid-sandbox',
-            ],
-            headless:'new'
-        });
+        const worker=new Worker('./worker.js')
+        worker.postMessage({html,opts});
+        worker.on('message',(pdf)=>{
+            resolve(pdf);
+        })
+        worker.on('error',(err)=>{
+            reject(err);
+        })
+        // puppeteer(html, (pdf) => {
+        //     resolve(pdf)
+        // }, opts, {
+        //     args: [
+        //         '--no-sandbox',
+        //         '--disable-setuid-sandbox',
+        //     ],
+        //     headless:'new'
+        // });
     })
 }
 
