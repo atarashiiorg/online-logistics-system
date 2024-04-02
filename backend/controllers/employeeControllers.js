@@ -8,8 +8,8 @@ async function createEmployee(req,res){
     try {
         const eCode = await getNewEmployeeCode()
         const plainPassword = req.body.password
-        const branchAccess = await BranchAccess.create({})
-        const pageAccess = await PageAccess.create({})
+        const branchAccess = await BranchAccess.create({eCode})
+        const pageAccess = await PageAccess.create({eCode})
         const permissions = {
             branchAccess:branchAccess._id,
             pageAccess:pageAccess._id

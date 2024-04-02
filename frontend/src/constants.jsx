@@ -1,6 +1,8 @@
 import { MdFlight } from 'react-icons/md';
 import { GiCargoShip } from 'react-icons/gi';
 import { MdLocalShipping } from 'react-icons/md';
+import { RiSecurePaymentFill } from "react-icons/ri"
+import { MdSpatialTracking } from "react-icons/md";
 // export const serverUrl = 'https://q31k0k2w-8000.inc1.devtunnels.ms/api/'
 // export const serverUrl = "https://z2nj0ph6-8000.inc1.devtunnels.ms/api/"
 export const serverUrl = "http://127.0.0.1:8000/api/"
@@ -13,35 +15,9 @@ export const title = 'Safe Dispatch';
 export const phone = '+91 85709-73368';
 export const servicesArray = [
   {
-    title: 'Air Freight',
+    title: 'Efficient Road Transport',
     description:
-      'We can arrange and provides with the comprehensive service in the sphere of urgent, valuable, fragile or any cargoes conscientious accelerated delivery by air.',
-    icon: (
-      <MdFlight
-        style={{
-          color: '#333',
-          fontSize: '3.5em',
-        }}
-      />
-    ),
-  },
-  {
-    title: 'Ocean Freight',
-    description:
-      'We provides with the main types of basic conditions International sea transportation is implemented by our partners’ vessels, the largest ocean carriers.',
-    icon: (
-      <GiCargoShip
-        style={{
-          color: '#333',
-          fontSize: '3.5em',
-        }}
-      />
-    ),
-  },
-  {
-    title: 'Road Freight',
-    description:
-      'We provides with the road conditions. The best logistic strategies for delivering your goods and services.',
+      'Welcome to SafeDispatchLogistics, your trusted partner for efficient and reliable road transport solutions. At SafeDispatchLogistics, we understand the importance of flexibility and convenience when it comes to fulfilling your delivery needs.',
     icon: (
       <MdLocalShipping
         style={{
@@ -51,4 +27,49 @@ export const servicesArray = [
       />
     ),
   },
+  {
+    title: ' Variety of Payment Options',
+    description:
+      "We offer a wide range of payment options to cater to your preferences. Whether you prefer the ease of Cash on Delivery (COD), the convenience of Topay transfers, the security of credit payments, or the speed of online wallets, we've got you covered.",
+    icon: (
+      <RiSecurePaymentFill
+        style={{
+          color: '#333',
+          fontSize: '3.5em',
+        }}
+      />
+    ),
+  },
+  {
+    title: 'Customer Support',
+    description:
+      ' Experience personalized assistance and reliable communication throughout your delivery process, ensuring your peace of mind with SafeDispatchLogistics. Our dedicated team is committed to providing exceptional support, guiding you every step of the way to guarantee a smooth and satisfactory experience.',
+    icon: (
+      <MdSpatialTracking
+        style={{
+          color: '#333',
+          fontSize: '3.5em',
+        }}
+      />
+    ),
+  },
 ];
+
+export const reviewsArray = [
+  {
+    content:'SafeDispatchLogistics has been our go-to choice for all our delivery needs. Their professionalism, reliability, and prompt service have exceeded our expectations every time.',
+    by:'Mandeep'
+  },
+  {
+    content:'SafeDispatchLogistics has been our go-to choice for all our delivery needs. Their professionalism, reliability, and prompt service have exceeded our expectations every time.',
+    by:'Mandeep'
+  },
+  {
+    content:'SafeDispatchLogistics has been our go-to choice for all our delivery needs. Their professionalism, reliability, and prompt service have exceeded our expectations every time.',
+    by:'Mandeep'
+  },
+  {
+    content:'SafeDispatchLogistics has been our go-to choice for all our delivery needs. Their professionalism, reliability, and prompt service have exceeded our expectations every time.',
+    by:'Mandeep'
+  },
+]

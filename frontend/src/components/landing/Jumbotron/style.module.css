@@ -1,8 +1,8 @@
 .navbar {
+    z-index: 999;
     width: 100%;
-    position: absolute;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.15); /* semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.116); /* semi-transparent black */
 }
 
 .navbar ul {
@@ -17,7 +17,7 @@
 
 .navbar ul li a {
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -27,19 +27,20 @@
 .navbar ul li a:hover {
     color: #555;
 }
+
 .jumbotron {
-    position: relative;
-    background-image: url('/bg1.jpg');
     height: 100vh;
-    background-size: cover; 
     color: white;
     text-align: center;
-    padding-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.jumbotron h1 {
-    font-size: 60px;
-}
+/* .jumbotron h1 {
+    font-size: 50px;
+} */
 
 .jumbotron p {
     font-size: 25px;
@@ -56,9 +57,37 @@
 }
 
 .bigtext {
+    /* margin-top: 10%; */
     color:#333;
 }
 
 .jumbotroncontent{
-    margin-top: 3em;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: rgba(25, 58, 104, 0.589);
+}
+
+.bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    z-index: -1;
+    height: 140%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.logo{
+    z-index: 9999;
+    height: 300px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }

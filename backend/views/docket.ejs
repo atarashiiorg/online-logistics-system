@@ -78,7 +78,7 @@
         }
 
         .logo-img {
-            background-color: #122540;
+            background-color: #122540; color: white;
         }
 
         .logo-img>img {
@@ -224,7 +224,7 @@
         .two-col-weight {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            background-color: #6495ec;
+            background-color: #122540; color: white; color: white;
         }
 
         .two-col-weight>div:not(:last-child) {
@@ -310,9 +310,9 @@
         <div class="page">
             <div class="container">
                 <div class="header">
-                    <h2>Ph No. 85709-73368
-                    </h2>
                     <h2>GSTIN: <%= d.comp_gst %>
+                    </h2>
+                    <h2>Ph No. 85709-73368
                     </h2>
                 </div>
                 <div class="main-content">
@@ -332,21 +332,21 @@
                             </div>
                         </div>
                         <div class="col">
-                            <div style="background-color: #f0e68c;">Origin</div>
+                            <div style="background-color: yellow; font-weight: 600;">Origin</div>
                             <div>
                                 <%= d.origin %>
                             </div>
                         </div>
                         <div class="col">
-                            <div style="background-color: #6495ec;">Destination</div>
+                            <div style="background-color: #122540; color: white; color: white;">Destination</div>
                             <div>
                                 <%= d.destination %>
                             </div>
                         </div>
                         <div class="col">
-                            <div style="background-color: #f0e68c;">Date</div>
-                            <div>Credit</div>
-                            <div style="background-color: #f0e68c;">No. Of Packages</div>
+                            <div style="background-color: yellow; font-weight: 600;">Date</div>
+                            <div style="font-weight: 600;">Credit</div>
+                            <div style="background-color: yellow; font-weight: 600;">No. Of Packages</div>
                         </div>
                         <div class="col">
                             <div>
@@ -362,7 +362,7 @@
                     </div>
                     <div class="second-row">
                         <div class="scol">
-                            <div class="scol-srow" style="background-color: red;">
+                            <div class="scol-srow" style="background-color: #122540; color: white;">
                                 <h3>Consignor (Shipper)</h3>
                             </div>
                             <div class="scol-srow">
@@ -393,10 +393,10 @@
                                     <p>Name</p>
                                 </span>
                             </div>
-                            <div class="scol-srow" style="background-color: #6495ec;"></div>
+                            <div class="scol-srow" style="background-color: #122540; color: white; "></div>
                         </div>
                         <div class="scol">
-                            <div class="scol-srow" style="background-color: #6495ec;">
+                            <div class="scol-srow" style="background-color: #122540; color: white; ">
                                 <h3>Consignee (Receiver)</h3>
                             </div>
                             <div class="scol-srow">
@@ -410,7 +410,7 @@
                             </div>
                             <div class="scol-srow">
                                 <span
-                                    style="position: absolute; top: 0; padding: 6px; background-color: #6495ec; width: 100%; text-align: center;">Trace
+                                    style="position: absolute; top: 0; padding: 6px; background-color: #122540; color: white; width: 100%; text-align: center;">Trace
                                     This Bill</span>
                                 <canvas class="barcode" id="barcode-<%= index %>"></canvas>
                                 <script>
@@ -435,7 +435,7 @@
                             </div>
                             <div class="scol-srow">
                                 <span
-                                    style="position: absolute; top: 0; padding: 6px; background-color: red; width: 100%; text-align: center;">Received
+                                    style="position: absolute; top: 0; padding: 6px; background-color: #122540; color: white; width: 100%; text-align: center;">Received
                                     On Good Order &amp; Conditions</span>
                                 <span
                                     style="position: absolute; width: 60%; display: flex;justify-content: space-between; left: 5px; bottom: 5px;">
@@ -443,7 +443,7 @@
                                     <p>Name</p>
                                 </span>
                             </div>
-                            <div class="scol-srow" style="background-color: #6495ec;">
+                            <div class="scol-srow" style="background-color: #122540; color: white;">
                                 Non Negotiable
                             </div>
                         </div>
@@ -484,7 +484,7 @@
                                     <div style="display: flex; justify-content: center; align-items: center;"><%= d.chargedWeight %></div>
                                     <div style="display: flex; justify-content: center; align-items: center;"><%= d.chargedWeight %></div>
                                 </div>
-                                <div class="three-col-weight">
+                                <div class="three-col-weight" style="color: white; background-color: #122540;">
                                     <div>Details</div>
                                     <div>Amount</div>
                                     <div
@@ -524,14 +524,14 @@
                             <div class="scol-srow">
                                 <div class="three-col-weight" style="background-color: white;">
                                     <div class="six-row-grid">
-                                        <div style="background-color: #6495ec;">
-                                            <h3 style="color: black;">SUBTOTAL</h3>
+                                        <div style="background-color: #122540; color: white; color: white;">
+                                            <h3 style="color: black; color: white;">SUBTOTAL</h3>
                                         </div>
                                         <div style="font-size: 13px; color: black;">C.G.S.T</div>
                                         <div style="font-size: 13px; color: black;">S.G.S.T / U.G.S.T</div>
                                         <div style="font-size: 13px; color: black;">I.G.S.T</div>
                                         <div
-                                            style="font-size: 15px; color: black; background-color: red; display: flex; justify-content: center; align-items: center;">
+                                            style="font-size: 15px; color: black; background-color: #122540; color: white; display: flex; justify-content: center; align-items: center;">
                                             GRAND TOTAL</div>
                                     </div>
                                     <div class="six-row-grid">
@@ -557,7 +557,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="scol-srow" style="background-color: #6495ec;"></div>
+                            <div class="scol-srow" style="background-color: #122540; color: white;"></div>
                         </div>
                     </div>
                 </div>

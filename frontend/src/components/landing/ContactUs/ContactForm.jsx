@@ -25,7 +25,7 @@ const ContactForm = () => {
   return (
     <div>
       <div>
-        <div className="">
+        <div >
           <h1
             style={{
               fontSize: '2em',
@@ -59,13 +59,14 @@ const ContactForm = () => {
               style={{
                 outline: 'none',
                 width: '20rem',
-                color: 'navy',
-                fontWeight: '600',
-                fontSize: '1.5em',
+                color: 'black',
+                fontWeight: '500',
+                fontSize: '1em',
                 padding: '8px',
                 borderRadius: '0.375rem',
               }}
               required
+              placeholder='Name'
             />
           </div>
           <div style={{ marginBottom: '16px' }}>
@@ -88,13 +89,15 @@ const ContactForm = () => {
               style={{
                 outline: 'none',
                 width: '20rem',
-                color: 'navy',
-                fontWeight: '600',
-                fontSize: '1.5em',
+                color: 'black',
+                fontWeight: '500',
+                fontSize: '1em',
                 padding: '8px',
                 borderRadius: '0.375rem',
+                border:"1px solid grey"
               }}
               required
+              placeholder='Email'
             />
           </div>
           <div style={{ marginBottom: '16px' }}>
@@ -111,17 +114,19 @@ const ContactForm = () => {
             <textarea
               id="message"
               name="message"
+              placeholder='Message'
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               style={{
                 outline: 'none',
                 width: '20rem',
                 height: '10rem',
-                color: 'navy',
-                fontWeight: '600',
-                fontSize: '1.5em',
+                color: 'black',
+                fontWeight: '500',
+                fontSize: '1em',
                 padding: '8px',
                 borderRadius: '0.375rem',
+                border:"1px solid grey"
               }}
               rows="5"
               required
@@ -137,6 +142,7 @@ const ContactForm = () => {
                 padding: '8px 16px',
                 marginRight: '16px',
                 borderRadius: '0.375rem',
+                border:"none",
                 fontWeight: '500',
               }}
             >

@@ -58,15 +58,15 @@ export default function RunsheetPrint(){
                         </thead>
                         <tbody>
                             {
-                               runsheetList.length>0?
-                               runsheetList.map(r=>{
+                               runsheetList?.length>0?
+                               runsheetList?.map(r=>{
                                 return (
                                     <tr>
-                                        <td><FaPrint onClick={e=>downloadRunsheet(r._id)} style={{color:"blueviolet",fontSize:"18px"}}/></td>
-                                        <td>{r.runsheetNumber}</td>
-                                        <td>{getFormttedDate(r.date)}</td>
-                                        <td>{r.employee.name}</td>
-                                        <td>{r.dockets.length}</td>
+                                        <td><FaPrint onClick={e=>downloadRunsheet(r?._id)} style={{color:"blueviolet",fontSize:"18px"}}/></td>
+                                        <td>{r?.runsheetNumber}</td>
+                                        <td>{getFormttedDate(r?.date)}</td>
+                                        <td>{r?.employee?.name}</td>
+                                        <td>{r?.dockets?.length}</td>
                                     </tr>
                                 )
                                })

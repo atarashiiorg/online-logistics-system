@@ -5,19 +5,19 @@ const Navbar = () => {
       
       <ul>
         <li>
-          <a href="#">Home</a>
+          <a href="#home">Home</a>
         </li>
         <li
           style={{ width: '1.5px', height: '30px', backgroundColor: '#555' }}
         ></li>
         <li>
-          <a href="#">About</a>
+          <a href="#reviews">About</a>
         </li>
         <li
           style={{ width: '1.5px', height: '30px', backgroundColor: '#555' }}
         ></li>
         <li>
-          <a href="#">Contact</a>
+          <a href="#contactus">Contact</a>
         </li>
       </ul>
     </div>

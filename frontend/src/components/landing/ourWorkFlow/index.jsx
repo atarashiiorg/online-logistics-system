@@ -79,7 +79,7 @@ const OurWorkFlow = () => {
   const defaultViewport = {
     x: -110,
     y: -60,
-    zoom: zoom,
+    // zoom: zoom,
   };
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
@@ -89,7 +89,7 @@ const OurWorkFlow = () => {
     <div
       style={{
         marginTop: '2em',
-        width: '100vw',
+        width: '100%',
         height: '100vh',
       }}
     >

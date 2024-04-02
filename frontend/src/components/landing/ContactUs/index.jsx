@@ -7,6 +7,7 @@ const ContactUs = () => {
         padding: '2em 3em 2.5em 3em',
         backgroundColor: 'rgb(250, 250, 250)',
       }}
+      id='contactus'
     >
       <h1
         style={{

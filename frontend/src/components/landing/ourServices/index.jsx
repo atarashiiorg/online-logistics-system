@@ -4,7 +4,7 @@ import styles from './style.module.css';
 
 const OurServices = () => {
   return (
-    <div className={styles.ourServices}>
+    <div className={styles.ourServices} id='services'>
       <div className={styles.heading}>
         <div
           style={{

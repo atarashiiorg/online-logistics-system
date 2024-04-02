@@ -1,3 +1,4 @@
+import { FaEnvelope, FaMailchimp, FaMobile, FaPhone, FaPhoneAlt } from 'react-icons/fa';
 import styles from './style.module.css';
 
 const Footer = () => (
@@ -10,46 +11,31 @@ const Footer = () => (
           >
             Links
           </h2>
-          <ul className={styles.mb4}>
+          <ul className={styles.mb4} style={{ listStyle: "none" }}>
             <li className={styles.mt2}>
               <a
                 href="#"
                 className={`${styles.hoverUnderline} ${styles.textGray200}`}
               >
-                Courses
-              </a>
-            </li>
-            <li className={styles.mt2}>
-              <a
-                href="#"
-                className={`${styles.hoverUnderline} ${styles.textGray200}`}
-              >
-                Contact
-              </a>
-            </li>
-            <li className={styles.mt2}>
-              <a
-                href="#"
-                className={`${styles.hoverUnderline} ${styles.textGray200}`}
-              >
-                About
+                Track Docket
               </a>
             </li>
           </ul>
         </div>
+
         <div className={`${styles.wideColumn} ${styles.narrowColumn}`}>
           <h2
             className={`${styles.uppercase} ${styles.mt4} ${styles.mb2} ${styles.fontBold}`}
           >
-            Legal
+            Location
           </h2>
-          <ul className={styles.mb4}>
+          <ul className={styles.mb4} style={{ listStyle: "none" }}>
             <li className={styles.mt2}>
               <a
                 href="#"
                 className={`${styles.hoverUnderline} ${styles.textGray200}`}
               >
-                Privacy
+                Haryana
               </a>
             </li>
             <li className={styles.mt2}>
@@ -57,44 +43,50 @@ const Footer = () => (
                 href="#"
                 className={`${styles.hoverUnderline} ${styles.textGray200}`}
               >
-                Terms
+                Punjab
               </a>
             </li>
           </ul>
         </div>
+
         <div className={`${styles.wideColumn} ${styles.narrowColumn}`}>
           <h2
-            className={`${styles.uppercase} ${styles.mb2} ${styles.mt4} ${styles.fontBold}`}
+            className={`${styles.uppercase} ${styles.mt4} ${styles.mb2} ${styles.fontBold}`}
           >
-            Location
+            Contact
           </h2>
-          <p className={styles.textGray200}>Haryana, Punjab</p>
-          <div className={`${styles.wideColumn} ${styles.narrowColumn}`}>
-            <h2
-              className={`${styles.uppercase} ${styles.mb2} ${styles.mt4} ${styles.fontBold}`}
-            >
-              Contact
-            </h2>
-            <a href="tel:+918570973368">
-              <p
-                className={`${styles.textGray200} ${styles.hoverUnderline} ${styles.mt2}`}
-                style={{width:"300px"}}
+          <ul className={styles.mb4} style={{ listStyle: "none" }}>
+            <li className={styles.mt2}>
+              <a
+                href="#"
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
               >
-                Phone: +91 85709-73368
-              </p>
-            </a>
-            <a href="mailto:safedispatchlogistics@gmail.com">
-              <p
-                className={`${styles.textGray200} ${styles.hoverUnderline} ${styles.mt2}`}
-                style={{width:"300px"}}
+                <FaPhoneAlt /> +91 85709-73368
+              </a>
+            </li>
+            <li className={styles.mt2}>
+              <a
+                href="#"
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
               >
-                Email: safedispatchlogistics@gmail.com,
-                director.safedispatch@gmail.com
-              </p>
-            </a>
-          </div>
+                <FaEnvelope /> safedispatchlogistics@gmail.com
+              </a>
+            </li>
+            <li className={styles.mt2}>
+              <a
+                href="#"
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+                style={{ display: "flex", alignItems: "center", gap: "10px" }}
+              >
+                <FaEnvelope /> director.safedispatchlogistics@gmail.com
+              </a>
+            </li>
+          </ul>
         </div>
-        <div
+
+        {/* <div
           //   className={`${styles.wideColumn} ${styles.narrowColumn}`}
           style={{
             marginLeft: '3em',
@@ -131,7 +123,7 @@ const Footer = () => (
               </a>
             </li>
           </ul>
-        </div>
+        </div> */}
       </div>
     </div>
     <div className={`${styles.mt16} ${styles.borderT2} ${styles.flexWrap}`}>
