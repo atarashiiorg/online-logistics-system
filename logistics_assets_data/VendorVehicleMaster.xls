@@ -1,0 +1,95 @@
+<style> .text { mso-number-format:\@; }</style> <table cellspacing="0" rules="all" border="1" id="dgridExcelExport" style="border-collapse:collapse;">
+	<tr>
+		<td>VenderCode</td><td>VehicleType</td><td>VehicleNo</td><td>ChasisNo</td><td>EngineNo</td><td>RCBookNo</td><td>VehiclePermit</td><td>InsuranceValidDate</td><td>FitnessValidity</td><td>IsActive</td>
+	</tr><tr>
+		<td>V1055 : GURLAL</td><td>TATA ACE</td><td>PB03BH3589</td><td>1</td><td>1</td><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1049 : LUCKY</td><td>TATA ACE</td><td>PB11CB7843</td><td>123</td><td>123</td><td>123</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1045 : ASHOK KUMAR</td><td>TATA ACE</td><td>PB11CF8757</td><td>1</td><td>1</td><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1043 : SORAV</td><td>TATA ACE</td><td>PB03BH2460</td><td>1</td><td>1</td><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1026 : TEST</td><td>LPT 17 FUT</td><td>DL-1RF-4425</td><td>123456</td><td>12345</td><td>45896</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1008 : FAST EXPRESS CARGO</td><td>TATA ACE</td><td>PB10ES8631</td><td>24561</td><td>24561</td><td>PB10ES8631</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1019 : RAJESH KUMAR</td><td>MAHINDRA PICK UP</td><td>PB02BH9978</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1020 : HONEY</td><td>TATA ACE</td><td>PB02CC9261</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1021 : RAGHAV SONI</td><td>TATA ACE</td><td>PB02BS9785</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1012 : SAABI </td><td>TATA ACE</td><td>PB08BZ8417</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1013 : SOBIT</td><td>TATA ACE</td><td>PB08DG3084</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1014 : MANU</td><td>TATA ACE</td><td>PB08EE4128</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1008 : FAST EXPRESS CARGO</td><td>MAHINDRA PICK UP</td><td>PB10ES4739</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1008 : FAST EXPRESS CARGO</td><td>AUTO</td><td>PB10CZ1947</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1001 : DALJIT SINGH</td><td>TATA ACE</td><td>PB10DS9894</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1003 : KALE KHAN</td><td>TATA ACE</td><td>PB10CY7512</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1003 : KALE KHAN</td><td>TATA ACE</td><td>PB10ES8350</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1003 : KALE KHAN</td><td>TATA ACE</td><td>PB10GK5888</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1004 : GURDYAL</td><td>TATA ACE</td><td>PB10FV1598</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1008 : FAST EXPRESS CARGO</td><td>TATA ACE</td><td>PB10FV0871</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1009 : HARJODH SINGH</td><td>TATA ACE</td><td>PB10DM5944</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1010 : MANOJ </td><td>TATA ACE</td><td>PB10DZ0223</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1011 : SURAJ</td><td>TATA ACE</td><td>PB10DZ6783</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1005 : NAND LAL</td><td>LPT 14 FUT</td><td>PB19D0441</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1005 : NAND LAL</td><td>LPT 17 FUT</td><td>PB10BM5713</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1006 : GILL TRANSPORT</td><td>LPT 17 FUT</td><td>PB10GZ0326</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1006 : GILL TRANSPORT</td><td>LPT 14 FUT</td><td>PB10GK4110</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1007 : RAI TRANSPORT</td><td>709 19 FUT</td><td>RJ13GA7306</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1005 : NAND LAL</td><td>LPT 17 FUT</td><td>PB11Y5997</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1007 : RAI TRANSPORT</td><td>709 19 FUT</td><td>PB10FV2022</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1002 : INDERJIT SINGH</td><td>MAHINDRA PICK UP</td><td>PB07BT5172</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1006 : GILL TRANSPORT</td><td>LPT 17 FUT</td><td>PB10CF3489</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1006 : GILL TRANSPORT</td><td>LPT 17 FUT</td><td>PB11BN7365</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1008 : FAST EXPRESS CARGO</td><td>TATA ACE</td><td>PB10FF4603</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1008 : FAST EXPRESS CARGO</td><td>TATA ACE</td><td>PB10FF4672</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1008 : FAST EXPRESS CARGO</td><td>TATA ACE</td><td>PB10DZ8027</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1022 : SURESH</td><td>TATA ACE</td><td>CH01TA2758</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1023 : SANGITA</td><td>TATA ACE</td><td>PB65T6222</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1024 : KAMLESH</td><td>TATA ACE</td><td>CH04L7110</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1025 : ARUN</td><td>TATA ACE</td><td>CH01TA6461</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1015 : RAKSH KUMAR</td><td>TATA ACE</td><td>PB11BU8690</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1016 : GURWINDER SINGH</td><td>TATA ACE</td><td>HR575888</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>V1017 : BILLU RAM</td><td>TATA ACE</td><td>PB03V8967</td><td>1</td><td>1</td><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>&nbsp;</td><td>TATA ACE</td><td>PB03AA3429</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr><tr>
+		<td>&nbsp;</td><td>TATA ACE</td><td>PB03AX3749</td><td>1</td><td>1</td><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>YES</td>
+	</tr>
+</table>

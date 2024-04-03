@@ -1,58 +1,219 @@
 const { 
-    loginUser, 
-    sendShipperForPrinting, 
-    receiveShipperFromPrinting, 
-    createBooking,
-    createBranch,
-    getBranches,
-    shipperIssueToBranch,
-    createClient,
-    getClients,
+    createManifest, 
+    getManifests, 
+    receiveManifest 
+} = require("../controllers/manifestControllers")
+const {
+    loginUser,
     trackAwb,
 } = require("../controllers/userControllers")
+const {
+    createBranch,
+    getBranches,
+    updateBranch,
+    deleteBranch
+} = require("../controllers/branchControllers")
+const {
+    createClient,
+    getClients,
+    deleteClient,
+    updateClient
+} = require("../controllers/clientControllers")
+const {
+    createVendor,
+    getVendors,
+    deleteVendor,
+    updateVendor
+} = require("../controllers/vendorControllers")
+const {
+    getShippers,
+    sendShipperForPrinting,
+    shipperIssueToBranch,
+    updateShipper
+} = require("../controllers/shipperControllers")
+
+const {
+    createBooking, 
+    getBooking
+} = require("../controllers/bookingControllers")
+const {
+    createState,
+    getState,
+    updateState
+} = require("../controllers/stateControllers")
+const {
+    getZone,
+    createZone,
+    updateZone
+} = require("../controllers/zoneControllers")
+const {
+    getDestination,
+    createDestination,
+    updateDestination
+} = require("../controllers/destinationControllers")
+const {
+    getRunsheets, 
+    createRunsheet
+} = require("../controllers/runsheetControllers")
+const {
+    getEmployee,
+    createEmployee,
+    updateEmployee,
+    deleteEmployee,
+    updateAccess
+} = require("../controllers/employeeControllers")
+const {
+    getAwb
+} = require("../controllers/awbControllers")
+
+const BranchAccess = require("../models/branchAccess")
+const Employee = require("../models/employee")
 const jwt = require("jsonwebtoken")
+const path = require("path")
 const userRoutes = require("express")()
 
-const authorize = (req,res,next)=>{
+const authorize = async (req, res, next) => {
     try {
-        // if(!req.headers.authorization){
-        //     res.status(401).json({"msg":'unauthorised access'})
+        const token = req.cookies.token
+        if (!token) {
+            res.status(401).json({ msg: "Unauthorised access" })
+            return
+        }
+        const decodedToken = await jwt.verify(token, process.env.JWT_KEY)
+        // const branchAccess = await BranchAccess.findOne({ eCode: decodedToken.eCode })
+        // if (!branchAccess?.access?.includes(req?.query?.branch) && decodedToken.role != "adm") {
+        //     res.status(401).json({ msg: 'unauthorised for this opertion' })
         //     return
+        // } else if (req.query.role == "suadm") {
+        //     next()
         // }
-        // const auth = jwt.verify(req.headers.authorization,process.env.JWT_KEY)
-        // req.auth = auth
+        req.token = { ...decodedToken }
         next()
     } catch (error) {
-        res.status(401).json({"msg":'invalid token or token not found'})
+        console.log("authorize error->", error)
+        res.status(401).json({ "msg": 'Session Expired. Log in again.' })
     }
 }
 
+
+userRoutes.get("/checklogin", authorize, async (req, res) => {
+    try {
+        console.log(req.token)
+        if (req.token.isLoggedIn) {
+            const user = await Employee.findOne({ _id: req.token._id, isActive: true })
+                .populate({
+                    path: "permissions",
+                    populate: [{
+                        path: "branchAccess",
+                        populate: {
+                            path: "access",
+                            populate: {
+                                path: "branch"
+                            }
+                        }
+                    },
+                    {
+                        path: "pageAccess"
+                    }]
+                })
+            res.status(200).json({ msg: "success", data: user })
+        }
+    } catch (error) {
+        res.status(500).json({ err: error.toString() })
+    }
+})
+
 userRoutes.post("/login", loginUser)
 
-userRoutes.use("/sendshipper",authorize)
-userRoutes.route("/sendshipper")
-.get(receiveShipperFromPrinting)
-.post(sendShipperForPrinting)
+userRoutes.get("/logout", (req, res) => {
+    try {
+        res.clearCookie("token")
+        res.status(200).json({ msg: "success" })
+    } catch (error) {
+        res.status(500).json({ err: error.toString() })
+    }
+})
 
-userRoutes.use("/issueshippertobranch", authorize)
+userRoutes.use("/shipper", authorize)
+userRoutes.route("/shipper")
+    .get(getShippers)
+    .post(sendShipperForPrinting)
+    .patch(updateShipper)
+
+
 userRoutes.route("/issueshippertobranch")
-.post(shipperIssueToBranch)
+    .all(authorize)
+    .post(shipperIssueToBranch)
 
-userRoutes.use("/booking",authorize)
 userRoutes.route("/booking")
-.post(createBooking)
+    .all(authorize)
+    .get(getBooking)
+    .post(createBooking)
 
 userRoutes.route("/track")
-.get(trackAwb)
+    .all(authorize)
+    .get(trackAwb)
 
-userRoutes.use("/branch",authorize)
+userRoutes.route("/awb")
+    .all(authorize)
+    .get(getAwb)
+
 userRoutes.route("/branch")
-.post(createBranch)
-.get(getBranches)
+    .all(authorize)
+    .post(createBranch)
+    .get(getBranches)
+    .patch(updateBranch)
+    .delete(deleteBranch)
 
-userRoutes.use("/client", authorize)
 userRoutes.route("/client")
-.post(createClient)
-.get(getClients)
+    .all(authorize)
+    .post(createClient)
+    .get(getClients)
+    .delete(deleteClient)
+    .patch(updateClient)
+
+userRoutes.route("/employee")
+    .all(authorize)
+    .get(getEmployee)
+    .post(createEmployee)
+    .patch(updateEmployee)
+    .delete(deleteEmployee)
+    .put(updateAccess)
+
+userRoutes.route("/vendor")
+    .all(authorize)
+    .get(getVendors)
+    .post(createVendor)
+    .patch(updateVendor)
+    .delete(deleteVendor)
+
+userRoutes.route("/manifest")
+    .all(authorize)
+    .post(createManifest)
+    .get(getManifests)
+    .patch(receiveManifest)
+
+userRoutes.route("/runsheet")
+    .all(authorize)
+    .get(getRunsheets)
+    .post(createRunsheet)
+
+userRoutes.route("/state")
+    .all(authorize)
+    .get(getState)
+    .post(createState)
+    .patch(updateState)
+
+userRoutes.route("/zone")
+    .all(authorize)
+    .get(getZone)
+    .post(createZone)
+    .patch(updateZone)
+
+userRoutes.route("/dest")
+    .all(authorize)
+    .get(getDestination)
+    .post(createDestination)
+    .patch(updateDestination)
 
 module.exports = userRoutes

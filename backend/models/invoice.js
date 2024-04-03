@@ -23,6 +23,8 @@ const invoiceSchema = new mongoose.Schema({
         type:Number,
         default:0.0
     }
+},{
+    timestamps:true
 });
 
 const Invoice = mongoose.model('Invoice', invoiceSchema);

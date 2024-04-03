@@ -3,9 +3,10 @@ import style from './style.module.css'
 import { FaArrowRotateLeft } from 'react-icons/fa6'
 import { TableTotalFound } from '../../forms/manifestPrint'
 import { SearchManifest } from '../../forms/manifestDirect'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { message } from 'antd'
 import { serverUrl } from '../../../constants'
+import UserAuthContext from '../../../contexts/authContext'
 
 export default function SendShipperForPrinting() {
     const shippers = {
@@ -17,8 +18,7 @@ export default function SendShipperForPrinting() {
         remarks: ""
     }
     const [shipper, setShipper] = useState(shippers)
-    const [branches, setBranches] = useState([])
-
+    const { branches } = useContext(UserAuthContext)
     const resetForm = () => {
         setShipper(shippers)
     }
@@ -52,7 +52,7 @@ export default function SendShipperForPrinting() {
             message.warning("shipper to must be greater than shipper from.")
             return
         }
-        const res = await fetch(serverUrl + "sendshipper", {
+        const res = await fetch(serverUrl + "shipper", {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
@@ -82,37 +82,14 @@ export default function SendShipperForPrinting() {
         }
     }
 
-    const fetchBranches = async()=>{
-        try {
-            const res = await fetch(serverUrl+"branch")
-            if(res.status==500){
-                message.warning("Internal Server Error Occured")
-                return 
-            }
-            if(res.status==304){
-                message.warning("Something went wrong")
-                return 
-            }
-            const data = await res.json()
-            setBranches(data)
-        } catch (err){
-            message.error(err)
-            return
-        }
-    }
-
-    useEffect(() => {
-        fetchBranches()
-    }, [])
-
-    const setBranchCode = async(bCode)=>{
+    const setBranchCode = async (bCode) => {
         const b_code = bCode.split(":")[1]
-        const b_id = await branches.filter(b=>{
-            if(b.branchCode==b_code){
+        const b_id = await branches.filter(b => {
+            if (b.branchCode == b_code) {
                 return b
             }
         })
-        await setShipper(p => { return { ...p, branch: b_id[0]?._id }})
+        await setShipper(p => { return { ...p, branch: b_id[0]?._id } })
     }
 
     return (

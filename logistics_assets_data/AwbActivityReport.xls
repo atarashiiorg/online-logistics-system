@@ -1,0 +1,20 @@
+<style> .text { mso-number-format:\@; }</style> <table cellspacing="0" rules="all" border="1" id="dgExcelExport" style="border-collapse:collapse;">
+	<tr>
+		<td>AwbNo</td><td>LogType</td><td>LogDate</td><td>LogFrom</td><td>LogDetail</td><td>UserName</td>
+	</tr><tr>
+		<td class="text">8614000</td><td class="text">INSERT</td><td class="text">01-MAR-2024 11:52:25 AM</td><td class="text">RunsheetDetail</td><td class="text">Inserted RunsheetNo=247124</td><td class="text">E1006 : BABLI</td>
+	</tr><tr>
+		<td class="text">8614000</td><td class="text">INSERT</td><td class="text">09-MAR-2024  1:32:03 PM</td><td class="text">DeliveryStatusEntry</td><td class="text">Delivery Status Entry Of AwbNo:8614000
+			,PktStatus: DLVRD, RCDate: 28-Feb-2024, RCName: , RCRelation: ,
+			RCPhone: </td><td class="text">E1005 : PRIYANKA</td>
+	</tr><tr>
+		<td class="text">8614000</td><td class="text">INSERT</td><td class="text">13-JAN-2024  4:26:35 PM</td><td class="text">ShipperTransfer</td><td class="text">Shipper Issue to BCode=B1001 AwbNo=8614000,
+			IssueDate:13-Jan-2024,RecievedBy:,CreatedBy:E1336,EntryDate:Jan 13 2024  4:26PM</td><td class="text">E1336 : HARPREET</td>
+	</tr><tr>
+		<td class="text">8614000</td><td class="text">Insert AwbNo</td><td class="text">27-FEB-2024  9:46:57 PM</td><td class="text">GRNEntry</td><td class="text">Insert AwbNo:8614000</td><td class="text">E1034 : SATWINDER SINGH</td>
+	</tr><tr>
+		<td class="text">8614000</td><td class="text">INSERT</td><td class="text">28-FEB-2024  5:37:42 AM</td><td class="text">RunsheetDetail</td><td class="text">Inserted RunsheetNo=246978</td><td class="text">E1034 : SATWINDER SINGH</td>
+	</tr><tr>
+		<td class="text">8614000</td><td class="text">INSERT</td><td class="text">28-FEB-2024  6:20:07 AM</td><td class="text">RunsheetDetail</td><td class="text">Inserted RunsheetNo=246978</td><td class="text">E1034 : SATWINDER SINGH</td>
+	</tr>
+</table>

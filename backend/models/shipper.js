@@ -8,7 +8,13 @@ const shipperSchema = new mongoose.Schema({
     docketFrom:Number,
     docketTo:Number,
     sendBy:String,
+    isReceived:{
+        type:Boolean,
+        default:false
+    },
     remarks:String
+},{
+    timestamps:true
 })
 
 const Shipper = mongoose.model("Shipper", shipperSchema)

@@ -1,12 +1,27 @@
 .header{
     display: flex;
-    height: 10%;
-    background-color: #052857;
+    height: 7%;
+    background-color: #122540;
+    /* background-color: #503D58; */
     justify-content: space-between;
     padding: 0px 5%;
     align-items: center;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.left{
+    height: 100%;
+    margin-left: -30px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.logo{
+    height: 100%;
+    scale: 1.2;
+    object-fit: contain;
 }
 
 .right{
@@ -40,4 +55,10 @@ input:focus{
 .uname>p{
     margin-right: 8px;
     font-size: 16px;
+}
+
+.searchIcon:hover{
+    scale: 1.2;
+    transition-delay: .2s;
+    transition: ease-in-out;
 }

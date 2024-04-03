@@ -14,14 +14,17 @@ const branchSchema = new mongoose.Schema({
     address: String,
     city: String,
     pincode: String,
-    zone: String,
+    zone: {
+        type:mongoose.Types.ObjectId,
+        ref:'Zone'
+    },
     isHub: {
         type: Boolean,
         default: false
     },
     hubBranch: {
-        type: String,
-        default: ""
+        type: mongoose.Types.ObjectId,
+        ref: 'Branch'
     },
     allowedBooking: {
         road: {

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manifest</title>
+   <style>
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .page{
+        padding: 10px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .logo{
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+    }
+    .heading{
+        margin-top: 10px;
+        padding: 4px;
+        border: 1px solid black;
+        width: 100%;
+        position: relative;
+        height: 60px;
+    }
+    .heading>h3{
+        text-align: center;
+        margin: 0;
+    }
+    #printedAt{
+        position: absolute;
+        bottom: 10px; 
+        right: 20px;
+        font-size: 12px;
+    }
+    .header{
+        width: 100%;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        padding-block: 15px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+    }
+    .right{
+        padding-right: 80px;
+    }
+    .right, .left{
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .content{
+        width: 100%;
+        margin-block: 10px;
+        border-top: 1px solid black;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        /* border-bottom: 1px solid black; */
+    }
+    .content>table{
+        border-collapse: collapse;
+        min-width: 100%;
+        font-size: 11px;
+    }
+    .content>table th:not(:last-child),
+    .content>table td:not(:last-child){
+        border-right: 1px solid black;
+        padding: 5px;
+    }
+    .content>table th,
+    .content>table td{
+        border-bottom: 1px solid black;
+    }
+    .content>table td:last-child{
+        padding: 5px;
+    }
+    .content>table td{
+        text-transform: uppercase;
+    }
+    .manifestDetails{
+        width: 100%;
+        padding-block: 15px;
+        padding-inline: 10px;
+        height: 150px;
+        border: 1px solid black;
+        position: relative;
+        font-size: 12px;
+    }
+    #sign{
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+    }
+    .data{
+        text-transform: uppercase;
+    }
+   </style>
+</head>
+<body>
+    <div class="page">
+        <div class="logo">
+            <h3 style="margin: 0;text-align: center; font-size: initial;">SAFE DISPATCH LOGISTICS</h3>
+            <blockquote style="margin: 0; text-align: center;">Your Comfirt is our Priority</blockquote>
+            <p style="text-align: center;">Plot No. 237, Industrial Area-A, Near Cheema Chownk, Ludhiana</p>
+        </div>
+        <div class="heading">
+            <h3>Manifest Print</h3>
+            <p id="printedAt">Printed @ <%= printedAt %>
+            </p>
+        </div>
+        <div class="header">
+            <div class="left">
+                <p>Mode: <span class="data"><%= mode %></span></p>
+                <p>From Branch: <span class="data"><%= branch %></span></p>
+                <p>To Branch: <span class="data"><%= destination %></span></p>
+                <p>Vendor: <span class="data"><%= vendor %></span></p>
+                <p>Driver: </p>
+            </div>
+            <div class="right">
+                <p>Manifest Date: <span class="data"><%= manifestDate %></span></p>
+                <p>Manifest No: <span class="data"><%= manifestNumber %></span></p>
+                <p>Total Docket: <span class="data"><%= totalDockets %></span></p>
+                <p>Vehicle No: </p>
+            </div>
+        </div>
+        <div class="content">
+            <table class="docketTable">
+                <thead>
+                    <tr>
+                        <th>SNo.</th>
+                        <th>Docket.</th>
+                        <th>Date</th>
+                        <th>Origin</th>
+                        <th>Client</th>
+                        <th>Dest</th>
+                        <th>Consignee</th>
+                        <th>Pcs</th>
+                        <th>Weight</th>
+                        <th>ToPay</th>
+                        <th>COD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% data.forEach((d,index )=> { %>
+                        <tr>
+                            <td class="data">
+                                <%= index+1 %>
+                            </td>
+                            <td class="data"><%= d.docketNumber %></td>
+                            <td class="data"><%= d.date %> </td>
+                            <td class="data"><%= d.origin %></td>
+                            <td class="data"><%= d.client %></td>
+                            <td class="data"><%= d.destination %></td>
+                            <td class="data"><%= d.consignee %></td>
+                            <td class="data"><%= d.pieces %></td>
+                            <td class="data"><%= d.weight %></td>
+                            <td class="data"><%= d.toPay %></td>
+                            <td class="data"><%= d.cod %></td>
+                        </tr>
+                        <% }) %>
+                        <tr>
+                            <td colspan="6"></td>
+                            <td >Total:</td>
+                            <td>
+                                <%= totalpieces %>
+                            </td>
+                            <td>
+                                <%= totalWeight %>
+                            </td>
+                            <td>
+                                <%= totalToPay %>
+                            </td>
+                            <td>
+                                <%= totalCod %>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="manifestDetails">
+            <p style="text-transform: uppercase;">i confirm having received _____________________ packages on _____________________ at _________________
+                verify the same.</p>
+            <p id="sign" style="text-transform: uppercase;">Originating HUB/BR InCharge</p>
+        </div>
+    </div>
+</body>
+
+</html>

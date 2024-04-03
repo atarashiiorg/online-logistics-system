@@ -1,0 +1,96 @@
+.testimonials {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: whitesmoke;
+  position: relative;
+  border-top: 2px solid rgb(182, 180, 180);
+  border-bottom: 2px solid rgb(182, 180, 180);
+}
+
+.testimonials > h1 {
+  position: absolute;
+  top: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #1e293b;
+  font-size: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.right::-webkit-scrollbar {
+  display: none;
+}
+
+.right {
+  position: absolute;
+  top: 5%;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  padding-inline: 10px;
+}
+
+.card {
+  background-color: white;
+  height: 60%;
+  min-width: 450px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding-inline: 30px;
+  padding-top: 30px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+}
+
+.card p {
+  color: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  line-height: 1.6;
+  /* padding-inline: 4px; */
+}
+
+.card > span {
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  color: rgba(0, 0, 0, 0.9);
+  font-style: italic;
+  font-size: 18px;
+}
+
+.card > .image {
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 30px;
+  left: 20px;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+.content {
+  margin-top: 10px;
+  padding-inline: 13px;
+  max-height: 62%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+}

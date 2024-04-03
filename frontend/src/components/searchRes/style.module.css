@@ -1,3 +1,9 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .container{
     height: 100%;
     width: 100%;
@@ -10,7 +16,7 @@
     font-size: 15px;
     font-weight: bold;
     padding: 5px;
-    background-color: dodgerblue;
+    background-color: #ef9b1b;
     color: white;
 }
 

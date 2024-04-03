@@ -1,4 +1,5 @@
-import {createBrowserRouter,RouterProvider} from 'react-router-dom';
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './pages/dashboard';
 import BookingEntry from './components/forms/bookingEntry';
 import AwbUpdate from './components/forms/awbUpdate';
@@ -48,216 +49,235 @@ import Home from './pages/landing';
 import Login from './pages/login';
 import ClientMaster from './components/master/clientMaster';
 import SearchRes from './components/searchRes';
+import { TrackingPage } from './pages/tracking';
+import { LazyComp } from './components/minComp';
+import Loading from './pages/loading';
+import NotFound from './pages/notFound';
+import { EmployeeMaster } from './components/master/employeeMaster';
+import HomeState from './states/homeState';
+import UserAuthState from './states/authState';
 
 const router = createBrowserRouter([
   {
-    path:"/",
-    element:<Home/>
+    path: "/",
+    element: <HomeState><LazyComp><Home /></LazyComp></HomeState>
   },
   {
-    path:"/home",
-    element:<Home/>
+    path: "/home",
+    element: <HomeState><LazyComp><Home /></LazyComp></HomeState>
   },
   {
-    path:"/login",
-    element:<Login/>
+    path: "/login",
+    element: <Login />
   },
   {
-    path:"/dashboard",
-    element:<Dashboard/>,
-    children:[
+    path: "/track",
+    element: <HomeState><LazyComp><TrackingPage /></LazyComp></HomeState>
+  },
+  {
+    path: "/dashboard",
+    element: <UserAuthState><LazyComp><Dashboard /></LazyComp></UserAuthState>,
+    children: [
       {
-        path:"Operations/BookingEntry",
-        element:<BookingEntry />
+        path: "Operations/BookingEntry",
+        element: <BookingEntry />
       },
       {
-        path:"Operations/AwbUpdate",
-        element:<AwbUpdate />
+        path: "Operations/AwbUpdate",
+        element: <AwbUpdate />
       },
       {
-        path:"Operations/ManifestDirect",
-        element:<ManifestDirect />
+        path: "Operations/ManifestDirect",
+        element: <ManifestDirect />
       },
       {
-        path:"Operations/ManifestPrint",
-        element:<ManifestPrint/>
+        path: "Operations/ManifestPrint",
+        element: <ManifestPrint />
       },
       {
-        path:"Operations/DispatchEntry",
-        element:<DispatchEntry/>
+        path: "Operations/DispatchEntry",
+        element: <DispatchEntry />
       },
       {
-        path:"Operations/ReceiveAwbNo",
-        element:<ReceiveAwbNo/>
+        path: "Operations/ReceiveAwbNo",
+        element: <ReceiveAwbNo />
       },
       {
-        path:"Operations/DrsEntry",
-        element:<DrsEntry/>
+        path: "Operations/DrsEntry",
+        element: <DrsEntry />
       },
       {
-        path:"Operations/DeliveryStatusEntry",
-        element:<DeliveryStatusEntry/>
+        path: "Operations/DeliveryStatusEntry",
+        element: <DeliveryStatusEntry />
       },
       {
-        path:"Operations/RunsheetPrint",
-        element:<RunsheetPrint/>
+        path: "Operations/RunsheetPrint",
+        element: <RunsheetPrint />
       },
       {
-        path:"Operations/PodScanUpload",
-        element:<PodScanUpload/>
+        path: "Operations/PodScanUpload",
+        element: <PodScanUpload />
       },
       {
-        path:"Operations/AwbPrint",
-        element:<AwbPrint/>
+        path: "Operations/AwbPrint",
+        element: <AwbPrint />
       },
       {
-        path:"Operations/UpdateForwarding",
-        element:<UpdateForwardingNo/>
+        path: "Operations/UpdateForwarding",
+        element: <UpdateForwardingNo />
       },
       {
-        path:"Operations/UpdateClientOfAwb",
-        element:<UpdateClientOfAwb/>
+        path: "Operations/UpdateClientOfAwb",
+        element: <UpdateClientOfAwb />
       },
       {
-        path:"Operations/HoldStatusEntry",
-        element:<HoldStatusEntry/>  
+        path: "Operations/HoldStatusEntry",
+        element: <HoldStatusEntry />
       },
       {
-        path:"Operations/UpdatePhysicalPod",
-        element:<UpdatePhysicalPod/>
+        path: "Operations/UpdatePhysicalPod",
+        element: <UpdatePhysicalPod />
       },
       {
-        path:"Operations/ManifestToContractor",
-        element:<ManifestToContractor/>
+        path: "Operations/ManifestToContractor",
+        element: <ManifestToContractor />
       },
       {
-        path:"Operations/ManifestToContractorPrint",
-        element:<ManifestToContractorPrint/>
+        path: "Operations/ManifestToContractorPrint",
+        element: <ManifestToContractorPrint />
       },
       //shipper routes
       {
-        path:"shipper/SendShipperForPrinting",
-        element:<SendShipperForPrinting/>
+        path: "shipper/SendShipperForPrinting",
+        element: <SendShipperForPrinting />
       },
       {
-        path:"shipper/ReceiveShipperFromPrinter",
-        element:<ReceiveShipperFromPrinter/>
+        path: "shipper/ReceiveShipperFromPrinter",
+        element: <ReceiveShipperFromPrinter />
       },
       {
-        path:"shipper/ShipperIssueToBranch",
-        element:<ShipperIssueToBranch/>
+        path: "shipper/ShipperIssueToBranch",
+        element: <ShipperIssueToBranch />
       },
       {
-        path:"shipper/ShipperIssueToClient",
-        element:<ShipperIssueToClient/>
+        path: "shipper/ShipperIssueToClient",
+        element: <ShipperIssueToClient />
       },
       {
-        path:"shipper/IssueToEmployee",
-        element:<ShipperIssueToEmployee/>
+        path: "shipper/IssueToEmployee",
+        element: <ShipperIssueToEmployee />
       },
       {
-        path:"shipper/ShipperTransfer",
-        element:<ShipperTransfer/>
+        path: "shipper/ShipperTransfer",
+        element: <ShipperTransfer />
       },
       //Master Routes
       {
-        path:"master/BranchMaster",
-        element:<BranchMaster/>
+        path: "master/BranchMaster",
+        element: <BranchMaster />
       },
       {
-        path:"master/ClientMaster",
-        element:<ClientMaster />
+        path: "master/ClientMaster",
+        element: <ClientMaster />
+      },
+      {
+        path: "master/EmployeeMaster",
+        element: <EmployeeMaster />
       },
       //General Master Routes
       {
-        path:"GeneralMaster/StateMaster",
-        element:<StateMaster/>
+        path: "GeneralMaster/StateMaster",
+        element: <StateMaster />
       },
       {
-        path:"GeneralMaster/ZoneMaster",
-        element:<ZoneMaster/>
+        path: "GeneralMaster/ZoneMaster",
+        element: <ZoneMaster />
       },
       {
-        path:"GeneralMaster/DestinationMaster",
-        element:<DestinationMaster/>
-      },{
-        path:"GeneralMaster/VendorVehicleMaster",
-        element:<VendorVehicleMaster/>
+        path: "GeneralMaster/DestinationMaster",
+        element: <DestinationMaster />
+      }, {
+        path: "GeneralMaster/VendorVehicleMaster",
+        element: <VendorVehicleMaster />
       },
       //Mis Routes
       {
-        path:"Mis/MisReport",
-        element:<MisReport/>
+        path: "Mis/MisReport",
+        element: <MisReport />
       },
       //User Admin Routes
       {
-        path:"UserAdmin/ChangePassword",
-        element:<ChangePassword/>
+        path: "UserAdmin/ChangePassword",
+        element: <ChangePassword />
       },
       {
-        path:"UserAdmin/EmployeeBranchAccess",
-        element:<EmployeeBranchAccess/>
+        path: "UserAdmin/ManageEmployeeAccess",
+        element: <EmployeeBranchAccess />
       },
       {
-        path:"UserAdmin/ResetPassword",
-        element:<ResetPassword/>
+        path: "UserAdmin/ResetPassword",
+        element: <ResetPassword />
       },
       {
-        path:"UserAdmin/UserLogReport",
-        element:<UserLogReport/>
+        path: "UserAdmin/UserLogReport",
+        element: <UserLogReport />
       },
       //Report Routes
       {
-        path:"Report/ManifestReportSummarised",
-        element:<ManifestReportSummarised/>
+        path: "Report/ManifestReportSummarised",
+        element: <ManifestReportSummarised />
       },
       {
-        path:"Report/ManifesReportDetailed",
-        element:<ManifestReportDetailed/>
+        path: "Report/ManifesReportDetailed",
+        element: <ManifestReportDetailed />
       },
       {
-        path:"Report/ViewPodScan",
-        element:<ViewPodScan/>
+        path: "Report/ViewPodScan",
+        element: <ViewPodScan />
       },
       {
-        path:"Report/ArrivalEntryReport",
-        element:<ArrivalEntryReport/>
+        path: "Report/ArrivalEntryReport",
+        element: <ArrivalEntryReport />
       },
       {
-        path:"Report/AwbActivityReport",
-        element:<AwbActivityReport/>
+        path: "Report/AwbActivityReport",
+        element: <AwbActivityReport />
       },
       {
-        path:"Report/BookingReport",
-        element:<BookingReport/>
+        path: "Report/BookingReport",
+        element: <BookingReport />
       },
       {
-        path:"Report/DrsReport",
-        element:<DrsReport/>
+        path: "Report/DrsReport",
+        element: <DrsReport />
       },
       {
-        path:"Report/DeliveryStatusReport",
-        element:<DeliveryStatusReport/>
+        path: "Report/DeliveryStatusReport",
+        element: <DeliveryStatusReport />
       },
       //Query Routes
       {
-        path:"Query/AwbNoQuery",
-        element:<AwbNoQuery/>
+        path: "Query/AwbNoQuery",
+        element: <AwbNoQuery />
       },
       {
-        path:"Query/ReportQuery",
-        element:<ReportQuery/>
+        path: "Query/ReportQuery",
+        element: <ReportQuery />
       },
       //Import Routes
       {
-        path:"Import/ImportPacketBooking",
-        element:<ImportPacketBooking/>
+        path: "Import/ImportPacketBooking",
+        element: <ImportPacketBooking />
       },
       {
-        path:"tracking",
-        element:<SearchRes/>
+        path: "tracking",
+        element: <SearchRes />
       }
     ]
+  },
+  {
+    path: "*",
+    element: <NotFound />
   }
 ])
 
