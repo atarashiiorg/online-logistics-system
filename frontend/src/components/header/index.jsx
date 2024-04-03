@@ -20,7 +20,7 @@ export default function Header() {
 
     const handleSearch = async()=>{
         try {
-            const res = await fetch(serverUrl+"track?docket="+searchQuery)
+            const res = await fetch(serverUrl+"track?docket="+searchQuery,{credentials:'include'})
             if(res.ok){
                 const data = await res.json()
                 setDocketTracking({...data, show:true, awb: searchQuery})
@@ -39,10 +39,12 @@ export default function Header() {
     }
 
     const logOut = async()=>{
-        const res = await fetch(serverUrl+"logout")
+        const res = await fetch(serverUrl+"logout",{credentials:'include'})
         const json = await res.json()
         if(res.ok){
             setUser(null)
+            sessionStorage.removeItem("user")
+            navigate("/login")
         } else if(res.status==500){
             message.error("Server Error: ",json.err)
         } else {

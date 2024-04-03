@@ -8,6 +8,7 @@ const ConsignorConsignee = require("../models/consignorConsignee");
 const Booking = require("../models/booking");
 const { initiateTracking, findManifestWithBooking } = require("../services/dbServices");
 const Manifest = require("../models/manifest");
+const { default: mongoose } = require("mongoose");
 // const = require('mongoose').mongo.ObjectID
 
 async function createBooking(req, res) {
@@ -89,7 +90,9 @@ async function getBooking(req, res) {
                 res.status(403).json({msg:'Docket not booked yet'})
                 return
             }
+            console.log(data.manifest)
             if(!data?.manifest){
+                console.log("manifest nhi mila")
                 if(!data?.booking?.branch.equals(req.query.branch)){
                     res.status(403).json({msg:"Docket not booked by this branch"})
                     return
@@ -102,14 +105,21 @@ async function getBooking(req, res) {
                     return
                 }
             } else {
-                console.log(data.manifest.toBCode,req.query.branch)
-                if(data.manifest.toBCode.equals(req.query.branch)){
+                if(new mongoose.Types.ObjectId(data.manifest.toBCode).equals(req.query.branch)){
                     const docket = data.manifest.dockets.filter(d=>d.booking?.docketNumber==req.query.docket)[0]
                     console.log("manifest-found->",docket)
                     if(!docket.isReceived){
                         res.status(403).json({'msg':'docket manifested to current branch but not received yet'})
                         return
                     }
+                    if(data?.booking?.tracking?.status=="in-transit"||data?.booking?.tracking?.status=="booked"){
+                        //continue
+                        console.log("intransit / booked")
+                    } else {
+                        res.status(403).json({'msg':'can not create manifest or runsheet. current status of packet is '+data?.booking?.tracking?.status})
+                        return
+                    }
+
                 } else {
                     res.status(403).json({msg:'docket not manifested to current branch'})
                     return

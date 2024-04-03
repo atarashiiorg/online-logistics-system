@@ -24,7 +24,7 @@ export default function UserAuthState(props){
                 } else if(res.status==401){
                     setUser(null)
                     sessionStorage.removeItem("user")
-                    message.error(json.msg)
+                    message.error("Session Expired.")
                 }
             } catch (error) {
                 message.error(error)

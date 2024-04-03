@@ -354,7 +354,7 @@ export default function BookingEntry() {
                     <input type="text" list='branches' placeholder='Billing at branch' value={billingDetails.billingAt} onInput={e => handleBillingDetails(e, "billingAt")} />
                     <datalist id='branches'>
                         {
-                            branches.map(b => <option value={b.branchCode + " : " + b.branchName} >{b.branchName}</option>)
+                            branches.map(b => <option value={b.branch.branchCode + " : " + b.branch.branchName} >{b.branch.branchName}</option>)
                         }
                     </datalist>
                     <label htmlFor="">E-way Bill No.</label>

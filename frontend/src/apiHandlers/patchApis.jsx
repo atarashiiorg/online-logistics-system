@@ -5,6 +5,7 @@ export async function usePatchData(data, endPoint) {
     try {
         const res = await fetch(serverUrl+ endPoint,{
             method:"PATCH",
+            credentials:'include',
             headers:{
                 'content-type':'application/json'
             },

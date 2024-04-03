@@ -5,23 +5,34 @@ import { IoRefresh } from 'react-icons/io5'
 import { TableTotalFound } from '../manifestPrint'
 import { TableComp } from '../../minComp'
 import { useDownloader, useGetData } from '../../../apiHandlers/getApis'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { FaPrint } from 'react-icons/fa6'
 import {getFormttedDate} from '../../../utils/helpers'
+import Loading from '../../../pages/loading'
+import UserAuthContext from '../../../contexts/authContext'
 
 export default function RunsheetPrint(){
+    const {currBranch, user} = useContext(UserAuthContext)
     const [fromData, setFromDate] = useState("")
     const [toDate, setToDate] = useState("")
     const [runsheetFrom, setRunsheetFrom] = useState("")
     const [runsheetTo, setRunsheetTo] = useState("")
-    const [err, loading, runsheetList] = useGetData("runsheet")
+    const [err, loading, runsheetList] = useGetData("runsheet?bid="+currBranch?._id+"&eid="+user._id,[currBranch])
+    const [downloading, setDownloading] = useState(false)
 
     const downloadRunsheet = (id)=>{
+        setDownloading(true)
         const res = useDownloader("runsheet?rid="+id)
+        setDownloading(false)
     }
 
     return (
         <>
+        {console.log(runsheetList[0])}
+        {
+            loading?<Loading/>:null
+        }
+        {downloading?<Loading/>:null}
             <div className={style.formContainer}>
                 <p>Runsheet Print</p>
                 <div>

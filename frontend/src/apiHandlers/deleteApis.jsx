@@ -4,6 +4,7 @@ export const useDeleteData = async(endPoint)=>{
     try {
         const res = await fetch(serverUrl+endPoint,{
             method:"DELETE",
+            credentials:'include',
             headers:{
                 
             }

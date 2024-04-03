@@ -108,6 +108,7 @@ async function findManifestWithBooking(opts) {
         if (!booking) {
             return null
         } else {
+            console.log(booking)
             if(booking?.tracking?.currentManifest=="" || booking?.tracking?.currentManifest==null){
                 return {booking,manifest:null}
             }
@@ -125,7 +126,7 @@ async function findManifestWithBooking(opts) {
     }
 }
 
-async function updateTrackingManifest(dockets, key,details, manifest, setCol) {
+async function updateTrackingManifest(dockets, key,details, manifest) {
     try {
         for (let i = 0; i < dockets.length; i++) {
             let booking
@@ -139,11 +140,12 @@ async function updateTrackingManifest(dockets, key,details, manifest, setCol) {
                 continue; // Move to the next iteration if booking is not found
             }
 
+            console.log("Current Manifest->",manifest)
             const res = await Tracking.updateOne(
                 { _id: booking.tracking._id },
                 {
                     $push: { details: { ...details } },
-                    $set: setCol || {}
+                    $set: manifest || {}
                 }
             );
             console.log(res);

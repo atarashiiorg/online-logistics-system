@@ -21,7 +21,17 @@ async function getRunsheets(req, res) {
             pdfStream.pipe(res);
             return
         } else {
-            const runsheets = await Runsheet.find().populate("employee")
+            let runsheets;
+            if(req.query.bid && req.query.eid && req.token.role!="adm" && req.token.role!="emp"){
+                console.log("for delivery boy only")
+                runsheets = await Runsheet.find({branch:req.query.bid, employee: req.query.eid}).populate("employee")
+            } else if(req.query.bid && req.token.role=="emp"){
+                console.log("for employee") 
+                runsheets = await Runsheet.find({branch:req.query.bid}).populate("employee")
+            } else {
+                console.log("for admin")
+                runsheets = await Runsheet.find({branch:req.query.bid}).populate("employee")
+            }
             res.status(200).json({ 'msg': 'success', data: runsheets })
         }
     } catch (error) {
