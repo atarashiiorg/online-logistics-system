@@ -3,12 +3,13 @@ import { GiCargoShip } from 'react-icons/gi';
 import { MdLocalShipping } from 'react-icons/md';
 import { RiSecurePaymentFill } from "react-icons/ri"
 import { MdSpatialTracking } from "react-icons/md";
+
 // export const serverUrl = 'https://q31k0k2w-8000.inc1.devtunnels.ms/api/'
 // export const serverUrl = "https://z2nj0ph6-8000.inc1.devtunnels.ms/api/"
-export const serverUrl = "http://127.0.0.1:8000/api/"
+export const serverUrl = `${import.meta.env.VITE_BACKEND_URL}/api`
 //  export const publicUrl = 'https://q31k0k2w-8000.inc1.devtunnels.ms/'
 // export const publicUrl = "https://z2nj0ph6-8000.inc1.devtunnels.ms/"
-export const publicUrl = "http://127.0.0.1:8000/"
+export const publicUrl = `${import.meta.env.VITE_BACKEND_URL}/`
 
 
 export const title = 'Safe Dispatch';

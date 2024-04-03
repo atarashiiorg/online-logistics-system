@@ -6,7 +6,7 @@ const db = require("./models/db")
 const cookieParser = require("cookie-parser")
 
 server.use(cors({
-    origin:["http://localhost:5173","https://z2nj0ph6-5173.inc1.devtunnels.ms","https://q31k0k2w-5173.inc1.devtunnels.ms"],
+    origin:["http://localhost:5173","http://127.0.0.1:3000","https://z2nj0ph6-5173.inc1.devtunnels.ms","https://q31k0k2w-5173.inc1.devtunnels.ms"],
     exposedHeaders:['Content-Disposition'],
     credentials:true
 }))
