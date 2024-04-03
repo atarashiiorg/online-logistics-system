@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import style from './style.module.css'
 import { AiFillDashboard } from 'react-icons/ai'
 import { GiGearHammer } from 'react-icons/gi'
@@ -11,6 +11,7 @@ import { IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from 'react-icons/io'
 import { Link, useNavigate } from 'react-router-dom'
 import { message } from 'antd'
 import Loading from '../../pages/loading'
+import UserAuthContext from '../../contexts/authContext'
 
 const DynamicFaIcon = ({ name }) => {
     console.log(name)
@@ -44,7 +45,7 @@ const DashboardItem = ({ icon, title, dropdown, index, active, setActive, allowe
     const [activeOp, setActiveOp] = useState(-1)
 
     if (!allowed) {
-        // return null
+        return null
     }
 
     const show = () => {
@@ -63,10 +64,7 @@ const DashboardItem = ({ icon, title, dropdown, index, active, setActive, allowe
     return (
         <div>
             <div className={active == index ? style.d_item_active : style.d_item} onClick={e => dropdown.length > 0 ? show() : navigate("/dashboard")}>
-                {/* {`<${icon}/>`} */}
                 <DynamicFaIcon name={icon} />
-                {/* <h1>{icon}</h1> */}
-                {/* <BsGearFill /> */}
                 <span>{title}</span>
                 {dropdown.length <= 0
                     ?
@@ -79,7 +77,7 @@ const DashboardItem = ({ icon, title, dropdown, index, active, setActive, allowe
                 showList && active == index ?
                     dropdown.map((op, i) => {
                         if (!op.allowed) {
-                            // return null
+                            return null
                         }
                         return (
                             <Link onClick={e => setThisActive(i)} to={op.path} key={op + i}>
@@ -97,224 +95,224 @@ const DashboardItem = ({ icon, title, dropdown, index, active, setActive, allowe
 
 export default function SideBar() {
 
-    const operations = [
-        {
-            path: "Operations/BookingEntry",
-            value: "Booking Entry"
-        },
-        {
-            path: "Operations/AwbUpdate",
-            value: "AWB Update"
-        },
-        {
-            path: "Operations/ManifestDirect",
-            value: "Manifest Direct"
-        },
-        {
-            path: "Operations/ManifestPrint",
-            value: "Manifest Print"
-        },
-        {
-            path: "Operations/DispatchEntry",
-            value: "Dispatch Entry"
-        },
-        {
-            path: "Operations/ReceiveAwbNo",
-            value: "Receive AwbNo"
-        },
-        {
-            path: "Operations/DrsEntry",
-            value: "DRS Entry"
-        },
-        {
-            path: "Operations/DeliveryStatusEntry",
-            value: "Delivery Status Entry"
-        },
-        {
-            path: "Operations/RunsheetPrint",
-            value: "Runsheet Print"
-        },
-        {
-            path: "Operations/PodScanUpload",
-            value: "PODScan Upload"
-        },
-        {
-            path: "Operations/AwbPrint",
-            value: "AWB Print"
-        },
-        {
-            path: "Operations/UpdateForwarding",
-            value: "Update ForwardingNo"
-        },
-        {
-            path: "Operations/UpdateClientOfAwb",
-            value: "Update Client Of AwbNo"
-        },
-        {
-            path: "Operations/HoldStatusEntry",
-            value: "Hold Status Entry"
-        },
-        {
-            path: "Operations/UpdatePhysicalPod",
-            value: "Update Physical POD"
-        },
-        {
-            path: "Operations/ManifestToContractor",
-            value: "Manifest to contractor"
-        },
-        {
-            path: "Operations/ManifestToContractorPrint",
-            value: "Manifest to contractor print"
-        },
-    ]
+    // const operations = [
+    //     {
+    //         path: "Operations/BookingEntry",
+    //         value: "Booking Entry"
+    //     },
+    //     {
+    //         path: "Operations/AwbUpdate",
+    //         value: "AWB Update"
+    //     },
+    //     {
+    //         path: "Operations/ManifestDirect",
+    //         value: "Manifest Direct"
+    //     },
+    //     {
+    //         path: "Operations/ManifestPrint",
+    //         value: "Manifest Print"
+    //     },
+    //     {
+    //         path: "Operations/DispatchEntry",
+    //         value: "Dispatch Entry"
+    //     },
+    //     {
+    //         path: "Operations/ReceiveAwbNo",
+    //         value: "Receive AwbNo"
+    //     },
+    //     {
+    //         path: "Operations/DrsEntry",
+    //         value: "DRS Entry"
+    //     },
+    //     {
+    //         path: "Operations/DeliveryStatusEntry",
+    //         value: "Delivery Status Entry"
+    //     },
+    //     {
+    //         path: "Operations/RunsheetPrint",
+    //         value: "Runsheet Print"
+    //     },
+    //     {
+    //         path: "Operations/PodScanUpload",
+    //         value: "PODScan Upload"
+    //     },
+    //     {
+    //         path: "Operations/AwbPrint",
+    //         value: "AWB Print"
+    //     },
+    //     {
+    //         path: "Operations/UpdateForwarding",
+    //         value: "Update ForwardingNo"
+    //     },
+    //     {
+    //         path: "Operations/UpdateClientOfAwb",
+    //         value: "Update Client Of AwbNo"
+    //     },
+    //     {
+    //         path: "Operations/HoldStatusEntry",
+    //         value: "Hold Status Entry"
+    //     },
+    //     {
+    //         path: "Operations/UpdatePhysicalPod",
+    //         value: "Update Physical POD"
+    //     },
+    //     {
+    //         path: "Operations/ManifestToContractor",
+    //         value: "Manifest to contractor"
+    //     },
+    //     {
+    //         path: "Operations/ManifestToContractorPrint",
+    //         value: "Manifest to contractor print"
+    //     },
+    // ]
 
-    const shipper = [
-        {
-            path: "shipper/SendShipperForPrinting",
-            value: "Send Shipper For Printing"
-        },
-        {
-            path: "shipper/ReceiveShipperFromPrinter",
-            value: "Receive Shipper from printer"
-        },
-        {
-            path: "shipper/ShipperIssueToBranch",
-            value: "Shipper issue to branch"
-        },
-        {
-            path: "shipper/ShipperIssueToClient",
-            value: "Shipper issue to client"
-        },
-        {
-            path: "shipper/IssueToEmployee",
-            value: "shipper issue to employee"
-        },
-        {
-            path: "shipper/ShipperTransfer",
-            value: "shipper transfer"
-        }
-    ]
+    // const shipper = [
+    //     {
+    //         path: "shipper/SendShipperForPrinting",
+    //         value: "Send Shipper For Printing"
+    //     },
+    //     {
+    //         path: "shipper/ReceiveShipperFromPrinter",
+    //         value: "Receive Shipper from printer"
+    //     },
+    //     {
+    //         path: "shipper/ShipperIssueToBranch",
+    //         value: "Shipper issue to branch"
+    //     },
+    //     {
+    //         path: "shipper/ShipperIssueToClient",
+    //         value: "Shipper issue to client"
+    //     },
+    //     {
+    //         path: "shipper/IssueToEmployee",
+    //         value: "shipper issue to employee"
+    //     },
+    //     {
+    //         path: "shipper/ShipperTransfer",
+    //         value: "shipper transfer"
+    //     }
+    // ]
 
-    const master = [
-        {
-            path: "master/BranchMaster",
-            value: "Branch Master"
-        },
-        {
-            path: "master/ClientMaster",
-            value: "Client Master"
-        },
-        {
-            path: "master/EmployeeMaster",
-            value: "Employee Master"
-        }
-    ]
+    // const master = [
+    //     {
+    //         path: "master/BranchMaster",
+    //         value: "Branch Master"
+    //     },
+    //     {
+    //         path: "master/ClientMaster",
+    //         value: "Client Master"
+    //     },
+    //     {
+    //         path: "master/EmployeeMaster",
+    //         value: "Employee Master"
+    //     }
+    // ]
 
-    const generalMaster = [
-        {
-            path: "GeneralMaster/StateMaster",
-            value: "State Master"
-        },
-        {
-            path: "GeneralMaster/ZoneMaster",
-            value: "Zone Master"
-        },
-        {
-            path: "GeneralMaster/DestinationMaster",
-            value: "Destination Master"
-        },
-        {
-            path: "GeneralMaster/VendorVehicleMaster",
-            value: "Vendor Vehicle Master"
-        }
-    ]
+    // const generalMaster = [
+    //     {
+    //         path: "GeneralMaster/StateMaster",
+    //         value: "State Master"
+    //     },
+    //     {
+    //         path: "GeneralMaster/ZoneMaster",
+    //         value: "Zone Master"
+    //     },
+    //     {
+    //         path: "GeneralMaster/DestinationMaster",
+    //         value: "Destination Master"
+    //     },
+    //     {
+    //         path: "GeneralMaster/VendorVehicleMaster",
+    //         value: "Vendor Vehicle Master"
+    //     }
+    // ]
 
-    const misReport = [
-        {
-            path: "Mis/MisReport",
-            value: "Mis Report"
-        }
-    ]
+    // const misReport = [
+    //     {
+    //         path: "Mis/MisReport",
+    //         value: "Mis Report"
+    //     }
+    // ]
 
-    const userAdmin = [
-        {
-            path: "UserAdmin/ChangePassword",
-            value: "Change Password"
-        },
-        {
-            path: "UserAdmin/ManageEmployeeAccess",
-            value: "Manage Employee Access"
-        },
-        {
-            path: "UserAdmin/ResetPassword",
-            value: "Reset Password"
-        },
-        {
-            path: "UserAdmin/UserLogReport",
-            value: "User Log Report"
-        }
-    ]
+    // const userAdmin = [
+    //     {
+    //         path: "UserAdmin/ChangePassword",
+    //         value: "Change Password"
+    //     },
+    //     {
+    //         path: "UserAdmin/ManageEmployeeAccess",
+    //         value: "Manage Employee Access"
+    //     },
+    //     {
+    //         path: "UserAdmin/ResetPassword",
+    //         value: "Reset Password"
+    //     },
+    //     {
+    //         path: "UserAdmin/UserLogReport",
+    //         value: "User Log Report"
+    //     }
+    // ]
 
-    const report = [
-        {
-            path: "Report/ManifestReportSummarised",
-            value: "Manifest Report Summarised"
-        },
-        {
-            path: "Report/ManifesReportDetailed",
-            value: "Manifest Report Detailed"
-        },
-        {
-            path: "Report/ViewPodScan",
-            value: "View POD scan"
-        },
-        {
-            path: "Report/ArrivalEntryReport",
-            value: "Arrival Entry Report"
-        },
-        {
-            path: "Report/AwbActivityReport",
-            value: "AWB Activity Report"
-        },
-        {
-            path: "Report/BookingReport",
-            value: "Booking Report"
-        },
-        {
-            path: "Report/DrsReport",
-            value: "DRS Report"
-        },
-        {
-            path: "Report/DeliveryStatusReport",
-            value: "Delivery Status Report"
-        }
-    ]
+    // const report = [
+    //     {
+    //         path: "Report/ManifestReportSummarised",
+    //         value: "Manifest Report Summarised"
+    //     },
+    //     {
+    //         path: "Report/ManifesReportDetailed",
+    //         value: "Manifest Report Detailed"
+    //     },
+    //     {
+    //         path: "Report/ViewPodScan",
+    //         value: "View POD scan"
+    //     },
+    //     {
+    //         path: "Report/ArrivalEntryReport",
+    //         value: "Arrival Entry Report"
+    //     },
+    //     {
+    //         path: "Report/AwbActivityReport",
+    //         value: "AWB Activity Report"
+    //     },
+    //     {
+    //         path: "Report/BookingReport",
+    //         value: "Booking Report"
+    //     },
+    //     {
+    //         path: "Report/DrsReport",
+    //         value: "DRS Report"
+    //     },
+    //     {
+    //         path: "Report/DeliveryStatusReport",
+    //         value: "Delivery Status Report"
+    //     }
+    // ]
 
-    const query = [
-        {
-            path: "Query/AwbNoQuery",
-            value: "AwbNo Query"
-        },
-        {
-            path: "Query/ReportQuery",
-            value: "Report Query"
-        }
-    ]
+    // const query = [
+    //     {
+    //         path: "Query/AwbNoQuery",
+    //         value: "AwbNo Query"
+    //     },
+    //     {
+    //         path: "Query/ReportQuery",
+    //         value: "Report Query"
+    //     }
+    // ]
 
-    const imported = [
-        {
-            path: "Import/ImportPacketBooking",
-            value: "Import Packet Booking"
-        },
-        {
-            path: "Import/",
-            value: "Import Delivery Status"
-        },
-        {
-            path: "Import/",
-            value: "Import Physical POD"
-        }
-    ]
+    // const imported = [
+    //     {
+    //         path: "Import/ImportPacketBooking",
+    //         value: "Import Packet Booking"
+    //     },
+    //     {
+    //         path: "Import/",
+    //         value: "Import Delivery Status"
+    //     },
+    //     {
+    //         path: "Import/",
+    //         value: "Import Physical POD"
+    //     }
+    // ]
 
     // const sideBarOptions = [
     //     {
@@ -368,30 +366,14 @@ export default function SideBar() {
     //         dropdown: imported
     //     }
     // ]
-    const [sideBarOptions, setSideBarOptions] = useState([])
+    const {user} = useContext(UserAuthContext)
+    const [sideBarOptions, setSideBarOptions] = useState(user?.permissions?.pageAccess?.access || [])
     const [active, setActive] = useState(-1)
-    const [loadingSidebar, setLoadingSideBar] = useState(false)
-    useEffect(() => {
-        (
-            async () => {
-                try {
-                    setLoadingSideBar(true)
-                    const res = await fetch("http://127.0.0.1:8000/api/permission")
-                    const json = await res.json()
 
-                    setSideBarOptions(p => [...json.access])
-                    setLoadingSideBar(false)
-                } catch (err) {
-                    message.error(err)
-                    setLoadingSideBar(false)
-                }
-            }
-        )()
-    }, [])
     return (
         <div className={style.container}>
             {
-                loadingSidebar ? <Loading /> : null
+                console.log(user.permissions.pageAccess)
             }
             {
                 sideBarOptions.map((op, i) => <DashboardItem {...op} key={op + i} index={i} active={active} setActive={setActive} />)

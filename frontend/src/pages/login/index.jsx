@@ -4,18 +4,15 @@ import { useContext, useEffect, useState } from 'react'
 import {message} from 'antd';
 import {serverUrl} from "../../constants"
 import { useNavigate} from "react-router-dom"
-import UserAuthContext from '../../contexts/authContext';
 
 export default function Login() {
     const [loginCreds, setLoginCreds] = useState({username:"",password:""})
-
     const navigator = useNavigate()
-    const {user,setUser} = useContext(UserAuthContext)
     useEffect(()=>{
-        if(user){
+        if(sessionStorage.getItem("user")){
             navigator("/dashboard")
         }
-    })
+    },[])
     const onSubmit = async()=>{
         if(loginCreds.username.length<5){
             message.warning("Please Enter a valid username")
@@ -47,9 +44,8 @@ export default function Login() {
                 message.success("Logged in successfully")
             }
             const data = await res.json()
-            localStorage.setItem("user", JSON.stringify(data.user))
-            localStorage.setItem("token", data.token)
-            setUser(data.user)
+            sessionStorage.setItem("user", JSON.stringify(data.data))
+            navigator("/dashboard")
         } catch (error) {
             message.error(error)
         }

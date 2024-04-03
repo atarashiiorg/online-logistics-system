@@ -1,0 +1,74 @@
+.aboutus{
+    height: 100vh;
+    background-color: whitesmoke;
+    border-bottom: 2px solid grey;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+}
+
+.aboutus > h1{
+    position: absolute;
+    top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:rgb(30 41 59);
+    font-size: 40px; /* Increase font size */
+    border-right: 1px #000; /* Increase border thickness */
+    width: 100%;
+    padding: 20px;
+    text-transform: capitalize;
+}
+
+.content{
+    width: 100%;
+    padding-inline: 50px;
+    text-align: justify;
+    margin-top: 8%;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+
+.left, .right{
+    height: 100%;
+    width: 40%;
+}
+
+.left{
+    padding: 20px;
+    width: 60%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    position: relative;
+    background-image: url('../../../assets/sdlLogo.png');
+}
+
+.r1c1{
+    background-color: #EF9B1B;
+    border-radius: 0px 40px;
+}
+.r2c2{
+    background-color: #05244F;
+    border-radius: 0px 40px;
+}
+
+.image{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 70%;
+    transform: translate(-50%,-50%);
+    border-radius: 0px 30px;
+}
+
+.right>p{
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 15px;   
+    color:rgba(0,0,0,0.6);
+}

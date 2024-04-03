@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import { phone } from '../../../constants';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { useNavigate, Link } from 'react-router-dom';
-import UserAuthContext from '../../../contexts/authContext';
 import { message } from 'antd';
+import HomeContext from '../../../contexts/homeContext';
 
 const UpperNavbar = (props) => {
   const navigate = useNavigate()
-  const {docket, setDocket} = useContext(UserAuthContext)
+  const {docket, setDocket} = useContext(HomeContext)
   const trackThis= ()=>{
       if(docket.length<7){
         message.warning("enter a valid docket number")

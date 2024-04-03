@@ -54,22 +54,3 @@ export const servicesArray = [
     ),
   },
 ];
-
-export const reviewsArray = [
-  {
-    content:'SafeDispatchLogistics has been our go-to choice for all our delivery needs. Their professionalism, reliability, and prompt service have exceeded our expectations every time.',
-    by:'Mandeep'
-  },
-  {
-    content:'SafeDispatchLogistics has been our go-to choice for all our delivery needs. Their professionalism, reliability, and prompt service have exceeded our expectations every time.',
-    by:'Mandeep'
-  },
-  {
-    content:'SafeDispatchLogistics has been our go-to choice for all our delivery needs. Their professionalism, reliability, and prompt service have exceeded our expectations every time.',
-    by:'Mandeep'
-  },
-  {
-    content:'SafeDispatchLogistics has been our go-to choice for all our delivery needs. Their professionalism, reliability, and prompt service have exceeded our expectations every time.',
-    by:'Mandeep'
-  },
-]

@@ -11,7 +11,7 @@ const Navbar = () => {
           style={{ width: '1.5px', height: '30px', backgroundColor: '#555' }}
         ></li>
         <li>
-          <a href="#reviews">About</a>
+          <a href="#aboutus">About</a>
         </li>
         <li
           style={{ width: '1.5px', height: '30px', backgroundColor: '#555' }}

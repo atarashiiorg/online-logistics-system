@@ -17,7 +17,7 @@ const ContactUs = () => {
           textAlign: 'center',
         }}
       >
-        Contact us
+        Contact Us
       </h1>
       <div
         style={{

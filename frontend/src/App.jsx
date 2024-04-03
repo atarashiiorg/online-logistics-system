@@ -54,15 +54,17 @@ import { LazyComp } from './components/minComp';
 import Loading from './pages/loading';
 import NotFound from './pages/notFound';
 import { EmployeeMaster } from './components/master/employeeMaster';
+import HomeState from './states/homeState';
+import UserAuthState from './states/authState';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LazyComp><Home /></LazyComp>
+    element: <HomeState><LazyComp><Home /></LazyComp></HomeState>
   },
   {
     path: "/home",
-    element: <LazyComp><Home /></LazyComp>
+    element: <HomeState><LazyComp><Home /></LazyComp></HomeState>
   },
   {
     path: "/login",
@@ -70,11 +72,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/track",
-    element: <LazyComp><TrackingPage /></LazyComp>
+    element: <HomeState><LazyComp><TrackingPage /></LazyComp></HomeState>
   },
   {
     path: "/dashboard",
-    element: <LazyComp><Dashboard /></LazyComp>,
+    element: <UserAuthState><LazyComp><Dashboard /></LazyComp></UserAuthState>,
     children: [
       {
         path: "Operations/BookingEntry",
@@ -274,8 +276,8 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:"*",
-    element:<NotFound/>
+    path: "*",
+    element: <NotFound />
   }
 ])
 

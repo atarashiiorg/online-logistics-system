@@ -6,6 +6,7 @@ export const usePostData = async (data,endPoint) => {
     try {
         const res = await fetch(serverUrl + endPoint, {
             method: "POST",
+            credentials:'include',
             headers: {
                 'content-type': 'application/json'
             },

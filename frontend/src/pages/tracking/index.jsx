@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
 import style from './style.module.css'
-import UserAuthContext from '../../contexts/authContext'
 import UpperNavbar from '../../components/landing/upperNavbar'
 import logo from '../../assets/sdlLogo.png'
 import { useGetData } from '../../apiHandlers/getApis'
@@ -9,6 +8,7 @@ import { message } from 'antd'
 import { getFormttedDate } from '../../utils/helpers'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../loading'
+import HomeContext from '../../contexts/homeContext'
 
 const ActivityDateCell = ({ date }) => {
     return (
@@ -18,7 +18,7 @@ const ActivityDateCell = ({ date }) => {
 
 export function TrackingPage() {
     const navigate = useNavigate()
-    const { docket } = useContext(UserAuthContext)
+    const { docket } = useContext(HomeContext)
     const [trackingData, setTrackingData] = useState()
     const [loading, setLoading] = useState(false)
     const fetchData = async () => {

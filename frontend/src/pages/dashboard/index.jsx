@@ -10,6 +10,9 @@ export default function Dashboard() {
     const { user } = useContext(UserAuthContext)
     return (
         <>
+        {
+            console.log(user.permissions)
+        }
             {
                 user ?
                     <div className={style.page}>

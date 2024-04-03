@@ -9,329 +9,19 @@ import { TableComp } from '../../minComp'
 import UserAuthContext from '../../../contexts/authContext'
 import Loading from '../../../pages/loading'
 import { serverUrl } from '../../../constants'
+import { message } from 'antd'
 
 export default function EmployeeBranchAccess() {
     const [name, setName] = useState("")
     const [search, setSearch] = useState(false)
-    const [err, loading, employees] = useGetData("employee")
+    const [err, loading, employees] = useGetData("employee?all=true")
     const { branches } = useContext(UserAuthContext)
     const [activeAccordian, setActiveAccordian] = useState(-1)
+    const {user} = useContext(UserAuthContext)
 
     const [currentEmp, setCurrEmp] = useState(null)
-
-    const initialPermissions = [
-        {
-            allowed: false,
-            icon: "AiFillDashboard",
-            title: "Dashboard",
-            dropdown: []
-        },
-        {
-            allowed: false,
-            icon: "GiGearHammer",
-            title: "Operation",
-            dropdown: [
-                {
-                    path: "Operations/BookingEntry",
-                    value: "Booking Entry",
-                    allowed: false
-                },
-                {
-                    path: "Operations/AwbUpdate",
-                    value: "AWB Update",
-                    allowed: false
-                },
-                {
-                    path: "Operations/ManifestDirect",
-                    value: "Manifest Direct",
-                    allowed: false
-                },
-                {
-                    path: "Operations/ManifestPrint",
-                    value: "Manifest Print",
-                    allowed: false
-                },
-                {
-                    path: "Operations/DispatchEntry",
-                    value: "Dispatch Entry",
-                    allowed: false
-                },
-                {
-                    path: "Operations/ReceiveAwbNo",
-                    value: "Receive AwbNo",
-                    allowed: false
-                },
-                {
-                    path: "Operations/DrsEntry",
-                    value: "DRS Entry",
-                    allowed: false
-                },
-                {
-                    path: "Operations/DeliveryStatusEntry",
-                    value: "Delivery Status Entry",
-                    allowed: false
-                },
-                {
-                    path: "Operations/RunsheetPrint",
-                    value: "Runsheet Print",
-                    allowed: false
-                },
-                {
-                    path: "Operations/PodScanUpload",
-                    value: "PODScan Upload",
-                    allowed: false
-                },
-                {
-                    path: "Operations/AwbPrint",
-                    value: "AWB Print",
-                    allowed: false
-                },
-                {
-                    path: "Operations/UpdateForwarding",
-                    value: "Update ForwardingNo",
-                    allowed: false
-                },
-                {
-                    path: "Operations/UpdateClientOfAwb",
-                    value: "Update Client Of AwbNo",
-                    allowed: false
-                },
-                {
-                    path: "Operations/HoldStatusEntry",
-                    value: "Hold Status Entry",
-                    allowed: false
-                },
-                {
-                    path: "Operations/UpdatePhysicalPod",
-                    value: "Update Physical POD",
-                    allowed: false
-                },
-                {
-                    path: "Operations/ManifestToContractor",
-                    value: "Manifest to contractor",
-                    allowed: false
-                },
-                {
-                    path: "Operations/ManifestToContractorPrint",
-                    value: "Manifest to contractor print",
-                    allowed: false
-                }
-            ]
-        },
-        {
-            allowed: false,
-            icon: "BsGearFill",
-            title: "Shipper",
-            dropdown: [
-                {
-                    path: "shipper/SendShipperForPrinting",
-                    value: "Send Shipper For Printing",
-                    allowed: false
-                },
-                {
-                    path: "shipper/ReceiveShipperFromPrinter",
-                    value: "Receive Shipper from printer",
-                    allowed: false
-                },
-                {
-                    path: "shipper/ShipperIssueToBranch",
-                    value: "Shipper issue to branch",
-                    allowed: false
-                },
-                {
-                    path: "shipper/ShipperIssueToClient",
-                    value: "Shipper issue to client",
-                    allowed: false
-                },
-                {
-                    path: "shipper/IssueToEmployee",
-                    value: "shipper issue to employee",
-                    allowed: false
-                },
-                {
-                    path: "shipper/ShipperTransfer",
-                    value: "shipper transfer",
-                    allowed: false
-                }
-            ]
-        },
-        {
-            allowed: false,
-            icon: "FaRegCalendarAlt",
-            title: "Master",
-            dropdown: [
-                {
-                    path: "master/BranchMaster",
-                    value: "Branch Master",
-                    allowed: false
-                },
-                {
-                    path: "master/ClientMaster",
-                    value: "Client Master",
-                    allowed: false
-                },
-                {
-                    path: "master/EmployeeMaster",
-                    value: "Employee Master",
-                    allowed: false
-                }
-            ]
-        },
-        {
-            allowed: false,
-            icon: "FaGears",
-            title: "General Master",
-            dropdown: [
-                {
-                    path: "GeneralMaster/StateMaster",
-                    value: "State Master",
-                    allowed: false
-                },
-                {
-                    path: "GeneralMaster/ZoneMaster",
-                    value: "Zone Master",
-                    allowed: false
-                },
-                {
-                    path: "GeneralMaster/DestinationMaster",
-                    value: "Destination Master",
-                    allowed: false
-                },
-                {
-                    path: "GeneralMaster/VendorVehicleMaster",
-                    value: "Vendor Vehicle Master",
-                    allowed: false
-                }
-            ]
-        },
-        {
-            allowed: false,
-            icon: "IoDocumentOutline",
-            title: "MIS Report",
-            dropdown: [
-                {
-                    path: "Mis/MisReport",
-                    value: "Mis Report",
-                    allowed: false
-                }
-            ]
-        },
-        {
-            allowed: false,
-            icon: "FaUser",
-            title: "User Admin",
-            dropdown: [
-                {
-                    path: "UserAdmin/ChangePassword",
-                    value: "Change Password",
-                    allowed: false
-                },
-                {
-                    path: "UserAdmin/ManageEmployeeAccess",
-                    value: "Manage Employee Access",
-                    allowed: false
-                },
-                {
-                    path: "UserAdmin/ResetPassword",
-                    value: "Reset Password",
-                    allowed: false
-                },
-                {
-                    path: "UserAdmin/UserLogReport",
-                    value: "User Log Report",
-                    allowed: false
-                }
-            ]
-        },
-        {
-            allowed: false,
-            icon: "FaFileAlt",
-            title: "Report",
-            dropdown: [
-                {
-                    path: "Report/ManifestReportSummarised",
-                    value: "Manifest Report Summarised",
-                    allowed: false
-                },
-                {
-                    path: "Report/ManifesReportDetailed",
-                    value: "Manifest Report Detailed",
-                    allowed: false
-                },
-                {
-                    path: "Report/ViewPodScan",
-                    value: "View POD scan",
-                    allowed: false
-                },
-                {
-                    path: "Report/ArrivalEntryReport",
-                    value: "Arrival Entry Report",
-                    allowed: false
-                },
-                {
-                    path: "Report/AwbActivityReport",
-                    value: "AWB Activity Report",
-                    allowed: false
-                },
-                {
-                    path: "Report/BookingReport",
-                    value: "Booking Report",
-                    allowed: false
-                },
-                {
-                    path: "Report/DrsReport",
-                    value: "DRS Report",
-                    allowed: false
-                },
-                {
-                    path: "Report/DeliveryStatusReport",
-                    value: "Delivery Status Report",
-                    allowed: false
-                }
-            ]
-        },
-        {
-            allowed: false,
-            icon: "SiGooglebigquery",
-            title: "Query",
-            dropdown: [
-                {
-                    path: "Query/AwbNoQuery",
-                    value: "AwbNo Query",
-                    allowed: false
-                },
-                {
-                    path: "Query/ReportQuery",
-                    value: "Report Query",
-                    allowed: false
-                }
-            ]
-        },
-        {
-            allowed: false,
-            icon: "FaFileImport",
-            title: "Import",
-            dropdown: [
-                {
-                    path: "Import/ImportPacketBooking",
-                    value: "Import Packet Booking",
-                    allowed: false
-                },
-                {
-                    path: "Import/",
-                    value: "Import Delivery Status",
-                    allowed: false
-                },
-                {
-                    path: "Import/",
-                    value: "Import Physical POD",
-                    allowed: false
-                }
-            ]
-        }
-    ]
-
-    const [permissions, setPermissions] = useState(initialPermissions)
+    const [pageAccess, setPageAccess] = useState(user.permissions.pageAccess.access)
+    const [branchAccess, setBranchAccess] = useState(user.permissions.branchAccess.access)
 
     const fetchEmp = async(id)=>{
         try {
@@ -341,11 +31,16 @@ export default function EmployeeBranchAccess() {
             })
             const json = await res.json()
             if(res.ok){
-                setCurrEmp(json.data)
-                setPermissions(json.data.access.permissions.permissions)
+                setCurrEmp(json.data[0])
+                setPageAccess(json.data[0].permissions.pageAccess.access)
+                setBranchAccess(json.data[0].permissions.branchAccess.access)
+            } else if(res.status==500){
+                message.error("Server Error: "+json.err)
+            } else {
+                message.error(json.msg)
             }
         } catch (error) {
-            
+            message.error(error)
         }
     }
 
@@ -362,11 +57,11 @@ export default function EmployeeBranchAccess() {
     const resetForm = () => {
         setCurrEmp(null)
         setName("")
-        setPermissions(initialPermissions)
+        setPageAccess(initialPermissions)
     }
 
-    const handlePermissions = (e, index1, index2, f) => {
-        setPermissions(p => {
+    const handlePageAccess = (e, index1, index2, f) => {
+        setPageAccess(p => {
             const obj = structuredClone(p)
             if (f) {
                 obj[index1].dropdown[index2].allowed = e.target.checked
@@ -398,9 +93,69 @@ export default function EmployeeBranchAccess() {
         })
     }
 
-    // const 
+    const handleBranchAccess = (e,bid)=>{
+        setBranchAccess(p=>{
+            const branches = [...p]
+            const idx = branches.findIndex(b=>b.branch==bid)
+            if(e.target.checked){
+                if(idx>-1){
+                    return branches
+                }
+                branches.push({branch:bid})
+                return branches
+            } else {
+                const arr = branches.filter(b=>b.branch!=bid)
+                return arr
+            }
+        })
+    }
+
+    const isBranchSelected=(bid)=>{
+        let isChecked = false
+        for(let i=0;i<branchAccess.length;i++){
+            console.log(branchAccess)
+            if(branchAccess[i].branch==bid){
+                isChecked = true
+            }
+        }
+        return isChecked
+    }
+
+
+    const saveAccess = async()=>{
+        try {
+            console.log("asdalsdkjkajsd")
+            const res = await fetch(serverUrl+"employee?baxsid="+currentEmp.permissions.branchAccess._id+"&paxsid="+currentEmp.permissions.pageAccess._id,{
+                credentials:'include',
+                method:'PUT',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify({
+                    branchAccess,
+                    pageAccess
+                })
+            })
+            const json = await res.json()
+            if(res.ok){
+                message.success("Access Saved Successfully")
+                setCurrEmp(null)
+            } else if(res.status==500){
+                message.error("Server Error: "+json.err)
+            } else {
+                message.error(json.msg)
+            }
+        } catch (error) {
+            console.log(error)
+            message.error(error)
+        }
+    }
+
     return (
         <>
+        {
+            console.log(user.permissions.branchAccess.access)
+        }
             <div className={style.formContainer}>
                 {
                     loading ? <Loading /> : null
@@ -412,7 +167,12 @@ export default function EmployeeBranchAccess() {
                         if (e.which == 8) {
                             setCurrEmp(null)
                         }
-                    }} onInput={e => {}} placeholder='Employee' />
+                    }} onInput={e => {
+                        setName(e.target.value) 
+                        const eCode = e.target.value.split(" : ")[0]
+                        const idx = employees.findIndex(e=>e.eCode==eCode)
+                        fetchEmp(employees[idx]._id)
+                        }} placeholder='Employee' />
                     <datalist id='employees'>
                         {
                             employees.map(e => <option value={e.eCode + " : " + e.name}>{e.eCode + " : " + e.name}</option>)
@@ -424,7 +184,7 @@ export default function EmployeeBranchAccess() {
             </div>
 
             <div className={style.actions}>
-                <button className={style.buttonChk} ><FaCheck /> Save</button>
+                <button className={style.buttonChk} onClick={saveAccess}><FaCheck /> Save</button>
                 <button className={style.buttonRef} onClick={resetForm}><FaArrowRotateLeft /> Reset</button>
             </div>
 
@@ -467,11 +227,11 @@ export default function EmployeeBranchAccess() {
                 <div className={style.permissionsBlock}>
                     <div>
                         {
-                            permissions.map((page, index) => {
+                            pageAccess.map((page, index) => {
                                 return (
                                     <div className={style.accordian}>
                                         <div className={style.accordianTitle}>
-                                            <input type="checkbox" checked={page.allowed} onChange={e => handlePermissions(e, index)} />
+                                            <input type="checkbox" checked={page.allowed} onChange={e => handlePageAccess(e, index)} />
                                             <label htmlFor="">{page.title}</label>
                                             {page.dropdown.length ? <span className={style.dropdownBtn} onClick={e => handleAccordian(index)}>{activeAccordian == index ? <FaMinus /> : <FaPlus />}</span> : null}
                                         </div>
@@ -482,7 +242,7 @@ export default function EmployeeBranchAccess() {
                                                         page.dropdown.map((d, index2) => {
                                                             return (
                                                                 <div>
-                                                                    <input type="checkbox" checked={d.allowed} onChange={e => handlePermissions(e, index, index2, d.path)} />
+                                                                    <input type="checkbox" checked={d.allowed} onChange={e => handlePageAccess(e, index, index2, d.path)} />
                                                                     <label>{d.path.split("/")[1].split(/(?=[A-Z])/).join(" ")}</label>
                                                                 </div>
                                                             )
@@ -499,8 +259,8 @@ export default function EmployeeBranchAccess() {
                         {
                             branches.map(b => (
                                 <div className={style.branchComp}>
-                                    <input type="checkbox" name="" id="" />
-                                    <label htmlFor="">{b.branchName}</label>
+                                    <input type="checkbox" checked={isBranchSelected(b.branch._id)} onChange={e=>handleBranchAccess(e,b.branch._id)} />
+                                    <label htmlFor="">{b.branch.branchName}</label>
                                 </div>
                             ))
                         }

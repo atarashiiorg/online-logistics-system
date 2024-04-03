@@ -1,15 +1,13 @@
 import style from './style.module.css';
-import { FaArrowLeftLong, FaArrowRightLong } from 'react-icons/fa6';
-import {reviewsArray} from '../../../constants'
 import { ReviewCard } from './card';
 
-const Testimonials = () => {
+const Testimonials = (props) => {
   return (
     <div className={style.testimonials} id='reviews'>
-      <h1>Customer Reviews & Testimonials</h1>
+      <h1>What Clients Say About Us</h1>
       <div className={style.right}>
         {
-          reviewsArray.map(r=><ReviewCard {...r} />)
+          props?.testimonials?.map(r=><ReviewCard {...r} />)
         }
       </div>
     </div>

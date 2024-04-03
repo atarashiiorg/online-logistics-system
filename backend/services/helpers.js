@@ -76,7 +76,7 @@ const getManifestName = () => {
 
 function readEjs(template, data) {
     return new Promise((resolve, reject) => {
-        const worker=new Worker('./worker.js')
+        const worker=new Worker(__dirname+'/readEjsWorker.js')
         worker.postMessage({template,data});
         worker.on('message',(html)=>{
             resolve(html);
@@ -98,7 +98,7 @@ function readEjs(template, data) {
 
 function createPdf(html, opts) {
     return new Promise((resolve, reject) => {
-        const worker=new Worker('./worker.js')
+        const worker=new Worker(__dirname+'/createPdfWorker.js')
         worker.postMessage({html,opts});
         worker.on('message',(pdf)=>{
             resolve(pdf);

@@ -15,7 +15,7 @@ export default function Header() {
     const {branches} = useContext(UserAuthContext)
     const {currBranch, setCurrBranch} = useContext(UserAuthContext)
     const {docketTracking, setDocketTracking} = useContext(UserAuthContext)
-    // const [bCode,setBCode] = useState("")
+    
     const navigate = useNavigate()
 
     const handleSearch = async()=>{
@@ -34,15 +34,20 @@ export default function Header() {
     }
 
     const selectBranch=(e)=>{
-        // setBCode(e.target.value)
-        const b = branches.filter(br=>br._id==e.target.value)
-        setCurrBranch(p=>b[0])
+        const b = branches.filter(br=>br?.branch?._id==e.target.value)
+        setCurrBranch(p=>b[0]?.branch)
     }
 
-    const logOut = ()=>{
-        localStorage.removeItem("user")
-        localStorage.removeItem("token")
-        setUser(null)
+    const logOut = async()=>{
+        const res = await fetch(serverUrl+"logout")
+        const json = await res.json()
+        if(res.ok){
+            setUser(null)
+        } else if(res.status==500){
+            message.error("Server Error: ",json.err)
+        } else {
+            message.error(json.err)
+        }
     }
     return (
         <div className={style.header}>
@@ -59,12 +64,12 @@ export default function Header() {
                     <select value={currBranch?._id||""} onChange={selectBranch}>
                         <option value="">--Select Branch--</option>
                         {
-                            branches.map(b=><option value={b._id} key={b._id}>{b.branchName}</option>)
+                            branches.map(b=><option value={b?.branch?._id} key={b?.branch?._id}>{b?.branch?.branchName}</option>)
                         }
                     </select>
                 </div>
                 <div className={style.uname}>
-                    <p>{user.name} : {user.branchCode}</p>
+                    <p>{user.name}</p>
                     <CgProfile style={{fontSize:"22px"}}/>
                     <FaSignOutAlt style={{fontSize:"22px", marginLeft:"5px"}} onClick={logOut}/> 
                 </div>
