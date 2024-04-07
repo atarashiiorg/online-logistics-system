@@ -17,7 +17,7 @@ export default function UserAuthState(props){
                 const json = await res.json()
                 if(res.ok){
                     setUser(json.data)
-                    setBranches(json.data.permissions.branchAccess.access)
+                    setBranches([...json.data.permissions.branchAccess.access])
                     sessionStorage.setItem("user",JSON.stringify(json.data))
                 } else if(res.status==500){
                     message.error("Server Error: "+json.err)

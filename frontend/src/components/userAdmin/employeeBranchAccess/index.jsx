@@ -14,8 +14,8 @@ import { message } from 'antd'
 export default function EmployeeBranchAccess() {
     const [name, setName] = useState("")
     const [search, setSearch] = useState(false)
-    const [err, loading, employees] = useGetData("employee?all=true")
-    const { branches } = useContext(UserAuthContext)
+    const [err1, loading1, employees] = useGetData("employee")
+    const [err, loading, branches ] = useGetData("branch")
     const [activeAccordian, setActiveAccordian] = useState(-1)
     const {user} = useContext(UserAuthContext)
 
@@ -259,8 +259,8 @@ export default function EmployeeBranchAccess() {
                         {
                             branches.map(b => (
                                 <div className={style.branchComp}>
-                                    <input type="checkbox" checked={isBranchSelected(b.branch._id)} onChange={e=>handleBranchAccess(e,b.branch._id)} />
-                                    <label htmlFor="">{b.branch.branchName}</label>
+                                    <input type="checkbox" checked={isBranchSelected(b._id)} onChange={e=>handleBranchAccess(e,b._id)} />
+                                    <label htmlFor="">{b.branchName}</label>
                                 </div>
                             ))
                         }

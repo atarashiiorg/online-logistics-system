@@ -47,7 +47,7 @@ export default function DestinationMaster() {
         isActive:false
     }
 
-    const {branches} = useContext(UserAuthContext)
+    const {branches, user} = useContext(UserAuthContext)
     const [destination, setDestination] = useState(initialDestination)
     const [err,loading,dests, setDests] = useGetData("dest")
     const [err1,loading1,zones] = useGetData("zone")

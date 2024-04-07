@@ -2,7 +2,7 @@ import { BsPrinter } from 'react-icons/bs'
 import style from './style.module.css'
 import { IoRefresh } from 'react-icons/io5'
 import { useContext, useState } from 'react'
-import { serverUrl } from '../../../constants'
+import { useNavigate } from 'react-router-dom'
 import { useDownloader } from '../../../apiHandlers/getApis'
 import Loading from '../../../pages/loading'
 import UserAuthContext from '../../../contexts/authContext'
@@ -16,6 +16,7 @@ export default function AwbPrint() {
     const [docket, setDocket] = useState(initialDockets)
     const [loading, setLoading] = useState(false)
     const {currBranch} = useContext(UserAuthContext)
+    const navigate = useNavigate()
 
     const docketsHandler = (e) => {
         setDocket(p => {
@@ -35,11 +36,11 @@ export default function AwbPrint() {
 
     const printDoc = async (logo) => {
         try {
-            if(!currBranch){
+            if(!currBranch && logo!=null){
                 message.warning("Plese select current branch")
                 return
             }
-            if(docket.dockets.length<=0){
+            if(docket.dockets.length<=0 && logo!=null){
                 message.warning("Please enter atleast 1 docket number")
                 return
             }
@@ -48,13 +49,16 @@ export default function AwbPrint() {
             if (logo!=null)
                 endpoint = "awb?branch="+currBranch?._id+"&logo=" + logo + "&dockets=" + docket.dockets.toString()
             else
-                endpoint = "awb?branch="+currBranch?._id+"&dockets=" + docket.dockets.toString()
+                endpoint = "awb?branch="+currBranch?._id+"&sticker=true"
 
             const res = await useDownloader(endpoint)
             if(!res){
                 message.success("Awb downloaded")
                 resetForm()
             } else {
+                if(res.redirect){
+                    navigate("/login")
+                }
                 message.error(res.toString())
             }
             setLoading(false)

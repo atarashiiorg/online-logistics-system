@@ -3,10 +3,11 @@ import style from './style.module.css'
 import { BsFiletypeXls } from 'react-icons/bs'
 import { FaArrowRotateLeft } from 'react-icons/fa6'
 import { TableTotalFound } from '../../forms/manifestPrint'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { message } from 'antd'
 import { serverUrl } from '../.../../../../constants'
-import { useGetBranches } from '../../../apiHandlers/getApis'
+import { useGetData } from '../../../apiHandlers/getApis'
+import UserAuthContext from '../../../contexts/authContext'
 
 export default function ShipperIssueToBranch() {
     const initial = {
@@ -17,7 +18,7 @@ export default function ShipperIssueToBranch() {
         receivedBy: ""
     }
     const [data, setData] = useState(initial)
-    const [err, loading, branches] = useGetBranches()
+    const { branches, user } = useContext(UserAuthContext)
 
     const handleData = (e, field) => {
         setData(p => {
@@ -28,9 +29,12 @@ export default function ShipperIssueToBranch() {
                     return obj
                 case "issuedTo":
                     const bCode = e.target.value.split(":")[1]
-                    console.log(bCode);
-                    const idx = branches.findIndex(b=>b.branchCode==bCode)
-                    if(idx>=0){
+                    if (e.target.value == "") {
+                        obj.issuedTo = ""
+                        return obj
+                    }
+                    const idx = branches.findIndex(b => b.branchCode == bCode)
+                    if (idx >= 0) {
                         obj.issuedTo = branches[idx].branchCode
                     }
                     return obj
@@ -54,11 +58,11 @@ export default function ShipperIssueToBranch() {
                 },
                 body: JSON.stringify(data)
             })
-            if (res.status==200) {
+            if (res.status == 200) {
                 message.success("Shipper Issued To Branch")
                 return
             }
-            if(res.status==409){
+            if (res.status == 409) {
                 message.warning("This shipper series already used")
                 return
             }
@@ -85,7 +89,7 @@ export default function ShipperIssueToBranch() {
                     <input type="text" list='branch' placeholder='Issued To' onInput={e => handleData(e, "issuedTo")} />
                     <datalist id="branch">
                         {
-                            branches.map(b => <option value={b.branchName + ":" + b.branchCode}>{b.branchName}:{b.branchCode}</option>)
+                                branches.map(b => <option value={b.branchName + ":" + b.branchCode}>{b.branchName}:{b.branchCode}</option>)
                         }
                     </datalist>
                     <label htmlFor="">Docket From</label>

@@ -42,6 +42,7 @@
             width: 100%;
             height: 5%;
             display: flex;
+            font-size: 12px;
             justify-content: space-between;
             align-items: center;
             color: white;
@@ -191,8 +192,8 @@
             align-items: center;
         }
 
-        .redText {
-            color: red;
+        .blueText {
+            color: #122540;
             font-weight: 600;
             display: flex;
             justify-content: center;
@@ -234,7 +235,7 @@
         .three-col-weight {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            background-color: red;
+            background-color: #122540;
             height: 100%;
             width: 100%;
         }
@@ -286,7 +287,7 @@
         .checkbox {
             height: 20px;
             width: 20px;
-            border: 2px solid red;
+            border: 2px solid #122540;
             align-self: center;
             justify-self: center;
         }
@@ -332,7 +333,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <div style="background-color: yellow; font-weight: 600;">Origin</div>
+                            <div style="background-color: #EF9B1B; font-weight: 600;">Origin</div>
                             <div>
                                 <%= d.origin %>
                             </div>
@@ -344,19 +345,19 @@
                             </div>
                         </div>
                         <div class="col">
-                            <div style="background-color: yellow; font-weight: 600;">Date</div>
+                            <div style="background-color: #EF9B1B; font-weight: 600;">Date</div>
                             <div style="font-weight: 600;">Credit</div>
-                            <div style="background-color: yellow; font-weight: 600;">No. Of Packages</div>
+                            <div style="background-color: #EF9B1B; font-weight: 600;">No. Of Packages</div>
                         </div>
                         <div class="col">
                             <div>
-                                <%= d.bookingDate %>
+                                <%= d.bookingDate||"" %>
                             </div>
                             <div>
-                                <%= d.creditAmt||"0" %>
+                                <%= d.creditAmt||"" %>
                             </div>
                             <div>
-                                <%= d.piecies %>
+                                <%= d.piecies||"" %>
                             </div>
                         </div>
                     </div>
@@ -431,7 +432,7 @@
                                         }
                                     });
                                 </script>
-                                <h2 id="docketNumber">*<%= d.docketNumber %>*</h2>
+                                <h2 id="docketNumber"><%= d.docketNumber %></h2>
                             </div>
                             <div class="scol-srow">
                                 <span
@@ -452,18 +453,18 @@
                                 <div class="scol-srow-full">
                                     <div class="dim-col dim-col-left">
                                         <div class="dim-col-row dim-col-row-upper">
-                                            <div class="redText">L</div>
-                                            <div class="redText">B</div>
-                                            <div class="redText">H</div>
+                                            <div class="blueText">L</div>
+                                            <div class="blueText">B</div>
+                                            <div class="blueText">H</div>
                                         </div>
                                         <div class="dim-col-row dim-col-row-lower">
-                                            <div class="redText">Inches/Centimeter</div>
+                                            <div class="#blueText">Inches/Centibter</div>
                                         </div>
                                     </div>
                                     <div class="dim-col dim-col-right">
-                                        <div class="redText">CFT</div>
-                                        <div class="redText">No Of Packages</div>
-                                        <div class="redText">Total</div>
+                                        <div class="blueText">CFT</div>
+                                        <div class="blueText">No Of Pacbges</div>
+                                        <div class="blueText">btal</div>
                                     </div>
                                 </div>
                             </div>
@@ -545,12 +546,12 @@
                                         <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
                                             <div
                                                 style="border-bottom:1px solid black; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;">
-                                                <div class="redText">DOOR DELIVERY</div>
+                                                <div class="blueText">DOOR DELIVERY</div>
                                                 <div class="checkbox"></div>
                                             </div>
                                             <div
                                                 style="border-bottom:1px solid black; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;">
-                                                <div class="redText">GODOWN</div>
+                                                <div class="#blueText">GODOWN</div>
                                                 <div class="checkbox"></div>
                                             </div>
                                         </div>
@@ -561,7 +562,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer">`
+                <div class="footer">
                     <h2>Tracking: www.safedispatchlogistics.com</h2>
                     <h2>Email: safedispatchlogistics@gmail.com</h2>
                 </div>

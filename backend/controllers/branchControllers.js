@@ -47,6 +47,10 @@ async function updateBranch(req, res) {
 
 async function deleteBranch(req, res) {
     try {
+        if(req.token.role!="adm"){
+            res.status(401).json({msg:"unauthorized access"})
+            return
+        }
         const result = await Branch.deleteOne({ _id: req.query.bid })
         if (result.deletedCount > 0) {
             res.status(200).json({ 'msg': "success" })
@@ -54,6 +58,7 @@ async function deleteBranch(req, res) {
             res.status(403).json({ 'msg': "not deleted" })
         }
     } catch (error) {
+        console.log(error)
         res.status(500).json({ 'err': error })
     }
 }

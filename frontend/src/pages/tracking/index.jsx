@@ -84,14 +84,14 @@ export function TrackingPage() {
                                 </div>
                                 <div className={style.upper_child}>
                                     <p>Booking Date: <span style={{fontWeight:"600"}}>{getFormttedDate(trackingData?.bookingDate)}</span></p>
-                                    <p>Delivery Boy: <span style={{fontWeight:"600"}}>{trackingData?.deliveryBoy}</span></p>
+                                    <p>Delivery Boy: <span style={{fontWeight:"600"}}>{trackingData?.emp?.name}</span></p>
                                 </div>
                                 <div className={style.upper_child}>
-                                    <p>Receiver Name: <span style={{fontWeight:"600"}}>{trackingData?.receiver}</span></p>
-                                    <p>Mobile No. <span style={{fontWeight:"600"}}>{trackingData?.receiverMobile}</span></p>
+                                    <p>Receiver Name: <span style={{fontWeight:"600"}}>{trackingData?.tracking?.receiver}</span></p>
+                                    <p>Mobile No. <span style={{fontWeight:"600"}}>{trackingData?.emp?.mobile}</span></p>
                                 </div>
                                 <div className={style.upper_child}>
-                                    <p>Receiver Type: <span style={{fontWeight:"600"}}>{trackingData?.receiverType}</span></p>
+                                    <p>Receiver Type: <span style={{fontWeight:"600"}}>{trackingData?.tracking?.receiverType}</span></p>
                                 </div>
                             </div>
                             <div className={style.lower}>
@@ -129,7 +129,7 @@ export function TrackingPage() {
                                             </tr>
                                             <tr>
                                                 <td>ToPay</td>
-                                                <td>{trackingData?.invoice?.amountToPay}</td>
+                                                <td>{trackingData?.invoice?.bookingType=="topay"?trackingData?.invoice?.amountToPay:""}</td>
                                             </tr>
                                             {/* <tr>
                                         <td>POD</td>

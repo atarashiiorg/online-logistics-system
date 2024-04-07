@@ -15,15 +15,15 @@ import { usePatchData } from '../../../apiHandlers/patchApis'
 
 const ClientListRow = (props) => {
     const btnStyle = {
-        fontSize:'20px',
-        color:"blueviolet"
+        fontSize: '20px',
+        color: "blueviolet"
     }
-    if(props.editKey==props.data?._id){
+    if (props.editKey == props.data?._id) {
         btnStyle.color = "green"
     }
     return (
         <tr>
-            <td><FaUserEdit style={btnStyle} onClick={e=>props.edit(props.data)}/></td>
+            <td><FaUserEdit style={btnStyle} onClick={e => props.edit(props.data)} /></td>
             <td>{props.data?.clientCode}</td>
             <td>{props.data?.clientName}</td>
             <td>{props.data?.state}</td>
@@ -38,8 +38,8 @@ const ClientListRow = (props) => {
             <td>{props.data?.trainMinWeight}</td>
             <td>{props.data?.roadMinWeight}</td>
             <td>{props.data?.gstNo}</td>
-            <td>{props.data?.isActive?"YES":"NO"}</td>
-            <td>{props.data?.isShipperValid?"YES":"NO"}</td>
+            <td>{props.data?.isActive ? "YES" : "NO"}</td>
+            <td>{props.data?.isShipperValid ? "YES" : "NO"}</td>
             <td>{props.data?.autoEmails.join(",")}</td>
             <td>{new Date(props.data?.createdAt).toDateString()}</td>
         </tr>
@@ -121,7 +121,7 @@ export default function ClientMaster() {
     const [fuel, setFuel] = useState(initialFuel)
     const [charge, setCharge] = useState(initialCharge)
     const [mode, setMode] = useState(initialModeType)
-    const {branches} = useContext(UserAuthContext)
+    const { branches, user } = useContext(UserAuthContext)
     const [error, loading, clientList, setClientList] = useGetData("client")
     const [editKey, setEditKey] = useState("")
 
@@ -170,32 +170,32 @@ export default function ClientMaster() {
         setEditKey("")
     }
 
-    const edit = (data)=>{
+    const edit = (data) => {
         setEditKey(data._id)
         setClient(data)
     }
 
-    const handleSave = async() => {
-        const res = await usePostData({client, clienChrages},"client")
-        if(!res.res){
+    const handleSave = async () => {
+        const res = await usePostData({ client, clienChrages }, "client")
+        if (!res.res) {
             return
         }
         resetForm()
     }
 
-    const handleEdit = async()=>{
-        const res  = await usePatchData(client,"client?cid="+editKey)
-        if(!res.res){
+    const handleEdit = async () => {
+        const res = await usePatchData(client, "client?cid=" + editKey)
+        if (!res.res) {
             return
         }
         const newArr = [...clientList]
-        const idx = newArr.findIndex(c=>c._id==editKey)
+        const idx = newArr.findIndex(c => c._id == editKey)
         newArr[idx] = res.data
-        setClientList(p=>[...newArr])
+        setClientList(p => [...newArr])
         setEditKey("")
         resetForm()
     }
-  
+
     return (
         <>
             <div className={style.formContainer}>
@@ -462,7 +462,7 @@ export default function ClientMaster() {
             </div>
 
             <div className={style.actions}>
-                <button className={style.buttonChk} onClick={editKey==""?handleSave:handleEdit}><FaCheck /> {editKey==""?"Save":"Update"}</button>
+                <button className={style.buttonChk} onClick={editKey == "" ? handleSave : handleEdit}><FaCheck /> {editKey == "" ? "Save" : "Update"}</button>
                 <button className={style.buttonExp}><BsFiletypeXls /> Export</button>
                 <button className={style.buttonRef} onClick={resetForm}><FaArrowRotateLeft /> Reset</button>
             </div>
@@ -497,9 +497,9 @@ export default function ClientMaster() {
                         <tbody>
                             {
                                 clientList.length > 0 ?
-                                    clientList.map((c, i) => <ClientListRow key={c+i} data={c} edit={edit} editKey={editKey} />) :
+                                    clientList.map((c, i) => <ClientListRow key={c + i} data={c} edit={edit} editKey={editKey} />) :
                                     <tr>
-                                        <td colSpan={19} style={{textAlign:"center"}}>No data available</td>
+                                        <td colSpan={19} style={{ textAlign: "center" }}>No data available</td>
                                     </tr>
                             }
                         </tbody>

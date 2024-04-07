@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react'
 import { message } from 'antd'
 import { serverUrl } from '../../../constants'
 import UserAuthContext from '../../../contexts/authContext'
+import { useGetData } from '../../../apiHandlers/getApis'
 
 export default function SendShipperForPrinting() {
     const shippers = {
@@ -18,7 +19,7 @@ export default function SendShipperForPrinting() {
         remarks: ""
     }
     const [shipper, setShipper] = useState(shippers)
-    const { branches } = useContext(UserAuthContext)
+    const { branches, user } = useContext(UserAuthContext)
     const resetForm = () => {
         setShipper(shippers)
     }

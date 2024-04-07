@@ -7,6 +7,7 @@ import { useNavigate} from "react-router-dom"
 
 export default function Login() {
     const [loginCreds, setLoginCreds] = useState({username:"",password:""})
+    // const {setUser, setBranches, setPageAccess} = 
     const navigator = useNavigate()
     useEffect(()=>{
         if(sessionStorage.getItem("user")){

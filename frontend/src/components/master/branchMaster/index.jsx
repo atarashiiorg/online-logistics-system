@@ -1,19 +1,17 @@
-import { FaCheck, FaEdit } from 'react-icons/fa'
+import { FaCheck, FaEdit, FaTrashAlt } from 'react-icons/fa'
 import style from './style.module.css'
 import { BsFiletypeXls } from 'react-icons/bs'
 import { FaArrowRotateLeft } from 'react-icons/fa6'
-import { TableTotalFound } from '../../forms/manifestPrint'
-import { SearchManifest } from '../../forms/manifestDirect'
 import { useState, useContext } from 'react'
-import { serverUrl } from '../../../constants'
 import { message } from 'antd'
 import { Mandatory, TableComp } from '../../minComp'
-import UserAuthContext from '../../../contexts/authContext'
 import { usePostData } from '../../../apiHandlers/postApis'
 import { usePatchData } from '../../../apiHandlers/patchApis'
 import { useGetData } from '../../../apiHandlers/getApis'
+import UserAuthContext from '../../../contexts/authContext'
+import {useDeleteData} from '../../../apiHandlers/deleteApis'
 
-const TableRow = ({ b, edit, editKey }) => {
+const TableRow = ({ b, edit, deleteBranch, editKey }) => {
     const style = {
         fontSize:"20px",
         color: "blueviolet"
@@ -24,6 +22,7 @@ const TableRow = ({ b, edit, editKey }) => {
     return (
         <tr>
             <td><FaEdit style={style} onClick={e => edit(b)} /></td>
+            <td><FaTrashAlt style={{color:"red", fontSize:"20px"}} onClick={e => deleteBranch(b._id)} /></td>
             <td>{b?.branchCode}</td>
             <td>{b?.branchName}</td>
             <td>{b?.zone?.zoneName}</td>
@@ -45,7 +44,7 @@ const TableRow = ({ b, edit, editKey }) => {
 }
 
 export default function BranchMaster() {
-    const { branches, setBranches } = useContext(UserAuthContext)
+    const {branches, setBranches} = useContext(UserAuthContext)
     const [err, loading, zones] = useGetData("zone")
     const [editMode, setEditMode] = useState(false)
     const [editKey, setEditKey] = useState("")
@@ -210,6 +209,17 @@ export default function BranchMaster() {
         resetForm()
     }
 
+    const deleteBranch = (id) =>{
+        const res = useDeleteData("branch?bid="+id)
+        if(res.res){
+            const branchArr = branches.filter(b=>b._id!=id)
+            setBranches(p=>[...branchArr])
+            message.success("Branch deleted successfully")
+        } else {
+            message.error(res.err)
+        }
+    }
+
     return (
         <>
             <div className={style.formContainer}>
@@ -296,6 +306,7 @@ export default function BranchMaster() {
                         <thead>
                             <tr>
                                 <th>Edit</th>
+                                <th>Delete</th>
                                 <th>Branch Code</th>
                                 <th>Branch Name</th>
                                 <th>Zone Name</th>
@@ -317,7 +328,7 @@ export default function BranchMaster() {
                         </thead>
                         <tbody>
                             {
-                                branches.map(b => <TableRow b={{ ...b }} edit={fillEditDetails} editKey={editKey} />)
+                                branches.map(b => <TableRow b={{ ...b }} edit={fillEditDetails} editKey={editKey}  deleteBranch={deleteBranch}/>)
                             }
                         </tbody>
                     </table>

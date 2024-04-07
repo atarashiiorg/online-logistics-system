@@ -271,6 +271,22 @@ async function getDataForAwbPdf(opts) {
     })
     return booking
 }
+
+async function getUserData(user){
+    try {
+        let branches
+        branches = await user.permissions.branchAccess.access.map(b=>{
+            return {...b._doc.branch._doc}
+        })
+        if(user.role=="adm"){
+            branches = await Branch.find({})
+        }
+        return {...user._doc,password:"",_id:"",permissions:{pageAccess:{...user.permissions.pageAccess._doc},branchAccess:{...user.permissions.branchAccess._doc,access:[...branches]}}}
+    } catch (error) {
+        throw new error
+    }
+}
+
 module.exports = {
     getNewBranchCode,
     getNewClientCode,
@@ -283,5 +299,6 @@ module.exports = {
     getDataForRunsheetPdf,
     getDataForManifestPdf,
     getDataForAwbPdf,
-    readEjs
+    readEjs,
+    getUserData
 }

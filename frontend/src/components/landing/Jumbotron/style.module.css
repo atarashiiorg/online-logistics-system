@@ -2,14 +2,14 @@
     z-index: 999;
     width: 100%;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.116); /* semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.116);
 }
 
 .navbar ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    display: flex; /* use flexbox instead of float */
+    display: flex;
     gap: 1.5em;
     margin-left: 1.2em;
     align-items: center;
@@ -21,7 +21,7 @@
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    transition: color 0.3s ease; /* smooth color transition */
+    transition: color 0.3s ease; 
 }
 
 .navbar ul li a:hover {
@@ -38,10 +38,6 @@
     align-items: center;
 }
 
-/* .jumbotron h1 {
-    font-size: 50px;
-} */
-
 .jumbotron p {
     font-size: 25px;
 }
@@ -57,7 +53,6 @@
 }
 
 .bigtext {
-    /* margin-top: 10%; */
     color:#333;
 }
 
@@ -91,3 +86,4 @@
     left: 50%;
     transform: translate(-50%,-50%);
 }
+

@@ -24,17 +24,6 @@ async function fetchData(setErr, setLoading, setData,endPoint){
     }
 }
 
-export const useGetBranches = () => {
-    const [branches, setBranches] = useState([])
-    const [err, setErr] = useState(null)
-    const [loading, setLoading] = useState(false)
-
-    useEffect(() => {
-        fetchData(setErr,setLoading, setBranches, "branch")
-    }, [])
-
-    return [err, loading, branches, setBranches]
-}
 
 export const useGetData = (url, dependency) => {
     const [data, setData] = useState([])
@@ -57,10 +46,15 @@ function getFilenameFromContentDisposition(contentDisposition) {
 }
 
 export const useDownloader = async (endpoint)=>{
+        const navigate = useNavigate()
         try {
             const response = await fetch(serverUrl+endpoint,{credentials:'include', method:"GET"});
             if (!response.ok) {
                 const json = await response.json()
+                if(response.status==401){
+                    return {redirect:true}
+                    throw new Error(json.msg)
+                }
                 if(response.status==500){
                     throw new Error(json.err);
                 } else {

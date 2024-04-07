@@ -4,6 +4,7 @@ const Booking = require("../models/booking")
 const Branch = require("../models/branch")
 const bcrypt = require("bcrypt")
 const Employee = require("../models/employee")
+const { getUserData } = require("../services/helpers")
 
 async function loginUser(req, res) {
     try {
@@ -30,9 +31,7 @@ async function loginUser(req, res) {
         const match = await bcrypt.compare(req.body.password, user.password);
         if (match) {
             const token = jwt.sign({ _id: user._id, role: user.role, isLoggedIn: true, eCode: user.eCode }, process.env.JWT_KEY, { expiresIn: '5h' })
-            const n_user = { ...user._doc }
-            delete n_user.password
-            delete n_user._id
+            const n_user = await getUserData(user)
             res.cookie('token', token, {
                 httpOnly: true,
                 maxAge: 60 * 60 * 1000 * 5

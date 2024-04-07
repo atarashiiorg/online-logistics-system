@@ -70,6 +70,7 @@ const BranchAccess = require("../models/branchAccess")
 const Employee = require("../models/employee")
 const jwt = require("jsonwebtoken")
 const path = require("path")
+const { getUserData } = require("../services/helpers")
 const userRoutes = require("express")()
 
 const authorize = async (req, res, next) => {
@@ -116,7 +117,8 @@ userRoutes.get("/checklogin", authorize, async (req, res) => {
                         path: "pageAccess"
                     }]
                 })
-            res.status(200).json({ msg: "success", data: user })
+            const n_user = await getUserData(user)
+            res.status(200).json({ msg: "success", data: n_user })
         }
     } catch (error) {
         res.status(500).json({ err: error.toString() })

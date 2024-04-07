@@ -22,7 +22,7 @@ export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, 
                     <input list='list1' type="text" value={manifest.toBCodeText} placeholder='To BCode' onInput={e => manifestHandler(e, "toBCode")} />
                     <datalist id='list1'>
                         {
-                            branches.map(b => <option key={b.branch._id} value={b.branch.branchCode + " : " + b.branch.branchName}>{b.branch.branchCode} : {b.branch.branchName}</option>)
+                            branches.map(b => <option key={b._id} value={b.branchCode + " : " + b.branchName}>{b.branchCode} : {b.branchName}</option>)
                         }
                     </datalist>
                     <label htmlFor="">System Manifest No.</label>
@@ -248,9 +248,9 @@ export default function ManifestDirect() {
             if (f == "toBCode") {
                 const bCode = e.target.value.split(" : ")[0]
                 const idx = branches.findIndex(b => {
-                    return b.branch.branchCode == bCode
+                    return b.branchCode == bCode
                 })
-                obj.toBCode = branches[idx]?.branch?._id
+                obj.toBCode = branches[idx]?._id
                 obj.toBCodeText = e.target.value
                 return obj
             }
