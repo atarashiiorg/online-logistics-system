@@ -45,15 +45,13 @@ function getFilenameFromContentDisposition(contentDisposition) {
     return null;
 }
 
-export const useDownloader = async (endpoint)=>{
-        const navigate = useNavigate()
+export const useDownloader = async(endpoint)=>{
         try {
             const response = await fetch(serverUrl+endpoint,{credentials:'include', method:"GET"});
-            if (!response.ok) {
+            if (!response.ok || response.status!=204) {
                 const json = await response.json()
                 if(response.status==401){
-                    return {redirect:true}
-                    throw new Error(json.msg)
+                    return {redirect:true};
                 }
                 if(response.status==500){
                     throw new Error(json.err);
@@ -79,9 +77,9 @@ export const useDownloader = async (endpoint)=>{
               window.URL.revokeObjectURL(objectUrl);
               document.body.removeChild(anchor);
             }, 0);
-            return null
+            return null;
         } catch (error) {
-            return error
+            throw error;
         }
 }
 
@@ -92,7 +90,6 @@ export const useFetchDocketForManifest = async (docket, branch) => {
         if(res.ok)
             return {res:true,data:data.data}
         else {
-            console.log(data.msg)
             return {res:false,err:data.msg}
         }
     } catch (error) {

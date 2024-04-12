@@ -7,7 +7,9 @@ import { useState, useEffect, useContext } from 'react'
 import { message } from 'antd'
 import { serverUrl } from '../.../../../../constants'
 import { useGetData } from '../../../apiHandlers/getApis'
+import { usePostData } from '../../../apiHandlers/postApis'
 import UserAuthContext from '../../../contexts/authContext'
+
 
 export default function ShipperIssueToBranch() {
     const initial = {
@@ -51,28 +53,12 @@ export default function ShipperIssueToBranch() {
 
     const handleSave = async () => {
         try {
-            const res = await fetch(serverUrl + "issueshippertobranch", {
-                method: "POST",
-                headers: {
-                    "content-type": "application/json"
-                },
-                body: JSON.stringify(data)
-            })
-            if (res.status == 200) {
+            const res = await usePostData(data,"issueshippertobranch")
+            if (res.res) {
                 message.success("Shipper Issued To Branch")
                 return
-            }
-            if (res.status == 409) {
-                message.warning("This shipper series already used")
-                return
-            }
-            if (res.status == 304) {
-                message.warning("Something went wrong")
-                return
-            }
-            if (res.status == 500) {
-                message.error("Internal Error Occured")
-                return
+            } else {
+                
             }
         } catch (err) {
             message.error(err)

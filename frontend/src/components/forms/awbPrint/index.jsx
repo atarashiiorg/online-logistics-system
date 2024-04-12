@@ -59,11 +59,11 @@ export default function AwbPrint() {
                 if(res.redirect){
                     navigate("/login")
                 }
-                message.error(res.toString())
+                message.error("Session Expired.")
             }
-            setLoading(false)
         } catch (err) {
             message.error(err)
+        } finally{
             setLoading(false)
         }
     }

@@ -1,7 +1,7 @@
-const { 
-    createManifest, 
-    getManifests, 
-    receiveManifest 
+const {
+    createManifest,
+    getManifests,
+    receiveManifest
 } = require("../controllers/manifestControllers")
 const {
     loginUser,
@@ -33,8 +33,9 @@ const {
 } = require("../controllers/shipperControllers")
 
 const {
-    createBooking, 
-    getBooking
+    createBooking,
+    getBooking,
+    getBookingForDRSStatusUpdate
 } = require("../controllers/bookingControllers")
 const {
     createState,
@@ -52,7 +53,7 @@ const {
     updateDestination
 } = require("../controllers/destinationControllers")
 const {
-    getRunsheets, 
+    getRunsheets,
     createRunsheet
 } = require("../controllers/runsheetControllers")
 const {
@@ -65,39 +66,19 @@ const {
 const {
     getAwb
 } = require("../controllers/awbControllers")
-
-const BranchAccess = require("../models/branchAccess")
+const {
+    getUserData
+} = require("../services/helpers")
+const {
+    hasToken,
+    isMethodPemitted
+} = require("../middlewares/authmwares")
 const Employee = require("../models/employee")
-const jwt = require("jsonwebtoken")
-const path = require("path")
-const { getUserData } = require("../services/helpers")
 const userRoutes = require("express")()
 
-const authorize = async (req, res, next) => {
-    try {
-        const token = req.cookies.token
-        if (!token) {
-            res.status(401).json({ msg: "Unauthorised access" })
-            return
-        }
-        const decodedToken = await jwt.verify(token, process.env.JWT_KEY)
-        // const branchAccess = await BranchAccess.findOne({ eCode: decodedToken.eCode })
-        // if (!branchAccess?.access?.includes(req?.query?.branch) && decodedToken.role != "adm") {
-        //     res.status(401).json({ msg: 'unauthorised for this opertion' })
-        //     return
-        // } else if (req.query.role == "suadm") {
-        //     next()
-        // }
-        req.token = { ...decodedToken }
-        next()
-    } catch (error) {
-        console.log("authorize error->", error)
-        res.status(401).json({ "msg": 'Session Expired. Log in again.' })
-    }
-}
 
 
-userRoutes.get("/checklogin", authorize, async (req, res) => {
+userRoutes.get("/checklogin", hasToken, async (req, res) => {
     try {
         console.log(req.token)
         if (req.token.isLoggedIn) {
@@ -136,7 +117,7 @@ userRoutes.get("/logout", (req, res) => {
     }
 })
 
-userRoutes.use("/shipper", authorize)
+userRoutes.use("/shipper", hasToken)
 userRoutes.route("/shipper")
     .get(getShippers)
     .post(sendShipperForPrinting)
@@ -144,38 +125,44 @@ userRoutes.route("/shipper")
 
 
 userRoutes.route("/issueshippertobranch")
-    .all(authorize)
+    .all(hasToken)
     .post(shipperIssueToBranch)
 
 userRoutes.route("/booking")
-    .all(authorize)
-    .get(getBooking)
+    .all(hasToken)
+    .get((req,res)=>{
+        if(req.query.drsentry){
+            getBookingForDRSStatusUpdate(req,res)
+        } else {
+            getBooking(req,res)
+        }
+    })
     .post(createBooking)
 
 userRoutes.route("/track")
-    .all(authorize)
+    .all(hasToken)
     .get(trackAwb)
 
 userRoutes.route("/awb")
-    .all(authorize)
+    .all(hasToken)
     .get(getAwb)
 
 userRoutes.route("/branch")
-    .all(authorize)
+    .all(hasToken)
     .post(createBranch)
     .get(getBranches)
     .patch(updateBranch)
     .delete(deleteBranch)
 
 userRoutes.route("/client")
-    .all(authorize)
+    .all(hasToken)
     .post(createClient)
     .get(getClients)
     .delete(deleteClient)
     .patch(updateClient)
 
 userRoutes.route("/employee")
-    .all(authorize)
+    .all(hasToken)
     .get(getEmployee)
     .post(createEmployee)
     .patch(updateEmployee)
@@ -183,37 +170,37 @@ userRoutes.route("/employee")
     .put(updateAccess)
 
 userRoutes.route("/vendor")
-    .all(authorize)
+    .all(hasToken)
     .get(getVendors)
     .post(createVendor)
     .patch(updateVendor)
     .delete(deleteVendor)
 
 userRoutes.route("/manifest")
-    .all(authorize)
+    .all(hasToken)
     .post(createManifest)
     .get(getManifests)
     .patch(receiveManifest)
 
 userRoutes.route("/runsheet")
-    .all(authorize)
+    .all(hasToken)
     .get(getRunsheets)
     .post(createRunsheet)
 
 userRoutes.route("/state")
-    .all(authorize)
+    .all(hasToken)
     .get(getState)
     .post(createState)
     .patch(updateState)
 
 userRoutes.route("/zone")
-    .all(authorize)
+    .all(hasToken)
     .get(getZone)
     .post(createZone)
     .patch(updateZone)
 
 userRoutes.route("/dest")
-    .all(authorize)
+    .all(hasToken)
     .get(getDestination)
     .post(createDestination)
     .patch(updateDestination)

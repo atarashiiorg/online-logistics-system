@@ -54,6 +54,8 @@ span>div>input{
 
 .formContainer>div .right{
     border: 1px solid grey;
+    overflow: auto;
+    height: 300px;
 }
 
 .formContainer>div .left{

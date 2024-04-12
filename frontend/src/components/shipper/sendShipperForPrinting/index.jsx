@@ -8,6 +8,7 @@ import { message } from 'antd'
 import { serverUrl } from '../../../constants'
 import UserAuthContext from '../../../contexts/authContext'
 import { useGetData } from '../../../apiHandlers/getApis'
+import { usePostData } from '../../../apiHandlers/postApis'
 
 export default function SendShipperForPrinting() {
     const shippers = {
@@ -45,40 +46,13 @@ export default function SendShipperForPrinting() {
             message.warning("Please enter docket To number !")
             return
         }
-        if (shipper.remarks.length < 5) {
-            message.warning("Enter some remarks !")
-            return
-        }
         if (Number(shipper.docketFrom) >= Number(shipper.docketTo)) {
             message.warning("shipper to must be greater than shipper from.")
             return
         }
-        const res = await fetch(serverUrl + "shipper", {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json',
-                'authorization': localStorage.getItem("token")
-            },
-            body: JSON.stringify(shipper)
-        })
-        if (res.ok) {
-            message.success("Data Saved successfully")
+        const res = await usePostData(shipper,"shipper")
+        if (res.res) {
             resetForm()
-            return
-        }
-        if (res.status == 401) {
-            message.warning("Access Denied")
-            return
-        }
-        if (res.status == 409) {
-            message.warning("Shipper series already used")
-            return
-        }
-        if (res.status == 500) {
-            message.warning("Internal server error")
-            return
-        } else {
-            message.warning("Something went wrong")
             return
         }
     }

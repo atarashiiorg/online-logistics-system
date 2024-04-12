@@ -2,8 +2,7 @@ const Branch = require("../models/branch")
 const Runsheet = require("../models/runsheet")
 const Tracking = require("../models/tracking")
 const { updateTrackingStatus, updateTrackingManifest } = require("../services/dbServices")
-const { getRunsheetNumber, getDataForRunsheetPdf, readEjs, createPdfFromHtml } = require("../services/helpers")
-const fs = require('fs')
+const { getRunsheetNumber, getDataForRunsheetPdf, createPdfFromHtml } = require("../services/helpers")
 const { PassThrough } = require('stream')
 
 
@@ -23,20 +22,17 @@ async function getRunsheets(req, res) {
         } else {
             let runsheets;
             if(req.query.bid && req.query.eid && req.token.role!="adm" && req.token.role!="emp"){
-                console.log("for delivery boy only")
                 runsheets = await Runsheet.find({branch:req.query.bid, employee: req.query.eid}).populate("employee")
             } else if(req.query.bid && req.token.role=="emp"){
-                console.log("for employee") 
                 runsheets = await Runsheet.find({branch:req.query.bid}).populate("employee")
             } else {
-                console.log("for admin")
                 runsheets = await Runsheet.find({branch:req.query.bid}).populate("employee")
             }
             res.status(200).json({ 'msg': 'success', data: runsheets })
         }
     } catch (error) {
         console.log(error)
-        res.status(500).json({ err: error })
+        res.status(500).json({ err: "Internal server error occured" })
     }
 }
 
@@ -67,18 +63,20 @@ async function createRunsheet(req, res) {
         if (runsheet) {
             await updateTrackingManifest(processedDockets, "docketNumber", {
                 action: "Runsheet Prepared at " + branch.branchName,
-                actionDate: req.body.date
+                actionDate: req.body.date,
+                actionBy:req.token._id
             })
             await updateTrackingManifest(processedDockets, "docketNumber", {
                 action: "Packet is out for delivery from " + branch.branchName,
-                actionDate: req.body.date
+                actionDate: req.body.date,
+                actionBy:req.token._id
             })
             await updateTrackingStatus(processedDockets, "docketNumber", "out for delivery")
         }
         res.status(201).json({ 'msg': 'success', data: runsheet })
     } catch (err) {
-        console.log(err)
-        res.status(500).json({ err })
+        console.log("Error occured-> ",err)
+        res.status(500).json({ err:"Internal server error occured" })
     }
 }
 module.exports = {

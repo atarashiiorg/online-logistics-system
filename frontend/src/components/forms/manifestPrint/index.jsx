@@ -28,15 +28,23 @@ export function TableTotalFound(props) {
 }
 
 const TableRow = (m) => {
+    const {setUser} = useContext(UserAuthContext)
     return (
         <tr>
             <td><FaPrint style={{ color: "blueviolet" }} onClick={
                 async e => {
                     m.setIsDownloading(true)
-                    const res = await useDownloader("manifest?mid="+m._id)
-                    if(res)
-                        message.error(res)
-                    m.setIsDownloading(false)
+                    try {
+                        const res = await useDownloader("manifest?mid="+m._id)
+                        if(res.redirect){
+                            setUser(null)
+                            sessionStorage.clear()
+                        }
+                    } catch (err){
+                        message.error("Error occured: ", err)
+                    } finally {
+                        m.setIsDownloading(false)
+                    }
                 }
             } /></td>
             <td>{m.manifestNumber}</td>

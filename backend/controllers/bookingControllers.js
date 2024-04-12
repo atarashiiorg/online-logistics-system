@@ -6,9 +6,10 @@ const Invoice = require("../models/invoice");
 const Shipment = require("../models/shipment");
 const ConsignorConsignee = require("../models/consignorConsignee");
 const Booking = require("../models/booking");
-const { initiateTracking, findManifestWithBooking } = require("../services/dbServices");
+const { initiateTracking, findManifestWithBooking, getPopulatedBooking } = require("../services/dbServices");
 const Manifest = require("../models/manifest");
 const { default: mongoose } = require("mongoose");
+const Runsheet = require("../models/runsheet");
 // const = require('mongoose').mongo.ObjectID
 
 async function createBooking(req, res) {
@@ -69,7 +70,7 @@ async function createBooking(req, res) {
     }
 }
 
-async function getBooking(req, res) {
+async function getBooking(req, res) { //this function is used to get data for manifest
     try {
         if (!req.query.docket) {
             const bookings = await Booking.find()
@@ -92,7 +93,6 @@ async function getBooking(req, res) {
             }
             console.log(data.manifest)
             if(!data?.manifest){
-                console.log("manifest nhi mila")
                 if(!data?.booking?.branch.equals(req.query.branch)){
                     res.status(403).json({msg:"Docket not booked by this branch"})
                     return
@@ -141,46 +141,6 @@ async function getBooking(req, res) {
                 itemContent: data.booking?.invoice?.itemContent
             }
             res.status(200).json({ 'msg': "success", data: obj })
-            // return
-            // let booking
-            // let msg
-            // if (manifest.found) {
-            //     if (manifest.data.toBCode == req.query.branch) {
-            //         const docket = manifest.data.dockets.filter(d=>d.booking?.docketNumber==req.query.docket)[0]
-            //         if(!docket.isReceived){
-            //             res.status(403).json({'msg':'docket manifested to current branch but not received yet'})
-            //             return
-            //         }
-            //         booking = await getPopulatedBooking({ docketNumber: req.query.docket }, true)
-            //         msg = "Docket manifested to current branch"
-            //     } else {
-            //         booking=null
-            //         msg="Docket not manifested to this branch"
-            //     }
-            // } else {
-            //     if(manifest.status=="out for delivery"){
-            //         res.status(403).json({msg:"Docket is already out for delivery"})
-            //         return
-            //     }
-            //     booking = await getPopulatedBooking({ branch: req.query.branch, docketNumber: req.query.docket }, true)
-            //     if(!booking){
-            //         msg = "Docket not booked by current branch"
-            //     } else {
-            //         msg = "Docket booked by current branch"
-            //     }
-            // }
-
-            // if (!booking) {
-            //     res.status(403).json({ 'msg': msg })
-            //     return
-            // }
-
-            // if(booking.tracking.status=="in-transit"||booking.tracking.status=="booked"){
-            //     //continue
-            // } else {
-            //     res.status(403).json({'msg':'can not create manifest or runsheet. current status of packet is '+booking.tracking.status})
-            //     return
-            // }           
         }
     } catch (error) {
         console.log(error)
@@ -188,7 +148,47 @@ async function getBooking(req, res) {
     }
 }
 
+async function getBookingForDRSStatusUpdate(req,res){
+    try {
+        const docket = req.query.docket
+        const booking = await getPopulatedBooking({docketNumber:docket},true)
+        await booking.populate("branch")
+        const runsheet = await Runsheet.findOne({ 'dockets.booking': booking._id }).exec();
+        const data = {
+            docketNumber:booking.docketNumber || "",
+            bookingBranch:booking.branch.branchName + ` [${booking.branch.branchCode}]` || "",
+            bookingDate:booking.bookingDate || "",
+            consignor:booking.consignorConsignee.consignor || "",
+            consignee:booking.consignorConsignee.consignee || "",
+            origin:booking.shipment.origin.destName || "",
+            destination:booking.shipment.destination.destName || "",
+            clientName:booking.invoice.clientName || "",
+            content:booking.invoice.itemContent || "",
+            podImage:booking.tracking?.podImage || "",
+            mode:booking.shipment.mode || "",
+            invoiceValue:booking.invoice.invoiceValue || "",
+            pcs:booking.shipment.totalBoxes || "",
+            weight:booking.shipment.totalChargeWeight || "",
+            bookingType:booking.invoice.bookingType || "",
+            runsheetNumber:runsheet?.runsheetNumber || "",
+            packetStatus:booking.tracking.status || "",
+            statusRemarks:booking.tracking.statusRemarks || "",
+            rcType:booking.tracking.receiverType || "",
+            rcName:booking.tracking.receiver || "",
+            rcDate:booking.tracking.receivingDate || "",
+            podReceivingDate:booking.tracking.podReceivingDate || "",
+            podRemarks:booking.tracking.podRemarks || ""
+        }
+        console.log(data)
+        res.status(200).json({msg:"success",data:data})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({err:"Internal error"})
+    }
+}
+
 module.exports = {
     createBooking,
-    getBooking
+    getBooking,
+    getBookingForDRSStatusUpdate
 }

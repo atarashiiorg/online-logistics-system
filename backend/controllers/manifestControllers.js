@@ -84,8 +84,8 @@ async function getManifests(req, res) {
             return
         }
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ 'err': error })
+        console.log("Error occured while generating manifest pdf "+new Date().toLocaleDateString()+" ->",error)
+        res.status(500).json({ 'err': "Internal error occured while generating pdf"})
         return
     }
 
@@ -104,8 +104,8 @@ async function getManifests(req, res) {
             return
         }
     } catch (err) {
-        console.log(err)
-        res.status(500).json({ 'err': err })
+        console.log("Error while getting toBCode manifests"+new Date().toLocaleDateString()+"-> ",err)
+        res.status(500).json({ 'err': "Internal server error occured" })
         return
     }
     //
@@ -116,8 +116,8 @@ async function getManifests(req, res) {
             return
         }
     } catch (err) {
-        console.log(err)
-        res.status(500).json({ 'err': err })
+        console.log("Error occured ->",err)
+        res.status(500).json({ 'err': "Internal server error occured" })
         return
     }
 
@@ -127,7 +127,8 @@ async function getManifests(req, res) {
         res.status(200).json({ 'msg': 'success', data: manifests })
         return
     } catch (err) {
-        res.status(500).json({ 'err': err })
+        console.log(err)
+        res.status(500).json({ 'err': "Internal server error occured" })
         return
     }
 }
@@ -157,10 +158,6 @@ async function receiveManifest(req, res) {
             return
         }
         const docketsToRecive = [...req.body]
-        // console.log(docketsToRecive)
-        // res.end()
-        // return
-        console.log("RECEIVING AWB NUMBER")
         const branch = await Branch.findById(req.query.bid)
         for(let i=0;i<docketsToRecive.length;i++){
             const manifest = await Manifest.findOneAndUpdate(
@@ -172,6 +169,7 @@ async function receiveManifest(req, res) {
             await updateTrackingManifest([docketsToRecive[i].docket],"_id", {
                 action: `Packet Received at ${branch.branchName.toUpperCase()}`,
                 actionDate: new Date(),
+                actionBy:req.token._id
             },{currentManifest:manifest._id})
         }
         res.status(200).json({ 'msg': 'success' })

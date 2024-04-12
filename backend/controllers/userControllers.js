@@ -30,10 +30,20 @@ async function loginUser(req, res) {
         }
         const match = await bcrypt.compare(req.body.password, user.password);
         if (match) {
-            const token = jwt.sign({ _id: user._id, role: user.role, isLoggedIn: true, eCode: user.eCode }, process.env.JWT_KEY, { expiresIn: '5h' })
+            const token = jwt.sign({
+                eCode: user.eCode,
+                name:user.name,
+                _id: user._id,
+                role: user.role,
+                isLoggedIn: true,
+                eCode: user.eCode
+            },
+                process.env.JWT_KEY, { expiresIn: '5h' }
+            )
             const n_user = await getUserData(user)
             res.cookie('token', token, {
                 httpOnly: true,
+                // secure:true, //recommended when using in production
                 maxAge: 60 * 60 * 1000 * 5
             })
             res.status(200).json({ msg: "success", data: n_user })

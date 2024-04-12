@@ -282,10 +282,13 @@ export default function BookingEntry() {
     return (
         <>
             {
-                console.log(volWeight)
+                isPosting?<Loading/>:null
             }
             {
-                isPosting?<Loading/>:null
+                loading?<Loading/>:null
+            }
+            {
+                loading1?<Loading/>:null
             }
             <div className={style.formContainer}>
                 <p>AWB Details</p>

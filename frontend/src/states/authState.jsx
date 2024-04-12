@@ -25,6 +25,10 @@ export default function UserAuthState(props){
                     setUser(null)
                     sessionStorage.removeItem("user")
                     message.error("Session Expired.")
+                } else {
+                    setUser(null)
+                    sessionStorage.removeItem("user")
+                    message.error("Server is not responding. Signing out...")
                 }
             } catch (error) {
                 message.error(error)
