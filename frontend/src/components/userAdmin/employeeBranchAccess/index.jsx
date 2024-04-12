@@ -68,7 +68,6 @@ export default function EmployeeBranchAccess() {
                 let isChecked = false
                 for (let i = 0; i < obj[index1].dropdown.length; i++) {
                     if (obj[index1].dropdown[i].allowed) {
-                        console.log("internal input->", obj[index1].dropdown[i].allowed)
                         isChecked = true
                         break
                     }
@@ -78,7 +77,6 @@ export default function EmployeeBranchAccess() {
                 let isChecked = false
                 for (let i = 0; i < obj[index1].dropdown.length; i++) {
                     if (obj[index1].dropdown[i].allowed) {
-                        console.log("internal input->", obj[index1].dropdown[i].allowed)
                         isChecked = true
                         break
                     }
@@ -113,7 +111,7 @@ export default function EmployeeBranchAccess() {
     const isBranchSelected=(bid)=>{
         let isChecked = false
         for(let i=0;i<branchAccess.length;i++){
-            console.log(branchAccess)
+            (branchAccess)
             if(branchAccess[i].branch==bid){
                 isChecked = true
             }
@@ -124,7 +122,6 @@ export default function EmployeeBranchAccess() {
 
     const saveAccess = async()=>{
         try {
-            console.log("asdalsdkjkajsd")
             const res = await fetch(serverUrl+"employee?baxsid="+currentEmp.permissions.branchAccess._id+"&paxsid="+currentEmp.permissions.pageAccess._id,{
                 credentials:'include',
                 method:'PUT',
@@ -146,16 +143,12 @@ export default function EmployeeBranchAccess() {
                 message.error(json.msg)
             }
         } catch (error) {
-            console.log(error)
             message.error(error)
         }
     }
 
     return (
         <>
-        {
-            console.log(user.permissions.branchAccess.access)
-        }
             <div className={style.formContainer}>
                 {
                     loading ? <Loading /> : null

@@ -67,7 +67,6 @@ export function EmployeeMaster() {
 
     const edit = (emp)=>{
         setEditKey(emp._id)
-        console.log(emp)
         setEmployee(emp)
     }
 

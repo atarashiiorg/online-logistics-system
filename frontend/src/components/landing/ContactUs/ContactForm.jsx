@@ -8,7 +8,6 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`);
     const subject = encodeURIComponent('New message from your website');
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,

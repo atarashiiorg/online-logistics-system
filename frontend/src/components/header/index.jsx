@@ -54,9 +54,6 @@ export default function Header() {
     }
     return (
         <div className={style.header}>
-            {
-                console.log(branches)
-            }
             <div className={style.left}>
                 <img src={logo} alt="Logo" className={style.logo} />
                 {/* <h2>{title}</h2> */}

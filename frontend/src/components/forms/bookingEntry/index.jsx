@@ -87,7 +87,6 @@ export default function BookingEntry() {
                 const dCode = e.target.value.split(" : ")[0]
                 const idx = dests.findIndex(b => b.destCode == dCode)
                 obj[field] = dests[idx]?._id
-                console.log(obj);
                 return obj
             } else {
                 obj[field] = e.target.value
@@ -124,13 +123,11 @@ export default function BookingEntry() {
         setDimWeight(p => {
             const obj = { ...p };
             if (f == "totalDimWeight+") {
-                console.log(parseFloat(val),"dim +")
                 obj.totalDimWeight = (parseFloat(obj.totalDimWeight)+parseFloat(val)).toFixed(2)
                 obj.totalChargeWeight = parseFloat(obj.totalDimWeight) > parseFloat(obj.totalActualWeight) ? obj.totalDimWeight : obj.totalActualWeight
                 return obj
             }
             if (f == "totalDimWeight-") {
-                console.log(parseFloat(obj.totalDimWeight),"dim -")
                 obj.totalDimWeight = (parseFloat(obj.totalDimWeight)+ parseFloat(val)).toFixed(2)
                 if(isNaN(obj.totalDimWeight)){
                     obj.totalDimWeight=0.0

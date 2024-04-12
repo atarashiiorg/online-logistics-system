@@ -44,8 +44,7 @@ export default function DeliveryStatusEntry() {
                 }
             }
         } catch (err) {
-            console.log(err)
-            message.error("Error occured: ", err)
+            message.error("Error occured while fetching docket details", err)
         }
     }
 

@@ -45,7 +45,6 @@ export default function ReceiveShipperFromPrinter() {
         const res = await usePatchData({},"shipper?sid="+sid)
         if(res.res){
             setReload(p=>!p)
-            console.log(reload)
         }
     }
 

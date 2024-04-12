@@ -80,7 +80,6 @@ export default function ZoneMaster() {
             isActive:zone.isActive,
         }
         const res = await usePatchData(obj,"zone?zid="+editKey)
-        console.log(res);
         if(!res.res){
             return
         }

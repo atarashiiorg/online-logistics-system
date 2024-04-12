@@ -28,7 +28,6 @@ export default function RunsheetPrint(){
 
     return (
         <>
-        {console.log(runsheetList[0])}
         {
             loading?<Loading/>:null
         }

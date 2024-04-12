@@ -58,7 +58,6 @@ export default function DrsEntry() {
                     return { ...p, dockets:[...p.dockets,{...data.data, booking:data.data._id}] }
                 })
             } else {
-                console.log(data.err)
                 message.error(data?.err)
             }
             return
@@ -104,7 +103,6 @@ export default function DrsEntry() {
                         obj.vehicleNumber = obj?.vendor?.vehicleNumber
                     else
                         obj.vehicleNumber = ""
-                    console.log(e.target.value)
                     return obj
                 case "vendorType":
                     obj.vendorType = e.target.value
@@ -115,7 +113,6 @@ export default function DrsEntry() {
                     }
                     return obj
                 default:
-                    console.log(e.target.value)
                     obj[f] = e.target.value
                     return obj
             }
@@ -253,7 +250,6 @@ export default function DrsEntry() {
                                     <th>Remove</th>
                                 </thead>
                                 <tbody>
-                                    {console.log(drs.dockets) }
                                     {
                                         drs.dockets.map(d => {
                                             return <tr>

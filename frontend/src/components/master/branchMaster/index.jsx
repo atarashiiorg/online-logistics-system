@@ -80,7 +80,6 @@ export default function BranchMaster() {
 
     const handleBranch = (e, field) => {
         setBranch(p => {
-            console.log(p)
             const obj = { ...p }
             switch (field) {
                 case "isHub":

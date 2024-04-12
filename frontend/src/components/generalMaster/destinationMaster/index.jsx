@@ -103,7 +103,6 @@ export default function DestinationMaster() {
 
     return (
         <>
-        {console.log(destination)}
             <div className={style.formContainer}>
                 <p>Destination Master</p>
                 <div>

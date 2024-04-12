@@ -74,6 +74,7 @@ const {
     isMethodPemitted
 } = require("../middlewares/authmwares")
 const Employee = require("../models/employee")
+const { updatePassword } = require("../controllers/selfControllers")
 const userRoutes = require("express")()
 
 
@@ -204,5 +205,9 @@ userRoutes.route("/dest")
     .get(getDestination)
     .post(createDestination)
     .patch(updateDestination)
+
+userRoutes.route("/self")
+.all(hasToken)
+.patch(updatePassword)
 
 module.exports = userRoutes

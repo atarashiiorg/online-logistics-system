@@ -27,7 +27,6 @@ export function TrackingPage() {
             const res = await fetch(publicUrl + "track?docket=" + docket)
             const res_json = await res.json()
             if (res.ok) {
-                console.log(res_json);
                 setTrackingData(p => res_json.data)
             } else if (res.status == 500) {
                 message.error(res_json.err)
@@ -55,9 +54,6 @@ export function TrackingPage() {
 
     return (
         <>
-        {
-            console.log(docket,trackingData)
-        }
             <div className={style.header}>
                 <div className={style.logo} onClick={e => navigate("/home")}>
                     <img src={logo} alt="Logo" />

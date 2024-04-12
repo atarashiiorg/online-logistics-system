@@ -14,7 +14,6 @@ import Loading from '../../pages/loading'
 import UserAuthContext from '../../contexts/authContext'
 
 const DynamicFaIcon = ({ name }) => {
-    console.log(name)
     switch (name) {
         case 'GiGearHammer':
             return <GiGearHammer />
@@ -56,7 +55,6 @@ const DashboardItem = ({ icon, title, dropdown, index, active, setActive, allowe
     const setThisActive = (i) => {
         setActive(index)
         if (index == active) {
-            console.log("setting op");
             setActiveOp(i)
         }
     }
@@ -372,9 +370,6 @@ export default function SideBar() {
 
     return (
         <div className={style.container}>
-            {
-                console.log(user.permissions.pageAccess)
-            }
             {
                 sideBarOptions.map((op, i) => <DashboardItem {...op} key={op + i} index={i} active={active} setActive={setActive} />)
             }

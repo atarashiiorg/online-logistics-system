@@ -89,7 +89,6 @@ export function AwbForm({ docket, reset, setDocket, addDocket, deleteDocket, doc
             if (data.res) {
                 setDocket(data.data)
             } else {
-                console.log(data.err)
                 message.error(data?.err)
             }
             return
@@ -272,7 +271,7 @@ export default function ManifestDirect() {
                 return
             }
         } catch (error) {
-            console.log(error)
+            message.error("Somthing went wrong")
         }
 
         setManifest(p => {
@@ -315,7 +314,6 @@ export default function ManifestDirect() {
     } //props for awbform
 
     const resetForm = () => {
-        console.log("resetted")
         setManifest(p => initialManifest)
         setDocket(initialDocket)
     }

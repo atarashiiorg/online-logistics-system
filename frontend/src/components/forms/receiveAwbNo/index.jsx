@@ -116,9 +116,6 @@ export default function ReceiveAwbNo() {
 
     return (
         <>
-        {
-            console.log(selectedDockets)
-        }
             <div className={style.formContainer}>
                 <p>Receive AwbNo Details</p>
                 <div>
