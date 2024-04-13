@@ -10,8 +10,8 @@ const Jumbotron = () => {
       <div className={style.jumbotroncontent}>
         <img src={bg} className={style.bg} />
         <div>
-          <h2 style={{marginTop:"70px",fontSize:"60px", textTransform:"capitalize"}}>Welcome to our website</h2>
-          <h2 style={{fontSize:"25px", textTransform:"capitalize"}}>Safely delivering your cargo with reliability and trust at SafeDispatchLogistics.</h2>
+          <h2 className={style.welcome}>Welcome to our website</h2>
+          <h2 className={style.h2}>Safely delivering your cargo with reliability and trust at SafeDispatchLogistics.</h2>
           <img src={logo} alt="Logo" className={style.logo} />
         </div>
       </div>

@@ -1,14 +1,9 @@
 import ContactForm from './ContactForm';
 import CallAndWhatsapp from './CallAndWhatsapp';
+import style from './style.module.css'
 const ContactUs = () => {
   return (
-    <div
-      style={{
-        padding: '2em 3em 2.5em 3em',
-        backgroundColor: 'rgb(250, 250, 250)',
-      }}
-      id='contactus'
-    >
+    <div id='contactus' className={style.container} >
       <h1
         style={{
           fontSize: '2.5em',
@@ -19,15 +14,7 @@ const ContactUs = () => {
       >
         Contact Us
       </h1>
-      <div
-        style={{
-          display: 'flex',
-          gap: '2em',
-          justifyContent: 'center',
-          width: '100%',
-          // alignItems: 'center',
-        }}
-      >
+      <div className={style.content} >
         <ContactForm />
         <div
           className=""
@@ -42,10 +29,7 @@ const ContactUs = () => {
           <img
             src="/girlShowingtwoHands.webp"
             alt="girlShowingtwohands"
-            style={{
-              width: '100%',
-              height: '100%',
-            }}
+            className={style.girlImage}
           />
         </div>
         <CallAndWhatsapp />

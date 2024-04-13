@@ -4,6 +4,7 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { useNavigate, Link } from 'react-router-dom';
 import { message } from 'antd';
 import HomeContext from '../../../contexts/homeContext';
+import style from './style.module.css'
 
 const UpperNavbar = (props) => {
   const navigate = useNavigate()
@@ -18,24 +19,8 @@ const UpperNavbar = (props) => {
 
   const track = props.track || trackThis
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        padding: '10px',
-        backgroundColor: '#f8f9fa',
-        borderBottom: '1px solid #dee2e6',
-      }}
-    >
-      <div
-        style={{
-          marginLeft: '2em',
-          display: 'flex',
-          gap: '0.2em',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
+    <div className={style.container} >
+      <div className={style.left}>
         <i
           style={{
             marginRight: '5px',
@@ -51,7 +36,7 @@ const UpperNavbar = (props) => {
           {phone}
         </a>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div className={style.right}>
         <input
           type="text"
           placeholder="Track"

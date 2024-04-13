@@ -65,7 +65,7 @@ export default function Login() {
                     <label htmlFor="">Password</label>
                     <input type="text" placeholder='Password' value={loginCreds.password} onInput={e=>setLoginCreds(p=>{return {...p,password:e.target.value}})}/> 
                 </div>
-                <button onClick={onSubmit}>Login</button>
+                <button style={{cursor:'pointer'}} onClick={onSubmit}>Login</button>
             </div>
         </div>
     )

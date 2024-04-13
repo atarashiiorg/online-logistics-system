@@ -1,5 +1,6 @@
 import { useState } from 'react';
 // import sendEmail from "../../sendEmail";
+import style from './style.module.css'
 
 const ContactForm = () => {
   const [name, setName] = useState('');
@@ -23,7 +24,7 @@ const ContactForm = () => {
   };
   return (
     <div>
-      <div>
+      <div className={style.contactForm}>
         <div >
           <h1
             style={{
@@ -131,7 +132,7 @@ const ContactForm = () => {
               required
             ></textarea>
           </div>
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center',display:'flex', width:"100%",justifyContent:"center" }}>
             <button
               type="submit"
               style={{

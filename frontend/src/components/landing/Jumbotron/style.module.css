@@ -65,6 +65,7 @@
     justify-content: center;
     overflow: hidden;
     background-color: rgba(25, 58, 104, 0.589);
+    /* object-fit: cover; */
 }
 
 .bg{
@@ -73,17 +74,52 @@
     left: 0;
     opacity: 1;
     z-index: -1;
-    height: 140%;
-    width: 100%;
+    height: 100%;
+    width: 100%; 
+    object-fit: cover;
     overflow: hidden;
 }
 
 .logo{
     z-index: 9999;
-    height: 300px;
+    height: 250px;
     position: absolute;
     top: 25%;
     left: 50%;
     transform: translate(-50%,-50%);
+    background-color: #122540;
 }
 
+.welcome{
+    /* position: absolute;
+    top: 35%; */
+    margin-top:70px;
+    font-size:60px; 
+    text-transform:capitalize;
+    /* color: black; */
+}
+
+.h2{
+    font-size:25px; 
+    text-transform:capitalize;
+}
+
+@media (max-width: 768px) {
+    .jumbotroncontent{
+        /* background-color: #1225408c; */
+    }
+   .logo{
+    top: 20%;
+    height: 20%;
+    background-color: #122540;
+   }
+
+   .welcome{
+    font-size: 40px;
+   }
+
+   .h2{
+    margin-top: 10px;
+    font-size: 20px;
+   }  
+}

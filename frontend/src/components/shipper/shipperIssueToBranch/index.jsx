@@ -54,12 +54,12 @@ export default function ShipperIssueToBranch() {
     const handleSave = async () => {
         try {
             const res = await usePostData(data,"issueshippertobranch")
-            if (res.res) {
-                message.success("Shipper Issued To Branch")
-                return
-            } else {
+            // if (res.res) {
+            //     message.success("Shipper Issued To Branch")
+            //     return
+            // } else {
                 
-            }
+            // }
         } catch (err) {
             message.error(err)
             return

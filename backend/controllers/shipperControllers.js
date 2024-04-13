@@ -97,7 +97,7 @@ async function shipperIssueToBranch(req, res) {
         }
 
         const isIssued = await isShipperIssuedAlready(docketFrom, docketTo)
-        if (!isIssued.issued) {
+        if (isIssued.issued) {
             res.status(409).json({ 'msg': isIssued.msg })
             return
         }
@@ -117,7 +117,7 @@ async function shipperIssueToBranch(req, res) {
         )
 
         if (result.modifiedCount > 0) {
-            res.status(200).json({ 'msg': 'success' })
+            res.status(201).json({ 'msg': 'success' })
             return
         }
         res.status(304).end()
