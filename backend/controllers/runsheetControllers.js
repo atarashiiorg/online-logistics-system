@@ -4,7 +4,7 @@ const Tracking = require("../models/tracking")
 const { updateTrackingStatus, updateTrackingManifest } = require("../services/dbServices")
 const { getRunsheetNumber, getDataForRunsheetPdf, createPdfFromHtml } = require("../services/helpers")
 const { PassThrough } = require('stream')
-
+const {startSession} = require('mongoose')
 
 async function getRunsheets(req, res) {
     try {
@@ -37,6 +37,7 @@ async function getRunsheets(req, res) {
 }
 
 async function createRunsheet(req, res) {
+    const transaction = await startSession()
     try {
         const runSheet = { ...req.body }
         if (runSheet.vendorType == 'self') {
@@ -59,24 +60,30 @@ async function createRunsheet(req, res) {
         const branch = await Branch.findById(req.body.branch)
         const runsheetNumber = await getRunsheetNumber()
         // return
+
+        await transaction.startTransaction()//start transaction
         const runsheet = await Runsheet.create({ ...runSheet, runsheetNumber })
         if (runsheet) {
             await updateTrackingManifest(processedDockets, "docketNumber", {
-                action: "Runsheet Prepared at " + branch.branchName,
+                action: "Runsheet Prepared at " + branch.branchName.toUpperCase(),
                 actionDate: req.body.date,
                 actionBy:req.token._id
-            })
+            },null,transaction)
             await updateTrackingManifest(processedDockets, "docketNumber", {
-                action: "Packet is out for delivery from " + branch.branchName,
+                action: "Packet is out for delivery from " + branch.branchName.toUpperCase(),
                 actionDate: req.body.date,
                 actionBy:req.token._id
-            })
+            },null,transaction)
             await updateTrackingStatus(processedDockets, "docketNumber", "out for delivery")
         }
+        await transaction.commitTransaction()//commit transaction
         res.status(201).json({ 'msg': 'success', data: runsheet })
     } catch (err) {
+        await transaction.abortTransaction()//abort transaction
         console.log("Error occured-> ",err)
         res.status(500).json({ err:"Internal server error occured" })
+    } finally{
+        transaction.endSession()//end transaction session
     }
 }
 module.exports = {

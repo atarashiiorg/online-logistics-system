@@ -2,7 +2,7 @@ import { FaCheck, FaCross } from 'react-icons/fa6'
 import style from './style.module.css'
 import { FaTimes, FaTrashAlt } from 'react-icons/fa'
 import { IoRefresh } from 'react-icons/io5'
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useFetchDocketForManifest, useGetData } from '../../../apiHandlers/getApis'
 import UserAuthContext from '../../../contexts/authContext'
 import { message } from 'antd'
@@ -38,7 +38,7 @@ export default function DrsEntry() {
     const handleDocket = async (e) => {
         if (e.keyCode == 13) {
             if (!currBranch) {
-                message.warning("Please select From BCode")
+                message.warning("Please select Current Branch")
                 return
             }
 
@@ -124,7 +124,6 @@ export default function DrsEntry() {
         setDocket({dnum:"",weight:""})
     }
 
-
     const handleSubmit = async()=>{
         const rest = "to prepare runsheet"
         if(!currBranch){
@@ -144,6 +143,9 @@ export default function DrsEntry() {
             message.warning("Please select some dockets"+rest)
             return
         }
+        if(drs.vendorType=="self"){
+            delete drs.vendor
+        }
         setIsPosting(true)
         const result = await usePostData({...drs,branch:currBranch?._id},"runsheet")
         if(result.res){
@@ -151,6 +153,11 @@ export default function DrsEntry() {
         }
         setIsPosting(false)
     }
+
+
+    useEffect(()=>{
+        resetForm()
+    },[currBranch])
 
     return (
         <>

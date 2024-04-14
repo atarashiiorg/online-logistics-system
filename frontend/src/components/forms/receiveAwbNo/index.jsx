@@ -10,6 +10,7 @@ import { TableComp } from '../../minComp'
 import { getFormttedDate } from '../../../utils/helpers'
 import { usePatchData } from '../../../apiHandlers/patchApis'
 import { message } from 'antd'
+import Loading from '../../../pages/loading'
 
 const TableRow = (props) => {
     return (
@@ -18,14 +19,7 @@ const TableRow = (props) => {
                 props.dockets.map(d => {
                     const [isCheked, setIsChecked] = useState(false)
                     const check = (e, id) => {
-                        if (props.message == "") {
-                            message.warning("Please enter a message first")
-                            return
-                        }
-                        if (props.date == "") {
-                            message.warning("Please select a date first")
-                            return
-                        }
+
                         if (e.target.checked) {
                             props.select(p => {
                                 const idx = p.findIndex(d => d.docket == id)
@@ -46,14 +40,6 @@ const TableRow = (props) => {
                     }
                     useEffect(() => {
                         if (props.allChecked) {
-                            if (props.message == "") {
-                                message.warning("Please enter a message first")
-                                return
-                            }
-                            if (props.date == "") {
-                                message.warning("Please select a date first")
-                                return
-                            }
                             props.select(p => {
                                 const idx = p.findIndex(docket => docket.docket == d?._id)
                                 if (idx > -1) {
@@ -63,14 +49,6 @@ const TableRow = (props) => {
                                 }
                             })
                         } else {
-                            if (props.message == "") {
-                                message.warning("Please enter a message first")
-                                return
-                            }
-                            if (props.date == "") {
-                                message.warning("Please select a date first")
-                                return
-                            }
                             props.select(p => [])
                             setIsChecked(false)
                         }
@@ -103,19 +81,43 @@ export default function ReceiveAwbNo() {
     const [docketNum, setDocketNum] = useState("")
     const [rcDate, setRcDate] = useState("")
     const [msg, setMessage] = useState("")
+    const [isSubmitting, setIsSubmitting] = useState(false)
+
     const handleReceive = async () => {
+        if(manifests.length<=0){
+            message.warning("No dockets are here to recieve.")
+            return
+        }
+        if(selectedDockets.length<=0){
+            message.warning("Please mark docketes to receive.")
+            return
+        }
+        if(rcDate==""){
+            message.warning("Please select date.")
+            return
+        }
+        if(msg==""){
+            message.warning("Please enter a message.")
+            return
+        }
         if (!currBranch) {
             message.warning('Please select current branch.')
             return
         }
+        setIsSubmitting(true)
         const result = await usePatchData(selectedDockets, "manifest?bid=" + currBranch?._id)
         if (result.res) {
             setReload(p => !p)
+            setReceiveAllCheck(false)
         }
+        setIsSubmitting(false)
     }
 
     return (
         <>
+        {
+            isSubmitting?<Loading/>:null
+        }
             <div className={style.formContainer}>
                 <p>Receive AwbNo Details</p>
                 <div>
@@ -148,14 +150,6 @@ export default function ReceiveAwbNo() {
                         <thead>
                             <tr>
                                 <th><input type="checkbox" checked={receiveAllCheck || false} onChange={e => setReceiveAllCheck(p => {
-                                    if (msg == "") {
-                                        message.warning("Please enter a message first")
-                                        return
-                                    }
-                                    if (rcDate == "") {
-                                        message.warning("Please select a date first")
-                                        return
-                                    }
                                     if (e.target.checked == false)
                                         return null
                                     else

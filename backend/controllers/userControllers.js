@@ -5,6 +5,7 @@ const Branch = require("../models/branch")
 const bcrypt = require("bcrypt")
 const Employee = require("../models/employee")
 const { getUserData } = require("../services/helpers")
+const { path } = require("../routes/userRoutes")
 
 async function loginUser(req, res) {
     try {
@@ -68,7 +69,11 @@ async function trackAwb(req, res) {
             .populate("consignorConsignee")
             .populate("branch")
             .populate("client")
-            .populate("tracking")
+            .populate({
+                path:"tracking",
+                populate:[{path:"details",populate:{path:"actionBy",select:"name eCode"}}]
+            })
+            // .populate('details.actionBy', 'name eCode')
 
         if (bookings) {
             res.status(200).json({ used: true, valid: true, bookings, msg: 'success' })

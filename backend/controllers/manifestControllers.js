@@ -2,14 +2,14 @@ const Manifest = require("../models/manifest")
 const { isDocketValid, isDocketBooked } = require("./shipperControllers")
 const { getManifestName, getFormttedDate, readEjs, createPdfFromHtml, getDataForManifestPdf } = require("../services/helpers")
 const { getPopulatedManifest, updateTrackingManifest } = require("../services/dbServices")
-const { default: mongoose } = require("mongoose")
+const { default: mongoose, startSession } = require("mongoose")
 const { PassThrough } = require('stream')
 const Branch = require("../models/branch")
 const Tracking = require("../models/tracking")
 
 async function createManifest(req, res) {
+    const transaction = await startSession()
     try {
-
         if (req.body.toBCode == "") {
             res.status(203).json({ 'msg': 'ToBCode is not provided' })
             return
@@ -36,32 +36,42 @@ async function createManifest(req, res) {
         const fromBranch = await Branch.findById(req.body.fromBCode)
         const toBranch = await Branch.findById(req.body.toBCode)
         const manifestNumber = getManifestName()
+
+        await transaction.startTransaction()//start transaction
+        
         const manifest = await Manifest.create({ ...req.body, manifestNumber })
         if (manifest) {
             await updateTrackingManifest(dockets,"docketNumber", {
                 action: `Packet manifested from ${fromBranch.branchName.toUpperCase()} to ${toBranch.branchName.toUpperCase()} in Manifest No. ${manifestNumber}`,
                 actionDate: new Date(),
-            },{ currentManifest: manifest._id})
+                actionBy:req.token._id
+            },{ currentManifest: manifest._id}, transaction)
             await updateTrackingManifest(dockets,"docketNumber", {
                 action: `Packet Dispatched to ${toBranch.branchName.toUpperCase()}`,
                 actionDate: new Date(),
-            }, {currentManifest:manifest._id})
+                actionBy:req.token._id
+            }, {currentManifest:manifest._id}, transaction)
             for(let i=0;i<dockets.length;i++){
                 const tracking = await Tracking.findOne({docketNumber:dockets[i]})
                 if(tracking.status=="booked"){
                     tracking.status = "in-transit"
-                    await tracking.save()
+                    await tracking.save({session:transaction})
                 } else {
                     continue
                 }
             }
             res.status(201).json({ 'msg': 'success' })
+
+            await transaction.commitTransaction()//commit transaction
         } else {
             res.status(304).json({ 'msg': 'something went wrong' })
         }
     } catch (err) {
+        await transaction.abortTransaction()//abort transaction
         console.log(err);
         res.status(500).json({ 'err': err })
+    } finally {
+        transaction.endSession()//end transaction session    
     }
 }
 
@@ -137,11 +147,9 @@ async function checkDockets(dockets) {
     try {
         for (let i = 0; i < dockets.length; i++) {
             if (!(await isDocketValid(dockets[i])).valid) {
-                console.log("1");
                 return { passed: false, msg: "This is not a valid docket number or may not be issued to any branch" }
             }
             if (!(await isDocketBooked(dockets[i])).booked) {
-                console.log("2");
                 return { passed: false, msg: dockets[i] + " is not been booked yet" }
             }
         }
@@ -152,6 +160,7 @@ async function checkDockets(dockets) {
 }
 
 async function receiveManifest(req, res) {
+    const transaction = await startSession()
     try {
         if (req.body == null || req.body.length <= 0) {
             res.status(403).json({ 'msg': 'docket list is not provided to receive' })
@@ -159,23 +168,34 @@ async function receiveManifest(req, res) {
         }
         const docketsToRecive = [...req.body]
         const branch = await Branch.findById(req.query.bid)
+
+        await transaction.startTransaction()//start transaction
+
         for(let i=0;i<docketsToRecive.length;i++){
             const manifest = await Manifest.findOneAndUpdate(
                 { 'dockets.booking': docketsToRecive[i].docket },
                 { $set: { 'dockets.$[elem].isReceived': true, 'dockets.$[elem].rcDate':docketsToRecive[i].rcDate,'dockets.$[elem].message':docketsToRecive[i].message} },
-                { new: true, arrayFilters: [{ 'elem.booking': docketsToRecive[i].docket }] }
+                { 
+                    new: true, 
+                    arrayFilters: [{ 'elem.booking': docketsToRecive[i].docket }],
+                    session:transaction
+                },
             );
-            console.log("RECEIVED->",manifest);
             await updateTrackingManifest([docketsToRecive[i].docket],"_id", {
                 action: `Packet Received at ${branch.branchName.toUpperCase()}`,
                 actionDate: new Date(),
                 actionBy:req.token._id
-            },{currentManifest:manifest._id})
+            },{currentManifest:manifest._id}, transaction)
         }
+
+        await transaction.commitTransaction()//commit transaction
         res.status(200).json({ 'msg': 'success' })
     } catch (error) {
-        console.log(error);
+        await transaction.abortTransaction()//abort transaction
+        console.log(error)
         res.status(500).json({err})
+    } finally {
+        transaction.endSession()
     }
 }
 

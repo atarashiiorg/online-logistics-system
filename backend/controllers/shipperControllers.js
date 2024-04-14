@@ -39,13 +39,14 @@ async function isDocketBooked(docket) {
 
 async function sendShipperForPrinting(req, res) {
     try {
-        const shippers = await Shipper.find({
+        const shippers = await Shipper.findOne({
             $or: [
                 { docketFrom: { $gte: req.body.docketFrom } },
                 { docketTo: { $gte: req.body.docketTo } }
             ]
         })
-        if (shippers.length > 0) {
+        console.log(shippers)
+        if (shippers) {
             res.status(409).json({ 'msg': 'this shipper series is already used' })
             return
         }
@@ -96,6 +97,12 @@ async function shipperIssueToBranch(req, res) {
             return
         }
 
+        const isReceived = await isShipperReceived(docketFrom, docketTo)
+        if(!isReceived.received){
+            res.status(403).json({msg:isReceived.msg})
+            return
+        }
+
         const isIssued = await isShipperIssuedAlready(docketFrom, docketTo)
         if (isIssued.issued) {
             res.status(409).json({ 'msg': isIssued.msg })
@@ -140,6 +147,19 @@ async function isShipperSeriesValid(docketFrom, docketTo) {
     }
 }
 
+async function isShipperReceived(docketFrom, docketTo) {
+    try {
+        const shipper = await Shipper.findOne({ docketFrom, docketTo, isReceived:true })
+        if (shipper) {
+            return { received: true, 'msg': 'shipper is Received' }
+        } else {
+            return { received: false, 'msg': 'shipper is not Received' }
+        }
+    } catch (error) {
+        return { valid: false, 'msg': 'error occured while checking shipper receiving' }
+    }
+}
+
 
 async function isShipperIssuedAlready(docketFrom, docketTo) {
     try {
@@ -147,7 +167,7 @@ async function isShipperIssuedAlready(docketFrom, docketTo) {
             shippers: {
                 $elemMatch: {
                     $or: [
-                        { docketFrom: { $lte: docketFrom } },
+                        { docketFrom: { $gte: docketFrom } },
                         { docketTo: { $gte: docketTo } }
                     ]
                 }

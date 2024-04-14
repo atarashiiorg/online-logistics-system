@@ -2,17 +2,18 @@ const {
     isDocketBooked,
     isDocketValid,
 } = require("./shipperControllers");
+const { initiateTracking, findManifestWithBooking, getPopulatedBooking } = require("../services/dbServices");
 const Invoice = require("../models/invoice");
 const Shipment = require("../models/shipment");
 const ConsignorConsignee = require("../models/consignorConsignee");
 const Booking = require("../models/booking");
-const { initiateTracking, findManifestWithBooking, getPopulatedBooking } = require("../services/dbServices");
 const Manifest = require("../models/manifest");
-const { default: mongoose } = require("mongoose");
+const { default: mongoose, startSession } = require("mongoose");
 const Runsheet = require("../models/runsheet");
 // const = require('mongoose').mongo.ObjectID
 
 async function createBooking(req, res) {
+    const transaction = await startSession()
     try {
         const isValid = await isDocketValid(req.body.awbDetails.docketNumber)
 
@@ -41,7 +42,7 @@ async function createBooking(req, res) {
 
         const consignorConsignee = new ConsignorConsignee(req.body.consignorConsignee)
 
-        const tracking = await initiateTracking(req.body.awbDetails.docketNumber, isValid.branch.branchName, req.body.awbDetails.bookingDate, "")
+        const tracking = await initiateTracking(req.body.awbDetails.docketNumber, isValid.branch.branchName, req.body.awbDetails.bookingDate, req.token._id)
         const booking = new Booking({
             ...req.body.awbDetails,
             branch: req.body.branch,
@@ -52,14 +53,20 @@ async function createBooking(req, res) {
             tracking: tracking._id
         })
 
-        await invoice.save()
-        await shipment.save()
-        await consignorConsignee.save()
-        await tracking.save()
-        await booking.save()
+        await transaction.startTransaction()//starting transaction
+
+        await invoice.save({session:transaction})
+        await shipment.save({session:transaction})
+        await consignorConsignee.save({session:transaction})
+        await tracking.save({session:transaction})
+        await booking.save({session:transaction})
+
+        await transaction.commitTransaction()//commiting transaction
 
         res.status(201).json({ 'msg': 'success' })
+
     } catch (err) {
+        await transaction.abortTransaction()//aborting transaction
         console.log(err)
         if (err.code == 11000) {
             res.status(409).json({ 'msg': 'this docket number already booked' })
@@ -67,6 +74,8 @@ async function createBooking(req, res) {
         }
         res.status(500).json({ 'err': err })
         console.log(err);
+    } finally {
+        transaction.endSession() //ending transaction session
     }
 }
 
@@ -80,48 +89,48 @@ async function getBooking(req, res) { //this function is used to get data for ma
         } else {
 
             const isValid = await isDocketValid(req.query.docket)
-            if(!isValid.valid){
-                res.status(403).json({"msg":isValid.msg})
+            if (!isValid.valid) {
+                res.status(403).json({ "msg": isValid.msg })
                 return
             }
 
-            const data = await findManifestWithBooking({docketNumber:req.query.docket})
+            const data = await findManifestWithBooking({ docketNumber: req.query.docket })
             // console.log(data)
-            if(!data){
-                res.status(403).json({msg:'Docket not booked yet'})
+            if (!data) {
+                res.status(403).json({ msg: 'Docket not booked yet' })
                 return
             }
             console.log(data.manifest)
-            if(!data?.manifest){
-                if(!data?.booking?.branch.equals(req.query.branch)){
-                    res.status(403).json({msg:"Docket not booked by this branch"})
+            if (!data?.manifest) {
+                if (!data?.booking?.branch.equals(req.query.branch)) {
+                    res.status(403).json({ msg: "Docket not booked by this branch" })
                     return
                 }
-                if(data?.booking?.tracking?.status=="in-transit"||data?.booking?.tracking?.status=="booked"){
+                if (data?.booking?.tracking?.status == "in-transit" || data?.booking?.tracking?.status == "booked") {
                     //continue
                     console.log("intransit / booked")
                 } else {
-                    res.status(403).json({'msg':'can not create manifest or runsheet. current status of packet is '+data?.booking?.tracking?.status})
+                    res.status(403).json({ 'msg': 'can not create manifest or runsheet. current status of packet is ' + data?.booking?.tracking?.status })
                     return
                 }
             } else {
-                if(new mongoose.Types.ObjectId(data.manifest.toBCode).equals(req.query.branch)){
-                    const docket = data.manifest.dockets.filter(d=>d.booking?.docketNumber==req.query.docket)[0]
-                    console.log("manifest-found->",docket)
-                    if(!docket.isReceived){
-                        res.status(403).json({'msg':'docket manifested to current branch but not received yet'})
+                if (new mongoose.Types.ObjectId(data.manifest.toBCode).equals(req.query.branch)) {
+                    const docket = data.manifest.dockets.filter(d => d.booking?.docketNumber == req.query.docket)[0]
+                    console.log("manifest-found->", docket)
+                    if (!docket.isReceived) {
+                        res.status(403).json({ 'msg': 'docket manifested to current branch but not received yet' })
                         return
                     }
-                    if(data?.booking?.tracking?.status=="in-transit"||data?.booking?.tracking?.status=="booked"){
+                    if (data?.booking?.tracking?.status == "in-transit" || data?.booking?.tracking?.status == "booked") {
                         //continue
                         console.log("intransit / booked")
                     } else {
-                        res.status(403).json({'msg':'can not create manifest or runsheet. current status of packet is '+data?.booking?.tracking?.status})
+                        res.status(403).json({ 'msg': 'can not create manifest or runsheet. current status of packet is ' + data?.booking?.tracking?.status })
                         return
                     }
 
                 } else {
-                    res.status(403).json({msg:'docket not manifested to current branch'})
+                    res.status(403).json({ msg: 'docket not manifested to current branch' })
                     return
                 }
             }
@@ -148,47 +157,59 @@ async function getBooking(req, res) { //this function is used to get data for ma
     }
 }
 
-async function getBookingForDRSStatusUpdate(req,res){
+async function getBookingForDRSStatusUpdate(req, res) {
     try {
         const docket = req.query.docket
-        const booking = await getPopulatedBooking({docketNumber:docket},true)
+        const booking = await getPopulatedBooking({ docketNumber: docket }, true)
         await booking.populate("branch")
         const runsheet = await Runsheet.findOne({ 'dockets.booking': booking._id }).exec();
         const data = {
-            docketNumber:booking.docketNumber || "",
-            bookingBranch:booking.branch.branchName + ` [${booking.branch.branchCode}]` || "",
-            bookingDate:booking.bookingDate || "",
-            consignor:booking.consignorConsignee.consignor || "",
-            consignee:booking.consignorConsignee.consignee || "",
-            origin:booking.shipment.origin.destName || "",
-            destination:booking.shipment.destination.destName || "",
-            clientName:booking.invoice.clientName || "",
-            content:booking.invoice.itemContent || "",
-            podImage:booking.tracking?.podImage || "",
-            mode:booking.shipment.mode || "",
-            invoiceValue:booking.invoice.invoiceValue || "",
-            pcs:booking.shipment.totalBoxes || "",
-            weight:booking.shipment.totalChargeWeight || "",
-            bookingType:booking.invoice.bookingType || "",
-            runsheetNumber:runsheet?.runsheetNumber || "",
-            packetStatus:booking.tracking.status || "",
-            statusRemarks:booking.tracking.statusRemarks || "",
-            rcType:booking.tracking.receiverType || "",
-            rcName:booking.tracking.receiver || "",
-            rcDate:booking.tracking.receivingDate || "",
-            podReceivingDate:booking.tracking.podReceivingDate || "",
-            podRemarks:booking.tracking.podRemarks || ""
+            docketNumber: booking.docketNumber || "",
+            bookingBranch: booking.branch.branchName + ` [${booking.branch.branchCode}]` || "",
+            bookingDate: booking.bookingDate || "",
+            consignor: booking.consignorConsignee.consignor || "",
+            consignee: booking.consignorConsignee.consignee || "",
+            origin: booking.shipment.origin.destName || "",
+            destination: booking.shipment.destination.destName || "",
+            clientName: booking.invoice.clientName || "",
+            content: booking.invoice.itemContent || "",
+            podImage: booking.tracking?.podImage || "",
+            mode: booking.shipment.mode || "",
+            invoiceValue: booking.invoice.invoiceValue || "",
+            pcs: booking.shipment.totalBoxes || "",
+            weight: booking.shipment.totalChargeWeight || "",
+            bookingType: booking.invoice.bookingType || "",
+            runsheetNumber: runsheet?.runsheetNumber || "",
+            packetStatus: booking.tracking.status || "",
+            statusRemarks: booking.tracking.statusRemarks || "",
+            rcType: booking.tracking.receiverType || "",
+            rcName: booking.tracking.receiver || "",
+            rcDate: booking.tracking.receivingDate || "",
+            podReceivingDate: booking.tracking.podReceivingDate || "",
+            podRemarks: booking.tracking.podRemarks || ""
         }
         console.log(data)
-        res.status(200).json({msg:"success",data:data})
+        res.status(200).json({ msg: "success", data: data })
     } catch (error) {
         console.log(error)
-        res.status(500).json({err:"Internal error"})
+        res.status(500).json({ err: "Internal error" })
     }
+}
+
+async function deleteBooking(req,res){
+    const docketNumber = req.query.docket
+    const branch = req.query.branch
+    const booking = await Booking.findOne({docketNumber})
+    if(!booking){
+        res.status(404).json({msg:"Booking with this docket not found"})
+        return
+    }
+    booking.deleteOne()
 }
 
 module.exports = {
     createBooking,
     getBooking,
-    getBookingForDRSStatusUpdate
+    getBookingForDRSStatusUpdate,
+    deleteBooking
 }

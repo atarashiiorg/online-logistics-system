@@ -126,7 +126,7 @@ async function findManifestWithBooking(opts) {
     }
 }
 
-async function updateTrackingManifest(dockets, key,details, manifest) {
+async function updateTrackingManifest(dockets, key,details, manifest, session) {
     try {
         for (let i = 0; i < dockets.length; i++) {
             let booking
@@ -146,7 +146,8 @@ async function updateTrackingManifest(dockets, key,details, manifest) {
                 {
                     $push: { details: { ...details } },
                     $set: manifest || {}
-                }
+                },
+                {session}
             );
             console.log(res);
         }
@@ -154,7 +155,7 @@ async function updateTrackingManifest(dockets, key,details, manifest) {
         throw err;
     }
 }
-async function updateTrackingStatus(dockets, key, status) {
+async function updateTrackingStatus(dockets, key, status, session) {
     try {
         for (let i = 0; i < dockets.length; i++) {
             let booking
@@ -221,6 +222,7 @@ async function initiateTracking(docket, branchName, date, by) {
                 {
                     action: 'Docket booked from ' + branchName,
                     actionDate: date,
+                    actionBy:by
                 }
             ]
         })

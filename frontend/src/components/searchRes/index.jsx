@@ -177,7 +177,7 @@ export default function SearchRes() {
                                                         <td>{getFormttedDate(d?.actionDate)}</td>
                                                         <td>{d?.action}</td>
                                                         <td><pre>{getFormttedDate(d.actionDate)}  {new Date(d.actionDate).toLocaleTimeString()}</pre></td>
-                                                        <td>{d?.ationBy?.name}</td>
+                                                        <td>{d?.actionBy?.name}</td>
                                                     </tr>
                                                 )
                                             }):

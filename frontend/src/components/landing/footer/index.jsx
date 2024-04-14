@@ -1,5 +1,6 @@
 import { FaEnvelope, FaMailchimp, FaMobile, FaPhone, FaPhoneAlt } from 'react-icons/fa';
 import styles from './style.module.css';
+import {Link} from 'react-router-dom'
 
 const Footer = () => (
   <footer className={styles.footer}>
@@ -19,6 +20,14 @@ const Footer = () => (
               >
                 Track Docket
               </a>
+            </li>
+            <li className={styles.mt2}>
+              <Link
+                to="/home"
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+              >
+                Home
+              </Link>
             </li>
           </ul>
         </div>
