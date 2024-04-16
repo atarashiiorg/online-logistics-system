@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const branchSchema = new mongoose.Schema({
     branchCode: {
         type: String,

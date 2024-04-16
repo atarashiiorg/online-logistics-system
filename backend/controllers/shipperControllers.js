@@ -1,6 +1,7 @@
 const Booking = require("../models/booking");
 const Branch = require("../models/branch");
-const Shipper = require("../models/shipper")
+const Shipper = require("../models/shipper");
+const { getValidShipper } = require("../services/dbServices");
 
 async function isDocketValid(docket) {
     try {
@@ -39,14 +40,22 @@ async function isDocketBooked(docket) {
 
 async function sendShipperForPrinting(req, res) {
     try {
-        const shippers = await Shipper.findOne({
-            $or: [
-                { docketFrom: { $gte: req.body.docketFrom } },
-                { docketTo: { $gte: req.body.docketTo } }
+        const docketFrom = req.body.docketFrom
+        const docketTo = req.body.docketTo
+        const shipper = await Shipper.findOne({
+            $or:[
+                {
+                    docketFrom: {$lte: parseInt(docketFrom)},
+                    docketTo: { $gte: parseInt(docketTo)}
+                },
+                {
+                    docketFrom: {$lte: parseInt(docketTo)},
+                    docketTo: { $gte: parseInt(docketFrom)}
+                }
             ]
         })
-        console.log(shippers)
-        if (shippers) {
+        console.log(shipper)
+        if (shipper) {
             res.status(409).json({ 'msg': 'this shipper series is already used' })
             return
         }
@@ -56,7 +65,8 @@ async function sendShipperForPrinting(req, res) {
         else
             res.status(304).json({ 'msg': 'not modified' })
     } catch (error) {
-        res.status(500).json({ 'err': error })
+        console.log("Error occured while sending shipper for printing:",error)
+        res.status(500).json({ 'err': error.toString() })
     }
 }
 
@@ -92,18 +102,22 @@ async function shipperIssueToBranch(req, res) {
         const receivedBy = req.body.receivedBy
 
         const isValid = await isShipperSeriesValid(docketFrom, docketTo)
+        console.log("isValid", isValid)
         if (!isValid.valid) {
             res.status(403).json({ 'msg': isValid.msg })
             return
         }
 
         const isReceived = await isShipperReceived(docketFrom, docketTo)
+        console.log("isReceived", isReceived)
         if (!isReceived.received) {
             res.status(403).json({ msg: isReceived.msg })
             return
         }
 
         const isIssued = await isShipperIssuedAlready(docketFrom, docketTo)
+        console.log("isIssued", isIssued)
+
         if (isIssued.issued) {
             res.status(409).json({ 'msg': isIssued.msg })
             return
@@ -129,19 +143,15 @@ async function shipperIssueToBranch(req, res) {
         }
         res.status(304).end()
     } catch (err) {
-        res.status(500).json({ 'err': err })
+        console.log(err)
+        res.status(500).json({ 'err': err.toString() })
     }
 }
 
 
 async function isShipperSeriesValid(docketFrom, docketTo) {
     try {
-        const shipper = await Shipper.findOne({
-            $or: [
-                { docketFrom: { $gte: docketFrom } },
-                { docketTo: { $gte: docketTo } }
-            ]
-        })
+        const shipper = await getValidShipper(docketFrom, docketTo)
         if (shipper) {
             return { valid: true, 'msg': 'shipper is valid' }
         } else {
@@ -154,14 +164,8 @@ async function isShipperSeriesValid(docketFrom, docketTo) {
 
 async function isShipperReceived(docketFrom, docketTo) {
     try {
-        const shipper = await Shipper.findOne({
-            isReceived: true,
-            $or: [
-                { docketFrom: { $gte: docketFrom } },
-                { docketTo: { $gte: docketTo } }
-            ]
-        })
-        if (shipper) {
+        const shipper = await getValidShipper(docketFrom, docketTo)
+        if (shipper?.isReceived) {
             return { received: true, 'msg': 'shipper is Received' }
         } else {
             return { received: false, 'msg': 'shipper is not Received' }
@@ -177,9 +181,15 @@ async function isShipperIssuedAlready(docketFrom, docketTo) {
         const branch = await Branch.findOne({
             shippers: {
                 $elemMatch: {
-                    $or: [
-                        { docketFrom: { $gte: docketFrom } },
-                        { docketTo: { $gte: docketTo } }
+                    $or:[
+                        {
+                            docketFrom: {$lte: parseInt(docketFrom)},
+                            docketTo: { $gte: parseInt(docketTo)}
+                        },
+                        {
+                            docketFrom: {$lte: parseInt(docketTo)},
+                            docketTo: { $gte: parseInt(docketFrom)}
+                        }
                     ]
                 }
             }

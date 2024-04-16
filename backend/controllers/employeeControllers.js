@@ -10,13 +10,14 @@ async function createEmployee(req, res) {
         const plainPassword = req.body.password
         const branchAccess = await BranchAccess.create({ eCode })
         const pageAccess = await PageAccess.create({ eCode })
+        const email = req.body.email.toLowerCase()
         const permissions = {
             branchAccess: branchAccess._id,
             pageAccess: pageAccess._id
         }
         bcrypt.hash(plainPassword, 10)
             .then(async function (hash) {
-                const emp = await Employee.create({ ...req.body, eCode, password: hash, permissions, createdBy: req.token._id })
+                const emp = await Employee.create({ ...req.body, email, eCode, password: hash, permissions, createdBy: req.token._id })
                 delete emp.password
                 res.status(201).json({ 'msg': 'success', data: emp })
             })

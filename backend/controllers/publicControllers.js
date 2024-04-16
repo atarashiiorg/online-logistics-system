@@ -6,8 +6,9 @@ async function getTrackingDetails(req,res){
     try{
         const docket = req.query.docket
         const details = await getPopulatedBooking({docketNumber:docket},true)
-        const emp = await getEmployeeDetailsForRunsheet(details._id)
-        res.status(200).json({'msg':'success',data:{...details._doc, emp}})
+        const emp = await getEmployeeDetailsForRunsheet(details?._id)
+        console.log({details,emp})
+        res.status(200).json({'msg':'success',data:{...details?._doc, emp}})
     } catch(err){
         console.log(err)
         res.status(500).json({'err':err})

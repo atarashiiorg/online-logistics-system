@@ -67,7 +67,7 @@ export default function Header() {
                     <select value={currBranch?._id || ""} onChange={selectBranch}>
                         <option value="">--Select Branch--</option>
                         {
-                            branches.map(b => <option value={b?._id} key={b?._id}>{b?.branchName}</option>)
+                            branches.map(b => <option value={b?._id} key={b?._id}> {b?.branchCode} : {b?.branchName}</option>)    
                         }
                     </select>
                 </div>

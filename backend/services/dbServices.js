@@ -1,7 +1,8 @@
 const Booking = require("../models/booking");
 const Manifest = require("../models/manifest");
 const Tracking = require("../models/tracking");
-const Employee = require("../models/employee")
+const Employee = require("../models/employee");
+const Shipper = require("../models/shipper")
 
 async function getPopulatedManifest(opts, single, filtered) {
     return new Promise(async (resolve, reject) => {
@@ -240,7 +241,7 @@ async function getUser(opts) {
                     path: "access",
                     populate: {
                         path: "branch",
-                        populate:{ path:'zone', select:"zoneName"}
+                        populate: { path: 'zone', select: "zoneName" }
                     }
                 }
             },
@@ -248,10 +249,21 @@ async function getUser(opts) {
                 path: "pageAccess"
             }]
         })
-        console.log(user.permissions.branchAccess.access[0].zone)
         return user
     } catch (error) {
         throw error
+    }
+}
+
+async function getValidShipper(docketFrom,docketTo) {
+    try {
+        const shipper = await Shipper.findOne({
+            docketFrom: { $lte: parseInt(docketFrom)},
+            docketTo: { $gte: parseInt(docketTo)}
+        })
+        return shipper
+    } catch (err) {
+        throw err
     }
 }
 
@@ -262,5 +274,6 @@ module.exports = {
     findManifestWithBooking,
     updateTrackingManifest,
     updateTrackingStatus,
-    getUser
+    getUser,
+    getValidShipper
 }
