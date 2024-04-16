@@ -12,7 +12,11 @@ const shipperSchema = new mongoose.Schema({
         type:Boolean,
         default:false
     },
-    remarks:String
+    remarks:String,
+    createdBy:{
+        type:mongoose.Types.ObjectId,
+        ref:"Employee"
+    }
 },{
     timestamps:true
 })

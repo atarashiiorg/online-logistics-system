@@ -11,6 +11,7 @@ import Loading from '../../../pages/loading'
 import { useContext, useState } from 'react'
 import UserAuthContext from '../../../contexts/authContext'
 import { message } from 'antd'
+import { FaSearch } from 'react-icons/fa'
 
 export function TableTotalFound(props) {
     return (
@@ -41,7 +42,7 @@ const TableRow = (m) => {
                             sessionStorage.clear()
                         }
                     } catch (err){
-                        message.error("Error occured: ", err)
+                        message.error("Error occured: ", err.toString())
                     } finally {
                         m.setIsDownloading(false)
                     }
@@ -99,8 +100,8 @@ export default function ManifestPrint() {
                                 <th>Print</th>
                                 <th>Manifest No.</th>
                                 <th>Manifest Date</th>
-                                <th>BCode</th>
-                                <th>ToBCode</th>
+                                <th>From BCode</th>
+                                <th>To BCode</th>
                                 <th>Total Docket</th>
                                 <th>Received</th>
                             </tr>
@@ -109,7 +110,7 @@ export default function ManifestPrint() {
                             {
                                 manifests.length > 0 ?
                                     manifests.map(m => <TableRow {...m} setIsDownloading={setIsDownloading} />) :
-                                    <tr><td colSpan={7}>No Data Available</td></tr>
+                                    <tr><td colSpan={7} style={{textAlign:'center'}}>No Data Available</td></tr>
                             }
                         </tbody>
                     </table>

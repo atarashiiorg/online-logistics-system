@@ -7,56 +7,67 @@ import { TableComp } from '../../minComp'
 import { useDownloader, useGetData } from '../../../apiHandlers/getApis'
 import { useContext, useState } from 'react'
 import { FaPrint } from 'react-icons/fa6'
-import {getFormttedDate} from '../../../utils/helpers'
+import { getFormttedDate } from '../../../utils/helpers'
 import Loading from '../../../pages/loading'
 import UserAuthContext from '../../../contexts/authContext'
+import { useNavigate } from 'react-router-dom'
+import { message } from 'antd'
 
-export default function RunsheetPrint(){
-    const {currBranch, user} = useContext(UserAuthContext)
+export default function RunsheetPrint() {
+    const { currBranch, user, setUser } = useContext(UserAuthContext)
     const [fromData, setFromDate] = useState("")
     const [toDate, setToDate] = useState("")
     const [runsheetFrom, setRunsheetFrom] = useState("")
     const [runsheetTo, setRunsheetTo] = useState("")
-    const [err, loading, runsheetList] = useGetData("runsheet?bid="+currBranch?._id+"&eid="+user._id,[currBranch])
+    const [err, loading, runsheetList] = useGetData("runsheet?bid=" + currBranch?._id + "&eid=" + user._id, [currBranch])
     const [downloading, setDownloading] = useState(false)
 
-    const downloadRunsheet = (id)=>{
+    const downloadRunsheet = async(id) => {
         setDownloading(true)
-        const res = useDownloader("runsheet?rid="+id)
+        try {
+            const res = await useDownloader("runsheet?rid=" + id)
+            if (res.redirect) {
+                setUser(null)
+                sessionStorage.clear()
+            }
+            message.success("Downloaded")
+        } catch (error) {
+            message.error(error.toString())
+        }
         setDownloading(false)
     }
 
     return (
         <>
-        {
-            loading?<Loading/>:null
-        }
-        {downloading?<Loading/>:null}
+            {
+                loading ? <Loading /> : null
+            }
+            {downloading ? <Loading /> : null}
             <div className={style.formContainer}>
                 <p>Runsheet Print</p>
                 <div>
                     <label htmlFor="">Runsheet Date from</label>
-                    <input type="date" value={fromData} onInput={e=>setFromDate(e.target.value)} />
+                    <input type="date" value={fromData} onInput={e => setFromDate(e.target.value)} />
                     <label htmlFor="">To</label>
-                    <input type="date" value={toDate} onInput={e=>setToDate(e.target.value)} />
+                    <input type="date" value={toDate} onInput={e => setToDate(e.target.value)} />
 
                     <label htmlFor="">Runsheet No</label>
-                    <input type="text" value={runsheetFrom} onInput={e=>setRunsheetFrom(e.target.value)}/>
+                    <input type="text" value={runsheetFrom} onInput={e => setRunsheetFrom(e.target.value)} />
                     <label htmlFor="">To</label>
-                    <input type="text" value={runsheetTo} onInput={e=>setRunsheetTo(e.target.value)}/>
+                    <input type="text" value={runsheetTo} onInput={e => setRunsheetTo(e.target.value)} />
                 </div>
             </div>
 
             <div className={style.actions}>
-                <button className={style.buttonChk}><FaCheck/> Search</button>
-                <button className={style.buttonExp}><BsFiletypeXls/> Export</button>
-                <button className={style.buttonRef}><IoRefresh/> Reset</button>
+                <button className={style.buttonChk}><FaCheck /> Search</button>
+                <button className={style.buttonExp}><BsFiletypeXls /> Export</button>
+                <button className={style.buttonRef}><IoRefresh /> Reset</button>
             </div>
 
             <TableComp>
                 <p>Runsheets:</p>
                 <div>
-                    <table style={{minWidth:"100%"}}>
+                    <table style={{ minWidth: "100%" }}>
                         <thead>
                             <tr>
                                 <th>Print</th>
@@ -68,19 +79,19 @@ export default function RunsheetPrint(){
                         </thead>
                         <tbody>
                             {
-                               runsheetList?.length>0?
-                               runsheetList?.map(r=>{
-                                return (
-                                    <tr>
-                                        <td><FaPrint onClick={e=>downloadRunsheet(r?._id)} style={{color:"blueviolet",fontSize:"18px"}}/></td>
-                                        <td>{r?.runsheetNumber}</td>
-                                        <td>{getFormttedDate(r?.date)}</td>
-                                        <td>{r?.employee?.name}</td>
-                                        <td>{r?.dockets?.length}</td>
-                                    </tr>
-                                )
-                               })
-                               :<tr><td colSpan={5} style={{textAlign:'center'}}>No Data Available</td></tr> 
+                                runsheetList?.length > 0 ?
+                                    runsheetList?.map(r => {
+                                        return (
+                                            <tr>
+                                                <td><FaPrint onClick={e => downloadRunsheet(r?._id)} style={{ color: "blueviolet", fontSize: "18px" }} /></td>
+                                                <td>{r?.runsheetNumber}</td>
+                                                <td>{getFormttedDate(r?.date)}</td>
+                                                <td>{r?.employee?.name}</td>
+                                                <td>{r?.dockets?.length}</td>
+                                            </tr>
+                                        )
+                                    })
+                                    : <tr><td colSpan={5} style={{ textAlign: 'center' }}>No Data Available</td></tr>
                             }
                         </tbody>
                     </table>

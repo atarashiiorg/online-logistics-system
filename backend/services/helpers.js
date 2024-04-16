@@ -279,7 +279,7 @@ async function getUserData(user){
             return {...b._doc.branch._doc}
         })
         if(user.role=="adm"){
-            branches = await Branch.find({})
+            branches = await Branch.find({}).populate("zone")
         }
         return {...user._doc,password:"",_id:"",permissions:{pageAccess:{...user.permissions.pageAccess._doc},branchAccess:{...user.permissions.branchAccess._doc,access:[...branches]}}}
     } catch (error) {

@@ -1,4 +1,3 @@
-const User = require("../models/user")
 const jwt = require("jsonwebtoken")
 const Booking = require("../models/booking")
 const Branch = require("../models/branch")
@@ -6,24 +5,11 @@ const bcrypt = require("bcrypt")
 const Employee = require("../models/employee")
 const { getUserData } = require("../services/helpers")
 const { path } = require("../routes/userRoutes")
+const { getUser } = require("../services/dbServices")
 
 async function loginUser(req, res) {
     try {
-        const user = await Employee.findOne({ email: req.body.username, isActive: true }).populate({
-            path: "permissions",
-            populate: [{
-                path: "branchAccess",
-                populate: {
-                    path: "access",
-                    populate: {
-                        path: "branch"
-                    }
-                }
-            },
-            {
-                path: "pageAccess"
-            }]
-        })
+        const user = await getUser({email:req.body.username})
         console.log("user", user);
         if (!user) {
             res.status(404).json({ msg: "User not found" })

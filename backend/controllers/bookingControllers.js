@@ -3,13 +3,15 @@ const {
     isDocketValid,
 } = require("./shipperControllers");
 const { initiateTracking, findManifestWithBooking, getPopulatedBooking } = require("../services/dbServices");
+const Branch = require("../models/branch")
+const Client = require("../models/client")
 const Invoice = require("../models/invoice");
 const Shipment = require("../models/shipment");
 const ConsignorConsignee = require("../models/consignorConsignee");
 const Booking = require("../models/booking");
-const Manifest = require("../models/manifest");
-const { default: mongoose, startSession } = require("mongoose");
+const Tracking = require("../models/tracking");
 const Runsheet = require("../models/runsheet");
+const { default: mongoose, startSession } = require("mongoose");
 // const = require('mongoose').mongo.ObjectID
 
 async function createBooking(req, res) {
@@ -196,16 +198,71 @@ async function getBookingForDRSStatusUpdate(req, res) {
     }
 }
 
-async function deleteBooking(req,res){
-    const docketNumber = req.query.docket
-    const branch = req.query.branch
-    const booking = await Booking.findOne({docketNumber})
-    if(!booking){
-        res.status(404).json({msg:"Booking with this docket not found"})
-        return
+// async function deleteBooking(req,res){
+//     const docketNumber = req.query.docket
+//     const branch = req.query.branch
+//     const booking = await Booking.findOne({docketNumber})
+//     if(!booking){
+//         res.status(404).json({msg:"Booking with this docket not found"})
+//         return
+//     }
+//     try {
+//         const result = await Booking.deleteOne({docketNumber})
+//         if(result.deletedCount>0){
+//             res.status(200).json({msg:"success"})
+//         } else {
+//             res.status(409).json({msg:"Can not delete booking"})
+//         }
+//     } catch (error) {
+//         res.status(500).json({err:error.toString()})
+//     }
+// }
+
+async function deleteBooking(req, res) {
+    const docketNumber = req.query.docket;
+
+    try {
+        const booking = await Booking.findOne({ docketNumber });
+        if (!booking) {
+            return res.status(404).json({ msg: "Booking with this docket not found" });
+        }
+
+        const session = await mongoose.startSession();
+        session.startTransaction();
+
+        try {
+            // Delete referenced documents within the transaction
+            await Promise.all([
+                Branch.findByIdAndDelete(booking.branch).session(session),
+                Client.findByIdAndDelete(booking.client).session(session),
+                Invoice.findByIdAndDelete(booking.invoice).session(session),
+                Shipment.findByIdAndDelete(booking.shipment).session(session),
+                ConsignorConsignee.findByIdAndDelete(booking.consignorConsignee).session(session),
+                Tracking.findByIdAndDelete(booking.tracking).session(session)
+            ]);
+
+            // Commit the transaction if everything is successful
+            await session.commitTransaction();
+            session.endSession();
+
+            // Delete the booking document
+            const result = await booking.deleteOne();
+            if (result.deletedCount > 0) {
+                res.status(200).json({ msg: "success" });
+            } else {
+                res.status(409).json({ msg: "Can not delete booking" });
+            }
+        } catch (error) {
+            await session.abortTransaction();
+            session.endSession();
+            console.error('Error deleting referenced documents:', error);
+            res.status(500).json({ err: error.toString() });
+        }
+    } catch (error) {
+        res.status(500).json({ err: error.toString() });
     }
-    booking.deleteOne()
 }
+
 
 module.exports = {
     createBooking,

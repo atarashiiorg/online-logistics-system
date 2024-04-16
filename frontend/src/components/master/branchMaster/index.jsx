@@ -21,7 +21,7 @@ const TableRow = ({ b, edit, deleteBranch, editKey }) => {
     }
     return (
         <tr>
-            <td><FaEdit style={style} onClick={e => edit(b)} /></td>
+            <td><FaEdit style={style} onClick={e => edit({...b,zone:b.zone?._id||""})} /></td>
             <td><FaTrashAlt style={{color:"red", fontSize:"20px"}} onClick={e => deleteBranch(b._id)} /></td>
             <td>{b?.branchCode}</td>
             <td>{b?.branchName}</td>
@@ -49,6 +49,7 @@ export default function BranchMaster() {
     const [editMode, setEditMode] = useState(false)
     const [editKey, setEditKey] = useState("")
     const b = {
+        branchCode:"",
         branchName: "",
         emailId: "",
         place: "",
@@ -225,7 +226,7 @@ export default function BranchMaster() {
                 <p>Branch Master</p>
                 <div>
                     <label htmlFor="">Branch Code</label>
-                    <input type="text" placeholder='System Generated' disabled />
+                    <input type="text" value={branch?.branchCode} placeholder='System Generated' disabled />
                     <label htmlFor="">Email Id</label>
                     <input type="email" placeholder='Email Id' value={branch.emailId} onInput={e => handleBranch(e, "emailId")} />
 
@@ -250,7 +251,7 @@ export default function BranchMaster() {
                     <input type="text" placeholder='Fax No' value={branch.faxNo} onInput={e => handleBranch(e, "faxNo")} />
 
                     <label htmlFor="">Zone</label>
-                    <select onInput={e => handleBranch(e, "zone")}>
+                    <select value={branch.zone} onInput={e => handleBranch(e, "zone")}>
                         <option value="">--Please Select a Zone--</option>
                         {
                             zones.map(z=><option value={z._id}>{z.zoneName}</option>)

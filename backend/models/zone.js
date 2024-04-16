@@ -9,8 +9,12 @@ const zoneSchema = new mongoose.Schema({
     },
     createdBy:{
         type:mongoose.Types.ObjectId,
-        ref:"User"
-    }
+        ref:"Employee"
+    },
+    lastModifiedBy:{
+        type:mongoose.Types.ObjectId,
+        ref:"Employee"
+    },
 },{
     timestamps:true
 })

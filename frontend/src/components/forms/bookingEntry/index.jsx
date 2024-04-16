@@ -82,7 +82,7 @@ export default function BookingEntry() {
         setAwbDetails(p => {
             const obj = { ...p }
             if (field == "bookingDate") {
-                obj[field] = e.target.valueAsDate
+                obj[field] = e.target.value
             } else if (field == "origin" || field == 'destination') {
                 const dCode = e.target.value.split(" : ")[0]
                 const idx = dests.findIndex(b => b.destCode == dCode)
@@ -206,6 +206,7 @@ export default function BookingEntry() {
     }
 
     const handleSave = async () => {
+        console.log(billingDetails)
         if (!currBranch) {
             message.warning("Select a branch for booking")
             return
@@ -214,7 +215,7 @@ export default function BookingEntry() {
             message.warning("Please enter a valid docket number for booking")
             return
         }
-        if (awbDetails.origin == "") {
+        if (!awbDetails.origin) {
             message.warning("Please enter origin")
             return
         }
@@ -226,11 +227,11 @@ export default function BookingEntry() {
             message.warning("Please select booking date")
             return
         }
-        if (awbDetails.destination == "") {
+        if (!awbDetails.destination) {
             message.warning("Please enter destination")
             return
         }
-        if (billingDetails.clientName == "" || client == "") {
+        if (!billingDetails.clientName|| client == "") {
             message.warning("Please enter valid client name")
             return
         }

@@ -20,7 +20,7 @@ export const usePostData = async (data,endPoint) => {
             message.error(res_json.err)
             return {res:false}
         } else {
-            message.warning(res_json.msg)
+            message.error(res_json.msg)
             return {res:false}
         }
     } catch (error) {

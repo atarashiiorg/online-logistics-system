@@ -50,7 +50,7 @@ async function sendShipperForPrinting(req, res) {
             res.status(409).json({ 'msg': 'this shipper series is already used' })
             return
         }
-        const result = await Shipper.create({ ...req.body, branchCode: req.body.branch })
+        const result = await Shipper.create({ ...req.body, branchCode: req.body.branch, createdBy: req.token._id })
         if (result)
             res.status(200).json({ 'msg': 'shipper created successfully' })
         else
@@ -66,7 +66,7 @@ async function getShippers(req, res) {
         if (req.query.received) {
             shippers = await Shipper.find({ isReceived: true }).populate("branch")
         } else {
-            shippers = await Shipper.find({isReceived:false}).populate("branch")
+            shippers = await Shipper.find({ isReceived: false }).populate("branch")
         }
         let response = []
         await shippers.forEach(s => {
@@ -98,8 +98,8 @@ async function shipperIssueToBranch(req, res) {
         }
 
         const isReceived = await isShipperReceived(docketFrom, docketTo)
-        if(!isReceived.received){
-            res.status(403).json({msg:isReceived.msg})
+        if (!isReceived.received) {
+            res.status(403).json({ msg: isReceived.msg })
             return
         }
 
@@ -136,7 +136,12 @@ async function shipperIssueToBranch(req, res) {
 
 async function isShipperSeriesValid(docketFrom, docketTo) {
     try {
-        const shipper = await Shipper.findOne({ docketFrom, docketTo })
+        const shipper = await Shipper.findOne({
+            $or: [
+                { docketFrom: { $gte: docketFrom } },
+                { docketTo: { $gte: docketTo } }
+            ]
+        })
         if (shipper) {
             return { valid: true, 'msg': 'shipper is valid' }
         } else {
@@ -149,7 +154,13 @@ async function isShipperSeriesValid(docketFrom, docketTo) {
 
 async function isShipperReceived(docketFrom, docketTo) {
     try {
-        const shipper = await Shipper.findOne({ docketFrom, docketTo, isReceived:true })
+        const shipper = await Shipper.findOne({
+            isReceived: true,
+            $or: [
+                { docketFrom: { $gte: docketFrom } },
+                { docketTo: { $gte: docketTo } }
+            ]
+        })
         if (shipper) {
             return { received: true, 'msg': 'shipper is Received' }
         } else {
@@ -196,6 +207,21 @@ async function updateShipper(req, res) {
     }
 }
 
+
+async function deleteShipper(req, res) {
+    try {
+        const result = await Shipper.deleteOne({ _id: req.query.sid, isReceived: false })
+        if (result.deletedCount > 0) {
+            res.status(200).json({ msg: "success" })
+        } else {
+            res.status(409).json({ msg: "Can not be deleted." })
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ err: error.toString() })
+    }
+}
+
 module.exports = {
     isDocketValid,
     isDocketBooked,
@@ -204,5 +230,6 @@ module.exports = {
     isShipperSeriesValid,
     isShipperIssuedAlready,
     shipperIssueToBranch,
-    updateShipper
+    updateShipper,
+    deleteShipper
 }

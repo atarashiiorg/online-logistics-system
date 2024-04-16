@@ -38,24 +38,24 @@ async function createManifest(req, res) {
         const manifestNumber = getManifestName()
 
         await transaction.startTransaction()//start transaction
-        
-        const manifest = await Manifest.create({ ...req.body, manifestNumber })
+
+        const manifest = await Manifest.create({ ...req.body, manifestNumber, createdBy: req.token._id })
         if (manifest) {
-            await updateTrackingManifest(dockets,"docketNumber", {
+            await updateTrackingManifest(dockets, "docketNumber", {
                 action: `Packet manifested from ${fromBranch.branchName.toUpperCase()} to ${toBranch.branchName.toUpperCase()} in Manifest No. ${manifestNumber}`,
                 actionDate: new Date(),
-                actionBy:req.token._id
-            },{ currentManifest: manifest._id}, transaction)
-            await updateTrackingManifest(dockets,"docketNumber", {
+                actionBy: req.token._id
+            }, { currentManifest: manifest._id }, transaction)
+            await updateTrackingManifest(dockets, "docketNumber", {
                 action: `Packet Dispatched to ${toBranch.branchName.toUpperCase()}`,
                 actionDate: new Date(),
-                actionBy:req.token._id
-            }, {currentManifest:manifest._id}, transaction)
-            for(let i=0;i<dockets.length;i++){
-                const tracking = await Tracking.findOne({docketNumber:dockets[i]})
-                if(tracking.status=="booked"){
+                actionBy: req.token._id
+            }, { currentManifest: manifest._id }, transaction)
+            for (let i = 0; i < dockets.length; i++) {
+                const tracking = await Tracking.findOne({ docketNumber: dockets[i] })
+                if (tracking.status == "booked") {
                     tracking.status = "in-transit"
-                    await tracking.save({session:transaction})
+                    await tracking.save({ session: transaction })
                 } else {
                     continue
                 }
@@ -83,7 +83,7 @@ async function getManifests(req, res) {
     try {
         if (mid) {
             const data = await getDataForManifestPdf(mid)
-            const pdfBuffer = await createPdfFromHtml('manifest',data)
+            const pdfBuffer = await createPdfFromHtml('manifest', data)
             const pdfStream = new PassThrough()
             pdfStream.end(pdfBuffer)
             res.set({
@@ -94,8 +94,8 @@ async function getManifests(req, res) {
             return
         }
     } catch (error) {
-        console.log("Error occured while generating manifest pdf "+new Date().toLocaleDateString()+" ->",error)
-        res.status(500).json({ 'err': "Internal error occured while generating pdf"})
+        console.log("Error occured while generating manifest pdf " + new Date().toLocaleDateString() + " ->", error)
+        res.status(500).json({ 'err': "Internal error occured while generating pdf" })
         return
     }
 
@@ -104,8 +104,8 @@ async function getManifests(req, res) {
         if (tbid) {
             const manifests = await getPopulatedManifest({ toBCode: new mongoose.Types.ObjectId(tbid) }, false, true)
             let response = []
-            for(let i=0;i<manifests.length;i++){
-                console.log(manifests[i].dockets.length>0)
+            for (let i = 0; i < manifests.length; i++) {
+                console.log(manifests[i].dockets.length > 0)
                 if (manifests[i].dockets.length > 0) {
                     response.push(manifests[i])
                 } else continue
@@ -114,7 +114,7 @@ async function getManifests(req, res) {
             return
         }
     } catch (err) {
-        console.log("Error while getting toBCode manifests"+new Date().toLocaleDateString()+"-> ",err)
+        console.log("Error while getting toBCode manifests" + new Date().toLocaleDateString() + "-> ", err)
         res.status(500).json({ 'err': "Internal server error occured" })
         return
     }
@@ -126,7 +126,7 @@ async function getManifests(req, res) {
             return
         }
     } catch (err) {
-        console.log("Error occured ->",err)
+        console.log("Error occured ->", err)
         res.status(500).json({ 'err': "Internal server error occured" })
         return
     }
@@ -171,21 +171,21 @@ async function receiveManifest(req, res) {
 
         await transaction.startTransaction()//start transaction
 
-        for(let i=0;i<docketsToRecive.length;i++){
+        for (let i = 0; i < docketsToRecive.length; i++) {
             const manifest = await Manifest.findOneAndUpdate(
                 { 'dockets.booking': docketsToRecive[i].docket },
-                { $set: { 'dockets.$[elem].isReceived': true, 'dockets.$[elem].rcDate':docketsToRecive[i].rcDate,'dockets.$[elem].message':docketsToRecive[i].message} },
-                { 
-                    new: true, 
+                { $set: { 'dockets.$[elem].isReceived': true, 'dockets.$[elem].rcDate': docketsToRecive[i].rcDate, 'dockets.$[elem].message': docketsToRecive[i].message } },
+                {
+                    new: true,
                     arrayFilters: [{ 'elem.booking': docketsToRecive[i].docket }],
-                    session:transaction
+                    session: transaction
                 },
             );
-            await updateTrackingManifest([docketsToRecive[i].docket],"_id", {
+            await updateTrackingManifest([docketsToRecive[i].docket], "_id", {
                 action: `Packet Received at ${branch.branchName.toUpperCase()}`,
                 actionDate: new Date(),
-                actionBy:req.token._id
-            },{currentManifest:manifest._id}, transaction)
+                actionBy: req.token._id
+            }, { currentManifest: manifest._id }, transaction)
         }
 
         await transaction.commitTransaction()//commit transaction
@@ -193,7 +193,7 @@ async function receiveManifest(req, res) {
     } catch (error) {
         await transaction.abortTransaction()//abort transaction
         console.log(error)
-        res.status(500).json({err})
+        res.status(500).json({ err })
     } finally {
         transaction.endSession()
     }

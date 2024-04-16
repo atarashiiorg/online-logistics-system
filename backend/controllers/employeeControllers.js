@@ -16,7 +16,7 @@ async function createEmployee(req, res) {
         }
         bcrypt.hash(plainPassword, 10)
             .then(async function (hash) {
-                const emp = await Employee.create({ ...req.body, eCode, password: hash, permissions })
+                const emp = await Employee.create({ ...req.body, eCode, password: hash, permissions, createdBy: req.token._id })
                 delete emp.password
                 res.status(201).json({ 'msg': 'success', data: emp })
             })
@@ -36,7 +36,7 @@ async function updateEmployee(req, res) {
         const plainPass = req.body.password
         bcrypt.hash(plainPass, 10)
             .then(async function (hash) {
-                const emp = await Employee.findOneAndUpdate({ _id: req.query.eid }, { ...newEmp, password: hash }, { new: true })
+                const emp = await Employee.findOneAndUpdate({ _id: req.query.eid }, { ...newEmp, password: hash, lastModifiedBy: req.token._id }, { new: true })
                 delete emp?.password
                 res.status(200).json({ 'msg': 'success', data: emp })
             })
@@ -70,6 +70,8 @@ async function getEmployee(req, res) {
 
         if (!req.query.role) {
             employees = await Employee.find({ role: { $nin: ['adm'] } })
+                .populate({ path: "createdBy", select: 'name' })
+                .populate({ path: "lastModifiedBy", select: 'name' })
         }
 
         if (req.query.eid && req.query.full == 'true') {
@@ -95,8 +97,8 @@ async function getEmployee(req, res) {
 
 async function updateAccess(req, res) {
     try {
-        const newPageAccess = await PageAccess.findOneAndUpdate({ _id: req.query.paxsid }, { access:req.body.pageAccess }, { new: true })
-        const newBranchAccess = await BranchAccess.findOneAndUpdate({ _id: req.query.baxsid }, { access:req.body.branchAccess }, { new: true })
+        const newPageAccess = await PageAccess.findOneAndUpdate({ _id: req.query.paxsid }, { access: req.body.pageAccess }, { new: true })
+        const newBranchAccess = await BranchAccess.findOneAndUpdate({ _id: req.query.baxsid }, { access: req.body.branchAccess }, { new: true })
         console.log(newPageAccess)
         console.log(newBranchAccess)
         res.status(200).json({ msg: 'success' })

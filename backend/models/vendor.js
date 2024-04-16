@@ -20,6 +20,14 @@ const vendorSchema = new mongoose.Schema({
     isActive:{
         type:Boolean,
         default:false
+    },
+    createdBy:{
+        type:mongoose.Types.ObjectId,
+        ref:"Employee"
+    },
+    lastModifiedBy:{
+        type:mongoose.Types.ObjectId,
+        ref:"Employee"
     }
 },{
     timestamps:true

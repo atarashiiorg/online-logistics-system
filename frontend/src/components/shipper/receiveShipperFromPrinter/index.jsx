@@ -3,7 +3,9 @@ import style from './style.module.css'
 import { serverUrl } from '../../../constants'
 import { useGetData } from '../../../apiHandlers/getApis'
 import { message } from 'antd'
-import {usePatchData} from '../../../apiHandlers/patchApis'
+import { usePatchData } from '../../../apiHandlers/patchApis'
+import { useDeleteData } from '../../../apiHandlers/deleteApis'
+import {FaTrashAlt} from 'react-icons/fa'
 
 const Tr = (shipper) => {
     return (
@@ -18,11 +20,11 @@ const Tr = (shipper) => {
 }
 const Treceive = (props) => {
     const recBtnStyle = {
-        padding:"5px 10px",
-        backgroundColor:"dodgerblue",
-        color:"white", 
-        border:"none",
-        borderRadius:"4px"
+        padding: "5px 10px",
+        backgroundColor: "dodgerblue",
+        color: "white",
+        border: "none",
+        borderRadius: "4px"
     }
     return (
         <tr>
@@ -31,20 +33,36 @@ const Treceive = (props) => {
             <td>{props.docketFrom}</td>
             <td>{props.docketTo}</td>
             <td>{props.sendBy}</td>
-            <td style={{textAlign:"center"}}><button style={recBtnStyle} onClick={e=>props.receive(props._id)}>Receive</button></td>
+            <td style={{ textAlign: "center" }}><button style={recBtnStyle} onClick={e => props.receive(props._id)}>Receive</button></td>
+            <td style={{ textAlign: "center",color:"red",fontSize:"20px" }}><FaTrashAlt onClick={e=>props.deleteF(props._id)}/> </td>
         </tr>
     )
 }
 
 export default function ReceiveShipperFromPrinter() {
-    const [reload,setReload] = useState(false)
-    const [err, loading, shippers] = useGetData("shipper",[reload])
-    const [err1, loading1, shippersReceived] = useGetData("shipper?received=true",[reload])
+    const [reload, setReload] = useState(false)
+    const [err, loading, shippers, setShippers] = useGetData("shipper", [reload])
+    const [err1, loading1, shippersReceived] = useGetData("shipper?received=true", [reload])
 
-    const receive = async(sid)=>{
-        const res = await usePatchData({},"shipper?sid="+sid)
-        if(res.res){
-            setReload(p=>!p)
+    const receive = async (sid) => {
+        const res = await usePatchData({}, "shipper?sid=" + sid)
+        if (res.res) {
+            setReload(p => !p)
+        }
+    }
+
+    const deleteShipper = async (sid) => {
+        try {
+            const res = await useDeleteData("shipper?sid=" + sid)
+            if (res.res) {
+                const newArr = shippers.filter(s => s._id != sid)
+                setShippers([...newArr])
+                message.success("Deleted successfully")
+                return
+            }
+            message.error(res.err)
+        } catch (err) {
+            message.error(err)
         }
     }
 
@@ -73,7 +91,7 @@ export default function ReceiveShipperFromPrinter() {
                                     null
                             }
                             {
-                                shippers.map((s, index) => <Treceive {...s} index={Number(index)} receive={receive} />)
+                                shippers.map((s, index) => <Treceive {...s} index={Number(index)} deleteF={deleteShipper} receive={receive} />)
                             }
                         </tbody>
                     </table>

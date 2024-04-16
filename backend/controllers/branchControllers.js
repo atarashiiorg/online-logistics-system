@@ -9,7 +9,10 @@ async function createBranch(req, res) {
             delete branch?.hubBranch
             delete branch?._hubBranch
         }
-        const result = await Branch.create({ ...branch, branchCode })
+        const result = await Branch.create({ ...branch, branchCode, createdBy: req.token._id })
+        await result.populate("zone")
+            .populate({ path: "createdBy", select: 'name' })
+            .populate({ path: "lastModifiedBy", select: 'name' })
         res.status(201).json({ 'msg': 'success', data: result })
     } catch (err) {
         res.status(500).json({ 'err': err })
@@ -36,8 +39,9 @@ async function updateBranch(req, res) {
         delete data.__v
         delete data.createdAt
         delete data.updatedAt
-        const result = await Branch.findOneAndUpdate({ _id: req.query.bid }, { ...data }, { new: true })
-        console.log("result->", result)
+        const result = await Branch.findOneAndUpdate({ _id: req.query.bid }, { ...data, lastModifiedBy: req.token._id }, { new: true }).populate("zone")
+            .populate({ path: "createdBy", select: 'name' })
+            .populate({ path: "lastModifiedBy", select: 'name' })
         res.status(200).json({ 'msg': "success", "data": result })
     } catch (error) {
         console.log(error)
@@ -47,8 +51,8 @@ async function updateBranch(req, res) {
 
 async function deleteBranch(req, res) {
     try {
-        if(req.token.role!="adm"){
-            res.status(401).json({msg:"unauthorized access"})
+        if (req.token.role != "adm") {
+            res.status(401).json({ msg: "unauthorized access" })
             return
         }
         const result = await Branch.deleteOne({ _id: req.query.bid })

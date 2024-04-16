@@ -1,59 +1,65 @@
 const Vendor = require("../models/vendor");
 const { getNewVendorCode } = require("../services/helpers");
 
-async function createVendor(req,res){
- try {
-    const vendorCode = await getNewVendorCode()
-    const result = await Vendor.create({...req.body, vendorCode})
-    console.log(result);
-    if(result)
-        res.status(201).json({'msg':'success',data:result})
-    else
-        res.status(304).json({'msg':'something went wrong'})
- } catch (err) {
-    console.log(err);
-    res.status(500).json({'err':err})
- }   
+async function createVendor(req, res) {
+    try {
+        const vendorCode = await getNewVendorCode()
+        const result = await Vendor.create({ ...req.body, vendorCode, createdBy: req.token._id })
+        await result
+            .populate({ path: "createdBy", select: 'name' })
+            .populate({ path: "lastModifiedBy", select: 'name' })
+        if (result)
+            res.status(201).json({ 'msg': 'success', data: result })
+        else
+            res.status(304).json({ 'msg': 'something went wrong' })
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ 'err': err })
+    }
 }
 
-async function getVendors(req,res){
+async function getVendors(req, res) {
     try {
         const vendors = await Vendor.find()
-        if(vendors){
-            res.status(200).json({'msg':'success',data:vendors})
+            .populate({ path: "createdBy", select: 'name' })
+            .populate({ path: "lastModifiedBy", select: 'name' })
+        if (vendors) {
+            res.status(200).json({ 'msg': 'success', data: vendors })
         } else {
-            res.status(304).json({'msg':'something went wrong'})
+            res.status(304).json({ 'msg': 'something went wrong' })
         }
     } catch (err) {
         console.log(err);
-        res.status(500).json({err})
+        res.status(500).json({ err })
     }
 }
 
-async function deleteVendor(req,res){
+async function deleteVendor(req, res) {
     try {
-        const result = await Vendor.deleteOne({_id:req.query.vid})
-        if(result.deletedCount>0){
-            res.status(200).json({'msg':'success'})
+        const result = await Vendor.deleteOne({ _id: req.query.vid })
+        if (result.deletedCount > 0) {
+            res.status(200).json({ 'msg': 'success' })
         } else {
-            res.status(403).json({'msg':'failed to delete'})
+            res.status(403).json({ 'msg': 'failed to delete' })
         }
     } catch (error) {
-        res.status(500).json({'err':error})
+        res.status(500).json({ 'err': error })
     }
 }
 
-async function updateVendor(req,res){
+async function updateVendor(req, res) {
     try {
-        let data = {...req.body}
+        let data = { ...req.body }
         delete data?._id
         delete data?.__v
         delete data?.createdAt
         delete data?.updatedAt
-        const result = await Vendor.findOneAndUpdate({_id:req.query.vid},{...data},{new:true})
-        res.status(200).json({'msg':'success',data:result})
-    } catch (err){
-        res.status(500).json({'err':err})
+        const result = await Vendor.findOneAndUpdate({ _id: req.query.vid }, { ...data, lastModifiedBy: req.token._id }, { new: true })
+            .populate({ path: "createdBy", select: 'name' })
+            .populate({ path: "lastModifiedBy", select: 'name' })
+        res.status(200).json({ 'msg': 'success', data: result })
+    } catch (err) {
+        res.status(500).json({ 'err': err })
     }
 }
 module.exports = {

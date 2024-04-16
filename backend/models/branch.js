@@ -58,6 +58,14 @@ const branchSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    createdBy:{
+        type:mongoose.Types.ObjectId,
+        ref:'Employee'
+    },
+    lastModifiedBy:{
+        type:mongoose.Types.ObjectId,
+        ref:"Employee"
+    },
     shippers: [
         {
             docketFrom: Number,

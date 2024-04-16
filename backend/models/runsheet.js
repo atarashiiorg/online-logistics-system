@@ -30,7 +30,11 @@ const runsheetSchema = new mongoose.Schema({
                 type: mongoose.Types.ObjectId,
                 ref: "Booking"
             }
-        }]
+        }],
+    createdBy:{
+        type:mongoose.Types.ObjectId,
+        ref:"Employee"
+    }
 }, {
     timestamps: true
 })

@@ -1,6 +1,7 @@
 const Booking = require("../models/booking");
 const Manifest = require("../models/manifest");
 const Tracking = require("../models/tracking");
+const Employee = require("../models/employee")
 
 async function getPopulatedManifest(opts, single, filtered) {
     return new Promise(async (resolve, reject) => {
@@ -67,21 +68,21 @@ async function getPopulatedManifest(opts, single, filtered) {
                     resolve(manifestsWithReceivedDockets)
                 } else {
                     manifests = await Manifest.find(opts || {})
-                    .populate("fromBCode")
-                    .populate("toBCode")
-                    .populate({
-                        path: "dockets.booking",
-                        populate: [
-                            {
-                                path: "shipment",
-                                populate: [{ path: "origin" }, { path: "destination" }]
-                            },
-                            { path: "invoice" },
-                            { path: "client" },
-                            { path: "consignorConsignee" }
-                        ]
-                    })
-                    .populate("vendor")
+                        .populate("fromBCode")
+                        .populate("toBCode")
+                        .populate({
+                            path: "dockets.booking",
+                            populate: [
+                                {
+                                    path: "shipment",
+                                    populate: [{ path: "origin" }, { path: "destination" }]
+                                },
+                                { path: "invoice" },
+                                { path: "client" },
+                                { path: "consignorConsignee" }
+                            ]
+                        })
+                        .populate("vendor")
                     resolve(manifests)
                 }
             }
@@ -95,22 +96,21 @@ async function getPopulatedManifest(opts, single, filtered) {
 async function findManifestWithBooking(opts) {
     try {
         const booking = await Booking.findOne(opts || {})
-        .populate({
-            path: "shipment",
-            populate: [{ path: "origin" }, { path: "destination" }]
-        })
-        .populate("invoice")
-        .populate("consignorConsignee")
-        .populate({
-            path: 'tracking',
-            populate: { path: 'currentManifest' }
-        })
+            .populate({
+                path: "shipment",
+                populate: [{ path: "origin" }, { path: "destination" }]
+            })
+            .populate("invoice")
+            .populate("consignorConsignee")
+            .populate({
+                path: 'tracking',
+                populate: { path: 'currentManifest' }
+            })
         if (!booking) {
             return null
         } else {
-            console.log(booking)
-            if(booking?.tracking?.currentManifest=="" || booking?.tracking?.currentManifest==null){
-                return {booking,manifest:null}
+            if (booking?.tracking?.currentManifest == "" || booking?.tracking?.currentManifest == null) {
+                return { booking, manifest: null }
             }
             const manifest = await Manifest.findOne(booking?.tracking?.currentManifest).populate({
                 path: 'dockets',
@@ -118,7 +118,7 @@ async function findManifestWithBooking(opts) {
             })
             if (!manifest)
                 return null
-            return {booking,manifest};
+            return { booking, manifest };
         }
     } catch (error) {
         console.error("Error finding manifest:", error);
@@ -126,30 +126,28 @@ async function findManifestWithBooking(opts) {
     }
 }
 
-async function updateTrackingManifest(dockets, key,details, manifest, session) {
+async function updateTrackingManifest(dockets, key, details, manifest, session) {
     try {
         for (let i = 0; i < dockets.length; i++) {
             let booking
-            if(key=="docketNumber"){
-                booking = await Booking.findOne({docketNumber:dockets[i] }).populate('tracking');
+            if (key == "docketNumber") {
+                booking = await Booking.findOne({ docketNumber: dockets[i] }).populate('tracking');
             } else {
-                booking = await Booking.findOne({_id:dockets[i] }).populate('tracking');
+                booking = await Booking.findOne({ _id: dockets[i] }).populate('tracking');
             }
             if (!booking) {
                 console.log(`Booking not found for docket number: ${dockets[i]}`);
                 continue; // Move to the next iteration if booking is not found
             }
 
-            console.log("Current Manifest->",manifest)
             const res = await Tracking.updateOne(
                 { _id: booking.tracking._id },
                 {
                     $push: { details: { ...details } },
                     $set: manifest || {}
                 },
-                {session}
+                { session }
             );
-            console.log(res);
         }
     } catch (err) {
         throw err;
@@ -159,10 +157,10 @@ async function updateTrackingStatus(dockets, key, status, session) {
     try {
         for (let i = 0; i < dockets.length; i++) {
             let booking
-            if(key=="docketNumber"){
-                booking = await Booking.findOne({docketNumber:dockets[i] }).populate('tracking');
+            if (key == "docketNumber") {
+                booking = await Booking.findOne({ docketNumber: dockets[i] }).populate('tracking');
             } else {
-                booking = await Booking.findOne({_id:dockets[i] }).populate('tracking');
+                booking = await Booking.findOne({ _id: dockets[i] }).populate('tracking');
             }
             if (!booking) {
                 console.log(`Booking not found for docket number: ${dockets[i]}`);
@@ -173,9 +171,9 @@ async function updateTrackingStatus(dockets, key, status, session) {
                 { _id: booking.tracking._id },
                 {
                     $set: { status: status }
-                }
+                },
+                { session }
             );
-            console.log(res);
         }
     } catch (err) {
         throw err;
@@ -222,7 +220,7 @@ async function initiateTracking(docket, branchName, date, by) {
                 {
                     action: 'Docket booked from ' + branchName,
                     actionDate: date,
-                    actionBy:by
+                    actionBy: by
                 }
             ]
         })
@@ -232,11 +230,37 @@ async function initiateTracking(docket, branchName, date, by) {
     }
 }
 
+async function getUser(opts) {
+    try {
+        const user = await Employee.findOne({ ...opts, isActive: true }).populate({
+            path: "permissions",
+            populate: [{
+                path: "branchAccess",
+                populate: {
+                    path: "access",
+                    populate: {
+                        path: "branch",
+                        populate:{ path:'zone', select:"zoneName"}
+                    }
+                }
+            },
+            {
+                path: "pageAccess"
+            }]
+        })
+        console.log(user.permissions.branchAccess.access[0].zone)
+        return user
+    } catch (error) {
+        throw error
+    }
+}
+
 module.exports = {
     getPopulatedManifest,
     getPopulatedBooking,
     initiateTracking,
     findManifestWithBooking,
     updateTrackingManifest,
-    updateTrackingStatus
+    updateTrackingStatus,
+    getUser
 }

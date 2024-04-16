@@ -29,13 +29,15 @@ const {
     getShippers,
     sendShipperForPrinting,
     shipperIssueToBranch,
-    updateShipper
+    updateShipper,
+    deleteShipper
 } = require("../controllers/shipperControllers")
 
 const {
     createBooking,
     getBooking,
-    getBookingForDRSStatusUpdate
+    getBookingForDRSStatusUpdate,
+    deleteBooking
 } = require("../controllers/bookingControllers")
 const {
     createState,
@@ -75,6 +77,7 @@ const {
 } = require("../middlewares/authmwares")
 const Employee = require("../models/employee")
 const { updatePassword } = require("../controllers/selfControllers")
+const { getUser } = require("../services/dbServices")
 const userRoutes = require("express")()
 
 
@@ -83,23 +86,9 @@ userRoutes.get("/checklogin", hasToken, async (req, res) => {
     try {
         console.log(req.token)
         if (req.token.isLoggedIn) {
-            const user = await Employee.findOne({ _id: req.token._id, isActive: true })
-                .populate({
-                    path: "permissions",
-                    populate: [{
-                        path: "branchAccess",
-                        populate: {
-                            path: "access",
-                            populate: {
-                                path: "branch"
-                            }
-                        }
-                    },
-                    {
-                        path: "pageAccess"
-                    }]
-                })
+            const user = await getUser({ _id: req.token._id})
             const n_user = await getUserData(user)
+            console.log(n_user.permissions.branchAccess.access[0])
             res.status(200).json({ msg: "success", data: n_user })
         }
     } catch (error) {
@@ -118,11 +107,12 @@ userRoutes.get("/logout", (req, res) => {
     }
 })
 
-userRoutes.use("/shipper", hasToken)
 userRoutes.route("/shipper")
+    .all(hasToken)
     .get(getShippers)
     .post(sendShipperForPrinting)
     .patch(updateShipper)
+    .delete(deleteShipper)
 
 
 userRoutes.route("/issueshippertobranch")
@@ -139,6 +129,7 @@ userRoutes.route("/booking")
         }
     })
     .post(createBooking)
+    .delete(deleteBooking)
 
 userRoutes.route("/track")
     .all(hasToken)

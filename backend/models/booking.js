@@ -22,38 +22,5 @@ const bookingSchema = new mongoose.Schema({
     timestamps:true
 });
 
-bookingSchema.pre('findOneAndDelete', { document: true }, async function (next) {
-    const booking = this;
-    
-    // Create a new session
-    const session = await startSession();
-    session.startTransaction();
-    
-    try {
-        // Delete referenced documents within the transaction
-        await Promise.all([
-            Branch.findByIdAndDelete(booking.branch, { session }),
-            Client.findByIdAndDelete(booking.client, { session }),
-            Invoice.findByIdAndDelete(booking.invoice, { session }),
-            Shipment.findByIdAndDelete(booking.shipment, { session }),
-            ConsignorConsignee.findByIdAndDelete(booking.consignorConsignee, { session }),
-            Tracking.findByIdAndDelete(booking.tracking, { session })
-        ]);
-        
-        // Commit the transaction if everything is successful
-        await session.commitTransaction();
-        session.endSession();
-    } catch (error) {
-        // If there's an error, abort the transaction and pass it to the next middleware/hook
-        await session.abortTransaction();
-        session.endSession();
-        console.error('Error deleting referenced documents:', error);
-        return next(error);
-    }
-
-    // If everything is successful, proceed with the deletion of the booking document
-    next();
-});
-
 const Booking = mongoose.model('Booking', bookingSchema);
 module.exports = Booking
