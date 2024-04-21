@@ -2,8 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "prod":"set MONGO_URL=mongodb+srv://chandailkajal:HI7A1mCovbk6Ej5h@cluster0.iutiujz.mongodb.net/safedispatchlogistics_production && node ./server.js",
+    "dev":"set MONGO_URL=mongodb+srv://aniketkashyap321:SzjvMLasMwJxLD39@cluster0.o8u9z2i.mongodb.net/cargo && node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

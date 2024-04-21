@@ -122,3 +122,27 @@ span>div>input{
 .weightTable{
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    .formContainer>div{
+        grid-template-columns: 40% 60%;
+    }
+
+    .formContainer>span{
+        flex-direction: column;
+        width: 100%;
+        /* padding: 10px; */
+    }
+
+    .formContainer>span>div{
+        width: 100%;
+        padding: 5px;
+    }
+
+    .formContainer>span>div>input{
+        width: 100%;
+    }
+    .formContainer>span>div textarea{
+        width: 100%;
+    }
+}

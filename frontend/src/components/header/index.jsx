@@ -1,7 +1,7 @@
 import style from './style.module.css'
-import { IoSearchSharp } from 'react-icons/io5'
+import { IoMenu, IoSearchSharp } from 'react-icons/io5'
 import { CgProfile } from 'react-icons/cg'
-import { FaSignOutAlt } from 'react-icons/fa'
+import { FaHamburger, FaSignOutAlt } from 'react-icons/fa'
 import { useContext, useEffect, useState } from 'react'
 import { message } from 'antd'
 import { serverUrl, title } from '../../constants'
@@ -9,13 +9,15 @@ import UserAuthContext from '../../contexts/authContext'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../assets/sdlLogo.png'
 import { useGetData } from '../../apiHandlers/getApis'
+import { GiHamburger } from 'react-icons/gi'
 
-export default function Header() {
+export default function Header({setShowSidebar,showSidebar}) {
     const { user, setUser } = useContext(UserAuthContext)
     const [searchQuery, setSearchQuery] = useState("")
     const { branches } = useContext(UserAuthContext)
     const { currBranch, setCurrBranch } = useContext(UserAuthContext)
     const { docketTracking, setDocketTracking } = useContext(UserAuthContext)
+    const [showMenu, setShowMenu] = useState(false)
 
     const navigate = useNavigate()
 
@@ -52,11 +54,12 @@ export default function Header() {
             message.error(json.err)
         }
     }
+
     return (
         <div className={style.header}>
             <div className={style.left}>
                 <img src={logo} alt="Logo" className={style.logo} />
-                {/* <h2>{title}</h2> */}
+                <IoMenu onClick={e=>setShowSidebar(p=>!p)} className={style.menu} />
             </div>
             <div className={style.right}>
                 <div className={style.c1}>
@@ -67,9 +70,10 @@ export default function Header() {
                     <select value={currBranch?._id || ""} onChange={selectBranch}>
                         <option value="">--Select Branch--</option>
                         {
-                            branches.map(b => <option value={b?._id} key={b?._id}> {b?.branchCode} : {b?.branchName}</option>)    
+                            branches.map(b => <option value={b?._id} key={b?._id}> {b?.branchCode} : {b?.branchName}</option>)
                         }
                     </select>
+                <CgProfile className={style.user} onClick={e=>{setShowMenu(p=>!p)}}/>
                 </div>
                 <div className={style.uname}>
                     <p>{user.name}</p>
@@ -77,6 +81,15 @@ export default function Header() {
                     <FaSignOutAlt style={{ fontSize: "22px", marginLeft: "5px" }} onClick={logOut} />
                 </div>
             </div>
+            {
+                showMenu&&!showSidebar?
+                <div className={style.contextMenu}>
+                <ul>
+                    <li><CgProfile/> {user.name}</li>
+                    <li onClick={logOut}><FaSignOutAlt/> Logout</li>
+                </ul>
+            </div>:null
+            }
         </div>
     )
 }

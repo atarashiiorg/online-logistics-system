@@ -211,8 +211,8 @@ export default function BookingEntry() {
             message.warning("Select a branch for booking")
             return
         }
-        if (awbDetails.docketNumber.length < 7 || awbDetails.docketNumber.length > 7) {
-            message.warning("Please enter a valid docket number for booking")
+        if (awbDetails.docketNumber.length<3) {
+            message.warning("Please enter a docket number for booking")
             return
         }
         if (!awbDetails.origin) {

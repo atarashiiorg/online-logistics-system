@@ -15,7 +15,8 @@ async function getRunsheets(req, res) {
             pdfStream.end(pdfBuffer);
             res.set({
                 'Content-Type': 'application/pdf',
-                'Content-Disposition': `attachment; filename="runsheet_${dataForRunsheet.runsheetNumber}.pdf"`
+                'Content-Disposition': `attachment; filename="runsheet_${dataForRunsheet.runsheetNumber}.pdf"`,
+                'Connection':'Keep-Alive'
             });
             pdfStream.pipe(res);
             return

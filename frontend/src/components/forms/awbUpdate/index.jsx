@@ -49,10 +49,10 @@ export function VolWeight({ volWeight, handleVolWeight, add, reset, deleteWeight
                                 <button className={style.buttonSave} onClick={add}><FaRegSave /> Add</button>
                                 <button className={style.buttonRef} onClick={reset} ><IoRefresh /> Reset</button>
                             </span>
-                            {volWeight.weights.length>0?<span style={{width:"100%"}}>
+                            {volWeight.weights.length>0?<span style={{width:"100%",padding:"0",overflow:"scroll"}}>
                                 <TableComp>
                                     <div>
-                                        <table style={{ minWidth: "100%" }}>
+                                        <table >
                                             <thead>
                                                 <tr>
                                                     <th>Length</th>
@@ -301,6 +301,110 @@ export function OverallWeight() {
 }
 
 export default function AwbUpdate() {
+    const initialVolWeight = {
+        totalBoxes: "",
+        actualWeight: "",
+        len: 0,
+        breadth: 0,
+        height: 0,
+        pcs: 0,
+        divisor: 0,
+        dimWeight: 0,
+        weights: []
+    }
+    const initialDimWeight = {
+        totalDimWeight: 0,
+        totalActualWeight: 0,
+        totalChargeWeight: 0
+    }
+
+    const [volWeight, setVolWeight] = useState(initialVolWeight)
+    const [dimWeight, setDimWeight] = useState(initialDimWeight)
+
+    const handleTotalWeight = (val, f) => {
+        setDimWeight(p => {
+            const obj = { ...p };
+            if (f == "totalDimWeight+") {
+                obj.totalDimWeight = (parseFloat(obj.totalDimWeight)+parseFloat(val)).toFixed(2)
+                obj.totalChargeWeight = parseFloat(obj.totalDimWeight) > parseFloat(obj.totalActualWeight) ? obj.totalDimWeight : obj.totalActualWeight
+                return obj
+            }
+            if (f == "totalDimWeight-") {
+                obj.totalDimWeight = (parseFloat(obj.totalDimWeight)+ parseFloat(val)).toFixed(2)
+                if(isNaN(obj.totalDimWeight)){
+                    obj.totalDimWeight=0.0
+                }
+                obj.totalChargeWeight = parseFloat(obj.totalDimWeight) > parseFloat(obj.totalActualWeight) ? obj.totalDimWeight : obj.totalActualWeight
+                return obj
+            }
+            obj.totalActualWeight = parseFloat(val).toFixed(2)
+            obj.totalChargeWeight = parseFloat(obj.totalDimWeight) > parseFloat(obj.totalActualWeight) ? obj.totalDimWeight : obj.totalActualWeight
+            return obj;
+        });
+    }
+
+    const handleVolWeight = (e, field) => {
+        setVolWeight(p => {
+            const obj = { ...p }
+            if (field == "totalBoxes") {
+                obj[field] = e.target.value
+                return obj
+            }
+            if (field == "actualWeight") {
+                handleTotalWeight(e.target.value)
+                obj[field] = e.target.value
+                return obj
+            }
+            obj[field] = e.target.value
+            obj.dimWeight = (((parseFloat(obj.len) || 1) * (parseFloat(obj.breadth) || 1) * (parseFloat(obj.height) || 1)) / 1728 * 6 * (obj.pcs || 1)).toFixed(2)
+            return obj
+        })
+    }
+    const resetVolWeight = () => {
+        setVolWeight(p => {
+            return {
+                dimWeight: "",
+                len: "",
+                breadth: "",
+                height: "",
+                divisor: "",
+                pcs: "",
+                weights: [...p.weights],
+                ...p
+            }
+        })
+    }
+    const [wid,setWid]=useState(0)
+    const handleAddVolWeight = () => {
+        if (!parseFloat(volWeight.len) || !parseFloat(volWeight.height) || !parseFloat(volWeight.breadth) ||  !parseFloat(volWeight.pcs)) {
+            message.warning("Enter a numeric value")
+            return
+        }
+        const newObj = {
+            id: wid,
+            len: volWeight.len,
+            breadth: volWeight.breadth,
+            height: volWeight.height,
+            pcs: volWeight.pcs,
+            divisor: volWeight.divisor,
+            dimWeight: volWeight.dimWeight,
+        }
+        setWid(p=>p+1)
+        handleTotalWeight(newObj.dimWeight, "totalDimWeight+")
+        resetVolWeight()
+        setVolWeight(p => {
+            return { ...p, weights: [...p.weights, newObj] }
+        })
+    }
+
+    const deleteWeight = (id) => {
+        const oldData = volWeight.weights.filter(w => w.id == id)
+        const newArr = volWeight.weights.filter(w => w.id != id)
+        setVolWeight(p => {
+            return { ...p, weights: [...newArr] }
+        })
+        handleTotalWeight(oldData[0].dimWeight, "totalDimWeight-")
+    }
     return (
         <>
             <span className={style.span}>
@@ -323,7 +427,8 @@ export default function AwbUpdate() {
             <ConsignorDetails />
             <ConsigneeDetails />
             <InsuranceDetails />
-            <VolWeight volWeight={{ "": "" }} handleVolWeight={() => { }} />
+            <VolWeight volWeight={volWeight} handleVolWeight={handleVolWeight} add={handleAddVolWeight} reset={resetVolWeight} deleteWeight={deleteWeight} />
+            {/* <VolWeight volWeight={{ "": "" }} handleVolWeight={() => { }} /> */}
             <OverallWeight />
             <div className={style.actions}>
                 <button><FaCheck /> Update</button>

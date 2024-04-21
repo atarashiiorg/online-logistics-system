@@ -83,3 +83,15 @@ span>div>input{
 .buttonRef{
     background-color:#F58329;
 }
+
+@media (max-width: 768px) {
+    .formContainer>div{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .formContainer>div >.left{
+        display: grid;
+        grid-template-columns: 30% 70%;
+    }
+}

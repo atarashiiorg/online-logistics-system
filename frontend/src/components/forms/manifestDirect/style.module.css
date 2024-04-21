@@ -179,3 +179,16 @@ span>div>input{
 /* .docketList{
    margin-bottom: ;
 } */
+
+@media (max-width: 768px) {
+.formContainer{
+    display: block;
+}
+ .formContainer>div{
+    grid-template-columns: 40% 60%;
+}
+.formContainer> .secondContainer{
+    display: grid;
+    grid-template-columns: 40% 60%;
+ }
+}

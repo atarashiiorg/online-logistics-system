@@ -22,19 +22,26 @@ export default function RunsheetPrint() {
     const [err, loading, runsheetList] = useGetData("runsheet?bid=" + currBranch?._id + "&eid=" + user._id, [currBranch])
     const [downloading, setDownloading] = useState(false)
 
-    const downloadRunsheet = async(id) => {
+    const downloadRunsheet = async (id) => {
         setDownloading(true)
         try {
-            const res = await useDownloader("runsheet?rid=" + id)
-            if (res.redirect) {
+            const resp = await useDownloader("runsheet?rid=" + id)
+            if (resp?.redirect) {
                 setUser(null)
                 sessionStorage.clear()
             }
-            message.success("Downloaded")
+            message.open({
+                type: "loading",
+                content: "Download in progress",
+                duration:5
+            })
+            .then(()=>message.success("Downloaded"))
         } catch (error) {
+            console.log(error)
             message.error(error.toString())
+        } finally{
+            setDownloading(false)
         }
-        setDownloading(false)
     }
 
     return (

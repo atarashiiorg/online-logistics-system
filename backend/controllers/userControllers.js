@@ -4,7 +4,6 @@ const Branch = require("../models/branch")
 const bcrypt = require("bcrypt")
 const Employee = require("../models/employee")
 const { getUserData } = require("../services/helpers")
-const { path } = require("../routes/userRoutes")
 const { getUser } = require("../services/dbServices")
 
 async function loginUser(req, res) {

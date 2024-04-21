@@ -16,6 +16,7 @@
 }
 
 .tableContainer>div>table{
+    min-width: 100%;
     width: max-content;
     border-collapse: collapse;
 }
@@ -49,4 +50,18 @@
 
 .tableContainer>div>table{
     margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .tableContainer{
+        width: 100%;
+        overflow: scroll;
+    }
+    /* .tableContainer>div{
+        overflow-y: scroll;
+    }
+    .tableContainer>div>table{
+        width: max-content;
+        overflow: scroll;
+    } */
 }

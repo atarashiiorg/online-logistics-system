@@ -10,8 +10,8 @@ const UpperNavbar = (props) => {
   const navigate = useNavigate()
   const {docket, setDocket} = useContext(HomeContext)
   const trackThis= ()=>{
-      if(docket.length<7){
-        message.warning("enter a valid docket number")
+      if(docket.length<3){
+        message.warning("Enter a valid docket number")
         return
       }
       navigate("/track")

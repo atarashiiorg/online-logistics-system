@@ -88,6 +88,7 @@ async function getManifests(req, res) {
             pdfStream.end(pdfBuffer)
             res.set({
                 'Content-Type': 'application/pdf',
+                'Content-Length':pdfBuffer.length,
                 'Content-Disposition': `attachment; filename="${data.manifestNumber}.pdf"`
             });
             pdfStream.pipe(res)

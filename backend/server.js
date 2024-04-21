@@ -40,6 +40,7 @@ db.init()
             if (err) {
                 console.log(err);
             }
+            process.on('warning', e => console.warn(e.stack));
             console.log("server started successfully !");
         })
     })

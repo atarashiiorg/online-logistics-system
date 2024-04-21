@@ -88,3 +88,16 @@ input, select{
 .buttonRef{
     background-color:#679AB9;
 }
+
+@media (max-width: 768px) {
+    .formContainer>div{
+        grid-template-columns: 40% 60%;
+    }
+
+    .actions{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 5px;
+        gap: 10px;
+    }
+}

@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from 'react'
 import style from './style.module.css'
 import { AiFillDashboard } from 'react-icons/ai'
 import { GiGearHammer } from 'react-icons/gi'
-import { FaFileAlt, FaFileImport, FaRegCalendarAlt, FaUser } from 'react-icons/fa'
+import { FaFileAlt, FaFileImport, FaLessThan, FaRegCalendarAlt, FaUser } from 'react-icons/fa'
 import { FaGears } from 'react-icons/fa6'
-import { BsGearFill } from "react-icons/bs";
+import { BsFillArrowLeftSquareFill, BsFillArrowRightSquareFill, BsGearFill } from "react-icons/bs";
 import { SiGooglebigquery } from "react-icons/si";
 import { IoDocumentOutline } from "react-icons/io5"
 import { IoMdArrowDropdownCircle, IoMdArrowDropupCircle } from 'react-icons/io'
@@ -24,15 +24,15 @@ const DynamicFaIcon = ({ name }) => {
         case 'FaGears':
             return <FaGears />
         case 'IoDocumentOutline':
-            return <IoDocumentOutline/>
+            return <IoDocumentOutline />
         case 'FaUser':
-            return <FaUser/>
+            return <FaUser />
         case 'FaFileAlt':
-            return <FaFileAlt/>
+            return <FaFileAlt />
         case 'SiGooglebigquery':
-            return <SiGooglebigquery/>
+            return <SiGooglebigquery />
         case 'FaFileImport':
-            return <FaFileImport/>
+            return <FaFileImport />
         default:
             return <AiFillDashboard />
     }
@@ -364,15 +364,18 @@ export default function SideBar() {
     //         dropdown: imported
     //     }
     // ]
-    const {user} = useContext(UserAuthContext)
+    const { user } = useContext(UserAuthContext)
     const [sideBarOptions, setSideBarOptions] = useState(user?.permissions?.pageAccess?.access || [])
     const [active, setActive] = useState(-1)
 
     return (
-        <div className={style.container}>
-            {
-                sideBarOptions.map((op, i) => <DashboardItem {...op} key={op + i} index={i} active={active} setActive={setActive} />)
-            }
-        </div>
+        <>
+            <div className={style.container}>
+                {
+                    sideBarOptions.map((op, i) => <DashboardItem {...op} key={op + i} index={i} active={active} setActive={setActive} />)
+                }
+            </div>
+            <div className={style.sidebarRes}></div>
+        </>
     )
 }

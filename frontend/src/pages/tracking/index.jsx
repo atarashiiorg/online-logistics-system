@@ -46,7 +46,7 @@ export function TrackingPage() {
     }, [])
 
     const track = () => {
-        if (docket.length < 7) {
+        if (docket.length < 3) {
             message.warning("Enter a valid docket number")
             return
         }

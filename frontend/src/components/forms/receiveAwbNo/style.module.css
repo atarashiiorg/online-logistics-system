@@ -113,3 +113,15 @@ span > div > input {
 .buttonExp{
     background-color: grey;
 }
+
+@media (max-width: 768px) {
+ .formContainer>div{
+  grid-template-columns: 40% 60%;
+ }
+ .actions{
+  display: flex;
+  padding-inline: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+ }
+}

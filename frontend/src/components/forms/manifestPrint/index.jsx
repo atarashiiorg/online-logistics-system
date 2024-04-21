@@ -94,7 +94,7 @@ export default function ManifestPrint() {
             <TableComp>
                 <p>Manifests:</p>
                 <div>
-                    <table style={{ width: "100%" }}>
+                    <table>
                         <thead>
                             <tr>
                                 <th>Print</th>

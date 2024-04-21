@@ -168,3 +168,17 @@ span>div>input{
     margin: 0px 5px;
     padding: 5px;
 }
+
+@media (max-width: 768px) {
+ .formContainer>div{
+    grid-template-columns: 25% 75%;
+ }
+ .formContainer>.secondContainer{
+    grid-template-columns: 100%;
+ }
+ .formContainer>.secondContainer>div{
+    display: grid;
+    grid-template-columns: 25% 75%;
+    grid-gap: 10px;
+ }
+}
