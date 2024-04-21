@@ -3,8 +3,8 @@ import style from './style.module.css'
 import { FaCheck } from 'react-icons/fa6'
 import { IoRefresh } from 'react-icons/io5'
 import UserAuthContext from '../../../contexts/authContext'
-import { serverUrl } from '../../../constants'
-import {message} from 'antd'
+import { serverUrl, title } from '../../../constants'
+import {Button, Popconfirm, Select, Space, Table, message} from 'antd'
 import {getFormttedDate} from '../../../utils/helpers'
 
 export default function DeliveryStatusEntry() {
@@ -17,7 +17,7 @@ export default function DeliveryStatusEntry() {
     const [docketDetailsArr, setDocketDetailsArr] = useState([])
     const [docket, setDocket] = useState("")
 
-    const { setUser } = useContext(UserAuthContext)
+    const { setUser, user } = useContext(UserAuthContext)
 
     const fetchDocketData = async (e) => {
         try {
@@ -64,8 +64,67 @@ export default function DeliveryStatusEntry() {
         e.target.checked ? setReceivingTypeDisabled(true) : setReceivingTypeDisabled(false)
     }
 
+    const docketsForDel = [
+        {
+            dnum:"2215500",
+            consignor:"ABC",
+            consignee:"CDE",
+            toPay:"100",
+            cash:"0",
+            cod:"0",
+        }
+    ]
+
+    const cols = [
+        {   
+            title:"Docket",
+            dataIndex:"dnum",
+        },
+        {
+            title:"Consignor",
+            dataIndex:"consignor",
+        },
+        {
+            title:"Consignee",
+            dataIndex:"consignee"
+        },
+        {
+            title:"ToPay",
+            dataIndex:"topay"
+        },
+        {
+            title:"Cash",
+            dataIndex:"cash"
+        },
+        {
+            title:"Cod",
+            dataIndex:"cod"
+        },
+        {
+            title:"Action",
+            dataIndex:"_id",
+            render:(doc)=>{
+                return(
+                    <Space>
+                        <Select 
+                        onChange={val=>console.log(val)}
+                        options={[
+                            {value:"123",label:"delivered"}
+                        ]}
+                        >
+                        </Select>
+                        <Popconfirm>
+                            <Button type='primary'>Save</Button>
+                        </Popconfirm>
+                    </Space>
+                )
+            }
+        }
+    ]
+
     return (
         <>
+            {user.role!="dlb"?
             <div className={style.formContainer}>
                 <p>Delivery Status Entry</p>
                 <div>
@@ -206,7 +265,16 @@ export default function DeliveryStatusEntry() {
                         </table>
                     </div>
                 </div>
+            </div>:
+            <div className={style.tabContainer}>
+                <p>To Be Delivered</p>
+                <Table 
+                    columns={cols}
+                    dataSource={docketsForDel}
+                >
+                </Table>
             </div>
+            }
 
             <div className={style.actions}>
                 <button className={style.buttonChk}><FaCheck /> save</button>

@@ -84,6 +84,11 @@ span>div>input{
     background-color:#F58329;
 }
 
+.tabContainer{
+    width: 100%;
+    overflow-y: scroll;
+}
+
 @media (max-width: 768px) {
     .formContainer>div{
         display: flex;
