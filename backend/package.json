@@ -22,7 +22,6 @@
     "jsonwebtoken": "^9.0.2",
     "mariadb": "^3.2.3",
     "mongoose": "^8.1.2",
-    "mysql2": "^3.9.1",
     "nodemon": "^3.0.3",
     "pdf-puppeteer": "^1.1.11",
     "sequelize": "^6.37.1",
