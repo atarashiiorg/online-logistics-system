@@ -14,9 +14,9 @@ export default function Dashboard() {
             {
                 user ?
                     <div className={style.page}>
-                        <Header setShowSidebar={setShowSidebar} showSidebar={showSidebar}/>
+                        <Header setShowSidebar={setShowSidebar}/>
                         <div className={style.subcontainer}>
-                            {showSidebar?<SideBar/>:null}
+                            <SideBar visible={showSidebar} />
                             <div className={style.form}>
                                 <Outlet />
                             </div>

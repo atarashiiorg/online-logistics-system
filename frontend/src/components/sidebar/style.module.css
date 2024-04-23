@@ -1,4 +1,4 @@
-.container{
+.container,.containerHidden{
     width: 230px;
     height: 100%;
     background-color: #122540;
@@ -67,5 +67,11 @@ a{
     position: absolute;
     right: 0;
     z-index: 111;
+ }
+ .containerHidden{
+    position: absolute;
+    right: 0;
+    z-index: 111;
+    display: none;
  }
 }

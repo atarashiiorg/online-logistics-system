@@ -11,7 +11,7 @@ import logo from '../../assets/sdlLogo.png'
 import { useGetData } from '../../apiHandlers/getApis'
 import { GiHamburger } from 'react-icons/gi'
 
-export default function Header({setShowSidebar,showSidebar}) {
+export default function Header(props) {
     const { user, setUser } = useContext(UserAuthContext)
     const [searchQuery, setSearchQuery] = useState("")
     const { branches } = useContext(UserAuthContext)
@@ -20,6 +20,10 @@ export default function Header({setShowSidebar,showSidebar}) {
     const [showMenu, setShowMenu] = useState(false)
 
     const navigate = useNavigate()
+
+    const showSidebar=()=>{
+        props.setShowSidebar(p=>!p)
+    }
 
     const handleSearch = async () => {
         try {
@@ -59,7 +63,7 @@ export default function Header({setShowSidebar,showSidebar}) {
         <div className={style.header}>
             <div className={style.left}>
                 <img src={logo} alt="Logo" className={style.logo} />
-                <IoMenu onClick={e=>setShowSidebar(p=>!p)} className={style.menu} />
+                <IoMenu onClick={showSidebar} className={style.menu} />
             </div>
             <div className={style.right}>
                 <div className={style.c1}>
@@ -82,7 +86,7 @@ export default function Header({setShowSidebar,showSidebar}) {
                 </div>
             </div>
             {
-                showMenu&&!showSidebar?
+                showMenu&&showSidebar?
                 <div className={style.contextMenu}>
                 <ul>
                     <li><CgProfile/> {user.name}</li>

@@ -91,7 +91,7 @@ const DashboardItem = ({ icon, title, dropdown, index, active, setActive, allowe
     )
 }
 
-export default function SideBar() {
+export default function SideBar(props) {
 
     // const operations = [
     //     {
@@ -370,7 +370,7 @@ export default function SideBar() {
 
     return (
         <>
-            <div className={style.container}>
+            <div className={props.visible?style.container:style.containerHidden}>
                 {
                     sideBarOptions.map((op, i) => <DashboardItem {...op} key={op + i} index={i} active={active} setActive={setActive} />)
                 }
