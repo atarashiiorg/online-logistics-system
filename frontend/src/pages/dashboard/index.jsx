@@ -9,6 +9,11 @@ import logo from '../../assets/sdlLogo.png'
 export default function Dashboard() {
     const { user } = useContext(UserAuthContext)
     const [showSidebar, setShowSidebar] = useState(false)
+
+    useEffect(()=>{
+        document.title = "Safe dispatch logistics-Dashboard"
+    })
+
     return (
         <>
             {

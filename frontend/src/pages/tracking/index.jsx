@@ -18,6 +18,11 @@ const ActivityDateCell = ({ date }) => {
 }
 
 export function TrackingPage() {
+
+    useEffect(()=>{
+        document.title = "Safe dispatch logistics-Tracking"
+    })
+
     const navigate = useNavigate()
     const { docket } = useContext(HomeContext)
     const [trackingData, setTrackingData] = useState()

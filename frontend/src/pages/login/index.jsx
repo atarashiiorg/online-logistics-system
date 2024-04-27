@@ -8,6 +8,11 @@ import { useNavigate} from "react-router-dom"
 export default function Login() {
     const [loginCreds, setLoginCreds] = useState({username:"",password:""})
     // const {setUser, setBranches, setPageAccess} = 
+
+    useEffect(()=>{
+        document.title = "Safe dispatch logistics-Login"
+    },[])
+
     const navigator = useNavigate()
     useEffect(()=>{
         if(sessionStorage.getItem("user")){

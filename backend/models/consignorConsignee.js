@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const consignorConsigneeSchema = new mongoose.Schema({
     consignor:String,
+    consignorContact:String,
     consignee:String,
     consigneeAddress:String,
     consigneeContact:String

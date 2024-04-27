@@ -13,6 +13,11 @@ import { message } from 'antd';
 export default function Home() {
   const [testimonials, setTestimonials] = useState([])
   const [loading, setLoading] = useState(false)
+
+  useEffect(()=>{
+    document.title = "Safe dispatch logistics-Home"
+  })
+
   useEffect(()=>{
     (async()=>{
       setLoading(true)

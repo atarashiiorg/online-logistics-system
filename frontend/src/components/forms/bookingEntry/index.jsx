@@ -400,6 +400,8 @@ export default function BookingEntry() {
                     <label htmlFor="">Consignee Address</label>
                     <input type="text" placeholder='Consignee Address' value={consignorConsignee.consigneeAddress} onInput={e => handleConsignorConsignee(e, "consigneeAddress")} />
 
+                    <label htmlFor="">Consignor Contact</label>
+                    <input type="text" placeholder='Consignor Contact No' value={consignorConsignee.consigneeContact} onInput={e => handleConsignorConsignee(e, "consigneeContact")} />
                     <label htmlFor="">Consignee Contact</label>
                     <input type="text" placeholder='Consignee Contact No' value={consignorConsignee.consigneeContact} onInput={e => handleConsignorConsignee(e, "consigneeContact")} />
                 </div>

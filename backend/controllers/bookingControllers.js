@@ -162,6 +162,17 @@ async function getBooking(req, res) { //this function is used to get data for ma
 async function getBookingForDRSStatusUpdate(req, res) {
     try {
         const docket = req.query.docket
+        const valid = await isDocketValid(docket)
+        console.log(valid)
+        if(!valid.valid){
+            res.status(403).json({msg:"Invalid Docket Number"})
+            return
+        }
+        const isBooked = await isDocketBooked(docket)
+        if(!isBooked.booked){
+            res.status(403).json({msg:"Docket is not booked yet"})
+            return
+        }
         const booking = await getPopulatedBooking({ docketNumber: docket }, true)
         await booking.populate("branch")
         const runsheet = await Runsheet.findOne({ 'dockets.booking': booking._id }).exec();
