@@ -193,7 +193,7 @@ async function getPopulatedBooking(opts, single) {
                     })
                     .populate("invoice")
                     .populate("consignorConsignee")
-                    .populate("tracking")
+                    .populate({path:"tracking",populate:{path:"podImage"}})
                 resolve(booking)
             } else {
                 console.log(opts)

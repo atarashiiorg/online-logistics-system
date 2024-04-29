@@ -5,11 +5,13 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-   
+    "prod": "set MONGO_URL=mongodb+srv://chandailkajal:HI7A1mCovbk6Ej5h@cluster0.iutiujz.mongodb.net/safedispatchlogistics_production && node ./server.js",
+    "dev": "set MONGO_URL=mongodb+srv://aniketkashyap321:SzjvMLasMwJxLD39@cluster0.o8u9z2i.mongodb.net/cargo && node server"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "aws-sdk": "^2.1608.0",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -18,6 +20,7 @@
     "express": "^4.18.2",
     "express-rate-limit": "^7.2.0",
     "express-session": "^1.18.0",
+    "jimp": "^0.3.11",
     "jsbarcode": "^3.11.6",
     "jsdom": "^24.0.0",
     "jsonwebtoken": "^9.0.2",

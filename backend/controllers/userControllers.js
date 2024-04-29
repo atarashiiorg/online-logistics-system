@@ -56,7 +56,7 @@ async function trackAwb(req, res) {
             .populate("client")
             .populate({
                 path:"tracking",
-                populate:[{path:"details",populate:{path:"actionBy",select:"name eCode"}}]
+                populate:[{path:"details",populate:{path:"actionBy",select:"name eCode"}},{path:"podImage"}]
             })
             // .populate('details.actionBy', 'name eCode')
 

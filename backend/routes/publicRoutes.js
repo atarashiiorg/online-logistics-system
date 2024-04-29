@@ -4,6 +4,7 @@ const publicRoutes = express()
 const fs = require("fs")
 const path = require("path")
 const PageAccess = require("../models/pageAccess")
+const Tracking = require("../models/tracking")
 
 publicRoutes.get("/track",getTrackingDetails)
 
@@ -31,6 +32,11 @@ publicRoutes.route("/api/permission")
     } catch (error) {
         res.status(500).json({err:error.toString()})
     }
+})
+
+publicRoutes.get("/pod",async(req,res)=>{
+    const tracking = await Tracking.findOne({docketNumber:req.query.docket}).populate("podImage")
+    res.status(200).json(tracking)
 })
 
 module.exports = publicRoutes

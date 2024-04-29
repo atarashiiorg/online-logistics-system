@@ -47,8 +47,8 @@ const trackingSchema = new mongoose.Schema({
         default:""
     },
     podImage:{
-        type:String,
-        default:null
+        type:mongoose.Types.ObjectId,
+        ref:'POD'
     }
 },{
     timestamps:true

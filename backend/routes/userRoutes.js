@@ -78,7 +78,8 @@ const {
 const Employee = require("../models/employee")
 const { updatePassword } = require("../controllers/selfControllers")
 const { getUser } = require("../services/dbServices")
-const { getDeliveries } = require("../controllers/deliveriesControllers")
+const { getDeliveries, markDelivered } = require("../controllers/deliveriesControllers")
+const { podUpload } = require("../middlewares/mwares")
 const userRoutes = require("express")()
 
 
@@ -138,7 +139,9 @@ userRoutes.route("/track")
 
 userRoutes.route("/deliveries")
 .all(hasToken)
+.all(podUpload())
 .get(getDeliveries)
+.patch(markDelivered)
 
 userRoutes.route("/awb")
     .all(hasToken)

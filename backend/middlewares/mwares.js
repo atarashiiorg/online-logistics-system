@@ -19,21 +19,20 @@ function consoleReq(req, res, next) {
 
 const limitReq = rateLimit({
     windowMs: 1000,
-    limit: 8,
+    limit: 3,
     standardHeaders: 'draft-7',
     legacyHeaders: false,
     validate: { xForwardedForHeader: false }
 })
 
-const savePod=()=>{
-    try {
-              
-    } catch (error) {
-        
-    }
+const podUpload=()=>{
+    const mStorage = multer.memoryStorage()
+    const upload = multer({storage:mStorage})
+    return upload.single("pod")
 }
 
 module.exports = {
     consoleReq,
-    limitReq
+    limitReq,
+    podUpload
 }

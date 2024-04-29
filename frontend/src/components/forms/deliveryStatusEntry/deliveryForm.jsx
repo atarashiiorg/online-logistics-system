@@ -2,6 +2,7 @@ import { Button, Input, Popconfirm, Select, Space, message } from "antd"
 import { useState } from "react"
 import { BsFillCameraFill } from "react-icons/bs"
 import { FaArrowAltCircleDown, FaArrowAltCircleUp } from "react-icons/fa"
+import style from './style.module.css'
 
 export const Form = (props) => {
     const [deliverStatus, setDeliveryStatus] = useState({
@@ -9,7 +10,7 @@ export const Form = (props) => {
         rcType: "",
         rcName: "",
         podRemarks: "",
-        podImage: null
+        pod: null
     })
 
     const handleForm = (e) => {
@@ -51,7 +52,7 @@ export const Form = (props) => {
             message.warning("Please Enter POD Remarks")
             return false
         }
-        if (deliverStatus.podImage == null) {
+        if (deliverStatus.pod == null) {
             message.warning("Please upload POD")
             return false
         }
@@ -68,23 +69,17 @@ export const Form = (props) => {
     }
     return (
         <>
-        {
-            console.log(props.docketDetails)
-        }
+            {
+                console.log(props.docketDetails)
+            }
             {
                 props.visible ?
                     <>
-                        <Space style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "stretch", gap: "22px" }}>
+                        <div className={style.rows}>
                             <label htmlFor="">Status</label>
-                            <label htmlFor="">Receiving Type</label>
-                            <label htmlFor="">Receiver Name</label>
-                            <label htmlFor="">POD Remarks</label>
-                            <label htmlFor=""></label>
-                        </Space>
-                        <Space style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "stretch" }}>
                             <Select
+                                className={style.col2}
                                 name="status"
-                                style={{ width: "100%" }}
                                 defaultValue={deliverStatus.status}
                                 onChange={(val) => handleSelect("status", val)}
                                 options={[
@@ -95,9 +90,13 @@ export const Form = (props) => {
                                 ]}
                             >
                             </Select>
+                        </div>
+                        <div className={style.rows}>
+
+                            <label htmlFor="">Receiving Type</label>
                             <Select
                                 name="rcType"
-                                style={{ width: "100%" }}
+                                className={style.col2}
                                 defaultValue={"-1"}
                                 onChange={(v) => handleSelect("rcType", v)}
                                 options={[
@@ -108,9 +107,26 @@ export const Form = (props) => {
                                 ]}
                             >
                             </Select>
-                            <Input placeholder='Receiver Name' value={deliverStatus.rcName} name="rcName" onInput={handleForm} />
-                            <span style={{ display: "flex", gap: "10px", width: "100%", alignItems: "center" }}>
-                                <Input placeholder='POD Remarks' name="podRemarks" onInput={handleForm} value={deliverStatus.podRemarks} />
+                        </div>
+
+                        <div className={style.rows}>
+                            <label htmlFor="">Receiver Name</label>
+                            <Input placeholder='Receiver Name' value={deliverStatus.rcName} name="rcName" onInput={handleForm} className={style.col2} />
+                        </div>
+
+                        <div className={style.rows}>
+                            <label htmlFor="">POD Remarks</label>
+                            <span className={style.col2Grid}>
+                                <Select 
+                                style={{width:"100%"}} 
+                                defaultValue={"-1"}
+                                onChange={(v) => handleSelect("podRemarks", v)}
+                                options={[
+                                    { value: "-1", label: "Select POD Remarks" },
+                                    { value: "hard copy", label: "Hard Copy" },
+                                    { value: "soft copy", label: "Soft Copy" },
+                                ]}
+                                />
                                 <label htmlFor='pod' style={{
                                     color: "purple",
                                     padding: "3px",
@@ -122,12 +138,13 @@ export const Form = (props) => {
                                     backgroundColor: "whitesmoke"
                                 }}><BsFillCameraFill style={{ fontSize: "23px" }} /></label>
                             </span>
-                            <input id='pod' type='file' capture="environment" name="podImage" onChange={handleForm} hidden />
-                            <span>{deliverStatus.podImage?.name}</span>
-                            <Popconfirm onConfirm={submit} title="Sure to submit ?">
-                                <Button style={{ width: "100%" }} type='primary'>Submit</Button>
-                            </Popconfirm>
-                        </Space>
+                            <input id='pod' type='file' capture="environment" name="pod" onChange={handleForm} hidden /></div>
+
+                        <span>{deliverStatus.pod?.name}</span>
+                        <Popconfirm onConfirm={submit} title="Sure to submit ?">
+                            <Button style={{ width: "100%" }} type='primary'>Submit</Button>
+                        </Popconfirm>
+
                     </> : null
             }
         </>

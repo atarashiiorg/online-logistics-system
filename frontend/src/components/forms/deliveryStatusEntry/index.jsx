@@ -1,29 +1,23 @@
 import { useContext, useEffect, useState } from 'react'
 import style from './style.module.css'
-import { FaCamera, FaCameraRotate, FaCheck } from 'react-icons/fa6'
+import { FaCamera, FaCameraRotate, FaCheck, FaUpload } from 'react-icons/fa6'
 import { IoRefresh } from 'react-icons/io5'
 import UserAuthContext from '../../../contexts/authContext'
 import { serverUrl, title } from '../../../constants'
 import { Button, Input, Popconfirm, Select, Space, Table, message } from 'antd'
-import { getFormttedDate } from '../../../utils/helpers'
+import { getDateForInput, getFormttedDate } from '../../../utils/helpers'
 import { BsFillCameraFill } from 'react-icons/bs'
 import { FaArrowAltCircleDown, FaArrowAltCircleUp } from 'react-icons/fa'
 import { Form } from './deliveryForm'
 import Loading from '../../../pages/loading'
-import {usePatchData} from '../../../apiHandlers/patchApis'
+import { usePatchData } from '../../../apiHandlers/patchApis'
 
 export default function DeliveryStatusEntry() {
-    const [pktStatus, setPktStatus] = useState("")
-    const [pktStatusDisabled, setPktStatusDisabled] = useState(false)
-    const [receivingDateDisabled, setReceivingDateDisabled] = useState(false)
-    const [podRemarksDisabled, setPodRemarksDisabled] = useState(false)
-    const [receivingTypeDisabled, setReceivingTypeDisabled] = useState(false)
     const [docketDetails, setDocketDetails] = useState({})
     const [docketDetailsArr, setDocketDetailsArr] = useState([])
     const [docket, setDocket] = useState("")
-    const [dlvStatus, setDlvStatus] = useState({})
     const [isSubmitting, setIsSumitting] = useState(false)
-
+    const [statusReport, setStatusReport] = useState({})
     const { setUser, user } = useContext(UserAuthContext)
 
     const fetchDocketData = async (e) => {
@@ -39,7 +33,17 @@ export default function DeliveryStatusEntry() {
                     if (json.data.packetStatus == "booked") {
                         return
                     }
-                    setPktStatus(json.data.packetStatus)
+                    setStatusReport(p => {
+                        const obj = { ...p }
+                        obj.status = json.data.status
+                        obj.rcType = json.data.rcType
+                        obj.rcName = json.data.rcName
+                        obj.statusRemarks = json.data.statusRemarks
+                        obj.rcDate = getDateForInput(json.data.rcDate)
+                        obj.podRemarks = json.data.podRemarks
+                        obj.podReceivingDate = json.data.podReceivingDate
+                        return obj
+                    })
                 } else if (res.status == 500) {
                     message.error("Internal server error occured")
                 } else if (res.status == 401) {
@@ -55,52 +59,80 @@ export default function DeliveryStatusEntry() {
         }
     }
 
-    const handlePktStatus = (e) => {
-        e.target.checked ? setPktStatusDisabled(true) : setPktStatusDisabled(false)
+    const handleInput = (e) => {
+        setStatusReport(p => {
+            const obj = { ...p }
+            if (e.target.type == "file") {
+                if(e.target.files[0].type!="image/jpeg"){
+                    message.error("Invalid file type. Please select a JPEG file")
+                    return obj
+                }
+                obj[e.target.name] = e.target.files[0]
+            } else {
+                obj[e.target.name] = e.target.value
+            }
+            return obj
+        })
     }
 
-    const handleReceivingDate = (e) => {
-        e.target.checked ? setReceivingDateDisabled(true) : setReceivingDateDisabled(false)
+    const resetForm = ()=>{
+        setDocket(p=>"")
+        setStatusReport(p=>{return {}})
+        setDocketDetails(p=>{return {}})
+        setDocketDetailsArr(p=>[])
     }
 
-    const handlePodRemarks = (e) => {
-        e.target.checked ? setPodRemarksDisabled(true) : setPodRemarksDisabled(false)
-    }
-
-    const handleReceivingType = (e) => {
-        e.target.checked ? setReceivingTypeDisabled(true) : setReceivingTypeDisabled(false)
-    }
-
-    const updateDeliveryStatus=async(status)=>{
+    const updateDeliveryStatus = async (status) => {
         try {
             setIsSumitting(true)
-            const res = await usePatchData(status,"deliveries?docket="+docket)
+            const formData = new FormData()
+            for (var key in status) {
+                formData.append(key, status[key]);
+            }
+            const res = await fetch(serverUrl + "deliveries?docket=" + docket, {
+                credentials: 'include',
+                method: "PATCH",
+                body: formData
+            })
+            const json = await res.json()
+            if (res.status == 200) {
+                resetForm()
+                message.success("Status updated")
+            } else if (res.status == 500) {
+                message.error(json.err)
+            } else {
+                message.error(json.msg)
+            }
         } catch (error) {
-            message.error("Error occured: "+error)
-        } finally{
+            message.error("Error occured: " + error)
+        } finally {
             setIsSumitting(false)
         }
     }
 
     return (
         <>
-        {isSubmitting?<Loading/>:null}
+            {isSubmitting ? <Loading /> : null}
             <div className={style.formContainer}>
                 <p>Delivery Status Entry</p>
                 <div>
                     <div className={style.left}>
 
-                        <label htmlFor="">Docket No</label>
-                        <input type="text" placeholder='Docket No' value={docket} onInput={e => setDocket(e.target.value)} onKeyDown={fetchDocketData} />
+                        <div className={style.rows}>
+                            <label htmlFor="">Docket No</label>
+                            <input type="text" placeholder='Docket No' value={docket} onInput={e => setDocket(e.target.value)} onKeyDown={fetchDocketData} />
+                        </div>
 
-                        <label htmlFor="">Runsheet No</label>
-                        <input type="text" value={docketDetails.runsheetNumber} placeholder='Runsheet No' disabled />
+                        <div className={style.rows}>
+                            <label htmlFor="">Runsheet No</label>
+                            <input type="text" value={docketDetails.runsheetNumber || ""} placeholder='Runsheet No' disabled />
+                        </div>
 
-                        {user.role == "dlb" ? <Form visible={docketDetailsArr.length>0} docketDetails={docketDetails} onSubmit={updateDeliveryStatus} /> :
+                        {user.role == "dlb" ? <Form visible={docketDetailsArr.length > 0} docketDetails={docketDetails} onSubmit={updateDeliveryStatus} /> :
                             <>
-                                <label htmlFor="">Packet Status</label>
-                                <span>
-                                    <select onChange={e => setPktStatus(e.target.value)} value={pktStatus} disabled={pktStatusDisabled}>
+                                <div className={style.rows}>
+                                    <label htmlFor="">Packet Status</label>
+                                    <select name="status" onChange={handleInput} value={statusReport.status || ""}>
                                         <option value="">--Select--</option>
                                         <option value="delivered">Delivered</option>
                                         <option value="in-transit">In Transit</option>
@@ -109,57 +141,57 @@ export default function DeliveryStatusEntry() {
                                         <option value="return to origin">Return To Origin</option>
                                         <option value="undelivered">UnDelivered</option>
                                     </select>
-                                    <p>
-                                        <input type="checkbox" onChange={handlePktStatus} /> Fix
-                                    </p>
-                                </span>
+                                </div>
 
-                                <label htmlFor="">Status Remarks</label>
-                                <input type="text" name="" id="" placeholder='Status Remark' />
+                                <div className={style.rows}>
+                                    <label htmlFor="">Status Remarks</label>
+                                    <input type="text" name="statusRemarks" placeholder='Status Remark' value={statusReport.statusRemarks || ""} onInput={handleInput} />
+                                </div>
 
                                 {
-                                    pktStatus == "delivered" ?
+                                    statusReport.status == "delivered" ?
                                         <>
-                                            <label htmlFor="">Receiving Type</label>
-                                            <span>
-                                                <select name="" id="" disabled={receivingTypeDisabled}>
+                                            <div className={style.rows}>
+                                                <label htmlFor="">Receiving Type</label>
+                                                <select name="rcType" value={statusReport.rcType} onChange={handleInput}>
                                                     <option value="">--Select--</option>
                                                     <option value="signAndStamp">Sign and Stamp</option>
                                                     <option value="sign">Sign</option>
                                                     <option value="stamp">Stamp</option>
                                                 </select>
-                                                <p>
-                                                    <input type="checkbox" name="" id="" onChange={handleReceivingType} /> Fix
-                                                </p>
-                                            </span>
+                                            </div>
+                                            <div className={style.rows}>
+                                                <label htmlFor="">Receiving Date</label>
+                                                <input type="date" name="rcDate" value={getDateForInput(statusReport.rcDate)} onInput={handleInput} />
+                                            </div>
+                                            <div className={style.rows}>
+                                                <label htmlFor="">Receiver Name</label>
+                                                <input type="text" name="rcName" placeholder='Receiver Name' value={statusReport.rcName} onInput={handleInput} />
+                                            </div>
+                                            <div className={style.rows}>
+                                                <label htmlFor="">POD</label>
+                                                <label htmlFor="pod" className={style.uploader}><FaUpload style={{color:"purple"}}/> {statusReport?.pod?.name || "Select a POD image..."}</label>
+                                                <input type="file" id='pod' name='pod' hidden onInput={handleInput} />
+                                            </div>
+                                            <div className={style.rows}>
+                                                <label htmlFor="">POD Receiving Date</label>
+                                                <input type="date" name="podReceivingDate" value={getDateForInput(statusReport.podReceivingDate)} onInput={handleInput}/>
+                                            </div>
+                                            <div className={style.rows}>
+                                                <label htmlFor="">POD Remarks</label>
+                                                <select name="podRemarks" value={statusReport.podRemarks} onChange={handleInput}>
+                                                    <option value="">--Select--</option>
+                                                    <option value="hard copy">Hard Copy</option>
+                                                    <option value="soft copy">Soft Copy</option>
+                                                </select>
+                                            </div>
                                         </> :
                                         null
                                 }
 
-                                <label htmlFor="">Receiving Date</label>
+                                {/* <label htmlFor="">POD Remarks</label>
                                 <span>
-                                    <input type="date" name="" id="" disabled={receivingDateDisabled} />
-                                    <p>
-                                        <input type="checkbox" name="" id="" onChange={handleReceivingDate} /> Fix
-                                    </p>
-                                </span>
-
-                                {
-                                    pktStatus == "delivered" ?
-                                        <>
-                                            <label htmlFor="">Receiver Name</label>
-                                            <input type="text" name="" id="" placeholder='Receiver Name' />
-                                        </> :
-                                        null
-                                }
-
-                                <label htmlFor="">POD Remarks</label>
-                                <span>
-                                    <select name="" id="" disabled={podRemarksDisabled}>
-                                        <option value="null">--Select--</option>
-                                        <option value="hardCopy">Hard Copy</option>
-                                        <option value="softCopy">Soft Copy</option>
-                                    </select>
+                                    
                                     <p>
                                         <input type="checkbox" name="" id="" onChange={handlePodRemarks} /> Fix
                                     </p>
@@ -169,7 +201,7 @@ export default function DeliveryStatusEntry() {
                                 <input type="date" name="" id="" />
 
                                 <label htmlFor="">Remarks</label>
-                                <textarea name="" id="" cols="30" rows="3" placeholder='Remarks'></textarea>
+                                <textarea name="" id="" cols="30" rows="3" placeholder='Remarks'></textarea> */}
                             </>}
                     </div>
                     <div className={style.right}>
@@ -215,8 +247,8 @@ export default function DeliveryStatusEntry() {
                                                 }}>{
                                                         entry[0].includes('Date') && entry[1] ?
                                                             getFormttedDate(entry[1]) :
-                                                            entry[0].includes("Image") && !entry[1] ?
-                                                                <span style={{ textDecoration: 'underline', color: 'blue' }}>Download Image</span> :
+                                                            entry[0].includes("Image") && entry[1] ?
+                                                                <a href={entry[1]||""} target='_blank' style={{ textDecoration: 'underline', color: 'blue' }}>Download Image</a> :
                                                                 entry[1]}</td>
                                             </tr>
                                         }) :
@@ -229,10 +261,10 @@ export default function DeliveryStatusEntry() {
                     </div>
                 </div>
             </div>
-            {user.role!="dlb"?<div className={style.actions}>
-                <button className={style.buttonChk}><FaCheck /> save</button>
-                <button className={style.buttonRef}><IoRefresh /> Reset</button>
-            </div>:null}
+            {user.role != "dlb" ? <div className={style.actions}>
+                <button className={style.buttonChk} onClick={e => updateDeliveryStatus(statusReport)}><FaCheck /> save</button>
+                <button className={style.buttonRef} onClick={resetForm}><IoRefresh /> Reset</button>
+            </div> : null}
         </>
     )
 }

@@ -19,14 +19,15 @@ const ActivityDateCell = ({ date }) => {
 
 export function TrackingPage() {
 
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "Safe dispatch logistics-Tracking"
     })
 
     const navigate = useNavigate()
     const { docket } = useContext(HomeContext)
-    const [trackingData, setTrackingData] = useState()
+    const [trackingData, setTrackingData] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [valid, setValid] = useState(true)
     const fetchData = async () => {
         try {
             setLoading(true)
@@ -37,7 +38,8 @@ export function TrackingPage() {
             } else if (res.status == 500) {
                 message.error(res_json.err)
             } else {
-                message.warning(res_json.msg)
+                setValid(false)
+                setTrackingData(null)
             }
             setLoading(false)
         } catch (error) {
@@ -47,8 +49,15 @@ export function TrackingPage() {
     }
 
     useEffect(() => {
+        if(docket==""){
+            return
+        }
         fetchData()
     }, [])
+
+    useEffect(()=>{
+        docket==""?setValid(true):null
+    },[docket])
 
     const track = () => {
         if (docket.length < 3) {
@@ -60,6 +69,9 @@ export function TrackingPage() {
 
     return (
         <>
+        {
+            console.log(!trackingData && docket.length<3)
+        }
             <div className={style.trackingPage}>
                 <UpperNavbar track={track} />
                 <div className={style.header}>
@@ -70,9 +82,9 @@ export function TrackingPage() {
                 </div>
                 {
                     loading ? <Loading /> :
-                        !trackingData && docket.length < 10 ?
-                            <div className={style.notValid} style={{ fontSize: "25px", color: 'grey', fontWeight: "700" }}>Enter a Docket number to track</div> :
-                            !trackingData ? <div className={style.notValid}>Not a valid tracking number....</div> :
+                        !trackingData || docket=="" ?
+                            (valid?<div className={style.notValid} style={{ fontSize: "25px", color: 'grey', fontWeight: "700" }}>Enter a Docket number to track</div>:<div className={style.notValid}>Not a valid tracking number....</div>) :
+                            // !trackingData || docket.length<3 ?  :
                                 <div className={style.container}>
                                     <div className={style.box}>
                                         <div className={style.upper}>
@@ -83,15 +95,15 @@ export function TrackingPage() {
                                             </div>
                                             <div className={style.upper_child}>
                                                 <p>Docket No. <span style={{ fontWeight: "600" }}>{trackingData?.docketNumber}</span></p>
-                                                <p>Delivery Date: <span style={{ fontWeight: "600" }}>{trackingData?.receivingDate}</span></p>
+                                                <p>Delivery Date: <span style={{ fontWeight: "600" }}>{getFormttedDate(trackingData?.tracking?.receivingDate)}</span></p>
                                             </div>
                                             <div className={style.upper_child}>
                                                 <p>Booking Date: <span style={{ fontWeight: "600" }}>{getFormttedDate(trackingData?.bookingDate)}</span></p>
-                                                <p>Delivery Boy: <span style={{ fontWeight: "600" }}>{trackingData?.emp?.name}</span></p>
+                                                {trackingData?.tracking?.status != "delivered" ? <p>Delivery Boy: <span style={{ fontWeight: "600" }}>{trackingData?.emp?.name}</span></p> : null}
                                             </div>
                                             <div className={style.upper_child}>
                                                 <p>Receiver Name: <span style={{ fontWeight: "600" }}>{trackingData?.tracking?.receiver}</span></p>
-                                                <p>Mobile No. <span style={{ fontWeight: "600" }}>{trackingData?.emp?.mobile}</span></p>
+                                                {trackingData?.tracking?.status != "delivered" ? <p>Mobile No. <span style={{ fontWeight: "600" }}>{trackingData?.emp?.mobile}</span></p> : null}
                                             </div>
                                             <div className={style.upper_child}>
                                                 <p>Receiver Type: <span style={{ fontWeight: "600" }}>{trackingData?.tracking?.receiverType}</span></p>
@@ -134,10 +146,14 @@ export function TrackingPage() {
                                                             <td>ToPay</td>
                                                             <td>{trackingData?.invoice?.bookingType == "topay" ? trackingData?.invoice?.amountToPay : ""}</td>
                                                         </tr>
-                                                        {/* <tr>
-                                        <td>POD</td>
-                                        <td></td>
-                                    </tr> */}
+                                                        {trackingData?.tracking?.podImage ? <tr>
+                                                            <td>POD</td>
+                                                            <td><a href={trackingData?.tracking?.podImage?.Location} target='_blank'>View POD</a></td>
+                                                        </tr> : null}
+                                                        <tr>
+                                                            <td>Remarks</td>
+                                                            <td>{trackingData?.tracking?.statusRemarks}</td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -155,7 +171,7 @@ export function TrackingPage() {
                                                             trackingData?.tracking?.details?.map(d => {
                                                                 return <tr>
                                                                     <ActivityDateCell date={d.actionDate} />
-                                                                    <td style={{ fontSize: "13px", fontWeight: "600" }}>{d.action.split("in")[0]}</td>
+                                                                    <td style={{ fontSize: "13px", fontWeight: "600" }}>{d.action.split("in ")[0]}</td>
                                                                 </tr>
                                                             })
                                                         }

@@ -1,102 +1,139 @@
-input, select{
-    border: 1px solid grey;
-    border-radius: 0;
-    background-color: white;
+input,
+select {
+  border: 1px solid grey;
+  border-radius: 0;
+  background-color: white;
 }
 
-.span{
-    padding: 5px 0px;
+.span {
+  padding: 5px 0px;
+  display: flex;
+}
+
+span > div {
+  margin-right: 30px;
+}
+
+span > div > input {
+  margin-right: 5px;
+}
+
+.actions {
+  padding: 5px 50px;
+  background-color: #d3d3d3;
+}
+
+.actions > button {
+  padding: 5px 8px;
+  border: none;
+  border-radius: 0;
+  color: white;
+  margin: 0px 5px;
+}
+
+.formContainer {
+  width: 100%;
+  border: 1px solid #ef9b1b;
+  margin-bottom: 15px;
+}
+
+.formContainer > p {
+  padding: 8px;
+  background-color: #ef9b1b;
+  display: flex;
+  color: white;
+}
+
+.formContainer > div {
+  width: 100%;
+  padding: 20px 20px;
+  display: grid;
+  grid-template-columns: 40% 58%;
+  text-align: left;
+  grid-gap: 10px;
+}
+
+.formContainer > div .right {
+  border: 1px solid grey;
+  overflow: auto;
+  height: 300px;
+}
+
+.formContainer > div .left {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: right;
+  max-height: fit-content;
+  padding-inline: 20px;
+}
+
+.rows {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rows input,
+.rows span > select,
+.rows span > input,
+.rows > select,
+.uploader {
+  width: 60%;
+  padding: 3px 5px;
+}
+
+.col2 {
+    width: 60%;
+}
+
+.col2Grid{
+    width: 60%;
+    /* grid-gap: 20px;
+    display: grid;
+    grid-template-columns: 90% 10%; */
     display: flex;
+    justify-content: space-between;
 }
 
-span>div{
-    margin-right: 30px;
+.uploader {
+  border: 1px solid grey;
+  display: grid;
+  grid-template-columns: 10% 85%;
+  text-align: left;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 5px;
+  font-weight: normal;
+}
+.rows > span {
+  width: 60%;
+  display: grid;
+  grid-template-columns: 70% 20%;
+}
+.buttonChk {
+  background-color: green;
 }
 
-span>div>input{
-    margin-right: 5px;
+.buttonRef {
+  background-color: #f58329;
 }
 
-.actions{
-    padding: 5px 50px;
-    background-color: #d3d3d3;
-}
-
-.actions>button{
-    padding: 5px 8px;
-    border: none;
-    border-radius: 0;
-    color: white;
-    margin: 0px 5px;
-}
-
-.formContainer{
-    width: 100%;
-    border: 1px solid #ef9b1b;
-    margin-bottom: 15px;
-}
-
-.formContainer>p{
-    padding: 8px;
-    background-color: #ef9b1b;
-    display: flex;
-    color: white;
-}
-
-.formContainer>div{
-    width: 100%;
-    padding: 20px 20px;
-    display: grid;
-    grid-template-columns: 40% 58%;
-    text-align: left;
-    grid-gap: 10px;
-}
-
-.formContainer>div .right{
-    border: 1px solid grey;
-    overflow: auto;
-    height: 300px;
-}
-
-.formContainer>div .left{
-    display: grid;
-    grid-template-columns: 30% 60%;
-    grid-gap: 10px;
-    text-align: right;
-}
-
-.formContainer>div .left>input, 
-.formContainer>div .left>span>select,
-.formContainer>div .left>span>input
-{
-    padding: 3px 5px;
-}
-
-.formContainer>div .left>span{
-    display: grid;
-    grid-template-columns: 70% 20%;
-}
-.buttonChk{
-    background-color: green;
-}
-
-.buttonRef{
-    background-color:#F58329;
-}
-
-.tabContainer{
-    width: 100%;
-    overflow-y: scroll;
+.tabContainer {
+  width: 100%;
+  overflow-y: scroll;
 }
 
 @media (max-width: 768px) {
-    .formContainer>div{
-        display: flex;
-        flex-direction: column;
-    }
+  .formContainer > div {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .formContainer>div >.left{
-        display: grid;
-        grid-template-columns: 30% 70%;
-    }
+  .formContainer > div > .left {
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
+  }
 }
