@@ -39,7 +39,7 @@ async function createManifest(req, res) {
 
         await transaction.startTransaction()//start transaction
 
-        const manifest = await Manifest.create({ ...req.body, manifestNumber, createdBy: req.token._id })
+        const manifest = await Manifest.create({ ...req.body, manifestNumber, createdBy: req.token._id, manifestDate: new Date(req.body.manifestDate) })
         if (manifest) {
             await updateTrackingManifest(dockets, "docketNumber", {
                 action: `Packet manifested from ${fromBranch.branchName.toUpperCase()} to ${toBranch.branchName.toUpperCase()} in Manifest No. ${manifestNumber}`,
@@ -79,7 +79,12 @@ async function getManifests(req, res) {
     //mid based
     const tbid = req.query.bid
     const mid = req.query.mid
-    const fbid = req.query.fbid
+    const fBCode = req.query.fBCode
+    const fromDate = req.query.fromDate
+    const toDate = req.query.toDate
+    const toBCode = req.query.toBCode
+    const manifestNumber = req.query.manifestNo
+
     try {
         if (mid) {
             const data = await getDataForManifestPdf(mid)
@@ -88,7 +93,7 @@ async function getManifests(req, res) {
             pdfStream.end(pdfBuffer)
             res.set({
                 'Content-Type': 'application/pdf',
-                'Content-Length':pdfBuffer.length,
+                'Content-Length': pdfBuffer.length,
                 'Content-Disposition': `attachment; filename="${data.manifestNumber}.pdf"`
             });
             pdfStream.pipe(res)
@@ -121,11 +126,64 @@ async function getManifests(req, res) {
     }
     //
     try {
-        if (fbid) {
-            const manifests = await getPopulatedManifest({ fromBCode: new mongoose.Types.ObjectId(fbid) }, false, false)
-            res.status(200).json({ 'msg': 'success', data: manifests })
-            return
+        let manifests;
+        if (fBCode && toBCode && fromDate && toDate && manifestNumber) {
+            console.log("finding this->1")
+            console.log(new Date(fromDate), new Date(toDate))
+            manifests = await getPopulatedManifest(
+                {
+                    fromBCode: new mongoose.Types.ObjectId(fBCode),
+                    toBCode: new mongoose.Types.ObjectId(toBCode),
+                    manifestDate: {
+                        $gte: new Date(fromDate),
+                        $lte: new Date(toDate)
+                    },
+                    manifestNumber
+                }, false, false)
+        } else if (fBCode && fromDate && toDate && manifestNumber) {
+            console.log("finding this->2")
+            manifests = await getPopulatedManifest(
+                {
+                    fromBCode: new mongoose.Types.ObjectId(fBCode),
+                    manifestDate: {
+                        $gte: new Date(fromDate),
+                        $lte: new Date(toDate)
+                    },
+                    manifestNumber
+                }, false, false)
+        } else if (fBCode && fromDate && toDate) {
+            console.log("finding this->2")
+            manifests = await getPopulatedManifest(
+                {
+                    fromBCode: new mongoose.Types.ObjectId(fBCode),
+                    manifestDate: {
+                        $gte: new Date(fromDate),
+                        $lte: new Date(toDate)
+                    }
+                }, false, false)
+        } else if (fBCode && toBCode) {
+            console.log("finding this->3")
+            manifests = await getPopulatedManifest(
+                {
+                    fromBCode: new mongoose.Types.ObjectId(fBCode),
+                    toBCode: new mongoose.Types.ObjectId(toBCode)
+                }, false, false)
+        } else if (fBCode && manifestNumber) {
+            console.log("finding this->4")
+            manifests = await getPopulatedManifest(
+                {
+                    fromBCode: new mongoose.Types.ObjectId(fBCode),
+                    manifestNumber
+                }, false, false)
+        } else {
+            manifests = await getPopulatedManifest(
+                {
+                    fromBCode: new mongoose.Types.ObjectId(fBCode),
+                }, false, false)
         }
+        console.log(manifests)
+        res.status(200).json({ 'msg': 'success', data: manifests })
+        return
     } catch (err) {
         console.log("Error occured ->", err)
         res.status(500).json({ 'err': "Internal server error occured" })

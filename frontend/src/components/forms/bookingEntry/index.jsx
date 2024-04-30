@@ -1,5 +1,5 @@
 import { FaCheck } from 'react-icons/fa'
-import { VolWeight } from '../awbUpdate'
+import { AwbDetails, VolWeight } from '../awbUpdate'
 import style from './style.module.css'
 import { IoRefresh } from 'react-icons/io5'
 import { useContext, useEffect, useState } from 'react'
@@ -10,6 +10,7 @@ import { Mandatory } from '../../minComp'
 import { useGetData } from '../../../apiHandlers/getApis'
 import { usePostData } from '../../../apiHandlers/postApis'
 import Loading from '../../../pages/loading'
+import { getDateForInput } from '../../../utils/helpers'
 
 export default function BookingEntry() {
     const { currBranch } = useContext(UserAuthContext)
@@ -21,7 +22,7 @@ export default function BookingEntry() {
         docketNumber: "",
         origin: "",
         mode: "",
-        bookingDate: "",
+        bookingDate: getDateForInput(),
         destination: "",
         customerType: "",
         isOda: false,
@@ -42,9 +43,11 @@ export default function BookingEntry() {
     }
     const initialConsignorConsignee = {
         consignor: "",
+        consignorContact: "",
+        consignorAddress:"",
         consignee: "",
-        consigneeAddress: "",
-        consigneeContact: ""
+        consigneeContact: "",
+        consigneeAddress: ""
     }
     const initialVolWeight = {
         totalBoxes: "",
@@ -69,6 +72,7 @@ export default function BookingEntry() {
     const [dimWeight, setDimWeight] = useState(initialDimWeight)
     const [wid,setWid] = useState(0)
     const [isPosting, setIsPosting] = useState(false)
+    const {user} = useContext(UserAuthContext)
 
     const resetForm = () => {
         setAwbDetails(initialAwbDetails)
@@ -206,7 +210,6 @@ export default function BookingEntry() {
     }
 
     const handleSave = async () => {
-        console.log(billingDetails)
         if (!currBranch) {
             message.warning("Select a branch for booking")
             return
@@ -307,7 +310,7 @@ export default function BookingEntry() {
                     </select>
 
                     <label htmlFor="">Booking Date <Mandatory /></label>
-                    <input type="date" onInput={e => handleAwbDetails(e, "bookingDate")} />
+                    <input type="date" value={getDateForInput(AwbDetails.bookingDate)} onInput={e => handleAwbDetails(e, "bookingDate")} disabled={user.role!="adm"} />
                     <label htmlFor="">Destination <Mandatory /></label>
                     <input type="text" list='dest' placeholder='Destination' onInput={e => handleAwbDetails(e, "destination")} />
                     <datalist id='dest'>
@@ -395,15 +398,18 @@ export default function BookingEntry() {
                 <div>
                     <label htmlFor="">Consignor</label>
                     <input type="text" placeholder='Consignor' value={consignorConsignee.consignor} onInput={e => handleConsignorConsignee(e, "consignor")} />
+                    <label htmlFor="">Consignor Contact</label>
+                    <input type="text" placeholder='Consignor Contact No' value={consignorConsignee.consignorContact} onInput={e => handleConsignorConsignee(e, "consignorContact")} />
+                    <label htmlFor="">Consignor Address</label>
+                    <input type="text" placeholder='Consignor Address' value={consignorConsignee.consignorAddress} onInput={e=>handleConsignorConsignee(e,"consignorAddress")}/>
+                    
                     <label htmlFor="">Consignee</label>
                     <input type="text" placeholder='Consignee' value={consignorConsignee.consignee} onInput={e => handleConsignorConsignee(e, "consignee")} />
+                    <label htmlFor="">Consignee Contact</label>
+                    <input type="text" placeholder='Consignee Contact No' value={consignorConsignee.consigneeContact} onInput={e => handleConsignorConsignee(e, "consigneeContact")} />
                     <label htmlFor="">Consignee Address</label>
                     <input type="text" placeholder='Consignee Address' value={consignorConsignee.consigneeAddress} onInput={e => handleConsignorConsignee(e, "consigneeAddress")} />
 
-                    <label htmlFor="">Consignor Contact</label>
-                    <input type="text" placeholder='Consignor Contact No' value={consignorConsignee.consigneeContact} onInput={e => handleConsignorConsignee(e, "consigneeContact")} />
-                    <label htmlFor="">Consignee Contact</label>
-                    <input type="text" placeholder='Consignee Contact No' value={consignorConsignee.consigneeContact} onInput={e => handleConsignorConsignee(e, "consigneeContact")} />
                 </div>
             </div>
 

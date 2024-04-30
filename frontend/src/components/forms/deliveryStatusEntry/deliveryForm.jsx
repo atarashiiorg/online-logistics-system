@@ -21,7 +21,6 @@ export const Form = (props) => {
             } else {
                 obj[e.target.name] = e.target.value
             }
-            console.log(obj)
             return obj
         })
     }
@@ -30,7 +29,6 @@ export const Form = (props) => {
         setDeliveryStatus(p => {
             const obj = { ...p }
             obj[f] = val
-            console.log(obj)
             return obj
         })
     }
@@ -69,9 +67,6 @@ export const Form = (props) => {
     }
     return (
         <>
-            {
-                console.log(props.docketDetails)
-            }
             {
                 props.visible ?
                     <>

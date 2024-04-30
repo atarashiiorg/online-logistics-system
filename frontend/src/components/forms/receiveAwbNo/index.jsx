@@ -7,7 +7,7 @@ import { useGetData } from '../../../apiHandlers/getApis'
 import { useContext, useEffect, useState } from 'react'
 import UserAuthContext from '../../../contexts/authContext'
 import { TableComp } from '../../minComp'
-import { getFormttedDate } from '../../../utils/helpers'
+import { getDateForInput, getFormttedDate } from '../../../utils/helpers'
 import { usePatchData } from '../../../apiHandlers/patchApis'
 import { message } from 'antd'
 import Loading from '../../../pages/loading'
@@ -75,11 +75,11 @@ const TableRow = (props) => {
 export default function ReceiveAwbNo() {
     const { currBranch } = useContext(UserAuthContext)
     const [reload, setReload] = useState(false)
-    const [err, loading, manifests, setManifests] = useGetData("manifest?bid=" + currBranch?._id, [currBranch, reload])
+    const [docketNum, setDocketNum] = useState("")
+    const [err, loading, manifests, setManifests] = useGetData("manifest?bid=" + currBranch?._id , [currBranch, reload])
     const [receiveAllCheck, setReceiveAllCheck] = useState(null)
     const [selectedDockets, setSelectedDockets] = useState([])
-    const [docketNum, setDocketNum] = useState("")
-    const [rcDate, setRcDate] = useState("")
+    const [rcDate, setRcDate] = useState(getDateForInput())
     const [msg, setMessage] = useState("")
     const [isSubmitting, setIsSubmitting] = useState(false)
 
@@ -122,25 +122,18 @@ export default function ReceiveAwbNo() {
                 <p>Receive AwbNo Details</p>
                 <div>
                     <label htmlFor="">RcDate</label>
-                    <input type="date" value={rcDate} onInput={e => setRcDate(e.target.value)} />
+                    <input type="date" value={getDateForInput(rcDate)} onInput={e => setRcDate(e.target.value)} />
                     {/* <label htmlFor="">RcTime</label>
                     <input type="time" /> */}
 
                     <label htmlFor="">Message</label>
                     <input type="text" value={msg} onInput={e => setMessage(e.target.value)} placeholder='Message' />
-                    <label htmlFor="">Docket No</label>
-                    <input type="text" placeholder='Docket No' value={docketNum} onInput={e => setDocketNum(e.target.value)} />
+                    {/* <label htmlFor="">Docket No</label>
+                    <input type="text" placeholder='Docket No' value={docketNum || ""} onInput={e => setDocketNum(e.target.value)} /> */}
 
-                    <label htmlFor="">Auto Receive</label>
-                    <span><input type="checkbox" /></span>
+                    {/* <label htmlFor="">Auto Receive</label>
+                    <span><input type="checkbox" /></span> */}
                 </div>
-            </div>
-
-            <div className={style.actions}>
-                <button className={style.buttonChk} onClick={handleReceive}><FaCheck /> Receive</button>
-                <button className={style.buttonChk}><FaCheck /> Search</button>
-                <button className={style.buttonExp}><BsFiletypeXls /> Export</button>
-                <button className={style.buttonRef}><FaArrowRotateRight /> Reset</button>
             </div>
 
             <TableComp>
@@ -177,6 +170,13 @@ export default function ReceiveAwbNo() {
                     </table>
                 </div>
             </TableComp>
+
+            <div className={style.actions}>
+                <button className={style.buttonChk} onClick={handleReceive}><FaCheck /> Receive</button>
+                {/* <button className={style.buttonChk}><FaCheck /> Search</button> */}
+                <button className={style.buttonExp}><BsFiletypeXls /> Export</button>
+                <button className={style.buttonRef}><FaArrowRotateRight /> Reset</button>
+            </div>   
         </>
     )
 }

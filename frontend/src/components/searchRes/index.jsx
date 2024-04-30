@@ -42,6 +42,12 @@ export default function SearchRes() {
                                         <td>{docketTracking?.bookings?.invoice?.codType || "N/A"}</td>
                                     </tr>
                                     <tr>
+                                        <td>Payable Amount</td>
+                                        <td>{docketTracking?.bookings?.invoice?.amountToPay || "0"}</td>
+                                        <td>COD Amount</td>
+                                        <td>{docketTracking?.bookings?.invoice?.codAmount || "0"}</td>
+                                    </tr>
+                                    <tr>
                                         <td>Invoice No.</td>
                                         <td>{docketTracking?.bookings?.invoice?.invoiceNumber || "N/A"}</td>
                                         <td>Invoice value</td>
@@ -67,27 +73,27 @@ export default function SearchRes() {
                                     </tr>
                                     <tr>
                                         <td>Runsheet No</td>
-                                        <td>{docketTracking?.tracking?.runsheetNumber || "N/A"}</td>
+                                        <td>{docketTracking?.bookings?.tracking?.runsheetNumber || "N/A"}</td>
                                         <td>Vendor Name</td>
-                                        <td>{docketTracking?.tracking?.vendor?.vendorName || "not available"}</td>
+                                        <td>{docketTracking?.bookings?.tracking?.vendor?.vendorName || "not available"}</td>
                                     </tr>
                                     <tr>
                                         <td>CD No</td>
                                         <td>N/A</td>
                                         <td>Delivery Boy</td>
-                                        <td>{docketTracking?.tracking?.deliveryBoy || "N/A"}</td>
+                                        <td>{docketTracking?.bookings?.tracking?.emp?.name || "N/A"}</td>
                                     </tr>
                                     <tr>
                                         <td>Packet Status</td>
                                         <td style={{backgroundColor:"yellow"}}>{docketTracking?.bookings?.tracking?.status || "Booked"}</td>
-                                        <td>Rc Name</td>
-                                        <td>{docketTracking?.tracking?.vendor.rcNumber || "N/A"}</td>
+                                        <td>Receiver Name</td>
+                                        <td>{docketTracking?.bookings?.tracking?.receiver || "N/A"}</td>
                                     </tr>
                                     <tr>
                                         <td>Status Remarks</td>
                                         <td>{docketTracking?.bookings?.tracking?.statusRemarks}</td>
                                         <td>Delivery Date</td>
-                                        <td>{docketTracking?.bookings?.tracking?.receivingDate || "Not Delivered Yet"}</td>
+                                        <td>{getFormttedDate(docketTracking?.bookings?.tracking?.receivingDate) || "Not Delivered Yet"}</td>
                                     </tr>
                                     <tr>
                                         <td>POD Receiving Date</td>
@@ -105,13 +111,13 @@ export default function SearchRes() {
                                         <td>Issued To</td>
                                         <td>{docketTracking?.bookings?.branch?.branchName}</td>
                                         <td>Content</td>
-                                        <td></td>
+                                        <td>{docketTracking?.bookings?.invoice?.itemContent}</td>
                                     </tr>
                                     <tr>
-                                        <td>Contractor</td>
-                                        <td></td>
-                                        <td>Contractor Reference</td>
-                                        <td></td>
+                                        <td>Status Remarks</td>
+                                        <td style={{backgroundColor:"yellow"}}>{docketTracking?.bookings?.tracking?.statusRemarks || "N/A"}</td>
+                                        {/* <td>Contractor Reference</td>
+                                        <td></td> */}
                                     </tr>
                                 </tbody>
                             </table>
@@ -130,13 +136,13 @@ export default function SearchRes() {
                                     </tr>
                                     <tr>
                                         <td><strong>Address:</strong>{docketTracking?.bookings?.client?.address}</td>
-                                        <td><strong>Address:</strong> { docketTracking?.bookings?.consignorConsignee?.consignorAddress}</td>
+                                        <td><strong>Address:</strong> { docketTracking?.bookings?.consignorConsignee?.consigneeAddress}</td>
                                         <td><strong>Address:</strong> { docketTracking?.bookings?.consignorConsignee?.consignorAddress}</td>
                                     </tr>
                                     <tr>
                                         <td><strong>City:</strong> { docketTracking?.bookings?.client?.city }</td>
-                                        <td><strong>Phone:</strong> { docketTracking?.bookings?.consignorConsignee?.consignorPhone }</td>
-                                        <td><strong>Phone:</strong> { docketTracking?.bookings?.consignorConsignee?.consignorPhone }</td>
+                                        <td><strong>Phone:</strong> { docketTracking?.bookings?.consignorConsignee?.consignorContact }</td>
+                                        <td><strong>Phone:</strong> { docketTracking?.bookings?.consignorConsignee?.consigneeContact }</td>
                                     </tr>
                                     {/* <tr>
                                         <td></td>

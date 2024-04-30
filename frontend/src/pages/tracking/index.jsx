@@ -69,9 +69,6 @@ export function TrackingPage() {
 
     return (
         <>
-        {
-            console.log(!trackingData && docket.length<3)
-        }
             <div className={style.trackingPage}>
                 <UpperNavbar track={track} />
                 <div className={style.header}>

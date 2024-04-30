@@ -11,8 +11,10 @@ import { useFetchDocketForManifest, useGetData } from '../../../apiHandlers/getA
 import { usePostData } from "../../../apiHandlers/postApis";
 import { message } from 'antd'
 import Loading from '../../../pages/loading'
+import { getDateForInput } from '../../../utils/helpers'
 
 export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, currBranch, branches, vendors }) {
+    const {user} = useContext(UserAuthContext)
     return (
         <>
             <div className={style.formContainer}>
@@ -29,7 +31,7 @@ export function ManifestForm({ manifest, manifestHandler, handleUpdate, update, 
                     <input type="text" disabled={!update} placeholder="SYSTEM GENERATED" value={manifest.manifestNumber} onInput={e => manifestHandler(e, "manifestNumber")} />
 
                     <label htmlFor="">Manifest Date <Mandatory /></label>
-                    <input type="date" value={manifest.manifestDate} onInput={e => manifestHandler(e, "date")} />
+                    <input type="date" value={getDateForInput(manifest.manifestDate)} onInput={e => manifestHandler(e, "date")} disabled={user.role!="adm"}/>
                     {/* <div>
                         <input type="date" />
                         <input type="time" />
@@ -204,7 +206,7 @@ export default function ManifestDirect() {
         toBCode: "",
         toBCodeText: "",
         manifestNumber: "",
-        manifestDate: "",
+        manifestDate: getDateForInput(),
         mode: "",
         fromBCode: currBranch?._id,
         vendor: "",

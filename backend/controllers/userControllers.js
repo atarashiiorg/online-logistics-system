@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken")
 const Booking = require("../models/booking")
 const Branch = require("../models/branch")
+const Runsheet = require("../models/runsheet")
 const bcrypt = require("bcrypt")
 const Employee = require("../models/employee")
 const { getUserData } = require("../services/helpers")
@@ -8,8 +9,7 @@ const { getUser } = require("../services/dbServices")
 
 async function loginUser(req, res) {
     try {
-        const user = await getUser({email:req.body.username})
-        console.log("user", user);
+        const user = await getUser({email:req.body.username.toLowerCase()})
         if (!user) {
             res.status(404).json({ msg: "User not found" })
             return
@@ -45,7 +45,7 @@ async function loginUser(req, res) {
 async function trackAwb(req, res) {
     try {
         const doc_num = req.query.docket
-        const bookings = await Booking.findOne({ docketNumber: doc_num })
+        let bookings = await Booking.findOne({ docketNumber: doc_num })
             .populate("invoice")
             .populate({
                 path: "shipment",
@@ -58,8 +58,9 @@ async function trackAwb(req, res) {
                 path:"tracking",
                 populate:[{path:"details",populate:{path:"actionBy",select:"name eCode"}},{path:"podImage"}]
             })
-            // .populate('details.actionBy', 'name eCode')
-
+        const runsheet = await Runsheet.findOne({'dockets.booking': bookings._id}).populate("employee")
+        bookings = {...bookings._doc}
+        bookings.tracking = {...bookings.tracking._doc, runsheetNumber:runsheet?.runsheetNumber, emp:runsheet?.employee}
         if (bookings) {
             res.status(200).json({ used: true, valid: true, bookings, msg: 'success' })
             return

@@ -7,7 +7,7 @@ import { TableComp } from '../../minComp'
 import { useDownloader, useGetData } from '../../../apiHandlers/getApis'
 import { useContext, useState } from 'react'
 import { FaPrint } from 'react-icons/fa6'
-import { getFormttedDate } from '../../../utils/helpers'
+import { getDateForInput, getFormttedDate } from '../../../utils/helpers'
 import Loading from '../../../pages/loading'
 import UserAuthContext from '../../../contexts/authContext'
 import { useNavigate } from 'react-router-dom'
@@ -15,11 +15,14 @@ import { message } from 'antd'
 
 export default function RunsheetPrint() {
     const { currBranch, user, setUser } = useContext(UserAuthContext)
-    const [fromData, setFromDate] = useState("")
-    const [toDate, setToDate] = useState("")
+    const [fromDate, setFromDate] = useState(getDateForInput())
+    const [toDate, setToDate] = useState(getDateForInput())
     const [runsheetFrom, setRunsheetFrom] = useState("")
-    const [runsheetTo, setRunsheetTo] = useState("")
-    const [err, loading, runsheetList] = useGetData("runsheet?bid=" + currBranch?._id + "&eid=" + user._id, [currBranch])
+    // const [runsheetTo, setRunsheetTo] = useState("")
+    const [search,setSearch] = useState(false)
+    const [err, loading, runsheetList] = useGetData(
+        `runsheet?bid=${currBranch?._id}&fromDate=${fromDate}&toDate=${toDate}${runsheetFrom?"runsheetNo="+runsheetFrom:""}`, 
+        [currBranch, search])
     const [downloading, setDownloading] = useState(false)
 
     const downloadRunsheet = async (id) => {
@@ -44,6 +47,13 @@ export default function RunsheetPrint() {
         }
     }
 
+    const resetForm=()=>{
+        setRunsheetFrom("")
+        setFromDate(getDateForInput())
+        setToDate(getDateForInput())
+        setSearch(p=>!p)
+    }
+
     return (
         <>
             {
@@ -54,21 +64,21 @@ export default function RunsheetPrint() {
                 <p>Runsheet Print</p>
                 <div>
                     <label htmlFor="">Runsheet Date from</label>
-                    <input type="date" value={fromData} onInput={e => setFromDate(e.target.value)} />
+                    <input type="date" value={getDateForInput(fromDate)} onInput={e => setFromDate(e.target.value)} />
                     <label htmlFor="">To</label>
-                    <input type="date" value={toDate} onInput={e => setToDate(e.target.value)} />
+                    <input type="date" value={getDateForInput(toDate)} onInput={e => setToDate(e.target.value)} />
 
                     <label htmlFor="">Runsheet No</label>
                     <input type="text" value={runsheetFrom} onInput={e => setRunsheetFrom(e.target.value)} />
-                    <label htmlFor="">To</label>
-                    <input type="text" value={runsheetTo} onInput={e => setRunsheetTo(e.target.value)} />
+                    {/* <label htmlFor="">To</label>
+                    <input type="text" value={runsheetTo} onInput={e => setRunsheetTo(e.target.value)} /> */}
                 </div>
             </div>
 
             <div className={style.actions}>
-                <button className={style.buttonChk}><FaCheck /> Search</button>
+                <button className={style.buttonChk} onClick={e=>setSearch(p=>!p)}><FaCheck /> Search</button>
                 <button className={style.buttonExp}><BsFiletypeXls /> Export</button>
-                <button className={style.buttonRef}><IoRefresh /> Reset</button>
+                <button className={style.buttonRef} onClick={resetForm}><IoRefresh /> Reset</button>
             </div>
 
             <TableComp>

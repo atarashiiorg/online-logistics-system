@@ -22,14 +22,33 @@ async function getRunsheets(req, res) {
             return
         } else {
             let runsheets;
-            if (req.query.bid && req.query.eid && req.token.role != "adm" && req.token.role != "emp") {
-                runsheets = await Runsheet.find({ branch: req.query.bid, employee: req.query.eid })
+            if (req.query.bid && req.token.role != "adm" && req.token.role != "emp" && req.query.fromDate && req.query.toDate) {
+                runsheets = await Runsheet.find({ 
+                    branch: req.query.bid, 
+                    employee: req.token._id,
+                    date:{
+                        $gte:new Date(req.query.fromDate),
+                        $lte:new Date(req.query.toDate)
+                    }
+                 })
                     .populate("employee")
-            } else if (req.query.bid && req.token.role == "emp") {
-                runsheets = await Runsheet.find({ branch: req.query.bid })
+            } else if (req.query.bid && req.token.role == "emp" && req.query.fromDate && req.query.toDate) {
+                runsheets = await Runsheet.find({ 
+                    branch: req.query.bid,
+                    date:{
+                        $gte:new Date(req.query.fromDate),
+                        $lte:new Date(req.query.toDate)
+                    }
+                 })
                     .populate("employee")
             } else {
-                runsheets = await Runsheet.find({ branch: req.query.bid })
+                runsheets = await Runsheet.find({ 
+                    branch: req.query.bid,
+                    date:{
+                        $gte:new Date(req.query.fromDate),
+                        $lte:new Date(req.query.toDate)
+                    }
+                 })
                     .populate("employee")
             }
             res.status(200).json({ 'msg': 'success', data: runsheets })
