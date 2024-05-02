@@ -6,6 +6,7 @@ const { default: mongoose, startSession } = require("mongoose")
 const { PassThrough } = require('stream')
 const Branch = require("../models/branch")
 const Tracking = require("../models/tracking")
+const { Session } = require("inspector")
 
 async function createManifest(req, res) {
     const transaction = await startSession()
@@ -111,11 +112,11 @@ async function getManifests(req, res) {
             const manifests = await getPopulatedManifest({ toBCode: new mongoose.Types.ObjectId(tbid) }, false, true)
             let response = []
             for (let i = 0; i < manifests.length; i++) {
-                console.log(manifests[i].dockets.length > 0)
                 if (manifests[i].dockets.length > 0) {
                     response.push(manifests[i])
                 } else continue
             }
+            console.log(response)
             res.status(200).json({ 'msg': 'success', data: response })
             return
         }
@@ -232,14 +233,15 @@ async function receiveManifest(req, res) {
 
         for (let i = 0; i < docketsToRecive.length; i++) {
             const manifest = await Manifest.findOneAndUpdate(
-                { 'dockets.booking': docketsToRecive[i].docket },
+                { 'dockets.booking': docketsToRecive[i].docket, toBCode: req.query.bid },
                 { $set: { 'dockets.$[elem].isReceived': true, 'dockets.$[elem].rcDate': docketsToRecive[i].rcDate, 'dockets.$[elem].message': docketsToRecive[i].message } },
                 {
-                    new: true,
-                    arrayFilters: [{ 'elem.booking': docketsToRecive[i].docket }],
-                    session: transaction
-                },
-            );
+                    session:transaction,
+                    new:true,
+                    arrayFilters: [{ 'elem.booking': docketsToRecive[i].docket, 'elem.isReceived':false }],
+                }
+            )
+
             await updateTrackingManifest([docketsToRecive[i].docket], "_id", {
                 action: `Packet Received at ${branch.branchName.toUpperCase()}`,
                 actionDate: new Date(),
@@ -250,9 +252,9 @@ async function receiveManifest(req, res) {
         await transaction.commitTransaction()//commit transaction
         res.status(200).json({ 'msg': 'success' })
     } catch (error) {
-        await transaction.abortTransaction()//abort transaction
         console.log(error)
-        res.status(500).json({ err })
+        res.status(500).json({ err: error })
+        await transaction.abortTransaction()//abort transaction
     } finally {
         transaction.endSession()
     }

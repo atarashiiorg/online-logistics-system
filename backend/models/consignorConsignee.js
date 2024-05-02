@@ -3,9 +3,11 @@ const consignorConsigneeSchema = new mongoose.Schema({
     consignor:String,
     consignorContact:String,
     consignorAddress:String,
+    consignorEmail:String,
     consignee:String,
     consigneeAddress:String,
-    consigneeContact:String
+    consigneeContact:String,
+    consigneeEmail:String
 },{
     timestamps:true
 })

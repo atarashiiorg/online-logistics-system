@@ -58,10 +58,10 @@ async function trackAwb(req, res) {
                 path:"tracking",
                 populate:[{path:"details",populate:{path:"actionBy",select:"name eCode"}},{path:"podImage"}]
             })
-        const runsheet = await Runsheet.findOne({'dockets.booking': bookings._id}).populate("employee")
-        bookings = {...bookings._doc}
-        bookings.tracking = {...bookings.tracking._doc, runsheetNumber:runsheet?.runsheetNumber, emp:runsheet?.employee}
         if (bookings) {
+            const runsheet = await Runsheet.findOne({'dockets.booking': bookings?._id}).populate("employee")
+            bookings = {...bookings?._doc}
+            bookings.tracking = {...bookings?.tracking?._doc, runsheetNumber:runsheet?.runsheetNumber, emp:runsheet?.employee}
             res.status(200).json({ used: true, valid: true, bookings, msg: 'success' })
             return
         }

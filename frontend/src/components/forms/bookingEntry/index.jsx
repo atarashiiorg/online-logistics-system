@@ -45,9 +45,11 @@ export default function BookingEntry() {
         consignor: "",
         consignorContact: "",
         consignorAddress:"",
+        consignorEmail:"",
         consignee: "",
         consigneeContact: "",
-        consigneeAddress: ""
+        consigneeAddress: "",
+        consigneeEmail:""
     }
     const initialVolWeight = {
         totalBoxes: "",
@@ -210,6 +212,7 @@ export default function BookingEntry() {
     }
 
     const handleSave = async () => {
+        console.log("save")
         if (!currBranch) {
             message.warning("Select a branch for booking")
             return
@@ -410,6 +413,10 @@ export default function BookingEntry() {
                     <label htmlFor="">Consignee Address</label>
                     <input type="text" placeholder='Consignee Address' value={consignorConsignee.consigneeAddress} onInput={e => handleConsignorConsignee(e, "consigneeAddress")} />
 
+                    <label htmlFor="">Consignor Email</label>
+                    <input type="text" placeholder='Consignor Email' value={consignorConsignee.consignorEmail} onInput={e=>handleConsignorConsignee(e,"consignorEmail")}/>
+                    <label htmlFor="">Consignee Email</label>
+                    <input type="text" placeholder='Consignee Email' value={consignorConsignee.consigneeEmail} onInput={e=>handleConsignorConsignee(e,"consigneeEmail")}/>
                 </div>
             </div>
 

@@ -116,8 +116,8 @@ export default function SearchRes() {
                                     <tr>
                                         <td>Status Remarks</td>
                                         <td style={{backgroundColor:"yellow"}}>{docketTracking?.bookings?.tracking?.statusRemarks || "N/A"}</td>
-                                        {/* <td>Contractor Reference</td>
-                                        <td></td> */}
+                                        <td>POD</td>
+                                        <td>{docketTracking?.bookings?.tracking?.podImage?.Location?<a href={docketTracking?.bookings?.tracking?.podImage?.Location} target='_blank'>View POD</a>:""}</td>
                                     </tr>
                                 </tbody>
                             </table>

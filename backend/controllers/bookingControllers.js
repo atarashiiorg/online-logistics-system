@@ -12,6 +12,7 @@ const Booking = require("../models/booking");
 const Tracking = require("../models/tracking");
 const Runsheet = require("../models/runsheet");
 const { default: mongoose, startSession } = require("mongoose");
+const sendMail = require('../services/mailSmsServices')
 // const = require('mongoose').mongo.ObjectID
 
 async function createBooking(req, res) {
@@ -57,14 +58,38 @@ async function createBooking(req, res) {
 
         await transaction.startTransaction()//starting transaction
 
-        await invoice.save({session:transaction})
-        await shipment.save({session:transaction})
-        await consignorConsignee.save({session:transaction})
-        await tracking.save({session:transaction})
-        await booking.save({session:transaction})
+        await invoice.save({ session: transaction })
+        await shipment.save({ session: transaction })
+        await consignorConsignee.save({ session: transaction })
+        await tracking.save({ session: transaction })
+        await booking.save({ session: transaction })
 
         await transaction.commitTransaction()//commiting transaction
+        const client = await Client.findOne({ _id: req.body.client })
+        const emailList = [...client.autoEmails, client.email, consignorConsignee.consigneeEmail, consignorConsignee.consignorEmail]
+        const mailSubject = `Parcel Booking Confirmation: Docket Number - ${req.body.awbDetails.docketNumber}`
+        const mailBody = `
+                    Dear customer,
 
+                    We are pleased to inform you that your parcel has been successfully booked with us. Below are the details:
+
+                    - Docket Number: ${req.body.awbDetails.docketNumber}
+
+                    Please keep this email for your records. Your docket number, ${req.body.awbDetails.docketNumber}, will be essential for tracking your parcel throughout its journey with us.
+
+                    If you have any questions or need further assistance, please don't hesitate to contact our customer support at +91 8570973368.
+
+                    Thank you for choosing <strong>Safe Dispatch Logistics</strong> for your shipping needs. We look forward to serving you!
+
+                    Best regards,
+                    Safe Dispatch Logistics.
+                    +91 8570973368.
+        `
+        try {
+            const res = await sendMail(emailList,mailSubject,mailBody)
+        } catch (error) {
+            console.log(error)
+        }
         res.status(201).json({ 'msg': 'success' })
 
     } catch (err) {
@@ -164,13 +189,13 @@ async function getBookingForDRSStatusUpdate(req, res) {
         const docket = req.query.docket
         const valid = await isDocketValid(docket)
         console.log(valid)
-        if(!valid.valid){
-            res.status(403).json({msg:"Invalid Docket Number"})
+        if (!valid.valid) {
+            res.status(403).json({ msg: "Invalid Docket Number" })
             return
         }
         const isBooked = await isDocketBooked(docket)
-        if(!isBooked.booked){
-            res.status(403).json({msg:"Docket is not booked yet"})
+        if (!isBooked.booked) {
+            res.status(403).json({ msg: "Docket is not booked yet" })
             return
         }
         const booking = await getPopulatedBooking({ docketNumber: docket }, true)

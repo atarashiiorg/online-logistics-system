@@ -5,6 +5,10 @@ const invoiceSchema = new mongoose.Schema({
         type:Number,
         default:0.0
     },
+    client:{
+        type:mongoose.Types.ObjectId,
+        ref:"Client"
+    },
     clientName:String,
     billingAt: String,
     ewayBillNumber: String,
