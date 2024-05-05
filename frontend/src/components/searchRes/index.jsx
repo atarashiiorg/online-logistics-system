@@ -93,7 +93,7 @@ export default function SearchRes() {
                                         <td>Status Remarks</td>
                                         <td>{docketTracking?.bookings?.tracking?.statusRemarks}</td>
                                         <td>Delivery Date</td>
-                                        <td>{getFormttedDate(docketTracking?.bookings?.tracking?.receivingDate) || "Not Delivered Yet"}</td>
+                                        <td>{docketTracking?.bookings?.tracking?.receivingDate?getFormttedDate(docketTracking?.bookings?.tracking?.receivingDate):"" || "Not Delivered Yet"}</td>
                                     </tr>
                                     <tr>
                                         <td>POD Receiving Date</td>

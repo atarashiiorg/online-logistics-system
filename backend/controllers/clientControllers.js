@@ -5,12 +5,9 @@ async function createClient(req, res) {
     try {
         const clientCode = await getNewClientCode()
         const result = await Client.create({ clientCode, ...req.body.client, createdBy: req.token._id })
-        await result
-            .populate({ path: "createdBy", select: 'name' })
-            .populate({ path: "lastModifiedBy", select: 'name' })
-        console.log(result);
         res.status(201).json({ 'msg': 'success', data: result })
     } catch (err) {
+        console.log("Error while creating client:->",err)
         res.status(500).json({ err })
     }
 }

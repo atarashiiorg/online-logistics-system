@@ -222,7 +222,7 @@ export default function DrsEntry() {
 
                     <label htmlFor="">Docket No</label>
                     <p>
-                        <input type="text" placeholder='Docket No' value={docket.dnum} onKeyDown={handleDocket} onInput={e=>setDocket(p=>{return {...p,dnum:e.target.value}})} />
+                        <input type="text" inputMode='search' placeholder='Docket No' value={docket.dnum} onKeyDown={handleDocket} onInput={e=>setDocket(p=>{return {...p,dnum:e.target.value}})} />
                     </p>
                     <label htmlFor="">Total Weight</label>
                     <p>

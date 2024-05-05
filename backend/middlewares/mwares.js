@@ -19,7 +19,7 @@ function consoleReq(req, res, next) {
 
 const limitReq = rateLimit({
     windowMs: 1000,
-    limit: 3,
+    limit: 10,
     standardHeaders: 'draft-7',
     legacyHeaders: false,
     validate: { xForwardedForHeader: false }

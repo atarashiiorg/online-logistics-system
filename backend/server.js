@@ -7,13 +7,7 @@ const cookieParser = require("cookie-parser")
 const { consoleReq, limitReq } = require("./middlewares/mwares")
 
 server.use(cors({
-    origin: [
-        "http://localhost:5173",
-        "http://127.0.0.1:3000",
-        "https://z2nj0ph6-5173.inc1.devtunnels.ms",
-        "https://q31k0k2w-5173.inc1.devtunnels.ms",
-        "http://192.168.1.3:5173"
-    ],
+    origin: process.env.ALLOWED_ORIGINS.split(" "),
     exposedHeaders: ['Content-Disposition'],
     credentials: true
 }))

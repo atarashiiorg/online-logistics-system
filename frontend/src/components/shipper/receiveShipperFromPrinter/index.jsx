@@ -6,12 +6,15 @@ import { message } from 'antd'
 import { usePatchData } from '../../../apiHandlers/patchApis'
 import { useDeleteData } from '../../../apiHandlers/deleteApis'
 import {FaTrashAlt} from 'react-icons/fa'
+import {getFormttedDate} from '../../../utils/helpers'
+import Loading from '../../../pages/loading'
 
 const Tr = (shipper) => {
     return (
         <tr>
             <td>{shipper.index + 1}</td>
             <td>{shipper.branchCode}</td>
+            <td>{shipper.branchName}</td>
             <td>{shipper.docketFrom}</td>
             <td>{shipper.docketTo}</td>
             <td>{shipper.sendBy}</td>
@@ -30,6 +33,7 @@ const Treceive = (props) => {
         <tr>
             <td>{props.index + 1}</td>
             <td>{props.branchCode}</td>
+            <td>{props.branchName}</td>
             <td>{props.docketFrom}</td>
             <td>{props.docketTo}</td>
             <td>{props.sendBy}</td>
@@ -43,6 +47,8 @@ export default function ReceiveShipperFromPrinter() {
     const [reload, setReload] = useState(false)
     const [err, loading, shippers, setShippers] = useGetData("shipper", [reload])
     const [err1, loading1, shippersReceived] = useGetData("shipper?received=true", [reload])
+    const [err2, loading2, issuedShippers] = useGetData("shipper?issued=true", [reload])
+    const [err3, loading3, usedShippers] = useGetData("shipper?used=true", [reload])
 
     const receive = async (sid) => {
         const res = await usePatchData({}, "shipper?sid=" + sid)
@@ -68,6 +74,9 @@ export default function ReceiveShipperFromPrinter() {
 
     return (
         <>
+        {
+            (loading||loading1||loading2||loading3)?<Loading/>:null
+        }
             <div className={style.formContainer}>
                 <p>Receive Shipper From Printer</p>
                 <div>
@@ -75,11 +84,13 @@ export default function ReceiveShipperFromPrinter() {
                         <thead>
                             <tr>
                                 <th>SNo</th>
-                                <th>Branch</th>
+                                <th>Branch Code</th>
+                                <th>Branch Name</th>
                                 <th>Docket from</th>
                                 <th>Docket To</th>
                                 <th>Send by</th>
                                 <th>Receive</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -104,7 +115,8 @@ export default function ReceiveShipperFromPrinter() {
                         <thead>
                             <tr>
                                 <th>SNo</th>
-                                <th>Branch</th>
+                                <th>Branch Code</th>
+                                <th>Branch Name</th>
                                 <th>Docket from</th>
                                 <th>Docket To</th>
                                 <th>Send by</th>
@@ -120,6 +132,86 @@ export default function ReceiveShipperFromPrinter() {
                             }
                             {
                                 shippersReceived.map((s, index) => <Tr {...s} index={Number(index)} />)
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div className={style.formContainer}>
+                <p>Issued Shippers</p>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>SNo</th>
+                                <th>Branch Code</th>
+                                <th>Branch Name</th>
+                                <th>Docket from</th>
+                                <th>Docket To</th>
+                                <th>Received by</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                issuedShippers.length <= 0 ?
+                                    <tr>
+                                        <td style={{ textAlign: "center" }} colSpan={5}>No data to show...</td>
+                                    </tr> :
+                                    null
+                            }
+                            {
+                                issuedShippers.map((s, index) => {
+                                    return (
+                                        <tr>
+                                            <td>{index+1}</td>
+                                            <td>{s?.branchCode}</td>
+                                            <td>{s?.branchName}</td>
+                                            <td>{s?.docketFrom}</td>
+                                            <td>{s?.docketTo}</td>
+                                            <td>{s?.receivedBy}</td>
+                                        </tr>
+                                    )
+                                })
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div className={style.formContainer}>
+                <p>Booked Shippers</p>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>SNo</th>
+                                <th>Branch Code</th>
+                                <th>Branch Name</th>
+                                <th>Docket</th>
+                                <th>Booking Date</th>
+                                <th>Booked by</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                usedShippers.length <= 0 ?
+                                    <tr>
+                                        <td style={{ textAlign: "center" }} colSpan={5}>No data to show...</td>
+                                    </tr> :
+                                    null
+                            }
+                            {
+                                usedShippers.map((s, index) =>{
+                                    return (
+                                        <tr>
+                                            <td>{index+1}</td>
+                                            <td>{s?.branch?.branchCode}</td>
+                                            <td>{s?.branch?.branchName}</td>
+                                            <td>{s?.docketNumber}</td>
+                                            <td>{s.bookingDate?getFormttedDate(s.bookingDate):""}</td>
+                                            <td>{s?.createdBy?.name}</td>
+                                        </tr>
+                                    )
+                                })
                             }
                         </tbody>
                     </table>

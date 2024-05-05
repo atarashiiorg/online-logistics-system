@@ -12,7 +12,8 @@ const Booking = require("../models/booking");
 const Tracking = require("../models/tracking");
 const Runsheet = require("../models/runsheet");
 const { default: mongoose, startSession } = require("mongoose");
-const sendMail = require('../services/mailSmsServices')
+const sendMail = require('../services/mailSmsServices');
+const getTemplate = require("../utils/emailTemplate");
 // const = require('mongoose').mongo.ObjectID
 
 async function createBooking(req, res) {
@@ -53,7 +54,8 @@ async function createBooking(req, res) {
             shipment: shipment._id,
             consignorConsignee: consignorConsignee._id,
             client: req.body.client,
-            tracking: tracking._id
+            tracking: tracking._id,
+            createdBy:req.token._id
         })
 
         await transaction.startTransaction()//starting transaction
@@ -68,25 +70,10 @@ async function createBooking(req, res) {
         const client = await Client.findOne({ _id: req.body.client })
         const emailList = [...client.autoEmails, client.email, consignorConsignee.consigneeEmail, consignorConsignee.consignorEmail]
         const mailSubject = `Parcel Booking Confirmation: Docket Number - ${req.body.awbDetails.docketNumber}`
-        const mailBody = `
-                    Dear customer,
-
-                    We are pleased to inform you that your parcel has been successfully booked with us. Below are the details:
-
-                    - Docket Number: ${req.body.awbDetails.docketNumber}
-
-                    Please keep this email for your records. Your docket number, ${req.body.awbDetails.docketNumber}, will be essential for tracking your parcel throughout its journey with us.
-
-                    If you have any questions or need further assistance, please don't hesitate to contact our customer support at +91 8570973368.
-
-                    Thank you for choosing <strong>Safe Dispatch Logistics</strong> for your shipping needs. We look forward to serving you!
-
-                    Best regards,
-                    Safe Dispatch Logistics.
-                    +91 8570973368.
-        `
+        const templatter = getTemplate("booking")
+        const html = await templatter(req.body.awbDetails.docketNumber)
         try {
-            const res = await sendMail(emailList,mailSubject,mailBody)
+            const res = await sendMail(emailList,mailSubject,html)
         } catch (error) {
             console.log(error)
         }

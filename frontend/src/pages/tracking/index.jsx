@@ -92,7 +92,7 @@ export function TrackingPage() {
                                             </div>
                                             <div className={style.upper_child}>
                                                 <p>Docket No. <span style={{ fontWeight: "600" }}>{trackingData?.docketNumber}</span></p>
-                                                <p>Delivery Date: <span style={{ fontWeight: "600" }}>{getFormttedDate(trackingData?.tracking?.receivingDate)}</span></p>
+                                                <p>Delivery Date: <span style={{ fontWeight: "600" }}>{trackingData?.tracking?.receivingDate?getFormttedDate(trackingData?.tracking?.receivingDate):""}</span></p>
                                             </div>
                                             <div className={style.upper_child}>
                                                 <p>Booking Date: <span style={{ fontWeight: "600" }}>{getFormttedDate(trackingData?.bookingDate)}</span></p>

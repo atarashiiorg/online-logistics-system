@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer')
 
-const sendMail = async(mail,subject,msg) => {
+const sendMail = async(mail,subject,htmlTemplate) => {
     return new Promise((resolve, reject) => {
         
         const transporter = nodemailer.createTransport({
@@ -18,7 +18,8 @@ const sendMail = async(mail,subject,msg) => {
             from: process.env.MAILER_MAIL,
             to: mail,
             subject:subject,
-            text: msg,
+            text: "",
+            html:htmlTemplate
         };
         
         transporter.sendMail(mailOptions, (error, info) => {

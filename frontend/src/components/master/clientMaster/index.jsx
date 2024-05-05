@@ -1,4 +1,4 @@
-import { FaCheck, FaTrash, FaUserEdit } from 'react-icons/fa'
+import { FaCheck, FaTrash, FaTrashAlt, FaUserEdit } from 'react-icons/fa'
 import style from './style.module.css'
 import { BsFiletypeXls } from 'react-icons/bs'
 import { FaArrowRotateLeft, FaDeleteLeft, FaXmark } from 'react-icons/fa6'
@@ -12,8 +12,11 @@ import { useGetData } from '../../../apiHandlers/getApis'
 import { usePostData } from '../../../apiHandlers/postApis'
 import UserAuthContext from '../../../contexts/authContext'
 import { usePatchData } from '../../../apiHandlers/patchApis'
+import {useDeleteData} from '../../../apiHandlers/deleteApis'
+import { getDateForInput } from '../../../utils/helpers'
 
 const ClientListRow = (props) => {
+    const {user} = useContext(UserAuthContext)
     const btnStyle = {
         fontSize: '20px',
         color: "blueviolet"
@@ -24,6 +27,7 @@ const ClientListRow = (props) => {
     return (
         <tr>
             <td><FaUserEdit style={btnStyle} onClick={e => props.edit(props.data)} /></td>
+            {user.role=="adm"?<td><FaTrashAlt style={{fontSize:"20px", color:"red"}} onClick={e => props.deleteF(props.data._id)} /></td>:null}
             <td>{props.data?.clientCode}</td>
             <td>{props.data?.clientName}</td>
             <td>{props.data?.state}</td>
@@ -38,6 +42,7 @@ const ClientListRow = (props) => {
             <td>{props.data?.trainMinWeight}</td>
             <td>{props.data?.roadMinWeight}</td>
             <td>{props.data?.gstNo}</td>
+            <td>{props.data?.email}</td>
             <td>{props.data?.isActive ? "YES" : "NO"}</td>
             <td>{props.data?.isShipperValid ? "YES" : "NO"}</td>
             <td>{props.data?.autoEmails.join(",")}</td>
@@ -50,7 +55,7 @@ export default function ClientMaster() {
 
     const intialClient = {
         clientName: "",
-        introDate: "",
+        introDate: getDateForInput(),
         tinNo: "",
         branchName: "",
         group: "",
@@ -121,9 +126,10 @@ export default function ClientMaster() {
     const [fuel, setFuel] = useState(initialFuel)
     const [charge, setCharge] = useState(initialCharge)
     const [mode, setMode] = useState(initialModeType)
-    const { branches, user } = useContext(UserAuthContext)
     const [error, loading, clientList, setClientList] = useGetData("client")
     const [editKey, setEditKey] = useState("")
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    const { branches, user } = useContext(UserAuthContext)
 
     const handleClient = (e, field) => {
         setClient(p => {
@@ -176,16 +182,22 @@ export default function ClientMaster() {
     }
 
     const handleSave = async () => {
+        setIsSubmitting(true)
         const res = await usePostData({ client, clienChrages }, "client")
         if (!res.res) {
+            setIsSubmitting(false)
             return
         }
+        setClientList(p=>[...p, res.data])
         resetForm()
+        setIsSubmitting(false)
     }
 
     const handleEdit = async () => {
+        setIsSubmitting(true)
         const res = await usePatchData(client, "client?cid=" + editKey)
         if (!res.res) {
+            setIsSubmitting(false)
             return
         }
         const newArr = [...clientList]
@@ -194,6 +206,19 @@ export default function ClientMaster() {
         setClientList(p => [...newArr])
         setEditKey("")
         resetForm()
+        setIsSubmitting(false)
+    }
+
+    const handleDelete = async(id)=>{
+        setIsSubmitting(true)
+        const res = await useDeleteData("client?cid="+id)
+        if(!res.res){
+            setIsSubmitting(false)
+            return
+        }
+        const newList = clientList.filter(client=>client._id!=id)
+        setClientList(p=>[...newList])
+        setIsSubmitting(false)
     }
 
     return (
@@ -209,7 +234,7 @@ export default function ClientMaster() {
                     <label htmlFor="">Client Name <Mandatory /></label>
                     <input type="text" placeholder='Client Name' value={client.clientName} onInput={e => handleClient(e, "clientName")} />
                     <label htmlFor="">Intro Date</label>
-                    <input type="date" onInput={e => handleClient(e, "introDate")} />
+                    <input type="date" value={getDateForInput(client.introDate)} onInput={e => handleClient(e, "introDate")} />
 
                     <label htmlFor="">Branch Name</label>
                     <input type="text" list='branch' placeholder='Branch Name' onInput={e => handleClient(e, "branchName")} />
@@ -474,6 +499,7 @@ export default function ClientMaster() {
                         <thead>
                             <tr>
                                 <th>edit</th>
+                                {user.role=="adm"?<th>delete</th>:null}
                                 <th>Client Code</th>
                                 <th>Client Name</th>
                                 <th>State</th>
@@ -488,6 +514,7 @@ export default function ClientMaster() {
                                 <th>Train Min Weight</th>
                                 <th>Road Min Weight</th>
                                 <th>GST No.</th>
+                                <th>Email Address</th>
                                 <th>Active</th>
                                 <th>isShipperValid</th>
                                 <th>Auto Emails</th>
@@ -497,7 +524,7 @@ export default function ClientMaster() {
                         <tbody>
                             {
                                 clientList.length > 0 ?
-                                    clientList.map((c, i) => <ClientListRow key={c + i} data={c} edit={edit} editKey={editKey} />) :
+                                    clientList.map((c, i) => <ClientListRow key={c + i} data={c} edit={edit} deleteF={handleDelete} editKey={editKey} />) :
                                     <tr>
                                         <td colSpan={19} style={{ textAlign: "center" }}>No data available</td>
                                     </tr>
