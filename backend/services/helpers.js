@@ -255,15 +255,18 @@ async function getDataForAwbPdf(opts) {
             bookingDate: getFormttedDate(b?.bookingDate) || "",
             creditAmt: "",
             piecies: b?.shipment?.totalBoxes,
+            consignorAddress:b?.consignorConsignee?.consignorAddress||"",
             consignor: b?.consignorConsignee?.consignor || "",
-            Consignee: b?.consignorConsignee?.consignee || "",
-            chargedWeight: b?.shipment?.totalChargeWeight || "",
+            consignee: b?.consignorConsignee?.consignee || "",
+            consigneeAddress:b?.consignorConsignee?.consigneeAddress||"",
+            chargedWeight: b?.shipment?.totalChargeWeight,
             invoiceNo: b?.invoice?.invoiceNumber || "",
             invoiceVal: b?.invoice?.invoiceValue || "",
             docketNumber: b?.docketNumber,
             bookingType: b?.invoice?.bookingType,
             comp_mobile: "",
             comp_gst: "",
+            codAmt:b.shipment.codAmount || "",
             withLogo: true
         }
         return obj

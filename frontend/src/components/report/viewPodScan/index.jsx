@@ -31,9 +31,6 @@ export default function ViewPodScan() {
                 <button className={style.buttonExp}><BsFiletypeXls/> Export</button>
                 <button className={style.buttonRef}><FaArrowRotateLeft /> Reset</button>
             </div>
-            
-            <SearchManifest/>
-            <TableTotalFound/>
         </>
     )
 }

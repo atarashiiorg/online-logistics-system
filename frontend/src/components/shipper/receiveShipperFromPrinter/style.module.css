@@ -23,6 +23,8 @@ input, select{
     width: 100%;
     border: 1px solid #ef9b1b;
     margin-bottom: 15px;
+    /* max-height: 100px;
+    overflow: auto; */
 }
 
 .formContainer>p{
@@ -33,6 +35,8 @@ input, select{
 
 .formContainer>div{
     padding: 10px 20px;
+    max-height: 400px;
+    overflow: auto;
 }
 
 .formContainer>div>table{

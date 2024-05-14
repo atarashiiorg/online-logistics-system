@@ -4,10 +4,10 @@ import { useContext, useEffect, useState } from 'react'
 import {message} from 'antd';
 import {serverUrl} from "../../constants"
 import { useNavigate} from "react-router-dom"
+import PasswordInput from '../../components/passwordInput';
 
 export default function Login() {
     const [loginCreds, setLoginCreds] = useState({username:"",password:""})
-    // const {setUser, setBranches, setPageAccess} = 
 
     useEffect(()=>{
         document.title = "Safe dispatch logistics-Login"
@@ -43,11 +43,11 @@ export default function Login() {
                 return
             }
             if(res.status==401){
-                message.error("Entered password id wrong")
+                message.error("Invalid Username or Password !")
                 return
             }
             if(res.ok){
-                message.success("Logged in successfully")
+                message.success("Logged in successfully !")
             }
             const data = await res.json()
             sessionStorage.setItem("user", JSON.stringify(data.data))
@@ -68,7 +68,7 @@ export default function Login() {
                 </div>
                 <div>
                     <label htmlFor="">Password</label>
-                    <input type="text" placeholder='Password' value={loginCreds.password} onInput={e=>setLoginCreds(p=>{return {...p,password:e.target.value}})}/> 
+                    <PasswordInput onInput={e=>setLoginCreds(p=>{return {...p,password:e.target.value}})} value={loginCreds.password}/>
                 </div>
                 <button style={{cursor:'pointer'}} onClick={onSubmit}>Login</button>
             </div>

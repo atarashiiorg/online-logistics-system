@@ -68,3 +68,21 @@ input, select{
 .buttonChk{
     background-color: grey;
 }
+
+@media (max-width: 768px) {
+    .formContainer>div{
+        grid-template-columns: 40% 60%;
+    }
+
+    .actions{
+        display: flex;
+        justify-content: flex-start;
+        /* flex-wrap: wrap; */
+        gap: 10px;
+    }
+
+    .actions>button{
+        border-radius: 10px;
+        box-shadow: 2px 2px 4px grey;
+    }
+}

@@ -74,7 +74,9 @@ async function getShippers(req, res) {
     try {
         let shippers
         if (req.query.received) {
-            shippers = await Shipper.find({ isReceived: true }).populate("branch")
+            shippers = await Shipper.find({ isReceived: true })
+            .populate("branch","branchName branchCode")
+            .populate("createdBy","name")
         } else if(req.query.issued){
             const branches = await Branch.find({ 'shippers.0': { $exists: true } })
             const shippersWithBranchInfo = branches.reduce((acc, branch) => {
@@ -89,12 +91,16 @@ async function getShippers(req, res) {
             }, []);
             res.status(200).json({msg:'success',data:shippersWithBranchInfo})
             return
-        } if(req.query.used){
-            const bookings = await Booking.find().populate("branch",'branchName branchCode').populate("createdBy",'name')
+        } else if(req.query.used){
+            const bookings = await Booking.find()
+            .populate("branch",'branchName branchCode')
+            .populate("createdBy",'name')
             res.status(200).json({msg:'success',data:bookings})
             return
         } else {
-            shippers = await Shipper.find({ isReceived: false }).populate("branch")
+            shippers = await Shipper.find({ isReceived: false })
+            .populate("branch",'branchName branchCode')
+            .populate("createdBy",'name')
         }
         let response = []
         await shippers.forEach(s => {

@@ -12,6 +12,7 @@ const Jumbotron = () => {
         <div>
           <h2 className={style.welcome}>Welcome to our website</h2>
           <h2 className={style.h2}>Safely delivering your cargo with reliability and trust at SafeDispatchLogistics.</h2>
+          <h3 className={style.h3}>We serve in Haryana, Punjab, Delhi NCR, UP East, Up West, Jammu Kashmir, Uttarakhand, Rajasthan.</h3>
           <img src={logo} alt="Logo" className={style.logo} />
         </div>
       </div>

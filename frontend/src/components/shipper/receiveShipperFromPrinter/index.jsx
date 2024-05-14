@@ -97,7 +97,7 @@ export default function ReceiveShipperFromPrinter() {
                             {
                                 shippers.length <= 0 ?
                                     <tr>
-                                        <td style={{ textAlign: "center" }} colSpan={5}>No data to show...</td>
+                                        <td style={{ textAlign: "center" }} colSpan={8}>No data to show...</td>
                                     </tr> :
                                     null
                             }
@@ -126,7 +126,7 @@ export default function ReceiveShipperFromPrinter() {
                             {
                                 shippersReceived.length <= 0 ?
                                     <tr>
-                                        <td style={{ textAlign: "center" }} colSpan={5}>No data to show...</td>
+                                        <td style={{ textAlign: "center" }} colSpan={6}>No data to show...</td>
                                     </tr> :
                                     null
                             }
@@ -155,7 +155,7 @@ export default function ReceiveShipperFromPrinter() {
                             {
                                 issuedShippers.length <= 0 ?
                                     <tr>
-                                        <td style={{ textAlign: "center" }} colSpan={5}>No data to show...</td>
+                                        <td style={{ textAlign: "center" }} colSpan={6}>No data to show...</td>
                                     </tr> :
                                     null
                             }
@@ -184,10 +184,10 @@ export default function ReceiveShipperFromPrinter() {
                         <thead>
                             <tr>
                                 <th>SNo</th>
-                                <th>Branch Code</th>
-                                <th>Branch Name</th>
                                 <th>Docket</th>
                                 <th>Booking Date</th>
+                                <th>Branch Code</th>
+                                <th>Branch Name</th>
                                 <th>Booked by</th>
                             </tr>
                         </thead>
@@ -195,7 +195,7 @@ export default function ReceiveShipperFromPrinter() {
                             {
                                 usedShippers.length <= 0 ?
                                     <tr>
-                                        <td style={{ textAlign: "center" }} colSpan={5}>No data to show...</td>
+                                        <td style={{ textAlign: "center" }} colSpan={6}>No data to show...</td>
                                     </tr> :
                                     null
                             }
@@ -204,10 +204,10 @@ export default function ReceiveShipperFromPrinter() {
                                     return (
                                         <tr>
                                             <td>{index+1}</td>
-                                            <td>{s?.branch?.branchCode}</td>
-                                            <td>{s?.branch?.branchName}</td>
                                             <td>{s?.docketNumber}</td>
                                             <td>{s.bookingDate?getFormttedDate(s.bookingDate):""}</td>
+                                            <td>{s?.branch?.branchCode}</td>
+                                            <td>{s?.branch?.branchName}</td>
                                             <td>{s?.createdBy?.name}</td>
                                         </tr>
                                     )

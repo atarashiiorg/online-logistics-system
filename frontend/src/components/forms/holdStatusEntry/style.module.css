@@ -81,3 +81,14 @@ span>div>input{
 .buttonRef{
     background-color:#F58329;
 }
+
+@media (max-width: 768px) {
+    .formContainer>div{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .right{
+        min-height: 100px;
+    }
+}

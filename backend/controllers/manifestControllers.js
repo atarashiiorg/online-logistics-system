@@ -88,16 +88,19 @@ async function createManifest(req, res) {
           continue;
         }
       }
-      res.status(201).json({ msg: "success" });
-
       await transaction.commitTransaction(); //commit transaction
+      res.status(201).json({ msg: "success" });
     } else {
       res.status(304).json({ msg: "something went wrong" });
     }
   } catch (err) {
-    await transaction.abortTransaction(); //abort transaction
     console.log(err);
-    res.status(500).json({ err: err });
+    await transaction.abortTransaction(); //abort transaction
+    if(err.code=="EENVELOPE"){
+      res.status(403).json({msg:"Client/Consignor/Consignee Email missing."})
+      return
+    }
+    res.status(500).json({ err: err.toString() });
   } finally {
     transaction.endSession(); //end transaction session
   }

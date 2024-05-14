@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { serverUrl } from "../constants"
+import { message } from "antd"
 
 async function fetchData(setErr, setLoading, setData, endPoint) {
     try {
@@ -20,7 +21,7 @@ async function fetchData(setErr, setLoading, setData, endPoint) {
         setLoading(false)
     } catch (err) {
         setLoading(false)
-        setErr(err)
+        setErr(err.toString())
     }
 }
 

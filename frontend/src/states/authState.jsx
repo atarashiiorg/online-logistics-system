@@ -23,11 +23,11 @@ export default function UserAuthState(props){
                     message.error("Server Error: "+json.err)
                 } else if(res.status==401){
                     setUser(null)
-                    sessionStorage.removeItem("user")
+                    sessionStorage.clear()
                     message.error("Session Expired.")
                 } else {
                     setUser(null)
-                    sessionStorage.removeItem("user")
+                    sessionStorage.clear()
                     message.error("Server is not responding. Signing out...")
                 }
             } catch (error) {

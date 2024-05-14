@@ -45,8 +45,6 @@ export default function DrsReport() {
                 <button className={style.buttonRef}><FaArrowRotateLeft /> Reset</button>
             </div>
             
-            <SearchManifest/>
-            <TableTotalFound/>
         </>
     )
 }

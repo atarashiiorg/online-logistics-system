@@ -61,9 +61,6 @@ export default function BookingReport() {
                 <button className={style.buttonExp}><BsFiletypeXls/> Export New</button>
                 <button className={style.buttonRef}><FaArrowRotateLeft /> Reset</button>
             </div>
-            
-            <SearchManifest/>
-            <TableTotalFound/>
         </>
     )
 }

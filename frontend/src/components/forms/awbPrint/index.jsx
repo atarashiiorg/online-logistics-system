@@ -15,8 +15,7 @@ export default function AwbPrint() {
     }
     const [docket, setDocket] = useState(initialDockets)
     const [loading, setLoading] = useState(false)
-    const {currBranch} = useContext(UserAuthContext)
-    const navigate = useNavigate()
+    const {currBranch, setUser} = useContext(UserAuthContext)
 
     const docketsHandler = (e) => {
         setDocket(p => {
@@ -52,15 +51,20 @@ export default function AwbPrint() {
                 endpoint = "awb?branch="+currBranch?._id+"&sticker=true"
 
             const res = await useDownloader(endpoint)
-            if(!res){
-                message.success("Awb downloaded")
-                resetForm()
-            } else {
-                if(res.redirect){
-                    navigate("/login")
-                }
-                message.error("Session Expired.")
+            if (res?.redirect) {
+                setUser(null)
+                sessionStorage.clear()
+                return
             }
+            message.open({
+                type: "loading",
+                content: "Download in progress",
+                duration:5
+            })
+            .then(()=>{
+                message.success("will be Downloaded")
+                resetForm()
+            })
         } catch (err) {
             message.error(err)
         } finally{

@@ -39,9 +39,6 @@ export default function ManifestReportDetailed() {
                 <button className={style.buttonExp}><BsFiletypeXls/> Export</button>
                 <button className={style.buttonRef}><FaArrowRotateLeft /> Reset</button>
             </div>
-            
-            <SearchManifest/>
-            <TableTotalFound/>
         </>
     )
 }

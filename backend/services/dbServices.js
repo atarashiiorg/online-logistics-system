@@ -185,7 +185,7 @@ async function updateTrackingManifest(
           "in-transit"
         )
         const emailRes = await sendMail(emailList,"Packet status information",html)
-        console.log("email res->",emailRes.info)
+        // console.log("email res->",emailRes.info)
       }
     }
   } catch (err) {

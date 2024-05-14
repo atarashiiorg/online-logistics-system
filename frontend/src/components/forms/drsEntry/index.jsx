@@ -9,6 +9,7 @@ import { message } from 'antd'
 import { TableComp } from '../../minComp/index'
 import Loading from '../../../pages/loading'
 import {usePostData} from '../../../apiHandlers/postApis'
+import { getDateForInput } from '../../../utils/helpers'
 
 export default function DrsEntry() {
     const initialDrs = {
@@ -16,7 +17,7 @@ export default function DrsEntry() {
         runsheetNumber: "",
         employee: "",
         empText: "",
-        date: "",
+        date: getDateForInput(),
         mobile: "",
         vendorType: "",
         vendor: "",
@@ -28,7 +29,7 @@ export default function DrsEntry() {
         message: ""
     }
     const [drs, setDrs] = useState(initialDrs)
-    const { currBranch } = useContext(UserAuthContext)
+    const { currBranch, setUser } = useContext(UserAuthContext)
     const [docket, setDocket] = useState({ dnum: "", weight: "" })
     const [errEmp, loadingEmp, employeeList] = useGetData("employee?role=dlb&branch="+currBranch?._id)
     const [errVendor, loadingVendor, vendorList] = useGetData("vendor")
@@ -148,6 +149,11 @@ export default function DrsEntry() {
         }
         setIsPosting(true)
         const result = await usePostData({...drs,branch:currBranch?._id},"runsheet")
+        if(result.redirect){
+            message.error("Session Expired.")
+            setUser(null)
+            sessionStorage.clear()
+        }
         if(result.res){
             resetForm()
         }
@@ -158,6 +164,12 @@ export default function DrsEntry() {
     useEffect(()=>{
         resetForm()
     },[currBranch])
+
+    useEffect(()=>{
+        if(errEmp||errVendor){
+            message.error("Network Error: Failed to fetch the resources")
+        }
+    },[errVendor,errEmp])
 
     return (
         <>
@@ -187,7 +199,7 @@ export default function DrsEntry() {
                     </datalist>
                     <label htmlFor="">Date</label>
                     <div>
-                        <input type="date" onInput={e => drsHandler(e, "date")} />
+                        <input type="date" value={getDateForInput(drs.date)} onInput={e => drsHandler(e, "date")} />
                         <input type="text" placeholder='Phone No' onInput={e => drsHandler(e, "mobile")} />
                     </div>
 
@@ -218,7 +230,7 @@ export default function DrsEntry() {
                     <label htmlFor="">Driver</label>
                     <input type="text" placeholder='Driver' onInput={e => drsHandler(e, "driver")} />
                     <label htmlFor="">Area</label>
-                    <input type="text" placeholder='Area' onInput={e => drsHandler(e, "area")} />
+                    <input type="text" placeholder='Area' value={drs.area } onInput={e => drsHandler(e, "area")} />
 
                     <label htmlFor="">Docket No</label>
                     <p>

@@ -150,3 +150,10 @@ span>div>input{
 .buttonRef{
     background-color:#F58329;
 }
+
+
+@media (max-width: 768px) {
+    .formContainer>div{
+        grid-template-columns: 40% 60%;
+    }
+}

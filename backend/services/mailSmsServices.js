@@ -26,7 +26,7 @@ const sendMail = async(mail,subject,htmlTemplate) => {
             if (error) {
                 reject(error)
             } else {
-                console.log(info)
+                // console.log(info)
                 resolve(info)
             }
         });

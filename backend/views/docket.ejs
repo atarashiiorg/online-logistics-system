@@ -1,576 +1,759 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        html {
-            -webkit-print-color-adjust: exact;
-        }
+      html {
+        -webkit-print-color-adjust: exact;
+      }
 
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-        body {
-            display: flex;
-            flex-direction: column;
-        }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
 
-        .page {
-            display: flex;
-            background-color: white;
-            width: 297mm;
-            height: 210mm;
-            padding: 20px;
-        }
+      .page {
+        display: flex;
+        background-color: white;
+        width: 297mm;
+        height: 210mm;
+        padding: 20px;
+      }
 
-        .container {
-            height: 100%;
-            width: 100%;
-            background-color: #264e85;
-            padding-inline: 20px;
-        }
+      .container {
+        height: 100%;
+        width: 100%;
+        background-color: #264e85;
+        padding-inline: 20px;
+      }
 
-        .header,
-        .footer {
-            width: 100%;
-            height: 5%;
-            display: flex;
-            font-size: 12px;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-        }
+      .header,
+      .footer {
+        width: 100%;
+        height: 5%;
+        display: flex;
+        font-size: 12px;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+      }
 
-        .main-content {
-            height: 90%;
-            width: 100%;
-            border: 1px solid black;
-            box-sizing: border-box;
-        }
+      .main-content {
+        height: 90%;
+        width: 100%;
+        border: 1px solid black;
+        box-sizing: border-box;
+      }
 
-        .first-row {
-            height: 18%;
-            background-color: white;
-            display: grid;
-            grid-template-columns: 35% 14% 14% 14% 23%;
-        }
+      .first-row {
+        height: 18%;
+        background-color: white;
+        display: grid;
+        grid-template-columns: 35% 14% 14% 14% 23%;
+      }
 
-        .logo {
-            border-right: 1px solid black;
-            display: flex;
-            flex-direction: column;
-        }
+      .logo {
+        border-right: 1px solid black;
+        display: flex;
+        flex-direction: column;
+      }
 
-        .logo-img,
-        .logo-address {
-            flex: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 1px solid black;
-            object-fit: contain;
-        }
+      .logo-img,
+      .logo-address {
+        flex: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid black;
+        object-fit: contain;
+      }
 
-        .logo-img {
-            background-color: #122540; color: white;
-        }
+      .logo-img {
+        background-color: #122540;
+        color: white;
+      }
 
-        .logo-img>img {
-            object-fit: contain;
-            height: 70px;
-            scale: 1.4;
-        }
+      .logo-img > img {
+        object-fit: contain;
+        height: 70px;
+        scale: 1.4;
+      }
 
-        .logo-address {
-            flex: 1;
-        }
+      .logo-address {
+        flex: 1;
+      }
 
-        .col {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 100%;
-            grid-template-rows: 30%;
-            border-right: 1px solid black;
-        }
+      .col {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 30%;
+        border-right: 1px solid black;
+      }
 
-        .col>div {
-            border-bottom: 1px solid black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .col > div {
+        border-bottom: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .second-row {
-            display: flex;
-            width: 100%;
-            height: 82%;
-            background-color: whitesmoke;
-        }
+      .second-row {
+        display: flex;
+        width: 100%;
+        height: 82%;
+        background-color: whitesmoke;
+      }
 
-        .scol {
-            flex: 1;
-            border-right: 1px solid black;
-            display: grid;
-            grid-template-columns: 100%;
-            grid-template-rows: 10% 28% 28% 28% 6%;
-        }
+      .scol {
+        flex: 1;
+        border-right: 1px solid black;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 28% 28% 28% 6%;
+      }
 
-        .scol-srow {
-            border-bottom: 1px solid black;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+      .scol-srow {
+        border-bottom: 1px solid black;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .scol-srow:last-child {
-            border: none;
-            background-color: dodgerblue;
-        }
+      .scol-srow:last-child {
+        border: none;
+        background-color: dodgerblue;
+      }
 
-        .scol-srow>h3 {
-            padding: 0;
-            font-size: 18px;
-            text-transform: capitalize;
-        }
+      .scol-srow > h3 {
+        padding: 0;
+        font-size: 18px;
+        text-transform: capitalize;
+      }
 
-        .scol-srow-full {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
+      .scol-srow-full {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
 
-        .dim-col:not(:last-child) {
-            width: 50%;
-            border-right: 1px solid black;
-        }
+      .dim-col:not(:last-child) {
+        width: 50%;
+        border-right: 1px solid black;
+      }
 
-        .dim-col-left {
-            display: flex;
-            flex-direction: column;
-        }
+      .dim-col-left {
+        display: flex;
+        flex-direction: column;
+      }
 
-        .dim-col-right {
-            height: 100%;
-            width: 50%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-        }
+      .dim-col-right {
+        height: 100%;
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
 
-        .dim-col-right>div:not(:last-child) {
-            width: 1fr;
-            border-right: 1px solid black;
-        }
+      .dim-col-right > div:not(:last-child) {
+        width: 1fr;
+        border-right: 1px solid black;
+      }
 
-        .dim-col-row:not(:last-child) {
-            height: 50%;
-            border-bottom: 1px solid black;
-        }
+      .dim-col-row:not(:last-child) {
+        height: 50%;
+        border-bottom: 1px solid black;
+      }
 
-        .dim-col-row-upper {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-        }
+      .dim-col-row-upper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
 
-        .dim-col-row-upper>div:not(:last-child) {
-            border-right: 1px solid black;
-        }
+      .dim-col-row-upper > div:not(:last-child) {
+        border-right: 1px solid black;
+      }
 
-        .dim-col-row-lower {
-            height: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .dim-col-row-lower {
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .blueText {
-            color: #122540;
-            font-weight: 600;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
-        }
+      .blueText {
+        color: #122540;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+      }
 
-        .weightDetails {
-            display: grid;
-            grid-template-rows: 15% 30% 35% 20%;
-            grid-template-columns: repeat(1, 1fr);
-        }
+      .weightDetails {
+        display: grid;
+        grid-template-rows: 15% 30% 35% 20%;
+        grid-template-columns: repeat(1, 1fr);
+      }
 
-        .weightDetails>div:not(:last-child) {
-            width: 100%;
-            height: 100%;
-            border-bottom: 1px solid black;
-        }
+      .weightDetails > div:not(:last-child) {
+        width: 100%;
+        height: 100%;
+        border-bottom: 1px solid black;
+      }
 
-        .six-col-weight {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-        }
+      .six-col-weight {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+      }
 
-        .six-col-weight>div:not(:last-child) {
-            border-right: 1px solid black;
-        }
+      .six-col-weight > div:not(:last-child) {
+        border-right: 1px solid black;
+      }
 
-        .two-col-weight {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            background-color: #122540; color: white; color: white;
-        }
+      .two-col-weight {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        background-color: #122540;
+        color: white;
+        color: white;
+      }
 
-        .two-col-weight>div:not(:last-child) {
-            border-right: 1px solid black;
-        }
+      .two-col-weight > div:not(:last-child) {
+        border-right: 1px solid black;
+      }
 
-        .three-col-weight {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            background-color: #122540;
-            height: 100%;
-            width: 100%;
-        }
+      .three-col-weight {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background-color: #122540;
+        height: 100%;
+        width: 100%;
+      }
 
-        .three-col-weight>div:not(:last-child) {
-            border-right: 1px solid black;
-            color: white;
-        }
+      .three-col-weight > div:not(:last-child) {
+        border-right: 1px solid black;
+        color: white;
+      }
 
-        .three-col-weight :not(:last-child) {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .three-col-weight :not(:last-child) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .six-row-grid {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+      .six-row-grid {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
 
-        .six-row-grid>div {
-            flex: 1;
-            width: 100%;
-        }
+      .six-row-grid > div {
+        flex: 1;
+        width: 100%;
+      }
 
-        .six-row-grid>div:not(:last-child) {
-            border-bottom: 1px solid black;
-        }
+      .six-row-grid > div:not(:last-child) {
+        border-bottom: 1px solid black;
+      }
 
-        .basis {
-            display: grid;
-            grid-template-columns: 40% 60%;
-            grid-template-rows: repeat(3, 1fr);
-        }
+      .basis {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-template-rows: repeat(3, 1fr);
+      }
 
-        .basis>input,
-        .basis>label {
-            align-self: center;
-        }
+      .basis > input,
+      .basis > label {
+        align-self: center;
+      }
 
-        .basis>input {
-            filter: hue-rotate(0deg);
-            height: 22px;
-            border: 2px solid black;
-        }
+      .basis > input {
+        filter: hue-rotate(0deg);
+        height: 22px;
+        border: 2px solid black;
+      }
 
-        .checkbox {
-            height: 20px;
-            width: 20px;
-            border: 2px solid #122540;
-            align-self: center;
-            justify-self: center;
-        }
+      .checkbox {
+        height: 20px;
+        width: 20px;
+        border: 2px solid #122540;
+        align-self: center;
+        justify-self: center;
+      }
 
-        #docketNumber {
-            position: absolute;
-            bottom: 20px;
-            font-size: 20px;
-        }
+      #docketNumber {
+        position: absolute;
+        bottom: 20px;
+        font-size: 20px;
+      }
 
-        #barcode {
-            height: 40px;
-            width: 200px;
-        }
+      #barcode {
+        height: 40px;
+        width: 250px;
+      }
     </style>
     <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.0/dist/JsBarcode.all.min.js"></script>
-</head>
+  </head>
 
-<body style="display: flex; justify-content: center; align-items: center;">
+  <body style="display: flex; justify-content: center; align-items: center">
     <% bookings.forEach((d,index)=> { %>
-        <div class="page">
-            <div class="container">
-                <div class="header">
-                    <h2>GSTIN: 03BAXPC8186R1ZP
-                    </h2>
-                    <h2>Ph No. 85709-73368
-                    </h2>
-                </div>
-                <div class="main-content">
-                    <div class="first-row">
-                        <div class="logo">
-                            <div class="logo-img">
-                                <% if (d.withLogo) { %>
-                                    <img src="http://127.0.0.1:8000/assets/sdlLogo.png" />
-                                    <% } else { %>
-                                        <div style="height: 100%; width: 100%; background-color: white;"></div>
-                                        <% } %>
-                            </div>
-                            <div class="logo-address">
-                                <p style="text-align: center; font-size: 13px;">Plot No. 237, Industrial Area-A, Near
-                                    Cheema
-                                    Chownk, Ludhiana</p>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div style="background-color: #EF9B1B; font-weight: 600;">Origin</div>
-                            <div>
-                                <%= d.origin %>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div style="background-color: #122540; color: white; color: white;">Destination</div>
-                            <div>
-                                <%= d.destination %>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div style="background-color: #EF9B1B; font-weight: 600;">Date</div>
-                            <div style="font-weight: 600;">Credit</div>
-                            <div style="background-color: #EF9B1B; font-weight: 600;">No. Of Packages</div>
-                        </div>
-                        <div class="col">
-                            <div>
-                                <%= d.bookingDate||"" %>
-                            </div>
-                            <div>
-                                <%= d.creditAmt||"" %>
-                            </div>
-                            <div>
-                                <%= d.piecies||"" %>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="second-row">
-                        <div class="scol">
-                            <div class="scol-srow" style="background-color: #122540; color: white;">
-                                <h3>Consignor (Shipper)</h3>
-                            </div>
-                            <div class="scol-srow">
-                                <span style="position: absolute; left: 5px; top: 15px;">
-                                    <%= d.consignor %>
-                                </span>
-                                <span style="position: absolute; left: 5px; bottom: 70px;">
-                                    <%= d.origin %>
-                                </span>
-                                <span style="position: absolute; right: 5px; bottom: 30px;">________________</span>
-                            </div>
-                            <div class="scol-srow">
-                                <span style="position: absolute; left: 5px; top: 30px;">Tax invoice bill no</span>
-                                <span style="position: absolute; right: 5px; top: 35px;">
-                                    <%= d.invoiceNo %>
-                                </span>
-                                <span style="position: absolute; right: 5px; top: 40px;">________________</span>
-                                <span style="position: absolute; left: 5px; bottom: 40px;">Tax invoice bill no</span>
-                                <span style="position: absolute; right: 5px; bottom: 35px;">
-                                    <%= d.invoiceVal %>
-                                </span>
-                                <span style="position: absolute; right: 5px; bottom: 30px;">________________</span>
-                            </div>
-                            <div class="scol-srow">
-                                <span
-                                    style="position: absolute; width: 60%; display: flex;justify-content: space-between; left: 5px; bottom: 5px;">
-                                    <p style="margin-left: 5px;">Date</p>
-                                    <p>Name</p>
-                                </span>
-                            </div>
-                            <div class="scol-srow" style="background-color: #122540; color: white; "></div>
-                        </div>
-                        <div class="scol">
-                            <div class="scol-srow" style="background-color: #122540; color: white; ">
-                                <h3>Consignee (Receiver)</h3>
-                            </div>
-                            <div class="scol-srow">
-                                <span style="position: absolute; left: 5px; top: 15px;">
-                                    <%= d.Consignee %>
-                                </span>
-                                <span style="position: absolute; left: 5px; bottom: 70px;">
-                                    <%= d.destination %>
-                                </span>
-                                <span style="position: absolute; right: 5px; bottom: 30px;">________________</span>
-                            </div>
-                            <div class="scol-srow">
-                                <span
-                                    style="position: absolute; top: 0; padding: 6px; background-color: #122540; color: white; width: 100%; text-align: center;">Trace
-                                    This Bill</span>
-                                <canvas class="barcode" id="barcode-<%= index %>"></canvas>
-                                <script>
-                                    JsBarcode("#barcode-<%= index %>", '<%= d.docketNumber %>', {
-                                        format: "CODE128",
-                                        lineColor: "black",
-                                        width: 1.6,
-                                        height: 40,
-                                        displayValue: false,
-                                        scale: 3, // Increase scale factor
-                                        textOpts: {
-                                            fontOptions: "bold", // Set font options for human-readable text
-                                            fontSize: 14 // Adjust font size
-                                        },
-                                        options: {
-                                            output: 'svg', // Set output format to SVG for better quality
-                                            dpi: 300 // Set DPI (dots per inch)
-                                        }
-                                    });
-                                </script>
-                                <h2 id="docketNumber"><%= d.docketNumber %></h2>
-                            </div>
-                            <div class="scol-srow">
-                                <span
-                                    style="position: absolute; top: 0; padding: 6px; background-color: #122540; color: white; width: 100%; text-align: center;">Received
-                                    On Good Order &amp; Conditions</span>
-                                <span
-                                    style="position: absolute; width: 60%; display: flex;justify-content: space-between; left: 5px; bottom: 5px;">
-                                    <p style="margin-left: 5px;">Date</p>
-                                    <p>Name</p>
-                                </span>
-                            </div>
-                            <div class="scol-srow" style="background-color: #122540; color: white;">
-                                Non Negotiable
-                            </div>
-                        </div>
-                        <div class="scol">
-                            <div class="scol-srow">
-                                <div class="scol-srow-full">
-                                    <div class="dim-col dim-col-left">
-                                        <div class="dim-col-row dim-col-row-upper">
-                                            <div class="blueText">L</div>
-                                            <div class="blueText">B</div>
-                                            <div class="blueText">H</div>
-                                        </div>
-                                        <div class="dim-col-row dim-col-row-lower">
-                                            <div class="#blueText">Inches/Centibter</div>
-                                        </div>
-                                    </div>
-                                    <div class="dim-col dim-col-right">
-                                        <div class="blueText">CFT</div>
-                                        <div class="blueText">No Of Pacbges</div>
-                                        <div class="blueText">btal</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="scol-srow weightDetails">
-                                <div class="six-col-weight">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
-                                <div class="two-col-weight">
-                                    <div style="display: flex; justify-content: center; align-items: center;">Actual Weight (Kgs)</div>
-                                    <div style="display: flex; justify-content: center; align-items: center;">Charged Weight (Kgs)</div>
-                                </div>
-                                <div class="two-col-weight" style="background-color: white;">
-                                    <div style="display: flex; justify-content: center; align-items: center;"><%= d.chargedWeight %></div>
-                                    <div style="display: flex; justify-content: center; align-items: center;"><%= d.chargedWeight %></div>
-                                </div>
-                                <div class="three-col-weight" style="color: white; background-color: #122540;">
-                                    <div>Details</div>
-                                    <div>Amount</div>
-                                    <div
-                                        style="color: white; display: flex; justify-content: center; align-items: center;">
-                                        Basis
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="scol-srow">
-                                <div class="three-col-weight" style="background-color: white;">
-                                    <div class="six-row-grid">
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div class="six-row-grid">
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div class="basis">
-                                        <div class="checkbox"></div>
-                                        <label for="">Cash</label>
-                                        <div class="checkbox"></div>
-                                        <label for="">Credit</label>
-                                        <div class="checkbox"></div>
-                                        <label for="">Topay</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="scol-srow">
-                                <div class="three-col-weight" style="background-color: white;">
-                                    <div class="six-row-grid">
-                                        <div style="background-color: #122540; color: white; color: white;">
-                                            <h3 style="color: black; color: white;">SUBTOTAL</h3>
-                                        </div>
-                                        <div style="font-size: 13px; color: black;">C.G.S.T</div>
-                                        <div style="font-size: 13px; color: black;">S.G.S.T / U.G.S.T</div>
-                                        <div style="font-size: 13px; color: black;">I.G.S.T</div>
-                                        <div
-                                            style="font-size: 15px; color: black; background-color: #122540; color: white; display: flex; justify-content: center; align-items: center;">
-                                            GRAND TOTAL</div>
-                                    </div>
-                                    <div class="six-row-grid">
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div>
-                                        <div style="display: flex; flex-direction: column; width: 100%; height: 100%;">
-                                            <div
-                                                style="border-bottom:1px solid black; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;">
-                                                <div class="blueText">DOOR DELIVERY</div>
-                                                <div class="checkbox"></div>
-                                            </div>
-                                            <div
-                                                style="border-bottom:1px solid black; flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;">
-                                                <div class="#blueText">GODOWN</div>
-                                                <div class="checkbox"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="scol-srow" style="background-color: #122540; color: white;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer">
-                    <h2>Tracking: www.safedispatchlogistics.com</h2>
-                    <h2>Email: safedispatchlogistics@gmail.com</h2>
-                </div>
-            </div>
+    <div class="page">
+      <div class="container">
+        <div class="header">
+          <h2>GSTIN: 03BAXPC8186R1ZP</h2>
+          <h2>Ph No. 85709-73368</h2>
         </div>
-        <% }) %>
-</body>
-<!-- <script>
+        <div class="main-content">
+          <div class="first-row">
+            <div class="logo">
+              <div class="logo-img">
+                <% if (d.withLogo) { %>
+                <img src="http://127.0.0.1:8000/assets/sdlLogo.png" />
+                <% } else { %>
+                <div style="height: 100%; width: 100%; background-color: white;"></div>
+                <% } %>
+              </div>
+              <div class="logo-address">
+                <p style="text-align: center; font-size: 13px">
+                  Plot No. 237, Industrial Area-A, Near Cheema Chownk, Ludhiana
+                </p>
+              </div>
+            </div>
+            <div class="col">
+              <div style="background-color: #ef9b1b; font-weight: 600">
+                Origin
+              </div>
+              <div><%= d.origin %></div>
+            </div>
+            <div class="col">
+              <div
+                style="background-color: #122540; color: white; color: white"
+              >
+                Destination
+              </div>
+              <div><%= d.destination %></div>
+            </div>
+            <div class="col">
+              <div style="background-color: #ef9b1b; font-weight: 600">
+                Date
+              </div>
+              <div style="font-weight: 600">Credit</div>
+              <div style="background-color: #ef9b1b; font-weight: 600">
+                No. Of Packages
+              </div>
+            </div>
+            <div class="col">
+              <div><%= d.bookingDate||"" %></div>
+              <div><%= d.creditAmt||"" %></div>
+              <div><%= d.piecies||"" %></div>
+            </div>
+          </div>
+          <div class="second-row">
+            <div class="scol">
+              <div
+                class="scol-srow"
+                style="background-color: #ff9e00; color: white"
+              >
+                <h3>Consignor (Shipper)</h3>
+              </div>
+              <div class="scol-srow">
+                <span style="position: absolute; left: 5px; top: 15px">
+                  <%= d.consignor %>
+                </span>
+                <span style="position: absolute; left: 5px; bottom: 70px">
+                  <%= d.consignorAddress %>
+                </span>
+                <span style="position: absolute; right: 5px; bottom: 30px"
+                  >________________</span
+                >
+              </div>
+              <div class="scol-srow">
+                <span style="position: absolute; left: 5px; top: 15px"
+                  >Tax invoice bill no</span
+                >
+                <span style="position: absolute; right: 5px; top: 14px">
+                  <%= d.invoiceNo %>
+                </span>
+                <span style="position: absolute; right: 5px; top: 15px"
+                  >________________</span
+                >
+
+                <span style="position: absolute; left: 5px; top: 65px"
+                  >Tax invoice bill no</span
+                >
+                <span style="position: absolute; right: 5px; top: 64px">
+                  <%= d.invoiceVal %>
+                </span>
+                <span style="position: absolute; right: 5px; top: 65px"
+                  >________________</span
+                >
+
+                <span style="position: absolute; left: 5px; bottom: 33px"
+                  >COD Amt.</span
+                >
+                <span style="position: absolute; right: 5px; bottom: 35px">
+                  <%= d.codAmt %>
+                </span>
+                <span style="position: absolute; right: 5px; bottom: 30px"
+                  >________________</span
+                >
+              </div>
+              <div class="scol-srow">
+                <span
+                  style="
+                    font-size: 11px;
+                    top: 4px;
+                    position: absolute;
+                    text-align: justify;
+                    padding-inline: 5px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 3px;
+                    font-weight: 600;
+                  "
+                >
+                  <p>
+                    THE SHIPPER HERE BY AUTHORISES SAFE DISPATCH LOGISTICS TO
+                    COLLECT THE COD/DOD AMOUNT IN THE FOLLOWING MODE ONLY.
+                  </p>
+                  <p>
+                    I/WE HAVE CAREFULLY CHECKED AND VERIFIED THE CONTENTS FILLED
+                    IN THE DOCUMENT AND AGREE TO THE TERMS & CONDITIONS PRINTED
+                    OVERLEAF. SPECIALLY THE CLAUSE OF JURISDICTION AND WILL PAY
+                    ALL THE CHARGES AS PER TARIFF AGREEMENT.
+                  </p>
+                  <p>
+                    THE COMPANY IS RESPONSIBLE FOR ANY SHIPMENT FOR 3 MONTHS
+                    AFTER THE BOOKING DATE, AFTER WHICH NO COMPLAINT WILL BE
+                    ENTERTAINED.
+                  </p>
+                </span>
+                <!-- <span
+                  style="
+                    position: absolute;
+                    width: 60%;
+                    display: flex;
+                    justify-content: space-between;
+                    left: 5px;
+                    bottom: 5px;
+                  "
+                >
+                  <p style="margin-left: 5px">Date</p>
+                  <p>Name</p>
+                </span> -->
+              </div>
+              <div
+                class="scol-srow"
+                style="background-color: #122540; color: white"
+              ></div>
+            </div>
+            <div class="scol">
+              <div
+                class="scol-srow"
+                style="background-color: #ff9e00; color: white"
+              >
+                <h3>Consignee (Receiver)</h3>
+              </div>
+              <div class="scol-srow">
+                <span style="position: absolute; left: 5px; top: 15px">
+                  <%= d.consignee %>
+                </span>
+                <span style="position: absolute; left: 5px; bottom: 70px">
+                  <%= d.consigneeAddress %>
+                </span>
+                <span style="position: absolute; right: 5px; bottom: 30px"
+                  >________________</span
+                >
+              </div>
+              <div class="scol-srow">
+                <span
+                  style="
+                    position: absolute;
+                    top: 0;
+                    padding: 6px;
+                    background-color: #ff9e00;
+                    color: white;
+                    width: 100%;
+                    text-align: center;
+                  "
+                  >Trace This Bill</span
+                >
+                <canvas class="barcode" id="barcode-<%= index %>"></canvas>
+                <script>
+                  JsBarcode("#barcode-<%= index %>", "<%= d.docketNumber %>", {
+                    format: "CODE128",
+                    lineColor: "black",
+                    width: 1.6,
+                    height: 40,
+                    displayValue: false,
+                    scale: 3, // Increase scale factor
+                    textOpts: {
+                      fontOptions: "bold", // Set font options for human-readable text
+                      fontSize: 14, // Adjust font size
+                    },
+                    options: {
+                      output: "svg", // Set output format to SVG for better quality
+                      dpi: 300, // Set DPI (dots per inch)
+                    },
+                  });
+                </script>
+                <h2 id="docketNumber"><%= d.docketNumber %></h2>
+              </div>
+              <div class="scol-srow">
+                <span
+                  style="
+                    position: absolute;
+                    top: 0;
+                    padding: 6px;
+                    background-color: #ff9e00;
+                    color: white;
+                    width: 100%;
+                    text-align: center;
+                  "
+                  >Received On Good Order &amp; Conditions</span
+                >
+                <span
+                  style="
+                    position: absolute;
+                    width: 60%;
+                    display: flex;
+                    justify-content: space-between;
+                    left: 5px;
+                    bottom: 5px;
+                  "
+                >
+                  <p style="margin-left: 5px">Date</p>
+                  <p>Name</p>
+                </span>
+              </div>
+              <div
+                class="scol-srow"
+                style="background-color: #122540; color: white"
+              >
+                Non Negotiable
+              </div>
+            </div>
+            <div class="scol">
+              <div class="scol-srow">
+                <div class="scol-srow-full">
+                  <div class="dim-col dim-col-left">
+                    <div class="dim-col-row dim-col-row-upper">
+                      <div class="blueText">L</div>
+                      <div class="blueText">B</div>
+                      <div class="blueText">H</div>
+                    </div>
+                    <div class="dim-col-row dim-col-row-lower">
+                      <div class="#blueText">Inches/Centibter</div>
+                    </div>
+                  </div>
+                  <div class="dim-col dim-col-right">
+                    <div class="blueText">CFT</div>
+                    <div class="blueText">No Of Pacbges</div>
+                    <div class="blueText">btal</div>
+                  </div>
+                </div>
+              </div>
+              <div class="scol-srow weightDetails">
+                <div class="six-col-weight">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <div class="two-col-weight">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    "
+                  >
+                    Actual Weight (Kgs)
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    "
+                  >
+                    Charged Weight (Kgs)
+                  </div>
+                </div>
+                <div class="two-col-weight" style="background-color: white">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      color: black;
+                    "
+                  >
+                    <%= d.chargedWeight %>
+                  </div>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      color: black;
+                    "
+                  >
+                    <%= d.chargedWeight %>
+                  </div>
+                </div>
+                <div
+                  class="three-col-weight"
+                  style="color: white; background-color: #122540"
+                >
+                  <div>Details</div>
+                  <div>Amount</div>
+                  <div
+                    style="
+                      color: white;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    "
+                  >
+                    Basis
+                  </div>
+                </div>
+              </div>
+              <div class="scol-srow">
+                <div class="three-col-weight" style="background-color: white">
+                  <div class="six-row-grid" style="color: black; font-size: 12px;">
+                    <div>Freight</div>
+                    <div>Docket Charges</div>
+                    <div>Spl. Del. Chrgs.</div>
+                    <div>Other Chrgs.</div>
+                  </div>
+                  <div class="six-row-grid">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                  <div class="basis">
+                    <div class="checkbox"></div>
+                    <label for="">Cash</label>
+                    <div class="checkbox"></div>
+                    <label for="">Credit</label>
+                    <div class="checkbox"></div>
+                    <label for="">Topay</label>
+                  </div>
+                </div>
+              </div>
+              <div class="scol-srow">
+                <div class="three-col-weight" style="background-color: white">
+                  <div class="six-row-grid">
+                    <div
+                      style="
+                        background-color: #122540;
+                        color: white;
+                        color: white;
+                      "
+                    >
+                      <h3 style="color: black; color: white">SUBTOTAL</h3>
+                    </div>
+                    <div style="font-size: 13px; color: black">C.G.S.T</div>
+                    <div style="font-size: 13px; color: black">
+                      S.G.S.T / U.G.S.T
+                    </div>
+                    <div style="font-size: 13px; color: black">I.G.S.T</div>
+                    <div
+                      style="
+                        font-size: 15px;
+                        color: black;
+                        background-color: #122540;
+                        color: white;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                      "
+                    >
+                      GRAND TOTAL
+                    </div>
+                  </div>
+                  <div class="six-row-grid">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                  <div>
+                    <div
+                      style="
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        height: 100%;
+                      "
+                    >
+                      <div
+                        style="
+                          border-bottom: 1px solid black;
+                          flex: 1;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          align-items: center;
+                          gap: 5px;
+                        "
+                      >
+                        <div class="blueText">DOOR DELIVERY</div>
+                        <div class="checkbox"></div>
+                      </div>
+                      <div
+                        style="
+                          border-bottom: 1px solid black;
+                          flex: 1;
+                          display: flex;
+                          flex-direction: column;
+                          justify-content: center;
+                          align-items: center;
+                          gap: 5px;
+                        "
+                      >
+                        <div class="#blueText">GODOWN</div>
+                        <div class="checkbox"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="scol-srow"
+                style="background-color: #122540; color: white"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <h2>Tracking: www.safedispatchlogistics.com</h2>
+          <h2>Email: safedispatchlogistics@gmail.com</h2>
+        </div>
+      </div>
+    </div>
+    <% }) %>
+  </body>
+  <!-- <script>
     // Ensure JsBarcode is called after DOM content is fully loaded
     window.onload = function () {
         document.querySelectorAll(".barcode").forEach((e,index)=>{
@@ -578,5 +761,4 @@
         })
     };
 </script> -->
-
 </html>

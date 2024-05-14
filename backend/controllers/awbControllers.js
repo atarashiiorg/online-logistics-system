@@ -15,7 +15,7 @@ async function getAwb(req, res) {
                     creditAmt: "",
                     piecies: "",
                     consignor: "",
-                    Consignee: "",
+                    consignee: "",
                     chargedWeight: "",
                     invoiceNo: "",
                     invoiceVal: "",
@@ -23,6 +23,7 @@ async function getAwb(req, res) {
                     bookingType: "",
                     comp_mobile: "",
                     comp_gst: "",
+                    codAmt:"",
                     withLogo: true
                 }
             ]

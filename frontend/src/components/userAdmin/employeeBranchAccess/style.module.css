@@ -165,3 +165,22 @@ input, select{
     grid-template-columns: repeat(2,1fr);
     text-align: center;
 }
+
+@media (max-width: 768px) {
+    .formContainer>div{
+        grid-template-columns: 40% 60%;
+    }
+    .permissionsBlock{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .permissionsBlock>div{
+        border: 1px solid black;
+    }
+
+    .branchComp{
+        background-color: whitesmoke;
+        color: black;
+    }
+}

@@ -1,6 +1,9 @@
 import { message } from "antd"
 import { serverUrl } from "../constants"
 import { FaSlideshare } from "react-icons/fa"
+import { useContext } from "react"
+import UserAuthContext from "../contexts/authContext"
+import { redirect } from "react-router-dom"
 
 export const usePostData = async (data,endPoint) => {
     try {
@@ -13,6 +16,9 @@ export const usePostData = async (data,endPoint) => {
             body: JSON.stringify(data)
         })
         const res_json = await res.json()
+        if(res.status==401){
+            return {redirect:true, res_json:"Session Expired"}
+        }
         if (res.status == 201 || res.status==200) {
             message.success(res_json.msg)
             return {res:true,data:res_json.data}

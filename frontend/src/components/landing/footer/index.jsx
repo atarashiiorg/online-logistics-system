@@ -53,6 +53,48 @@ const Footer = () => (
                 Punjab
               </span>
             </li>
+            <li className={styles.mt2}>
+              <span
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+              >
+                Rajasthan
+              </span>
+            </li>
+            <li className={styles.mt2}>
+              <span
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+              >
+                Delhi NCR
+              </span>
+            </li>
+            <li className={styles.mt2}>
+              <span
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+              >
+                UP East
+              </span>
+            </li>
+            <li className={styles.mt2}>
+              <span
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+              >
+                Up West
+              </span>
+            </li>
+            <li className={styles.mt2}>
+              <span
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+              >
+                Uttarakhand
+              </span>
+            </li>
+            <li className={styles.mt2}>
+              <span
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+              >
+                Jammu Kashmir
+              </span>
+            </li>
           </ul>
         </div>
 
