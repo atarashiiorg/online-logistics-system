@@ -55,6 +55,10 @@ export const useDownloader = async (endpoint) => {
             if (response.status == 500) {
                 throw new Error("Internal server error occured");
             }
+            if(response.status==403){
+                const res = await response.json()
+                throw new Error(res.msg)
+            }
             const contentDisposition = response.headers.get('Content-Disposition');
             const filename = getFilenameFromContentDisposition(contentDisposition);
 

@@ -10,8 +10,10 @@ import { usePostData } from '../../../apiHandlers/postApis'
 import { TableComp } from '../../minComp'
 import { usePatchData } from '../../../apiHandlers/patchApis'
 import UserAuthContext from '../../../contexts/authContext'
+import { getFormttedDate } from '../../../utils/helpers'
 
 const TableRow = (props)=>{
+    console.log(props.data)
     const btnStyle = {
         fontSize:"20px",
         color:"blueviolet"
@@ -22,16 +24,16 @@ const TableRow = (props)=>{
     return (
         <tr>
             <td><FaEdit style={btnStyle} onClick={e=>props.edit(props.data)}/></td>
-            <td>{props.data.destCode}</td>
-            <td>{props.data.destName}</td>
-            <td>{props.data.state.stateName}</td>
-            <td>{props.data.country}</td>
-            <td>{props.data.zone.zoneName}</td>
-            <td>{props.data.destBranch.branchName}</td>
-            <td>{props.data.isActive?"YES":"NO"}</td>
-            <td>{props.data?.createdBy}</td>
-            <td>{new Date(props.data.createdAt).toDateString()}</td>
-            <td>{new Date(props.data.updatedAt).toDateString()}</td>
+            <td>{props?.data?.destCode}</td>
+            <td>{props?.data?.destName}</td>
+            <td>{props?.data?.state?.stateName}</td>
+            <td>{props?.data?.country}</td>
+            <td>{props?.data?.zone?.zoneName}</td>
+            <td>{props?.data?.destBranch?.branchName}</td>
+            <td>{props?.data?.isActive?"YES":"NO"}</td>
+            <td>{props?.data?.createdBy?.name}</td>
+            <td>{getFormttedDate(props?.data?.createdAt)}</td>
+            <td>{getFormttedDate(props?.data?.updatedAt)}</td>
         </tr>
     )
 }
@@ -118,7 +120,7 @@ export default function DestinationMaster() {
                    <select value={destination.state} onChange={e=>handleDest(e,"state")}>
                     <option value="">--Please Select State Name</option>
                     {
-                        states.map(s=><option value={s._id}>{s.stateName}</option>)
+                        states.map(s=><option value={s._id} key={s._id}>{s.stateName}</option>)
                     }
                    </select>
                    <label htmlFor="">Destination Name</label>
@@ -128,14 +130,14 @@ export default function DestinationMaster() {
                    <select value={destination.zone} onChange={e=>handleDest(e,"zone")}>
                     <option value="">--Please Select Zone Name--</option>
                     {
-                        zones.map(z=><option value={z._id}>{z.zoneName}</option>)
+                        zones.map(z=><option value={z._id} key={z._id}>{z.zoneName}</option>)
                     }
                    </select>
                    <label htmlFor="">Destination Branch</label>
                    <select value={destination.destBranch} onInput={e=>handleDest(e,"destBranch")}>
                         <option value="">--Please Select Branch Name--</option>
                         {
-                            branches.map(b=><option value={b._id}>{b.branchCode} : {b.branchName}</option>)
+                            branches.map(b=><option value={b._id} key={b._id}>{b.branchCode} : {b.branchName}</option>)
                         }
                    </select>
 
@@ -172,7 +174,7 @@ export default function DestinationMaster() {
                         <tbody>
                             {
                                 dests.length>0?
-                                dests.map(d=><TableRow data={d} edit={edit} editKey={editKey} />):
+                                dests.map(d=><TableRow data={d} edit={edit} editKey={editKey} key={d._id} />):
                                 <tr><td style={{textAlign:"center"}} colSpan={11}>No Data Available</td></tr>
                             }
                         </tbody>

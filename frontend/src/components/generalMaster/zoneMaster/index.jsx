@@ -131,7 +131,7 @@ export default function ZoneMaster() {
                         <tbody>
                             {
                                 zones.length>0?
-                                zones.map(z=><TableRow data={z} edit={edit} editKey={editKey} />):
+                                zones.map(z=><TableRow data={z} edit={edit} editKey={editKey} key={z._id} />):
                                 <tr><td colSpan={6}>No Data Available</td></tr>
                             }
                         </tbody>

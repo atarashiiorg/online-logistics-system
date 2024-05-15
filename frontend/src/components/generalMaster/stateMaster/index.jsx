@@ -136,7 +136,7 @@ export default function StateMaster() {
                         <tbody>
                             {
                                 states.length>0?
-                                states.map(s=><TableRow data={s} edit={edit} editKey={editKey}/>):
+                                states.map(s=><TableRow data={s} edit={edit} editKey={editKey} key={s._id}/>):
                                 <tr><td colSpan={7}>No data Available</td></tr>
                             }
                         </tbody>

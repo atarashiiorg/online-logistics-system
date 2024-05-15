@@ -48,7 +48,7 @@ export default function AwbPrint() {
             if (logo!=null)
                 endpoint = "awb?branch="+currBranch?._id+"&logo=" + logo + "&dockets=" + docket.dockets.toString()
             else
-                endpoint = "awb?branch="+currBranch?._id+"&sticker=true"
+                endpoint = "awb?branch="+currBranch?._id+"&sticker=true&dockets="+docket.dockets.toString()
 
             const res = await useDownloader(endpoint)
             if (res?.redirect) {
@@ -66,6 +66,7 @@ export default function AwbPrint() {
                 resetForm()
             })
         } catch (err) {
+            console.log("Error caught",err)
             message.error(err)
         } finally{
             setLoading(false)

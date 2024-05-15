@@ -97,11 +97,9 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: (
       <UserAuthState>
-        <LazyComp>
           <IsRoutePermitted>
             <Dashboard />
           </IsRoutePermitted>
-        </LazyComp>
       </UserAuthState>
     ),
     children: [

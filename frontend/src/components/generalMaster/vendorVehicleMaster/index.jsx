@@ -195,7 +195,7 @@ export default function VendorVehicleMaster() {
                         <tbody>
                             {
                                 vendors.length > 0 ?
-                                    vendors.map(v=><TableRow data={v} edit={edit} editKey={editKey} delete={handleDelete} />):
+                                    vendors.map(v=><TableRow data={v} edit={edit} editKey={editKey} delete={handleDelete} key={v._id} />):
                                     <tr>
                                         <td colSpan={17} style={{ textAlign: "center" }}>No Data available</td>
                                     </tr>

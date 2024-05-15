@@ -132,25 +132,25 @@ async function getBooking(req, res) {
         res.status(403).json({ msg: "Docket not booked yet" });
         return;
       }
-      console.log(data.manifest);
+      // console.log(data.manifest);
       if (!data?.manifest) {
         if (!data?.booking?.branch.equals(req.query.branch)) {
           res.status(403).json({ msg: "Docket not booked by this branch" });
           return;
         }
+        console.log("if not manifest",data?.booking?.tracking?.status)
         if (
           data?.booking?.tracking?.status == "in-transit" ||
-          data?.booking?.tracking?.status == "booked"
+          data?.booking?.tracking?.status == "booked" ||
+          data?.booking?.tracking?.status == "misrouted" ||
+          data?.booking?.tracking?.status == "return to origin" ||
+          data?.booking?.tracking?.status == "undelivered"
         ) {
           //continue
-          console.log("intransit / booked");
+          console.log("intransit / booked / misrouted / return to origin / undelivered");
         } else {
-          res
-            .status(403)
-            .json({
-              msg:
-                "can not create manifest or runsheet. current status of packet is " +
-                data?.booking?.tracking?.status,
+          res.status(403).json({
+              msg:"can not create manifest or runsheet. current status of packet is " +data?.booking?.tracking?.status,
             });
           return;
         }
@@ -163,35 +163,30 @@ async function getBooking(req, res) {
           const docket = data.manifest.dockets.filter(
             (d) => d.booking?.docketNumber == req.query.docket
           )[0];
-          console.log("manifest-found->", docket);
+          console.log("manifest-found->");
           if (!docket.isReceived) {
-            res
-              .status(403)
-              .json({
+            res.status(403).json({
                 msg: "docket manifested to current branch but not received yet",
               });
             return;
           }
           if (
             data?.booking?.tracking?.status == "in-transit" ||
-            data?.booking?.tracking?.status == "booked"
+            data?.booking?.tracking?.status == "booked" ||
+            data?.booking?.tracking?.status == "misrouted" ||
+            data?.booking?.tracking?.status == "return to origin" ||
+            data?.booking?.tracking?.status == "undelivered"
           ) {
             //continue
-            console.log("intransit / booked");
+            console.log("intransit / booked / misrouted / return to origin / undelivered");
           } else {
-            res
-              .status(403)
-              .json({
-                msg:
-                  "can not create manifest or runsheet. current status of packet is " +
-                  data?.booking?.tracking?.status,
+            res.status(403).json({
+                msg:"can not create manifest or runsheet. current status of packet is " +data?.booking?.tracking?.status,
               });
             return;
           }
         } else {
-          res
-            .status(403)
-            .json({ msg: "docket not manifested to current branch" });
+          res.status(403).json({ msg: "docket not manifested to current branch" });
           return;
         }
       }
