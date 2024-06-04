@@ -103,6 +103,7 @@ export default function BookingEntry() {
         return obj;
       } else {
         obj[field] = e.target.value;
+        console.log(obj.bookingDate)
       }
       return obj;
     });
@@ -147,7 +148,7 @@ export default function BookingEntry() {
       }
       if (f == 'totalDimWeight-') {
         obj.totalDimWeight = (
-          parseFloat(obj.totalDimWeight) + parseFloat(val)
+          parseFloat(obj.totalDimWeight) - parseFloat(val)
         ).toFixed(2);
         if (isNaN(obj.totalDimWeight)) {
           obj.totalDimWeight = 0.0;
@@ -394,7 +395,7 @@ export default function BookingEntry() {
           </label>
           <input
             type="date"
-            value={getDateForInput(AwbDetails.bookingDate)}
+            value={getDateForInput(awbDetails.bookingDate)}
             onInput={(e) => handleAwbDetails(e, 'bookingDate')}
             disabled={user.role != 'adm'}
           />

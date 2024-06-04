@@ -37,7 +37,9 @@ const {
     createBooking,
     getBooking,
     getBookingForDRSStatusUpdate,
-    deleteBooking
+    deleteBooking,
+    getBookingReport,
+    getBookingForUpdate
 } = require("../controllers/bookingControllers")
 const {
     createState,
@@ -126,7 +128,11 @@ userRoutes.route("/booking")
     .get((req,res)=>{
         if(req.query.drsentry){
             getBookingForDRSStatusUpdate(req,res)
-        } else {
+        } else if(req.query.report){
+           getBookingReport(req,res) 
+        }else if(req.query.docketNumber){
+            getBookingForUpdate(req,res)
+        }else{
             getBooking(req,res)
         }
     })

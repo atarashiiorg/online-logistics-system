@@ -1,5 +1,3 @@
-import { MdFlight } from 'react-icons/md';
-import { GiCargoShip } from 'react-icons/gi';
 import { MdLocalShipping } from 'react-icons/md';
 import { RiSecurePaymentFill } from "react-icons/ri"
 import { MdSpatialTracking } from "react-icons/md";

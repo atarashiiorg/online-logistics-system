@@ -6,9 +6,9 @@ const { isDocketValid } = require("./shipperControllers");
 async function getAwb(req, res) {
     try {
         const dockets = req.query?.dockets?.split(",")
-        for (let i = 0; dockets.length; i++) {
+        for (let i = 0; i<dockets.length; i++) {
             const result = await isDocketValid(dockets[i])
-            if (!result.isValid || !result.branch._id.equals(new mongoose.Types.ObjectId(req.query.branch))) {
+            if (!result.valid || !result.branch._id.equals(req.query.branch)) {
                 res.status(403).json({ msg: "Either docket is invalid or not issued to this branch" })
                 return
             }

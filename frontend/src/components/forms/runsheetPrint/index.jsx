@@ -28,17 +28,20 @@ export default function RunsheetPrint() {
     const downloadRunsheet = async (id) => {
         setDownloading(true)
         try {
-            const resp = await useDownloader("runsheet?rid=" + id)
-            if (resp?.redirect) {
-                setUser(null)
-                sessionStorage.clear()
-            }
-            message.open({
-                type: "loading",
-                content: "Download in progress",
-                duration:5
-            })
-            .then(()=>message.success("Downloaded"))
+            const response = await useDownloader("runsheet?rid=" + id)
+            if (response?.status == 401) {
+                message.error("Session Expired")
+                setUser(null);
+                sessionStorage.clear();
+                console.log(response.msg)
+                return;
+              }
+              if (response.status != 200) {
+                  message.error(response.msg);
+                  console.log(response.msg)
+              } else {
+                  message.success("Downloaded")
+              }
         } catch (error) {
             console.log(error)
             message.error(error.toString())

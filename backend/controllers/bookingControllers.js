@@ -15,7 +15,7 @@ const Runsheet = require("../models/runsheet");
 const { default: mongoose, startSession } = require("mongoose");
 const sendMail = require("../services/mailSmsServices");
 const getTemplate = require("../utils/emailTemplate");
-// const = require('mongoose').mongo.ObjectID
+const { getBookingReportFormat } = require("../services/helpers");
 
 async function createBooking(req, res) {
   const transaction = await startSession();
@@ -28,11 +28,9 @@ async function createBooking(req, res) {
     }
 
     if (isValid.branch._id != req.body.branch) {
-      res
-        .status(403)
-        .json({
-          msg: "this shipper is not issued to this branch try changing branch",
-        });
+      res.status(403).json({
+        msg: "this shipper is not issued to this branch try changing branch",
+      });
       return;
     }
 
@@ -94,9 +92,11 @@ async function createBooking(req, res) {
   } catch (err) {
     console.log(err);
     await transaction.abortTransaction(); //aborting transaction
-    if(err.code=="EENVELOPE"){
-        res.status(403).json({msg:"Client/Consignor/Consignee Email not provided."})
-        return
+    if (err.code == "EENVELOPE") {
+      res
+        .status(403)
+        .json({ msg: "Client/Consignor/Consignee Email not provided." });
+      return;
     }
     if (err.code == 11000) {
       res.status(409).json({ msg: "this docket number already booked" });
@@ -138,7 +138,7 @@ async function getBooking(req, res) {
           res.status(403).json({ msg: "Docket not booked by this branch" });
           return;
         }
-        console.log("if not manifest",data?.booking?.tracking?.status)
+        console.log("if not manifest", data?.booking?.tracking?.status);
         if (
           data?.booking?.tracking?.status == "in-transit" ||
           data?.booking?.tracking?.status == "booked" ||
@@ -147,11 +147,15 @@ async function getBooking(req, res) {
           data?.booking?.tracking?.status == "undelivered"
         ) {
           //continue
-          console.log("intransit / booked / misrouted / return to origin / undelivered");
+          console.log(
+            "intransit / booked / misrouted / return to origin / undelivered"
+          );
         } else {
           res.status(403).json({
-              msg:"can not create manifest or runsheet. current status of packet is " +data?.booking?.tracking?.status,
-            });
+            msg:
+              "can not create manifest or runsheet. current status of packet is " +
+              data?.booking?.tracking?.status,
+          });
           return;
         }
       } else {
@@ -166,8 +170,8 @@ async function getBooking(req, res) {
           console.log("manifest-found->");
           if (!docket.isReceived) {
             res.status(403).json({
-                msg: "docket manifested to current branch but not received yet",
-              });
+              msg: "docket manifested to current branch but not received yet",
+            });
             return;
           }
           if (
@@ -178,15 +182,21 @@ async function getBooking(req, res) {
             data?.booking?.tracking?.status == "undelivered"
           ) {
             //continue
-            console.log("intransit / booked / misrouted / return to origin / undelivered");
+            console.log(
+              "intransit / booked / misrouted / return to origin / undelivered"
+            );
           } else {
             res.status(403).json({
-                msg:"can not create manifest or runsheet. current status of packet is " +data?.booking?.tracking?.status,
-              });
+              msg:
+                "can not create manifest or runsheet. current status of packet is " +
+                data?.booking?.tracking?.status,
+            });
             return;
           }
         } else {
-          res.status(403).json({ msg: "docket not manifested to current branch" });
+          res
+            .status(403)
+            .json({ msg: "docket not manifested to current branch" });
           return;
         }
       }
@@ -266,25 +276,185 @@ async function getBookingForDRSStatusUpdate(req, res) {
   }
 }
 
-// async function deleteBooking(req,res){
-//     const docketNumber = req.query.docket
-//     const branch = req.query.branch
-//     const booking = await Booking.findOne({docketNumber})
-//     if(!booking){
-//         res.status(404).json({msg:"Booking with this docket not found"})
-//         return
-//     }
-//     try {
-//         const result = await Booking.deleteOne({docketNumber})
-//         if(result.deletedCount>0){
-//             res.status(200).json({msg:"success"})
-//         } else {
-//             res.status(409).json({msg:"Can not delete booking"})
-//         }
-//     } catch (error) {
-//         res.status(500).json({err:error.toString()})
-//     }
-// }
+async function getBookingReport(req, res) {
+  const {
+    dateFrom,
+    dateTo,
+    branch,
+    client,
+    org,
+    dest,
+    mode,
+    content,
+    billingType,
+  } = req.query;
+
+  const matchStage = {};
+
+  if (dateFrom && dateTo) {
+    matchStage.bookingDate = {
+      $gte: new Date(dateFrom),
+      $lte: new Date(dateTo),
+    };
+  }
+
+  if (branch) {
+    matchStage.branch = new mongoose.Types.ObjectId(branch);
+  }
+  if (client) {
+    matchStage.client = new mongoose.Types.ObjectId(client);
+  }
+
+  const pipeline = [
+    { $match: matchStage },
+    {
+      $lookup: {
+        from: "branches",
+        localField: "branch",
+        foreignField: "_id",
+        as: "branch",
+      },
+    },
+    { $unwind: "$branch" },
+    {
+      $lookup: {
+        from: "consignorconsignees",
+        localField: "consignorConsignee",
+        foreignField: "_id",
+        as: "consignorConsignee",
+      },
+    },
+    { $unwind: "$consignorConsignee" },
+    {
+      $lookup: {
+        from: "trackings",
+        localField: "tracking",
+        foreignField: "_id",
+        as: "tracking",
+      },
+    },
+    { $unwind: "$tracking" },
+    {
+      $lookup: {
+        from: "shipments",
+        localField: "shipment",
+        foreignField: "_id",
+        as: "shipment",
+      },
+    },
+    { $unwind: "$shipment" },
+    {
+      $lookup: {
+        from: "destinations",
+        localField: "shipment.origin",
+        foreignField: "_id",
+        as: "shipment.origin",
+      },
+    },
+    { $unwind: "$shipment.origin" },
+    {
+      $lookup: {
+        from: "destinations", // Assuming 'locations' is the collection for origins and destinations
+        localField: "shipment.destination",
+        foreignField: "_id",
+        as: "shipment.destination",
+      },
+    },
+    { $unwind: "$shipment.destination" },
+    {
+      $lookup: {
+        from: "branches",
+        localField: "shipment.destination.destBranch",
+        foreignField: "_id",
+        as: "shipment.destinationBranch",
+      },
+    },
+    { $unwind: "$shipment.destinationBranch" },
+    {
+      $lookup: {
+        from: "invoices",
+        localField: "invoice",
+        foreignField: "_id",
+        as: "invoice",
+      },
+    },
+    { $unwind: "$invoice" },
+    // {
+    //   $lookup: {
+    //     from: "pods",
+    //     localField: "tracking.podImage",
+    //     foreignField: "_id",
+    //     as: "tracking.podImage",
+    //   },
+    // },
+    // { $unwind: "$tracking.podImage" },
+  ];
+
+  if (org || dest || mode) {
+    const matchShipmentStage = {};
+    if (org) {
+      matchShipmentStage["shipment.origin._id"] = new mongoose.Types.ObjectId(
+        org
+      );
+    }
+    if (dest) {
+      matchShipmentStage["shipment.destination._id"] =
+        new mongoose.Types.ObjectId(dest);
+    }
+    if (mode) {
+      matchShipmentStage["shipment.mode"] = mode;
+    }
+    pipeline.push({ $match: matchShipmentStage });
+  }
+
+  if (content || billingType) {
+    const matchInvoiceStage = {};
+    if (content) {
+      matchInvoiceStage["invoice.itemContent"] = content;
+    }
+    if (billingType) {
+      matchInvoiceStage["invoice.bookingType"] = billingType;
+    }
+    pipeline.push({ $match: matchInvoiceStage });
+  }
+  pipeline.push({
+    $project: {
+      _id: 1,
+      docketNumber: 1,
+      bookingDate: 1,
+      "branch.branchName": 1,
+      "invoice.invoiceNumber": 1,
+      "invoice.invoiceValue": 1,
+      "invoice.clientName": 1,
+      "consignorConsignee.consignor": 1,
+      "consignorConsignee.consignee": 1,
+      "shipment.origin.destName": 1,
+      "shipment.destination.destName": 1,
+      "shipment.destinationBranch.branchName": 1,
+      "shipment.totalBoxes": 1,
+      "shipment.totalActualWeight": 1,
+      "shipment.totalChargeWeight": 1,
+      "tracking.status": 1,
+      "invoice.bookingType": 1,
+      "invoice.amountToPay": 1,
+      "invoice.codType": 1,
+      "invoice.codAmount": 1,
+      "invoice.odaCharges": 1,
+      "tracking.statusRemarks": 1,
+      "tracking.receiver": 1,
+      "tracking.receiverType": 1,
+      "tracking.receivingDate": 1,
+      "tracking.podImage.Location": 1,
+    },
+  });
+  try {
+    const reports = await Booking.aggregate(pipeline);
+    const bookingReports = await getBookingReportFormat(reports);
+    res.status(200).json({ msg: "success", data: bookingReports });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
 
 async function deleteBooking(req, res) {
   const docketNumber = req.query.docket;
@@ -335,9 +505,28 @@ async function deleteBooking(req, res) {
   }
 }
 
+async function getBookingForUpdate(req, res) {
+  try {
+    const booking = await Booking.findOne({
+      docketNumber: req.query.docketNumber,
+    })
+    .populate("shipment")
+    .populate("invoice")
+    .populate("consignorConsignee")
+    if (!booking) {
+      res.status(404).json({ msg: "Booking Not Found" });
+      return;
+    }
+   res.status(200).json({msg:"Success",data:booking})
+  } catch (error) {
+    res.status(500).json({err:error.toString()})
+  }
+}
 module.exports = {
   createBooking,
   getBooking,
+  getBookingReport,
   getBookingForDRSStatusUpdate,
   deleteBooking,
+  getBookingForUpdate
 };

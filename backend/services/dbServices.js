@@ -209,7 +209,7 @@ async function updateTrackingStatus(dockets, key, status, session) {
         console.log(`Booking not found for docket number: ${dockets[i]}`);
         continue; // Move to the next iteration if booking is not found
       }
-      const tracking = await Tracking.findOne({ _id : booking.tracking?_id})      
+      const tracking = await Tracking.findOne({ _id : booking.tracking?._id})      
 
       if(tracking.status=="in-transit"){
         const res = await Tracking.updateOne(

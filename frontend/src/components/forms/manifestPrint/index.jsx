@@ -38,18 +38,20 @@ const TableRow = (m) => {
                     async e => {
                         m.setIsDownloading(true)
                         try {
-                            const res = await useDownloader("manifest?mid=" + m._id)
-                            if (res?.redirect) {
-                                setUser(null)
-                                sessionStorage.clear()
-                                return
-                            }
-                            message.open({
-                                type: "loading",
-                                content: "Download in progress",
-                                duration:5
-                            })
-                            .then(()=>message.success("Downloaded"))
+                            const response = await useDownloader("manifest?mid=" + m._id)
+                            if (response?.status == 401) {
+                                message.error("Session Expired")
+                                setUser(null);
+                                sessionStorage.clear();
+                                console.log(response.msg)
+                                return;
+                              }
+                              if (response.status != 200) {
+                                  message.error(response.msg);
+                                  console.log(response.msg)
+                              } else {
+                                  message.success("Downloaded")
+                              }
                         } catch (err) {
                             console.log(err)
                             message.error("Error occured: ", err.toString())

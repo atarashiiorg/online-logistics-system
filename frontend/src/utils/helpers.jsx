@@ -1,5 +1,5 @@
 export function exportExcel(data) {
-
+    
 }
 
 export function getFormttedDate(date) {

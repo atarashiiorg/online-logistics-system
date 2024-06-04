@@ -1,6 +1,16 @@
-import { FaEnvelope, FaMailchimp, FaMobile, FaPhone, FaPhoneAlt } from 'react-icons/fa';
+import {
+  FaEnvelope,
+  FaMailchimp,
+  FaMapPin,
+  FaMobile,
+  FaPhone,
+  FaPhoneAlt,
+} from 'react-icons/fa';
 import styles from './style.module.css';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { RiMapPin2Fill } from 'react-icons/ri';
+import { BsPinMapFill } from 'react-icons/bs';
+import { MdLocationPin, MdPinDrop } from 'react-icons/md';
 
 const Footer = () => (
   <footer className={styles.footer}>
@@ -12,7 +22,7 @@ const Footer = () => (
           >
             Links
           </h2>
-          <ul className={styles.mb4} style={{ listStyle: "none" }}>
+          <ul className={styles.mb4} style={{ listStyle: 'none' }}>
             <li className={styles.mt2}>
               <a
                 href="#"
@@ -38,7 +48,7 @@ const Footer = () => (
           >
             Location
           </h2>
-          <ul className={styles.mb4} style={{ listStyle: "none" }}>
+          <ul className={styles.mb4} style={{ listStyle: 'none' }}>
             <li className={styles.mt2}>
               <span
                 className={`${styles.hoverUnderline} ${styles.textGray200}`}
@@ -104,11 +114,19 @@ const Footer = () => (
           >
             Contact
           </h2>
-          <ul className={styles.mb4} style={{ listStyle: "none" }}>
-            <li className={styles.mt2} style={{ width: "100%" }}>
+          <ul className={styles.mb4} style={{ listStyle: 'none' }}>
+            <li className={styles.mt2} style={{ width: '100%' }}>
               <span
                 className={`${styles.hoverUnderline} ${styles.textGray200}`}
-                style={{ display: "flex", alignItems: "center", gap: "5px" }}
+                style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
+              >
+                <MdPinDrop style={{width:"30px",height:"max-content",fontSize:"30px"}} /> SCO 52, New grain market, near Jalandhar bypass Ludhiana 141008
+              </span>
+            </li>
+            <li className={styles.mt2} style={{ width: '100%' }}>
+              <span
+                className={`${styles.hoverUnderline} ${styles.textGray200}`}
+                style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
               >
                 <FaPhoneAlt /> +91 85709-73368
               </span>
@@ -116,7 +134,7 @@ const Footer = () => (
             <li className={styles.mt2}>
               <span
                 className={`${styles.hoverUnderline} ${styles.textGray200}`}
-                style={{ display: "flex", alignItems: "center", gap: "5px" }}
+                style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
               >
                 <FaEnvelope /> safedispatchlogistics@gmail.com
               </span>
@@ -124,7 +142,7 @@ const Footer = () => (
             <li className={styles.mt2}>
               <span
                 className={`${styles.hoverUnderline} ${styles.textGray200}`}
-                style={{ display: "flex", alignItems: "center", gap: "5px" }}
+                style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
               >
                 <FaEnvelope /> director.safedispatchlogistics@gmail.com
               </span>
