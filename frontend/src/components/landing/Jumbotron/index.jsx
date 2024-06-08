@@ -10,28 +10,14 @@ const Jumbotron = () => {
       <Navbar />
       <div className={style.jumbotroncontent}>
         <img src={bg} className={style.bg} />
-        <div>
+        <div className={style.container}>
           <h2 className={style.welcome}>Welcome to our website</h2>
           <h2 className={style.h2}>Safely delivering your cargo with reliability and trust at SafeDispatchLogistics.</h2>
-          <h3 className={style.h3} style={{
+          <h3 className={style.h2} style={{
             marginBlock:"5px"
           }}>We serve in Haryana, Punjab, Delhi NCR, UP East, Up West, Jammu Kashmir, Uttarakhand, Rajasthan.</h3>
           <img src={logo} alt="Logo" className={style.logo} />
-          <h3 className={style.h3} style={{
-            position:'absolute',
-            left:"50%",
-            bottom:"18%",
-            fontSize:"22px",
-            transform:"translateX(-50%)",
-            color:"yellow",
-            margin:"0px",
-            width:"94%"
-          }}><MdPinDrop style={{
-            color:"red",
-            fontSize:"35px",
-            position:"absolute",
-            left:"-8px",
-          }}/> SCO 52, New grain market,near Jalandhar bye pass Ludhiana 141008</h3>
+          <h3 className={style.address}><MdPinDrop className={style.pin} /> SCO 52, New grain market,near Jalandhar bypass Ludhiana 141008</h3>
         </div>
       </div>
     </div>

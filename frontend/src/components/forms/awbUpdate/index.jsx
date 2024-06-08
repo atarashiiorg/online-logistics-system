@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import style from './style.module.css';
-import { CgAdd } from 'react-icons/cg';
-import { BsSave } from 'react-icons/bs';
-import { FaCheck, FaRegSave, FaTrashAlt } from 'react-icons/fa';
+import { FaArrowCircleDown, FaCheck, FaRegSave, FaTrashAlt } from 'react-icons/fa';
 import { IoRefresh } from 'react-icons/io5';
 import { Mandatory, TableComp } from '../../minComp';
 import { getDateForInput } from '../../../utils/helpers';
@@ -10,6 +8,7 @@ import UserAuthContext from '../../../contexts/authContext';
 import { useGetData } from '../../../apiHandlers/getApis';
 import { serverUrl } from '../../../constants';
 import { message } from 'antd';
+import { MdRefresh } from 'react-icons/md';
 
 export function VolWeight({
   volWeight,
@@ -210,7 +209,7 @@ export function AwbDetails({
         </p>
         <div>
           <label htmlFor="">Booking Branch</label>
-          <input type="text" value={values.branchText} disabled />
+          <input type="text" value={values.branchText} placeholder='Booking Branch' disabled />
           <label htmlFor="">Origin</label>
           <input
             type="text"
@@ -290,6 +289,20 @@ export function AwbDetails({
               checked={values.isOda}
               onInput={handleInput}
             />
+            <input 
+            type="text" 
+            style={{
+              height:"100%",
+              padding:"4px 8px",
+              marginLeft:"10px",
+              width:"100%"
+            }}
+            name='odaAmount'
+            id='odaAmount'
+            placeholder='Oda Amount' 
+            value={values.odaAmount}
+            onInput={handleInput}
+            hidden={!values.isOda} />
           </span>
         </div>
       </div>
@@ -297,7 +310,7 @@ export function AwbDetails({
   );
 }
 
-export function BillingDetails({ handleInput, values }) {
+export function BillingDetails({ handleInput, values,clients }) {
   const { branches } = useContext(UserAuthContext);
   return (
     <>
@@ -312,7 +325,13 @@ export function BillingDetails({ handleInput, values }) {
             name="clientName"
             value={values.clientName}
             onInput={handleInput}
+            list='clientList'
           />
+          <datalist id='clientList'>
+            {
+              clients.map(c=><option value={c.clientCode+" : "+c.clientName}>{c.clientCode} : {c.clientName}</option>)
+            }
+          </datalist>
           <label htmlFor="">Invoice No</label>
           <input
             type="text"
@@ -333,7 +352,7 @@ export function BillingDetails({ handleInput, values }) {
           />
 
           <label htmlFor="">Billing At</label>
-          <select value={values.billingAt} onChange={handleInput}>
+          <select id='billingAt' value={values.billingAt} onChange={handleInput}>
             {branches.map((b) => (
               <option value={b._id}>
                 {b.branchCode} : {b.branchName}
@@ -623,6 +642,8 @@ export function OverallWeight(props) {
 
 export default function AwbUpdate() {
   const initialAwbDetails = {
+    branch:'',
+    branchText:'',
     docketNumber: '',
     origin: '',
     originText: '',
@@ -637,6 +658,7 @@ export default function AwbUpdate() {
   const initialBillingDetails = {
     branch: '',
     branchText: '',
+    client:'',
     clientName: '',
     invoiceNumber: '',
     invoiceValue: '',
@@ -678,6 +700,7 @@ export default function AwbUpdate() {
 
   const { currentBranch } = useContext(UserAuthContext);
   const [err, loading, destinations] = useGetData('dest');
+  const [err1,loading1, clients] = useGetData('client');
   const [volWeight, setVolWeight] = useState(initialVolWeight);
   const [dimWeight, setDimWeight] = useState(initialDimWeight);
   const [awbDetails, setAwbDetails] = useState(initialAwbDetails);
@@ -823,7 +846,7 @@ export default function AwbUpdate() {
       }
       message.success('Booking Fetched Successfully');
       setBooking({...json.data})
-      setDataInFields()
+      // setDataInFields()
     } catch (error) {
       message.error('Error Occured: ' + error);
       return;
@@ -832,35 +855,43 @@ export default function AwbUpdate() {
     }
   };
 
+  useEffect(()=>{
+    setDataInFields()
+  },[booking])
 
   const setDataInFields=()=>{
     setAwbDetails(()=>{
-      const branch = branches.filter(d=>d?._id==booking?.branch)[0]
-      const destination = destinations.filter(d=>d._id==booking?.shipment?.destination)[0]
-      const origin = destinations.filter(d=>d._id==booking?.shipment?.origin)[0]
+      const branch =  branches.filter(d=>d?._id==booking?.branch)[0]
+      const destination =  destinations.filter(d=>d._id==booking?.shipment?.destination)[0]
+      const origin =  destinations.filter(d=>d._id==booking?.shipment?.origin)[0]
       return {
+        customerType:booking?.shipment?.customerType,
         branch:branch?._id,
-        branchText:branch?.branchCode+" : "+branch?.branchName,
-        originText:origin?.destCode+" : "+origin.destName,
-        destinationText:destination?.destCode+" : "+destination.destName,
+        branchText:branch?branch?.branchCode+" : "+branch?.branchName:"",
+        originText:origin?origin?.destCode+" : "+origin?.destName:"",
+        destinationText:destination?destination?.destCode+" : "+destination?.destName:"",
         origin:origin?._id,
         destination:destination?._id,
         mode:booking?.shipment?.mode,
         bookingDate:booking?.bookingDate,
-        isOda:booking?.shipment?.isOda
+        isOda:booking?.shipment?.isOda,
+        odaAmount:booking?.shipment?.odaAmount
       }
     })
 
     setBillingDetails(()=>{
       return {
+        client:booking?.client,
         clientName:booking?.invoice?.clientName,
-        invoiceValue:booking?.invoice?.invoiceValue,
-        invoiceNumber:booking?.invoice?.invoiceNumber,
+        invoiceValue:booking?.invoice?.invoiceValue||"",
+        invoiceNumber:booking?.invoice?.invoiceNumber||"",
         itemContent:booking?.invoice?.itemContent,
         bookingType:booking?.invoice?.bookingType,
         codType:booking?.invoice?.codType,
-        codAmount:booking?.invoice?.codAmount,
-        amountToPay:booking?.invoice?.amountToPay
+        codAmount:booking?.invoice?.codAmount||"",
+        amountToPay:booking?.invoice?.amountToPay||"",
+        billingAt:booking?.invoice?.billingAt,
+        odaCharges:booking?.invoice?.odaCharges||""
       }
     })
 
@@ -894,11 +925,17 @@ export default function AwbUpdate() {
   const handleAwb = (e) => {
     setAwbDetails((p) => {
       const obj = { ...p };
+      // debugger
       if (e.target.id == 'origin' || e.target.id == 'destination') {
         obj[e.target.name] = e.target.value;
         const dCode = e.target.value.split(' : ')[0];
         const dest = destinations.filter((d) => d.destCode == dCode);
         obj[e.target.id] = dest[0]?._id || '';
+      } else if(e.target.type=='checkbox') {
+        console.log(e.target.checked)
+        console.log(e.target.name)
+        console.log(e.target.type)
+        obj[e.target.name] = !e.target.checked
       } else {
         obj[e.target.name] = e.target.value;
       }
@@ -910,7 +947,15 @@ export default function AwbUpdate() {
   const handleInvoice = (e) => {
     setBillingDetails((p) => {
       const obj = { ...p };
-      if (e.target.name != e.target.id) {
+      if (e.target.id=="client") {
+        const cCode = e.target.value.trim().split(" : ")[0]
+        const client = clients.filter(c=>c.clientCode==cCode)[0]
+        obj.client = client?._id||""
+        obj.clientName = e.target.value
+        return obj
+      }
+      if(e.target.id=="billingAt"){
+        obj.billingAt = e.target.value
       }
       obj[e.target.name] = e.target.value;
       return obj;
@@ -926,6 +971,81 @@ export default function AwbUpdate() {
       return obj;
     });
   };
+
+  const updateBooking= async()=>{
+    const updatedBooking = {
+      ...booking,
+      bookingDate:awbDetails.bookingDate,
+      client:billingDetails.client,
+      shipment:{
+        ...booking.shipment,
+        origin:awbDetails.origin,
+        destination:awbDetails.destination,
+        mode:awbDetails.mode,
+        customerType:awbDetails.customerType,
+        isOda:awbDetails.isOda,
+        totalBoxes:volWeight.totalBoxes,
+        actualWeight:volWeight.actualWeight,
+        totalActualWeight:dimWeight.totalActualWeight,
+        totalChargeWeight:dimWeight.totalChargeWeight,
+        odaAmount:awbDetails.odaAmount
+      },
+      invoice:{
+        ...booking.invoice,
+        clientName:billingDetails.clientName,
+        invoiceNumber:billingDetails.invoiceNumber,
+        invoiceValue:billingDetails.invoiceValue,
+        billingAt:billingDetails.billingAt,
+        itemContent:billingDetails.itemContent,
+        bookingType:billingDetails.bookingType,
+        amountToPay:billingDetails.amountToPay,
+        odaCharges:billingDetails.odaCharges,
+        codType:billingDetails.codType,
+        codAmount:billingDetails.codAmount,
+      },
+      consignorConsignee:{
+        ...booking.consignorConsignee,
+        ...consignorConsignee
+      },
+
+    }
+    try {
+      const res = await fetch(serverUrl+"booking?bid="+booking._id,{
+        method:"PATCH",
+        credentials:"include",
+        headers:{
+          'content-type':'application/json'
+        },
+        body:JSON.stringify(updatedBooking)
+      })
+      const json = await res.json()
+      if(res.status==500){
+        message.error("Internal Server Error Occured")
+        return
+      }
+      if(res.status==401){
+        message.error("Session Expired")
+        setUser(null)
+        return
+      }
+      if(res.status!=200){
+        message.error(json.msg)
+      } else {
+        message.success("Booking Updated")
+      }
+    } catch (error) {
+      message.error("Error Occured: "+error)
+      console.log(error)
+    } 
+  }
+
+  const resetForm=()=>{
+    setAwbDetails(initialAwbDetails)
+    setBillingDetails(initialBillingDetails)
+    setConsignorConsignee(initialConsignorConsignee)
+    setDimWeight(initialDimWeight)
+    setVolWeight(initialVolWeight)
+  }
   return (
     <>
       {/* <span className={style.span}>
@@ -949,7 +1069,7 @@ export default function AwbUpdate() {
         handleChange={handleDocketEnter}
       />
       {/* <ForwardingForm/> */}
-      <BillingDetails handleInput={handleInvoice} values={billingDetails} />
+      <BillingDetails handleInput={handleInvoice} values={billingDetails} clients={clients} branches={branches} />
       <ConsignorDetails
         handleInput={handleConsignorConsignee}
         values={consignorConsignee}
@@ -964,8 +1084,11 @@ export default function AwbUpdate() {
       />
       <OverallWeight {...dimWeight} />
       <div className={style.actions}>
-        <button>
-          <FaCheck /> Update
+        <button className={style.buttonSave} onClick={updateBooking}>
+          <span><FaCheck /></span> <span>Update</span>
+        </button>
+        <button className={style.buttonRef} onClick={resetForm}>
+          <span><MdRefresh style={{fontWeight:"800", fontSize:"20px"}} /></span> <span>Reset</span>
         </button>
       </div>
     </>

@@ -16,6 +16,7 @@ const { default: mongoose, startSession } = require("mongoose");
 const sendMail = require("../services/mailSmsServices");
 const getTemplate = require("../utils/emailTemplate");
 const { getBookingReportFormat } = require("../services/helpers");
+const Shipper = require("../models/shipper");
 
 async function createBooking(req, res) {
   const transaction = await startSession();
@@ -510,23 +511,61 @@ async function getBookingForUpdate(req, res) {
     const booking = await Booking.findOne({
       docketNumber: req.query.docketNumber,
     })
-    .populate("shipment")
-    .populate("invoice")
-    .populate("consignorConsignee")
+      .populate("shipment")
+      .populate("invoice")
+      .populate("consignorConsignee");
     if (!booking) {
       res.status(404).json({ msg: "Booking Not Found" });
       return;
     }
-   res.status(200).json({msg:"Success",data:booking})
+    res.status(200).json({ msg: "Success", data: booking });
   } catch (error) {
-    res.status(500).json({err:error.toString()})
+    res.status(500).json({ err: error.toString() });
   }
 }
+
+const editBooking = async (req, res) => {
+  const shipment = req.body.shipment;
+  delete shipment.createdAt;
+  delete shipment.__v;
+  const invoice = req.body.invoice;
+  delete invoice.createdAt;
+  delete invoice.__v;
+  const consignorConsignee = req.body.consignorConsignee;
+  delete consignorConsignee.createdAt;
+  delete consignorConsignee.__v;
+  const transaction = await startSession();
+  transaction.startTransaction();
+  try {
+    const updateBooking = await Booking.updateOne(
+      { _id: req.body._id },
+      { ...req.body }
+    ).session(transaction);
+    const updateShipment = await Shipment.updateOne({ _id: shipment._id },shipment).session(transaction);
+    const updateInvoice = await Invoice.updateOne({ _id: invoice._id },invoice).session(transaction);
+    const updateConsignorConsignee = await ConsignorConsignee.updateOne({ _id: consignorConsignee._id },consignorConsignee).session(transaction);
+    console.log(
+      updateShipment,
+      updateInvoice,
+      updateConsignorConsignee,
+      updateBooking
+    );
+    await transaction.commitTransaction();
+  } catch (error) {
+    await transaction.abortTransaction();
+    console.log("Error while updating Booking: " + error);
+    res.status(500).json({ err: error.toString() });
+    return;
+  }
+  res.status(200).json({ msg: "success" });
+};
+
 module.exports = {
   createBooking,
   getBooking,
   getBookingReport,
   getBookingForDRSStatusUpdate,
   deleteBooking,
-  getBookingForUpdate
+  getBookingForUpdate,
+  editBooking,
 };

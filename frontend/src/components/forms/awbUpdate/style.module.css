@@ -19,18 +19,26 @@ span>div>input{
 }
 
 .actions{
+    display: flex;
     padding: 5px 50px;
     background-color: #d3d3d3;
 }
 
-.actions>button{
+/* .buttonRef, .buttonSave{
     padding: 5px 8px;
     border: none;
     border-radius: 0;
-    background-color: crimson;
     color: white;
     margin: 0px 5px;
 }
+
+.buttonRef{
+    background-color: green;
+}
+
+.buttonSave{
+    background-color: #F58329;
+} */
 
 .formContainer{
     width: 100%;
@@ -107,6 +115,9 @@ span>div>input{
 }
 
 .buttonRef, .buttonSave{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: 5px 8px;
     border: none;
     border-radius: 0;
@@ -116,7 +127,7 @@ span>div>input{
 }
 
 .buttonSave{
-    background-color: crimson;
+    background-color: green;
 }
 
 .weightTable{

@@ -1,125 +1,163 @@
 .navbar {
-    z-index: 999;
-    width: 100%;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.116);
+  z-index: 999;
+  width: 100%;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.116);
 }
 
 .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 1.5em;
-    margin-left: 1.2em;
-    align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5em;
+  margin-left: 1.2em;
+  align-items: center;
 }
 
 .navbar ul li a {
-    display: block;
-    color: black;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    transition: color 0.3s ease; 
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .navbar ul li a:hover {
-    color: #555;
+  color: #555;
 }
 
 .jumbotron {
-    height: 100vh;
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .jumbotron p {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 .jumbotron button {
-    font-size: 20px;
-    padding: 10px 20px;
-    border-radius:5px ;
-    margin-top: 40px;
-    background-color: #333;
-    color: white;
-    border: none;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 40px;
+  background-color: #333;
+  color: white;
+  border: none;
 }
 
 .bigtext {
-    color:#333;
+  color: #333;
 }
 
-.jumbotroncontent{
-    height: 100%;
-    width: 100%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: rgba(25, 58, 104, 0.589);
-    /* object-fit: cover; */
+.jumbotroncontent {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: rgba(25, 58, 104, 0.589);
+  /* object-fit: cover; */
 }
 
-.bg{
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 1;
-    z-index: -1;
-    height: 100%;
-    width: 100%; 
-    object-fit: cover;
-    overflow: hidden;
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  overflow: hidden;
 }
 
-.logo{
-    z-index: 9999;
-    height: 250px;
-    position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background-color: #122540;
+.logo {
+  z-index: 9999;
+  height: 250px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #122540;
 }
 
-.welcome{
-    /* position: absolute;
-    top: 35%; */
-    margin-top:70px;
-    font-size:60px; 
-    text-transform:capitalize;
-    /* color: black; */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.h2{
-    font-size:25px; 
-    text-transform:capitalize;
+.welcome {
+  margin-top: 190px;
+  font-size: 55px;
+  text-transform: capitalize;
+  color: rgb(255, 255, 255);
+}
+
+.h2 {
+  font-size: 23px;
+  /* color: rgb(166, 217, 252); */
+  text-transform: capitalize;
+}
+
+.address {
+  margin: 0px;
+  color: rgb(245, 245, 175);
+  width: 94%;
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  justify-content: center;
+}
+
+.pin{
+    color: red;
+    margin: 10px;
+    font-size: 45px;
 }
 
 @media (max-width: 768px) {
-    .jumbotroncontent{
-        /* background-color: #1225408c; */
-    }
-   .logo{
+  .jumbotroncontent {
+    /* background-color: #1225408c; */
+  }
+  .logo {
     top: 20%;
     height: 20%;
     background-color: #122540;
-   }
+  }
 
-   .welcome{
+  .welcome {
     font-size: 40px;
-   }
+  }
 
-   .h2{
+  .h2 {
     margin-top: 10px;
+    font-size: 22px;
+  }
+
+  .address{
+    margin-left: 6%;
+    padding: 12%;
+    position: relative;
     font-size: 20px;
-   }  
+    word-wrap: break-word;
+  }
+
+  .pin{
+    color: red;
+    font-size: 40px;
+    position: absolute;
+    left: 10px;
+    top: 42%;
+    transform: translateY(-50%);
+  }
 }

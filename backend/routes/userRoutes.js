@@ -39,7 +39,8 @@ const {
     getBookingForDRSStatusUpdate,
     deleteBooking,
     getBookingReport,
-    getBookingForUpdate
+    getBookingForUpdate,
+    editBooking
 } = require("../controllers/bookingControllers")
 const {
     createState,
@@ -137,6 +138,7 @@ userRoutes.route("/booking")
         }
     })
     .post(createBooking)
+    .patch(editBooking)
     .delete(deleteBooking)
 
 userRoutes.route("/track")

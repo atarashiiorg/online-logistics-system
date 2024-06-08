@@ -141,6 +141,7 @@ export default function BookingReport() {
     chargedWeight:"Charged Weight",
     status:"Status",
     paymentMode:"Payment Mode",
+    amount:"TOPAY/CASH Amt",
     codType:"COD/NONCOD",
     codAmount:"COD Amt.",
     odaCharges:"ODA Charges",
@@ -148,7 +149,6 @@ export default function BookingReport() {
     receiverName:"Receiver Name",
     receiverType:"Receiver Type",
     deliveryDate:"Delivery Date",
-    // podLink:"POD"
   }
   const colsArr = Object.values(cols)
   const colsValArr = Object.keys(cols)
