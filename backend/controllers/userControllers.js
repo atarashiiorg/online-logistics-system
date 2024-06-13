@@ -10,6 +10,7 @@ const { getUser } = require("../services/dbServices")
 async function loginUser(req, res) {
     try {
         const user = await getUser({email:req.body.username.toLowerCase()})
+        // console.log(user.permissions.branchAccess.access)
         if (!user) {
             res.status(404).json({ msg: "User not found" })
             return
@@ -28,8 +29,8 @@ async function loginUser(req, res) {
             )
             const n_user = await getUserData(user)
             res.cookie('token', token, {
-                httpOnly: true,
-                // secure:true, //recommended when using in production
+                httpOnly: false,
+                //secure:true, //recommended when using in production
                 maxAge: 60 * 60 * 1000 * 5
             })
             res.status(200).json({ msg: "success", data: n_user })

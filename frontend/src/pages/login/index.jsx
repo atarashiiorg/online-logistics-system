@@ -1,13 +1,15 @@
 import style from './style.module.css'
 import loginBg from '../../assets/loginBg1.png'
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import {message} from 'antd';
 import {serverUrl} from "../../constants"
 import { useNavigate} from "react-router-dom"
 import PasswordInput from '../../components/passwordInput';
+import Loading from '../loading';
 
 export default function Login() {
     const [loginCreds, setLoginCreds] = useState({username:"",password:""})
+    const [loading, setLoading] = useState(false)
 
     useEffect(()=>{
         document.title = "Safe dispatch logistics-Login"
@@ -30,6 +32,7 @@ export default function Login() {
         }
 
         try {
+            setLoading(true)
             const res = await fetch(serverUrl+"login",{
                 method:"POST",
                 credentials:'include',
@@ -54,11 +57,16 @@ export default function Login() {
             navigator("/dashboard")
         } catch (error) {
             message.error(error)
+        } finally {
+            setLoading(false)
         }
 
     }
     return (
         <div className={style.container}>
+            {
+                loading?<Loading/>:null
+            }
             <img src={loginBg} />
             <div className={style.loginForm}>
                 <h2>Login</h2>

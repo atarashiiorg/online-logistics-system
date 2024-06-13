@@ -22,17 +22,17 @@ const TableRow = (props) => {
 
                         if (e.target.checked) {
                             props.select(p => {
-                                const idx = p.findIndex(d => d.docket == id)
+                                const idx = p.findIndex(d => d?.docket == id)
                                 if (idx > -1) {
                                     return p
                                 } else {
-                                    return [...p, { docket: id, rcDate: props.date, message: props.message }]
+                                    return [...p, { docket: id, rcDate: props?.date, message: props?.message }]
                                 }
                             })
                             setIsChecked(e.target.checked)
                         } else {
                             props.select(p => {
-                                const newArr = p.filter(d => d.docket != id)
+                                const newArr = p.filter(d => d?.docket != id)
                                 return [...newArr]
                             })
                             setIsChecked(e.target.checked)
@@ -41,11 +41,11 @@ const TableRow = (props) => {
                     useEffect(() => {
                         if (props.allChecked) {
                             props.select(p => {
-                                const idx = p.findIndex(docket => docket.docket == d?._id)
+                                const idx = p.findIndex(docket => docket?.docket == d?._id)
                                 if (idx > -1) {
                                     return p
                                 } else {
-                                    return [...p, { docket: d._id, rcDate: props.date, message: props.message }]
+                                    return [...p, { docket: d?._id, rcDate: props?.date, message: props?.message }]
                                 }
                             })
                         } else {

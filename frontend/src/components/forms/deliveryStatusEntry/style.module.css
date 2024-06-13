@@ -70,8 +70,10 @@ span > div > input {
 }
 
 .rows {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  /* grid-gap: 10px; */
+  text-align: left;
 }
 
 .rows input,
@@ -79,7 +81,7 @@ span > div > input {
 .rows span > input,
 .rows > select,
 .uploader {
-  width: 60%;
+  width: 100%;
   padding: 3px 5px;
 }
 
@@ -109,9 +111,10 @@ span > div > input {
   font-weight: normal;
 }
 .rows > span {
-  width: 60%;
+  width: 100%;
   display: grid;
-  grid-template-columns: 70% 20%;
+  grid-template-columns: 50% 45%;
+  gap: 5%;
 }
 .buttonChk {
   background-color: green;

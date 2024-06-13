@@ -16,6 +16,7 @@ const { PassThrough } = require("stream");
 const Branch = require("../models/branch");
 const Tracking = require("../models/tracking");
 const { Session } = require("inspector");
+const { fetchManifestReport } = require("../services/reportService");
 
 async function createManifest(req, res) {
   const transaction = await startSession();
@@ -96,9 +97,11 @@ async function createManifest(req, res) {
   } catch (err) {
     console.log(err);
     await transaction.abortTransaction(); //abort transaction
-    if(err.code=="EENVELOPE"){
-      res.status(403).json({msg:"Client/Consignor/Consignee Email missing."})
-      return
+    if (err.code == "EENVELOPE") {
+      res
+        .status(403)
+        .json({ msg: "Client/Consignor/Consignee Email missing." });
+      return;
     }
     res.status(500).json({ err: err.toString() });
   } finally {
@@ -108,13 +111,25 @@ async function createManifest(req, res) {
 
 async function getManifests(req, res) {
   //mid based
-  const tbid = req.query.bid;
   const mid = req.query.mid;
-  const fBCode = req.query.fBCode;
+  const manifestNumber = req.query.manifestNumber;
+
+  const branch = req.query.bid;
+  const fromBranch = req.query.fBCode;
   const fromDate = req.query.fromDate;
   const toDate = req.query.toDate;
-  const toBCode = req.query.toBCode;
-  const manifestNumber = req.query.manifestNo;
+  const toBranch = req.query.toBCode;
+
+  try {
+    if(branch){
+      const manifests = await getPopulatedManifest({toBCode:branch},false,true)
+      res.status(200).json({msg:"success",data:manifests})
+      return
+    }
+  } catch (error) {
+    res.status(500).json({err:error.toString()})
+    return
+  }
 
   try {
     if (mid) {
@@ -131,138 +146,65 @@ async function getManifests(req, res) {
       return;
     }
   } catch (error) {
-    console.log(
-      "Error occured while generating manifest pdf " +
-        new Date().toLocaleDateString() +
-        " ->",
-      error
-    );
-    res
-      .status(500)
-      .json({ err: "Internal error occured while generating pdf" });
+    console.log("Error occured while generating manifest pdf " +new Date().toLocaleDateString() +" ->",error);
+    res.status(500).json({ err: "Internal error occured while generating pdf" });
     return;
   }
 
-  //bid based
   try {
-    if (tbid) {
-      const manifests = await getPopulatedManifest(
-        { toBCode: new mongoose.Types.ObjectId(tbid) },
-        false,
-        true
-      );
-      let response = [];
-      for (let i = 0; i < manifests.length; i++) {
-        if (manifests[i].dockets.length > 0) {
-          response.push(manifests[i]);
-        } else continue;
-      }
-      console.log(response);
-      res.status(200).json({ msg: "success", data: response });
-      return;
+    const pipeline = [];
+    const matchStage = {};
+    if (fromBranch) {
+      matchStage.fromBCode = new mongoose.Types.ObjectId(fromBranch);
     }
-  } catch (err) {
-    console.log(
-      "Error while getting toBCode manifests" +
-        new Date().toLocaleDateString() +
-        "-> ",
-      err
-    );
-    res.status(500).json({ err: "Internal server error occured" });
-    return;
-  }
-  //
-  try {
-    let manifests;
-    if (fBCode && toBCode && fromDate && toDate && manifestNumber) {
-      console.log("finding this->1");
-      console.log(new Date(fromDate), new Date(toDate));
-      manifests = await getPopulatedManifest(
-        {
-          fromBCode: new mongoose.Types.ObjectId(fBCode),
-          toBCode: new mongoose.Types.ObjectId(toBCode),
-          manifestDate: {
-            $gte: new Date(fromDate),
-            $lte: new Date(toDate),
-          },
-          manifestNumber,
-        },
-        false,
-        false
-      );
-    } else if (fBCode && fromDate && toDate && manifestNumber) {
-      console.log("finding this->2");
-      manifests = await getPopulatedManifest(
-        {
-          fromBCode: new mongoose.Types.ObjectId(fBCode),
-          manifestDate: {
-            $gte: new Date(fromDate),
-            $lte: new Date(toDate),
-          },
-          manifestNumber,
-        },
-        false,
-        false
-      );
-    } else if (fBCode && fromDate && toDate) {
-      console.log("finding this->2");
-      manifests = await getPopulatedManifest(
-        {
-          fromBCode: new mongoose.Types.ObjectId(fBCode),
-          manifestDate: {
-            $gte: new Date(fromDate),
-            $lte: new Date(toDate),
-          },
-        },
-        false,
-        false
-      );
-    } else if (fBCode && toBCode) {
-      console.log("finding this->3");
-      manifests = await getPopulatedManifest(
-        {
-          fromBCode: new mongoose.Types.ObjectId(fBCode),
-          toBCode: new mongoose.Types.ObjectId(toBCode),
-        },
-        false,
-        false
-      );
-    } else if (fBCode && manifestNumber) {
-      console.log("finding this->4");
-      manifests = await getPopulatedManifest(
-        {
-          fromBCode: new mongoose.Types.ObjectId(fBCode),
-          manifestNumber,
-        },
-        false,
-        false
-      );
-    } else {
-      manifests = await getPopulatedManifest(
-        {
-          fromBCode: new mongoose.Types.ObjectId(fBCode),
-        },
-        false,
-        false
-      );
+    if (toBranch) {
+      matchStage.toBCode = new mongoose.Types.ObjectId(toBranch);
     }
-    console.log(manifests);
+    if (fromDate && toDate) {
+      matchStage.manifestDate = {
+        $gte: new Date(fromDate),
+        $lte: new Date(toDate),
+      };
+    }
+    if(manifestNumber){
+      matchStage.manifestNumber = manifestNumber
+    }
+    pipeline.push({ $match: matchStage });
+    pipeline.push({
+      $lookup: {
+        from: "branches",
+        localField: "fromBCode",
+        foreignField: "_id",
+        as: "fromBCode",
+      },
+    });
+    pipeline.push({ $unwind: "$fromBCode" });
+    pipeline.push({
+      $lookup: {
+        from: "branches",
+        localField: "toBCode",
+        foreignField: "_id",
+        as: "toBCode",
+      },
+    });
+    pipeline.push({ $unwind: "$toBCode" });
+    const select = {
+      dockets: 1,
+      "fromBCode.branchCode": 1,
+      "fromBCode.branchName": 1,
+      "toBCode.branchCode": 1,
+      "toBCode.branchName": 1,
+      manifestDate: 1,
+      manifestNumber: 1,
+      isReceived: 1,
+    };
+    pipeline.push({ $project: select });
+    const manifests = await Manifest.aggregate(pipeline);
     res.status(200).json({ msg: "success", data: manifests });
     return;
-  } catch (err) {
-    console.log("Error occured ->", err);
-    res.status(500).json({ err: "Internal server error occured" });
-    return;
-  }
-
-  //all
-  try {
-    const manifests = await getPopulatedManifest({});
-    res.status(200).json({ msg: "success", data: manifests });
-    return;
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({ err: "Internal server error occured" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ err: error });
     return;
   }
 }
@@ -347,8 +289,14 @@ async function receiveManifest(req, res) {
   }
 }
 
+const getReports = async (req, res) => {
+  const reports = await fetchManifestReport(req.query);
+  res.status(200).json({ msg: "success", data: reports });
+};
+
 module.exports = {
   createManifest,
   getManifests,
   receiveManifest,
+  getReports,
 };

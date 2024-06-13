@@ -222,8 +222,8 @@ export function AwbDetails({
           />
           <datalist id="dests">
             {destinations.map((d) => (
-              <option value={d.destCode + ' : ' + d.destName}>
-                {d.destCode + ' : ' + d.destName}
+              <option value={d?.destCode + ' : ' + d?.destName}>
+                {d?.destCode + ' : ' + d?.destName}
               </option>
             ))}
           </datalist>
@@ -329,7 +329,7 @@ export function BillingDetails({ handleInput, values,clients }) {
           />
           <datalist id='clientList'>
             {
-              clients.map(c=><option value={c.clientCode+" : "+c.clientName}>{c.clientCode} : {c.clientName}</option>)
+              clients.map(c=><option value={c?.clientCode+" : "+c?.clientName}>{c?.clientCode} : {c?.clientName}</option>)
             }
           </datalist>
           <label htmlFor="">Invoice No</label>
@@ -354,8 +354,8 @@ export function BillingDetails({ handleInput, values,clients }) {
           <label htmlFor="">Billing At</label>
           <select id='billingAt' value={values.billingAt} onChange={handleInput}>
             {branches.map((b) => (
-              <option value={b._id}>
-                {b.branchCode} : {b.branchName}
+              <option value={b?._id}>
+                {b?.branchCode} : {b?.branchName}
               </option>
             ))}
           </select>
@@ -841,7 +841,7 @@ export default function AwbUpdate() {
         return;
       }
       if (res.status != 200) {
-        message.error(json.err);
+        message.error(json.msg);
         return;
       }
       message.success('Booking Fetched Successfully');

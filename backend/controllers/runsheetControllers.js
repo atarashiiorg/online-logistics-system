@@ -29,43 +29,31 @@ async function getRunsheets(req, res) {
       return;
     } else {
       let runsheets;
-      if (
-        req.query.bid &&
-        req.token.role != "adm" &&
-        req.token.role != "emp" &&
-        req.query.fromDate &&
-        req.query.toDate
-      ) {
-        runsheets = await Runsheet.find({
-          branch: req.query.bid,
-          employee: req.token._id,
-          date: {
-            $gte: new Date(req.query.fromDate),
-            $lte: new Date(req.query.toDate),
-          },
-        }).populate("employee");
-      } else if (
-        req.query.bid &&
-        req.token.role == "emp" &&
-        req.query.fromDate &&
-        req.query.toDate
-      ) {
-        runsheets = await Runsheet.find({
-          branch: req.query.bid,
-          date: {
-            $gte: new Date(req.query.fromDate),
-            $lte: new Date(req.query.toDate),
-          },
-        }).populate("employee");
-      } else {
-        runsheets = await Runsheet.find({
-          branch: req.query.bid,
-          date: {
-            $gte: new Date(req.query.fromDate),
-            $lte: new Date(req.query.toDate),
-          },
-        }).populate("employee");
+      const query = {};
+      if (req.query.bid) {
+        query.branch = req.query.bid;
       }
+      if (req.query.fromDate && req.query.toDate) {
+        query.date = {
+          $gte: new Date(req.query.fromDate),
+          $lte: new Date(req.query.toDate),
+        };
+      }
+      if(req.query.runsheetFrom){
+        query.runsheetNumber = {}
+        query.runsheetNumber.$gte= req.query.runsheetFrom
+      }
+      if(req.query.runsheetTo){
+        query.runsheetNumber.$lte = req.query.runsheetTo
+      }
+      if (req.token.role != "adm" && req.token.role != "emp") {
+        query.employee = req.token._id;
+      }
+      if (req.token.role == "emp") {
+
+      }
+      console.log(query)
+      runsheets = await Runsheet.find(query).populate("employee");
       res.status(200).json({ msg: "success", data: runsheets });
     }
   } catch (error) {
@@ -94,9 +82,9 @@ async function createRunsheet(req, res) {
       if (
         tracking.status == "booked" ||
         tracking.status == "in-transit" ||
-        tracking.status == "undelivered" || 
-        tracking.status == "return to origin" || 
-        tracking.status == "misrouted" 
+        tracking.status == "undelivered" ||
+        tracking.status == "return to origin" ||
+        tracking.status == "misrouted"
       ) {
         processedDockets.push(dockets[i]);
       } else {
@@ -141,7 +129,7 @@ async function createRunsheet(req, res) {
         null,
         transaction
       );
-      let status = ""
+      let status = "";
       await updateTrackingStatus(
         processedDockets,
         "docketNumber",

@@ -17,3 +17,9 @@ export function getDateForInput(date){
     const newDate = now.getFullYear() + "-" + (month) + "-" + (day);
     return newDate
 }
+
+export function get30DaysBeforeDate(){
+    const date = new Date(new Date().setDate(new Date().getDate() - 30))
+    console.log("purani date",date)
+    return date
+}

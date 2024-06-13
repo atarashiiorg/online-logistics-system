@@ -18,9 +18,9 @@ export default function BookingEntry() {
   const [err1, loading1, dests] = useGetData('dest');
   const [client, setClient] = useState('');
   const { branches } = useContext(UserAuthContext);
-  const ludhianaIdx = branches.findIndex(
-    (b) => b.branchName.toLowerCase().trim() == 'ludhiana',
-  );
+  // const ludhianaIdx = branches.findIndex(
+  //   (b) => b?.branchName?.toLowerCase().trim() == 'ludhiana',
+  // );
   // console.log("ludhiana index",ludhianaIdx)
   const initialAwbDetails = {
     docketNumber: '',
@@ -97,7 +97,7 @@ export default function BookingEntry() {
       const obj = { ...p };
       if (field == 'origin' || field == 'destination') {
         const dCode = e.target.value.split(' : ')[0];
-        const idx = dests.findIndex((b) => b.destCode == dCode);
+        const idx = dests.findIndex((b) => b?.destCode == dCode);
         obj[field] = dests[idx]?._id;
         obj[field + 'Text'] = e.target.value;
         return obj;
@@ -330,7 +330,7 @@ export default function BookingEntry() {
 
   useEffect(() => {
     const ludhiana = branches.filter((b) => {
-      return b.branchName.toLowerCase().trim() === 'ludhiana';
+      return b?.branchName.toLowerCase().trim() === 'ludhiana';
     });
     setBillingDetails((p) => {
       const obj = { ...p };
@@ -374,8 +374,8 @@ export default function BookingEntry() {
           />
           <datalist id="dests">
             {dests.map((b) => (
-              <option value={b.destCode + ' : ' + b.destName} key={b._id+"des"}>
-                {b.destCode} : {b.destName}
+              <option value={b?.destCode + ' : ' + b?.destName} key={b?._id+"des"}>
+                {b?.destCode} : {b?.destName}
               </option>
             ))}
           </datalist>
@@ -397,7 +397,7 @@ export default function BookingEntry() {
             type="date"
             value={getDateForInput(awbDetails.bookingDate)}
             onInput={(e) => handleAwbDetails(e, 'bookingDate')}
-            disabled={user.role != 'adm'}
+            disabled={user?.role != 'adm'}
           />
           <label htmlFor="">
             Destination <Mandatory />
@@ -458,8 +458,8 @@ export default function BookingEntry() {
           />
           <datalist id="clients">
             {clients.map((d) => (
-              <option value={d.clientCode + ' : ' + d.clientName} key={d._id+"jkhkh"}>
-                {d.clientName}
+              <option value={d?.clientCode + ' : ' + d?.clientName} key={d?._id+"jkhkh"}>
+                {d?.clientName}
               </option>
             ))}
           </datalist>
@@ -488,7 +488,7 @@ export default function BookingEntry() {
           >
             <option value="">Select branch for billing</option>
             {branches.map((b) => (
-              <option value={b._id} key={b._id+"jkh"}>{b.branchCode} : {b.branchName}</option>
+              <option value={b?._id} key={b?._id+"jkh"}>{b?.branchCode} : {b?.branchName}</option>
             ))}
           </select>
           <label htmlFor="">E-way Bill No.</label>

@@ -5,6 +5,9 @@
 }
 
 .tableContainer>p{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #ef9b1b;
     padding: 10px 15px;
     color: white;

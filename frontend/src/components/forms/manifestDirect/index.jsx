@@ -54,8 +54,8 @@ export function ManifestForm({
           />
           <datalist id="list1">
             {branches.map((b) => (
-              <option key={b._id} value={b.branchCode + ' : ' + b.branchName}>
-                {b.branchCode} : {b.branchName}
+              <option key={b?._id} value={b?.branchCode + ' : ' + b?.branchName}>
+                {b?.branchCode} : {b?.branchName}
               </option>
             ))}
           </datalist>
@@ -116,8 +116,8 @@ export function ManifestForm({
           />
           <datalist id="vendors">
             {vendors.map((v) => (
-              <option key={v._id} value={v.vendorCode + ' : ' + v.ownerName}>
-                {v.ownerName}
+              <option key={v?._id} value={v?.vendorCode + ' : ' + v?.ownerName}>
+                {v?.ownerName}
               </option>
             ))}
           </datalist>
@@ -264,17 +264,17 @@ export function AwbForm({
                 {docketList.map((d) => {
                   return (
                     <tr>
-                      <td>{d.docketNumber}</td>
+                      <td>{d?.docketNumber}</td>
                       <td>{d?.itemContent}</td>
-                      <td>{d.consignor}</td>
-                      <td>{d.consignee}</td>
-                      <td>{d.destination}</td>
-                      <td>{d.pieces}</td>
-                      <td>{d.weight}</td>
+                      <td>{d?.consignor}</td>
+                      <td>{d?.consignee}</td>
+                      <td>{d?.destination}</td>
+                      <td>{d?.pieces}</td>
+                      <td>{d?.weight}</td>
                       <td>
                         <FaTrashAlt
                           style={{ color: 'red' }}
-                          onClick={(e) => deleteDocket(d.docketNumber)}
+                          onClick={(e) => deleteDocket(d?.docketNumber)}
                         />
                       </td>
                     </tr>
@@ -404,7 +404,7 @@ export default function ManifestDirect() {
   const deleteDocket = (id) => {
     setManifest((p) => {
       const dockets = [...p.dockets];
-      const newData = dockets.filter((d) => d.docketNumber != id);
+      const newData = dockets.filter((d) => d?.docketNumber != id);
       return { ...p, dockets: newData };
     });
   }; // for deleting a docket entry from manifest

@@ -29,7 +29,7 @@ export default function DrsEntry() {
         message: ""
     }
     const [drs, setDrs] = useState(initialDrs)
-    const { currBranch, setUser } = useContext(UserAuthContext)
+    const { currBranch, setUser, user } = useContext(UserAuthContext)
     const [docket, setDocket] = useState({ dnum: "", weight: "" })
     const [errEmp, loadingEmp, employeeList] = useGetData("employee?role=dlb&branch="+currBranch?._id)
     const [errVendor, loadingVendor, vendorList] = useGetData("vendor")
@@ -199,7 +199,7 @@ export default function DrsEntry() {
                     </datalist>
                     <label htmlFor="">Date</label>
                     <div>
-                        <input type="date" value={getDateForInput(drs.date)} onInput={e => drsHandler(e, "date")} />
+                        <input type="date" value={getDateForInput(drs.date)} onInput={e => drsHandler(e, "date")} disabled={user.role!="adm"} />
                         <input type="text" placeholder='Phone No' onInput={e => drsHandler(e, "mobile")} />
                     </div>
 

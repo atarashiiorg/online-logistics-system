@@ -16,6 +16,11 @@ server.set('view engine', 'ejs')
 server.use(express.json({ limit: '10mb' }))
 server.use(express.urlencoded({ extended: true }))
 server.use(cookieParser())
+server.use(function(req, res, next) {  
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});  
 // server.use()
 server.use(limitReq)
 server.use(consoleReq)

@@ -297,26 +297,26 @@ async function getDataForAwbPdf(opts) {
 async function getUserData(user) {
   try {
     let branches;
-    branches = await user.permissions.branchAccess.access.map((b) => {
-      return { ...b._doc.branch._doc };
+    branches = await user?.permissions?.branchAccess?.access.map((b) => {
+      return b?.branch;
     });
     if (user.role == "adm") {
       branches = await Branch.find({}).populate("zone");
     }
     return {
-      ...user._doc,
+      ...user?._doc,
       password: "",
       _id: "",
       permissions: {
-        pageAccess: { ...user.permissions.pageAccess._doc },
+        pageAccess: { ...user?.permissions?.pageAccess?._doc },
         branchAccess: {
-          ...user.permissions.branchAccess._doc,
+          ...user?.permissions?.branchAccess?._doc,
           access: [...branches],
         },
       },
     };
   } catch (error) {
-    throw new error();
+    throw error;
   }
 }
 
