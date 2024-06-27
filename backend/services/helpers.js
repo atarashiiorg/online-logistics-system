@@ -173,21 +173,25 @@ async function getDataForRunsheetPdf(rid) {
     let totalToPay = 0;
     let totalCod = 0;
     const dockets = runsheetObj.dockets.map((d) => {
+      console.log(d.booking.invoice)
+      if(d.booking.invoice.bookingType=='cash'){
+        totalCash = (
+          parseFloat(totalCash) + parseFloat(d?.booking?.invoice?.amountToPay || 0)
+        ).toFixed(2);
+      } else {
+        totalToPay = (
+          parseFloat(totalToPay) +
+          parseFloat(d?.booking?.invoice?.amountToPay || 0)
+        ).toFixed(2);
+      }
       totalPcs =
         parseInt(totalPcs) + parseInt(d?.booking?.shipment?.totalBoxes || 0);
       totalWeight = (
         parseFloat(totalWeight) +
         parseFloat(d?.booking?.shipment?.totalChargeWeight || 0)
       ).toFixed(2);
-      totalCash = (
-        parseFloat(totalCash) + parseFloat(d?.booking?.invoice?.codAmount || 0)
-      ).toFixed(2);
       totalCod = (
         parseFloat(totalCod) + parseFloat(d?.booking?.invoice?.codAmount || 0)
-      ).toFixed(2);
-      totalToPay = (
-        parseFloat(totalToPay) +
-        parseFloat(d?.booking?.invoice?.amountToPay || 0)
       ).toFixed(2);
       return {
         docketNumber: d?.booking?.docketNumber || "",
@@ -197,8 +201,8 @@ async function getDataForRunsheetPdf(rid) {
         destination: d?.booking?.shipment?.destination?.destName || "",
         pcs: d?.booking?.shipment?.totalBoxes || 0,
         weight: d?.booking?.shipment?.totalChargeWeight || 0,
-        cash: 0,
-        topay: d?.booking?.invoice?.amountToPay || 0,
+        cash: d?.booking?.invoice?.bookingType=='cash'?d?.booking?.invoice?.amountToPay:0,
+        topay: d?.booking?.invoice?.bookingType=='topay'?d?.booking?.invoice?.amountToPay:0,
         cod: d?.booking?.invoice?.codAmount || 0,
       };
     });
@@ -225,6 +229,7 @@ async function getDataForManifestPdf(mid) {
   let totalWeight = 0;
   let totalToPay = 0;
   let totalCod = 0;
+  // let totalCash = 0;
   manifest.dockets.map((docket) => {
     totalToPay += +docket.booking.invoice.amountToPay;
     totalCod += +docket.booking.invoice.codAmount;
@@ -329,9 +334,7 @@ function getFormattedDate(date) {
 }
 
 async function getBookingReportFormat(data) {
-  console.log(data[5])
   const bookingReports = data.map((booking)=>{
-    console.log("clientName",booking?.invoice?.client?.clientName)
     const obj = {
         _id:booking._id || "",
         docketNumber:booking?.docketNumber || "",

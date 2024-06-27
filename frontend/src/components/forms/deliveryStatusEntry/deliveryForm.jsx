@@ -1,5 +1,5 @@
 import { Button, Input, Popconfirm, Select, Space, message } from 'antd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BsFillCameraFill } from 'react-icons/bs';
 import {
   FaArrowAltCircleDown,
@@ -18,6 +18,13 @@ export const Form = (props) => {
   });
 
   const [isCamera, setIsCamera] = useState(false);
+  const [cameraProps, setCameraProps] = useState({})
+
+  useEffect(()=>{
+        setCameraProps(p=>{
+            return isCamera?{capture:'environment'}:{}
+        })
+  },[isCamera])
 
   const handleForm = (e) => {
     setDeliveryStatus((p) => {
@@ -141,7 +148,7 @@ export const Form = (props) => {
                   checked={isCamera}
                   onClick={e=>setIsCamera(p=>!p)}
                 />
-                <span>Camera ?</span>
+                <span>Camera</span>
               </label>
               <label
                 htmlFor="pod"
@@ -168,7 +175,7 @@ export const Form = (props) => {
           <input
             id="pod"
             type="file"
-            capture="environment"
+            {...cameraProps}
             name="pod"
             onChange={handleForm}
             hidden

@@ -2,9 +2,9 @@ import { FaSearch } from 'react-icons/fa';
 import style from './style.module.css';
 import { FaArrowRotateLeft } from 'react-icons/fa6';
 import { BsFiletypeXls } from 'react-icons/bs';
-import { getDateForInput, getFormttedDate } from '../../../utils/helpers';
+import { get30DaysBeforeDate, getDateForInput, getFormttedDate } from '../../../utils/helpers';
 import { useGetData } from '../../../apiHandlers/getApis';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import UserAuthContext from '../../../contexts/authContext';
 import { serverUrl } from '../../../constants';
 import { TableComp } from '../../minComp';
@@ -21,7 +21,7 @@ export default function BookingReport() {
   const { branches, setUser } = useContext(UserAuthContext);
   const initialFilters = {
     mode: '',
-    dateFrom: getDateForInput(),
+    dateFrom: getDateForInput(get30DaysBeforeDate()),
     dateTo: getDateForInput(),
     content: '',
     branch: '',
@@ -123,6 +123,10 @@ export default function BookingReport() {
    }
   };
 
+  useEffect(()=>{
+    searchReports()
+  },[])
+
   const cols = {
     sno:"SNo",
     bookingDate:"Booking Date",
@@ -155,7 +159,7 @@ export default function BookingReport() {
   return (
     <>
     {
-      destLoading?<Loading/>:clientLoading?<Loading/>?loading:<Loading/>:null
+      (destLoading||clientLoading||loading)?<Loading/>:null
     }
       <div className={style.formContainer}>
         <p>Booking Report</p>
@@ -294,7 +298,7 @@ export default function BookingReport() {
                 </thead>
                 <tbody>
                     {
-                        reports.map((b,index)=>{
+                        reports.length>0?reports.map((b,index)=>{
                             return <tr>
                                 {
                                     colsValArr.map((d)=>{
@@ -310,7 +314,7 @@ export default function BookingReport() {
                                     })
                                 }
                             </tr>
-                        })
+                        }):<tr><td colSpan={15} style={{textAlign:'center'}}>No Bookings Found</td></tr>
                     }
                 </tbody>
             </table>

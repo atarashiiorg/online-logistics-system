@@ -1,16 +1,18 @@
 import React from "react"
 import style from './style.module.css'
 import ReactLoading from "react-loading"
+import {Spin} from 'antd'
 export default function Loading() {
     return (
         <div className={style.overlay}>
             <ReactLoading
-                type="spin"
-                color="#333333"
-                height={100}
-                width={50}
+                type="spokes"
+                color="blueviolet"
+                height={80}
+                width={70}
             />
-            <h3>Please wait</h3>
+            {/* <Spin size="large" /> */}
+            <h2>Please wait...</h2>
         </div>
     )
 }

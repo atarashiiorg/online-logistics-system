@@ -18,6 +18,7 @@ export default function BookingEntry() {
   const [err1, loading1, dests] = useGetData('dest');
   const [client, setClient] = useState('');
   const { branches } = useContext(UserAuthContext);
+  const [isThirdParty, setIsThirdParty] = useState(false)
   // const ludhianaIdx = branches.findIndex(
   //   (b) => b?.branchName?.toLowerCase().trim() == 'ludhiana',
   // );
@@ -317,7 +318,7 @@ export default function BookingEntry() {
       dimWeight,
     };
     setIsPosting(true);
-    const res = await usePostData(booking, 'booking');
+    const res = await usePostData(booking, `booking${isThirdParty?"?isThirdPartyBooking=true":""}`);
     if (res.res) {
       resetForm();
     }
@@ -439,6 +440,11 @@ export default function BookingEntry() {
                 onInput={(e) => handleAwbDetails(e, 'odaAmount')}
               />
             ) : null}
+          </span>
+
+          <label htmlFor="">Third Party</label>
+          <span>
+          <input type="checkbox" checked={isThirdParty} onChange={e=>setIsThirdParty(p=>!p)} name="" id="" />
           </span>
         </div>
       </div>

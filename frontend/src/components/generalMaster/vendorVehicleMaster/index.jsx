@@ -132,6 +132,11 @@ export default function VendorVehicleMaster() {
                     <select onChange={e => setVal(e, "vehicleType")}>
                         <option value="null">--Select Vehicle Type--</option>
                         <option value="TATA ACE">TATA ACE</option>
+                        <option value="BOLERO PICKUP">BOLERO PICKUP</option>
+                        <option value="LPT 14 ft">LPT 14 ft</option>
+                        <option value="LPT 17 ft">LPT 17 ft</option>
+                        <option value="LPT 20 ft">LPT 20 ft</option>
+                        <option value="LPT 22 ft">LPT 22 ft</option>
                     </select>
 
                     <label htmlFor="">Chasis No. <Mandatory /></label>

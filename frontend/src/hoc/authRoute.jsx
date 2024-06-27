@@ -4,7 +4,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { AccessDenied } from "../pages/notPermitted";
 
 const getPagePaths = (accessObject) => {
-    const paths = [];
+    const paths = ["dashboard/tracking"];
     accessObject.forEach(section => {
         if (section.allowed) {
             if(section.dropdown.length<=0)

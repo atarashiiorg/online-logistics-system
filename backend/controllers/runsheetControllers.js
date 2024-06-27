@@ -129,7 +129,7 @@ async function createRunsheet(req, res) {
         null,
         transaction
       );
-      let status = "";
+      // let status = "";
       await updateTrackingStatus(
         processedDockets,
         "docketNumber",

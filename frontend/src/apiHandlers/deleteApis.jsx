@@ -7,7 +7,7 @@ export const useDeleteData = async(endPoint)=>{
             credentials:'include'
         })
         const res_json = await res.json()
-        if(res.ok){
+        if(res.status==200){
             return {res:true,'msg':res_json.msg}
         } else if(res.status==500){
             return {res:false,'err':res_json.err}

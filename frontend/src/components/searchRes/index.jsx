@@ -97,7 +97,7 @@ export default function SearchRes() {
                                     </tr>
                                     <tr>
                                         <td>POD Receiving Date</td>
-                                        <td>{docketTracking?.bookings?.tracking?.podReceivingDate}</td>
+                                        <td>{docketTracking?.bookings?.tracking?.podReceivingDate?getFormttedDate(docketTracking?.bookings?.tracking?.podReceivingDate):"POD Not Received yet"}</td>
                                         <td>POD Remarks</td>
                                         <td>{docketTracking?.bookings?.tracking?.podRemarks}</td>
                                     </tr>

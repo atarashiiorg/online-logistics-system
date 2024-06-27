@@ -6,14 +6,20 @@
     justify-content: center;
     align-items: center;
     z-index: 99;
-    background-color: rgba(0, 0, 0, 0.096);
+    background-color: rgba(0, 0, 0, 0.116);
     position: fixed;
     top: 0;
     left: 0;
 }
 
-.overlay>h3{
-    margin-top: 0;
-    font-size: 25px;
-    color: #333333;
+.overlay> h2{
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 1;
+    animation: fade 2s infinite;
+    color: rgb(28, 28, 63);
+}
+
+@keyframes fade {
+  0%,100% { opacity: 0.2 };
+  50% { opacity: 1 }
 }

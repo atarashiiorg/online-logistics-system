@@ -71,7 +71,13 @@ async function getPopulatedManifest(opts, single, filtered) {
             },
             { path: "vendor" },
           ]);
-          resolve(manifestsWithReceivedDockets);
+
+          const data = []
+          manifestsWithReceivedDockets.forEach(m=>{
+            if(m.dockets.length!=0)
+              data.push(m)
+          })
+          resolve(data);
         } else {
           manifests = await Manifest.find(opts || {})
             .populate("fromBCode")
@@ -211,7 +217,7 @@ async function updateTrackingStatus(dockets, key, status, session) {
       }
       const tracking = await Tracking.findOne({ _id : booking.tracking?._id})      
 
-      if(tracking.status=="in-transit"){
+      if(tracking.status=="in-transit" || tracking.status=='booked'){
         const res = await Tracking.updateOne(
           { _id: booking.tracking._id },
           {
@@ -279,7 +285,8 @@ async function initiateTracking(docket, branchName, date, by) {
 
 async function getUser(opts) {
   try {
-    const user = await Employee.findOne({ ...opts, isActive: true }).populate({
+    const user = await Employee.findOne({ ...opts, isActive: true })
+    .populate({
       path: "permissions",
       populate: [
         {

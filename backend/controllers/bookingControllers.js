@@ -21,20 +21,25 @@ const Shipper = require("../models/shipper");
 async function createBooking(req, res) {
   const transaction = await startSession();
   try {
-    const isValid = await isDocketValid(req.body.awbDetails.docketNumber);
+    const isThirdParty = req.query.isThirdPartyBooking == 'true'?true:false
+    if (isThirdParty) {
+      //
+    } else {
+      const isValid = await isDocketValid(req.body.awbDetails.docketNumber);
+      if (!isValid?.valid) {
+        res.status(403).json({ msg: isValid?.msg });
+        return;
+      }
 
-    if (!isValid.valid) {
-      res.status(403).json({ msg: isValid.msg });
-      return;
+      if (isValid?.branch?._id != req?.body?.branch) {
+        res.status(403).json({
+          msg: "this shipper is not issued to this branch try changing branch",
+        });
+        return;
+      }
     }
 
-    if (isValid.branch._id != req.body.branch) {
-      res.status(403).json({
-        msg: "this shipper is not issued to this branch try changing branch",
-      });
-      return;
-    }
-
+    const bookingBranch = await Branch.findById(req.body.branch)
     const isBooked = await isDocketBooked(req.body.awbDetails.docketNumber);
     if (isBooked.booked) {
       res.status(409).json({ msg: isBooked.msg });
@@ -54,12 +59,13 @@ async function createBooking(req, res) {
 
     const tracking = await initiateTracking(
       req.body.awbDetails.docketNumber,
-      isValid.branch.branchName,
+      bookingBranch.branchName,
       req.body.awbDetails.bookingDate,
       req.token._id
     );
     const booking = new Booking({
       ...req.body.awbDetails,
+      isThirdParty,
       branch: req.body.branch,
       invoice: invoice._id,
       shipment: shipment._id,
@@ -91,7 +97,7 @@ async function createBooking(req, res) {
     await transaction.commitTransaction(); //commiting transaction
     res.status(201).json({ msg: "success" });
   } catch (err) {
-    console.log(err);
+    console.log(err.stack);
     await transaction.abortTransaction(); //aborting transaction
     if (err.code == "EENVELOPE") {
       res
@@ -104,7 +110,6 @@ async function createBooking(req, res) {
       return;
     }
     res.status(500).json({ err: err });
-    console.log(err);
   } finally {
     transaction.endSession(); //ending transaction session
   }
@@ -119,21 +124,15 @@ async function getBooking(req, res) {
         .populate("consignorConsignee");
       res.status(200).json({ msg: "success", data: bookings });
     } else {
-      const isValid = await isDocketValid(req.query.docket);
-      if (!isValid.valid) {
-        res.status(403).json({ msg: isValid.msg });
-        return;
-      }
-
       const data = await findManifestWithBooking({
         docketNumber: req.query.docket,
       });
-      // console.log(data)
+      
       if (!data) {
-        res.status(403).json({ msg: "Docket not booked yet" });
+        res.status(403).json({ msg: "Docket booking not found" });
         return;
       }
-      // console.log(data.manifest);
+      
       if (!data?.manifest) {
         if (!data?.booking?.branch.equals(req.query.branch)) {
           res.status(403).json({ msg: "Docket not booked by this branch" });
@@ -227,15 +226,9 @@ async function getBooking(req, res) {
 async function getBookingForDRSStatusUpdate(req, res) {
   try {
     const docket = req.query.docket;
-    const valid = await isDocketValid(docket);
-    console.log(valid);
-    if (!valid.valid) {
-      res.status(403).json({ msg: "Invalid Docket Number" });
-      return;
-    }
     const isBooked = await isDocketBooked(docket);
     if (!isBooked.booked) {
-      res.status(403).json({ msg: "Docket is not booked yet" });
+      res.status(403).json({ msg: "Docket Booking not found" });
       return;
     }
     const booking = await getPopulatedBooking({ docketNumber: docket }, true);
@@ -541,9 +534,18 @@ const editBooking = async (req, res) => {
       { _id: req.body._id },
       { ...req.body }
     ).session(transaction);
-    const updateShipment = await Shipment.updateOne({ _id: shipment._id },shipment).session(transaction);
-    const updateInvoice = await Invoice.updateOne({ _id: invoice._id },invoice).session(transaction);
-    const updateConsignorConsignee = await ConsignorConsignee.updateOne({ _id: consignorConsignee._id },consignorConsignee).session(transaction);
+    const updateShipment = await Shipment.updateOne(
+      { _id: shipment._id },
+      shipment
+    ).session(transaction);
+    const updateInvoice = await Invoice.updateOne(
+      { _id: invoice._id },
+      invoice
+    ).session(transaction);
+    const updateConsignorConsignee = await ConsignorConsignee.updateOne(
+      { _id: consignorConsignee._id },
+      consignorConsignee
+    ).session(transaction);
     console.log(
       updateShipment,
       updateInvoice,

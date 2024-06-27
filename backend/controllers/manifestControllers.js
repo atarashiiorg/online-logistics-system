@@ -2,8 +2,6 @@ const Manifest = require("../models/manifest");
 const { isDocketValid, isDocketBooked } = require("./shipperControllers");
 const {
   getManifestName,
-  getFormttedDate,
-  readEjs,
   createPdfFromHtml,
   getDataForManifestPdf,
 } = require("../services/helpers");
@@ -15,7 +13,6 @@ const { default: mongoose, startSession } = require("mongoose");
 const { PassThrough } = require("stream");
 const Branch = require("../models/branch");
 const Tracking = require("../models/tracking");
-const { Session } = require("inspector");
 const { fetchManifestReport } = require("../services/reportService");
 
 async function createManifest(req, res) {
@@ -38,12 +35,7 @@ async function createManifest(req, res) {
     }
 
     const dockets = req.body.dockets.map((d) => d.docketNumber);
-    const check_res = await checkDockets(dockets);
 
-    if (!check_res.passed) {
-      res.status(404).json({ msg: check_res.msg });
-      return;
-    }
     const fromBranch = await Branch.findById(req.body.fromBCode);
     const toBranch = await Branch.findById(req.body.toBCode);
     const manifestNumber = getManifestName();
@@ -121,14 +113,19 @@ async function getManifests(req, res) {
   const toBranch = req.query.toBCode;
 
   try {
-    if(branch){
-      const manifests = await getPopulatedManifest({toBCode:branch},false,true)
-      res.status(200).json({msg:"success",data:manifests})
-      return
+    if (branch) {
+      const manifests = await getPopulatedManifest(
+        { toBCode: new mongoose.Types.ObjectId(branch) },
+        false,
+        true
+      );
+      console.log(" from bid 1");
+      res.status(200).json({ msg: "success", data: manifests });
+      return;
     }
   } catch (error) {
-    res.status(500).json({err:error.toString()})
-    return
+    res.status(500).json({ err: error.toString() });
+    return;
   }
 
   try {
@@ -146,8 +143,15 @@ async function getManifests(req, res) {
       return;
     }
   } catch (error) {
-    console.log("Error occured while generating manifest pdf " +new Date().toLocaleDateString() +" ->",error);
-    res.status(500).json({ err: "Internal error occured while generating pdf" });
+    console.log(
+      "Error occured while generating manifest pdf " +
+        new Date().toLocaleDateString() +
+        " ->",
+      error
+    );
+    res
+      .status(500)
+      .json({ err: "Internal error occured while generating pdf" });
     return;
   }
 
@@ -166,8 +170,8 @@ async function getManifests(req, res) {
         $lte: new Date(toDate),
       };
     }
-    if(manifestNumber){
-      matchStage.manifestNumber = manifestNumber
+    if (manifestNumber) {
+      matchStage.manifestNumber = manifestNumber;
     }
     pipeline.push({ $match: matchStage });
     pipeline.push({
@@ -197,10 +201,24 @@ async function getManifests(req, res) {
       manifestDate: 1,
       manifestNumber: 1,
       isReceived: 1,
+      createdAt: 1,
+      updatedAt: 1,
     };
     pipeline.push({ $project: select });
+    pipeline.push({
+      $sort: {
+        "createdAt": -1, // Sort by bookingDate in descending order
+      },
+    });
+    console.log("from filters");
+    console.log(pipeline);
     const manifests = await Manifest.aggregate(pipeline);
-    res.status(200).json({ msg: "success", data: manifests });
+    res
+      .status(200)
+      .json({
+        msg: "success",
+        data: manifests.sort((a, b) => a.createdAt < b.createdAt),
+      });
     return;
   } catch (error) {
     console.log(error);

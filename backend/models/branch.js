@@ -1,11 +1,12 @@
-const mongoose = require('mongoose');
-const branchSchema = new mongoose.Schema({
+const mongoose = require("mongoose");
+const branchSchema = new mongoose.Schema(
+  {
     branchCode: {
-        type: String,
-        unique: true
+      type: String,
+      unique: true,
     },
     emailId: String,
-    branchName: String,
+    branchName: { type: String, unique: true },
     place: String,
     contactPerson: String,
     phone: String,
@@ -14,68 +15,70 @@ const branchSchema = new mongoose.Schema({
     city: String,
     pincode: String,
     zone: {
-        type:mongoose.Types.ObjectId,
-        ref:'Zone'
+      type: mongoose.Types.ObjectId,
+      ref: "Zone",
     },
     isHub: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: false,
     },
     hubBranch: {
-        type: mongoose.Types.ObjectId,
-        ref: 'Branch'
+      type: mongoose.Types.ObjectId,
+      ref: "Branch",
     },
     allowedBooking: {
-        road: {
-            type: Boolean,
-            default: false
-        },
-        train: {
-            type: Boolean,
-            default: false
-        },
-        air: {
-            type: Boolean,
-            default: false
-        }
+      road: {
+        type: Boolean,
+        default: false,
+      },
+      train: {
+        type: Boolean,
+        default: false,
+      },
+      air: {
+        type: Boolean,
+        default: false,
+      },
     },
     allowedDispatch: {
-        road: {
-            type: Boolean,
-            default: false
-        },
-        train: {
-            type: Boolean,
-            default: false
-        },
-        air: {
-            type: Boolean,
-            default: false
-        }
+      road: {
+        type: Boolean,
+        default: false,
+      },
+      train: {
+        type: Boolean,
+        default: false,
+      },
+      air: {
+        type: Boolean,
+        default: false,
+      },
     },
     isActive: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: false,
     },
-    createdBy:{
-        type:mongoose.Types.ObjectId,
-        ref:'Employee'
+    createdBy: {
+      type: mongoose.Types.ObjectId,
+      ref: "Employee",
     },
-    lastModifiedBy:{
-        type:mongoose.Types.ObjectId,
-        ref:"Employee"
+    lastModifiedBy: {
+      type: mongoose.Types.ObjectId,
+      ref: "Employee",
     },
     shippers: [
-        {
-            docketFrom: Number,
-            docketTo: Number,
-            issueDate: Date,
-            receivedBy: String
-        }
-    ]
-}, {
-    timestamps: true
-})
+      {
+        docketFrom: Number,
+        docketTo: Number,
+        issueDate: Date,
+        receivedBy: String,
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  }
+);
 
-const Branch = mongoose.model("Branch", branchSchema)
-module.exports = Branch
+const Branch = mongoose.model("Branch", branchSchema);
+module.exports = Branch;

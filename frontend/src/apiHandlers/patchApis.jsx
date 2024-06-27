@@ -12,7 +12,7 @@ export async function usePatchData(data, endPoint) {
             body:JSON.stringify(data)
         })
         const res_json = await res.json()
-        if(res.ok){
+        if(res.status==200){
             message.success(res_json.msg)
             return {res:true,data:res_json.data}
         } else if(res.status == 500){

@@ -57,6 +57,7 @@ import { EmployeeMaster } from './components/master/employeeMaster';
 import HomeState from './states/homeState';
 import UserAuthState from './states/authState';
 import IsRoutePermitted from './hoc/authRoute';
+import DashboardHome from './components/dashboardHome';
 
 const router = createBrowserRouter([
   {
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
       </UserAuthState>
     ),
     children: [
+      {
+        path:"",
+        element:<DashboardHome/>
+      },
       {
         path: 'Operations/BookingEntry',
         element: <BookingEntry />,
